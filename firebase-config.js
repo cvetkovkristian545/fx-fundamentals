@@ -1,10 +1,8 @@
-/* Paste your Firebase web config here (Firebase console → Project settings → Your apps → Config).
-   While apiKey is empty, the account button stays hidden and the book works offline as before. */
 window.FX_FIREBASE = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyB5IRBjOYsPwBO6Ozwkk-KPPtOQJgt74L8",
+  authDomain: "fx-fundamentals.firebaseapp.com",
+  projectId: "fx-fundamentals",
+  storageBucket: "fx-fundamentals.firebasestorage.app",
+  messagingSenderId: "488744029715",
+  appId: "1:488744029715:web:e841e58a1f0cd1a9d539e6"
 };
