@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Psychology and Discipline · FX Fundamentals</title>
+<meta name="description" content="Psychology and Discipline · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch32.html">
+<link rel="alternate" hreflang="bg" href="bg/ch32.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="32">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">35</div>
+    <h1>Psychology and Discipline</h1>
+    <blockquote class="quote">
+      We have met the enemy and he is us.
+      <cite>Walt Kelly, the "Pogo" comic strip, 1970</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>name the traps of the brain that cost money in trading;</li>
+        <li>recognise the four stop conditions: FOMO, revenge, oversized position, no stop;</li>
+        <li>calculate what hesitation at entry costs;</li>
+        <li>turn discipline from willpower into a system of rules.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>35.1 The brain was not built for this</h2>
+      <p>Our brain was built to survive on the savannah, not to trade currencies. It hates losing more than it loves winning, sees patterns where there are none, and believes the last thing it saw. All of this is useful when you are running from a lion. On the chart it is expensive.</p>
+      <div class="tablewrap" data-name="kapani-na-mozaka">
+        <table class="data">
+          <thead><tr><th>Trap</th><th>What it looks like on the chart</th><th>Antidote</th></tr></thead>
+          <tbody>
+            <tr><td>Loss aversion</td><td>You move the stop further away so as "not to lose"; you close the profit too early</td><td>The stop and the target are decided before entry and not touched on emotion</td></tr>
+            <tr><td>Recency bias</td><td>Three losses in a row and you think the system doesn't work</td><td>Decisions only after 20+ trades (Chapter 36)</td></tr>
+            <tr><td>Confirmation bias</td><td>You look only for news that agrees with your position</td><td>A "what kills the idea" sentence in the bias file</td></tr>
+            <tr><td>The gambler's fallacy</td><td>"After so many losses I'm due a win"</td><td>Each trade is independent; size is not increased after a loss</td></tr>
+            <tr><td>Anchoring</td><td>"I bought at 1.1250, I'll wait for it to come back"</td><td>The market doesn't know what price you entered at</td></tr>
+            <tr><td>Overconfidence</td><td>After a winning streak you double the size</td><td>Risk is 1% in the good weeks too</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>Kahneman and Tversky's research shows that a loss usually hurts about twice as much as the joy of a gain of the same size. That is why traders hold losing trades and cut winning ones. The system exists so that you don't ask your feelings when price is 2 pips from the stop.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Loss aversion · неприязън към загубата</b>A loss weighs more than a gain of equal size.</div>
+      <div class="term"><b>Tilt · тилт</b>A state in which emotion has taken the wheel. The term comes from poker.</div>
+      <div class="term"><b>Bias · пристрастие</b>Here meaning a systematic error in thinking, not a market direction.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>35.2 The four stop conditions</h2>
+      <p>There are four states in which the rule is the same: <b>you close the platform</b>. Not "more carefully", not "just one". You close it.</p>
+      <div class="four">
+        <div><span class="label">FOMO</span><p>Price left without you and you feel you have to get in right now. A trade you chase is a trade without a setup.</p></div>
+        <div><span class="label">Revenge</span><p>You just got stopped out and want your money back. The market owes you nothing.</p></div>
+        <div><span class="label">Oversized position</span><p>The risk is above the rule "because this time I'm sure". Certainty is the most expensive feeling in trading.</p></div>
+        <div><span class="label">No stop</span><p>A position with no stop, or a stop you "will put in later". That is no longer a trade, it is hope.</p></div>
+      </div>
+      <details class="tilt-drop">
+        <summary><span class="tilt-ic" aria-hidden="true">🧠</span><span class="tilt-t"><b>Pre-session state check</b><small>6 questions · 20 seconds · answer honestly</small></span><span class="tilt-badge" id="tiltBadge">0/6</span><span class="drop-caret" aria-hidden="true">▾</span></summary>
+        <div class="tilt-body">
+          <ol class="tilt-list" id="tilt"></ol>
+          <div class="tilt-meter" aria-hidden="true"><i id="tiltBar"></i></div>
+          <div class="tilt-foot"><p class="verdict" id="tiltOut" aria-live="polite"></p><button class="chip" type="button" id="tiltReset">↺ Reset</button></div>
+        </div>
+      </details>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>FOMO</b>Fear of missing out: the fear of missing a move.</div>
+      <div class="term"><b>Revenge trading · търговия за реванш</b>A trade whose aim is to win back the loss, not to follow a setup.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>35.3 Hesitation and overanalysis</h2>
+      <p>There is also the opposite problem, quieter and more common among disciplined people. The setup is there, all the conditions are met, but the hand doesn't click. You wait for one more candle, one more confirmation. When you finally go in, price has run away. Or you don't go in at all, and then watch it reach the target without you.</p>
+      <p>Hesitation looks like caution, but it costs money in two ways: missed trades and worse entries. Calculate the second.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Planned stop (pips)<input type="number" id="h1" value="6" step="0.5" min="1"></label>
+            <label>Planned target (pips)<input type="number" id="h2" value="18" step="1" min="1"></label>
+            <label>Entry delay (pips)<input type="number" id="h3" value="2" step="0.5" min="0"></label>
+          </div>
+          <div class="out" id="hOut" aria-live="polite"></div>
+        </div>
+        <figcaption>The stop and the target stay at the same price levels; the late entry moves them further away and closer. In the journal this is the "hesitation delta" field.</figcaption>
+      </figure>
+      <h3>Where it comes from and how to treat it</h3>
+      <div class="tablewrap" data-name="kolebanie">
+        <table class="data">
+          <thead><tr><th>Cause</th><th>Symptom</th><th>Remedy</th></tr></thead>
+          <tbody>
+            <tr><td>Too many conditions</td><td>A 15-point checklist, each "sort of"</td><td>Few conditions, each with a yes or no answer</td></tr>
+            <tr><td>Fear of being wrong</td><td>Every loss is experienced as a personal failure</td><td>A loss within the rules is a cost, not a mistake. A mistake is a broken rule.</td></tr>
+            <tr><td>Deciding in the moment</td><td>You think about macro when you should be clicking</td><td>All decisions are made in the morning; live, you only execute an "if–then" plan</td></tr>
+            <tr><td>Too many charts</td><td>Six pairs, three timeframes, everything flashing</td><td>One or two pairs in the session, alerts on the zones</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box warn">
+        <span class="label">The re-entry trap</span>
+        <p>You missed the setup. Price took off. Twenty minutes later something appears that <i>looks like</i> a setup in the same direction. Most people go in there to make up for the miss. That is FOMO in a different hat. The rule: a missed trade is logged as missed and the day continues according to plan. The next setup has to pass the full check, not half of it.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Overanalysis · свръханализ</b>Looking for more information after the decision could already be made.</div>
+      <div class="term"><b>Hesitation delta · закъснение</b>The difference in pips between the planned and the actual entry.</div>
+      <div class="term"><b>If-then plan · план ако–тогава</b>A sentence written in advance: "If X happens, I do Y."</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: basic">●</span>35.4 The system beats willpower</h2>
+      <p>Willpower is a resource that runs out. In the morning you have it; after eight hours of work and three losses you don't. That is why discipline must not depend on it. It must depend on <b>rules that reduce the number of decisions</b>.</p>
+      <ol class="steps">
+        <li><b>Decisions are made before the session.</b> The zones, the direction, the risk and the news are clear in the morning.</li>
+        <li><b>During the session you only execute.</b> If something is not in the plan, the answer is "no".</li>
+        <li><b>A trade limit.</b> For example at most two trades per session and done after two losses.</li>
+        <li><b>The phone is a tool, not a casino.</b> TradingView alerts yes, charts in bed no. Social media notifications off during the session.</li>
+        <li><b>A break after a big event.</b> A big win or a big loss: done for the day. Both cloud judgement.</li>
+      </ol>
+      <div class="dialog">
+        <p><span>Student</span>Isn't this too strict? Sometimes intuition is right.</p>
+        <p><span>Mentor</span>The intuition of someone with 2,000 logged trades is experience. The intuition of someone with 20 is mood. When your journal shows that the "intuitive" trades win, you will turn them into a rule. Until then they are noise with a nice name.</p>
+      </div>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>Good traders have no emotions.</p></div>
+        <div><span class="label">Reality</span><p>They have the same emotions. The difference is that they have rules that decide for them when the emotion is strong.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Cognitive load · когнитивно натоварване</b>How much mental resource a task requires. The fewer live decisions, the lower the load.</div>
+      <div class="term"><b>Variable reward · променлива награда</b>A reward that comes unpredictably. The mechanism of slot machines and of charts on your phone.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 35</h2>
+    <ul>
+      <li>The brain hates losing, believes the latest thing and looks for confirmation. The system is the antidote.</li>
+      <li>FOMO, revenge, oversized position, no stop: you close the platform.</li>
+      <li>Hesitation costs missed trades and worse R. Measure it in pips.</li>
+      <li>A missed trade is logged, not chased.</li>
+      <li>Decisions are made before the session; live, you only execute.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I wrote down my limit: trades per session and when I stop.</label></li>
+      <li><label><input type="checkbox"> I took the state test before at least one session.</label></li>
+      <li><label><input type="checkbox"> I counted my entry conditions, and each has a yes or no answer.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>London, 10:20. The GBPUSD setup is exactly to plan: liquidity taken below the Asian low, displacement up, a return into the zone. You wait for one more M5 candle "to be sure". Price leaves without you and reaches the 3R target in 25 minutes. At 10:50 a weaker setup appears in the same direction, higher up, with a stop that has to be tighter to "make sense". Your pulse is racing.</p>
+      <p><b>Task:</b> which traps and stop conditions do you see? What do you do at 10:50? What do you write in the journal for the first setup? Which "if–then" rule would prevent the hesitation next time?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Traps… 10:50… Journal… If–then rule…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>First hesitation (overanalysis: a condition that is not in the rules), then FOMO and the re-entry trap. The wish for a tighter stop "to make sense" is a step towards an oversized position.</li>
+          <li>At 10:50 the pulse and the urge to make up for the miss are a stop condition. The most sensible choice is not to enter and to step away from the screen. If the setup still passes the full check without exceptions, the stop goes where the structure is and the size is calculated from it, never the other way round.</li>
+          <li>The first setup is logged as "not taken" with the reason: hesitation. Setup score: high. Execution score: low. The two are not mixed. This is the most valuable line in the journal this week.</li>
+          <li>For example: "If conditions 1–3 are met when the candle closes, I enter within 30 seconds. An extra candle is not a condition." The decision is yours, but the rule has to be so simple that there is nothing to debate live.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What do you do with FOMO?",o:["Go in small","Close the platform","Double up"],a:1,e:"A trade you chase is a trade without a setup."},
+  {q:"Do three losses in a row mean the system doesn't work?",o:["Yes","No, the sample is too small","Only on Fridays"],a:1,e:"Recency bias."},
+  {q:"A loss within the rules is…",o:["Mistake","A business cost","A reason for revenge"],a:1,e:"A mistake is a broken rule."},
+  {q:"When are the day's decisions made?",o:["During the session","Before the session","After the session"],a:1,e:"Live, you only execute."},
+  {q:"You missed a setup. What do you do with it?",o:["Chase the next one","Log it as missed","Forget it"],a:1,e:"Missed trades are data."}
+],mid:[
+  {q:"Stop 6, target 18 pips, entry 2 pips late with the same levels. The new R?",o:["3R","2R","1.5R"],a:1,e:"Stop 8, target 16: 16 ÷ 8 = 2R."},
+  {q:"\"I bought at 1.1250, I'll wait for it to come back.\" Which trap?",o:["Anchoring","FOMO","Overconfidence"],a:0,e:"The market doesn't know your price."},
+  {q:"After a streak of five wins the most sensible thing is…",o:["To double the risk","To keep the risk","To stop for good"],a:1,e:"Overconfidence comes after the good weeks."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var h=Book.h;
+  /* tilt */
+  var Q=[["Did you sleep at least 6 hours?",0],["Do you have a loss today that still makes you angry?",1],["Do you want to \"win back\" something from yesterday or this week?",1],["Are you thinking of risking more than the rule?",1],["Do you know which news comes out today and at what time?",0],["Have you already drawn the zones and made a plan for the session?",0]];
+  var box=document.getElementById("tilt"),out=document.getElementById("tiltOut"),bar=document.getElementById("tiltBar"),badge=document.getElementById("tiltBadge"),A=[],rows=[];
+  Q.forEach(function(q,i){var row=h("li","tilt-row");row.appendChild(h("span","tilt-n",String(i+1)));row.appendChild(h("p","tilt-q",q[0]));var seg=h("div","seg");seg.setAttribute("role","group");
+    ["Yes","No"].forEach(function(l,k){var b=h("button","seg-b",l);b.type="button";b.setAttribute("aria-pressed","false");b.addEventListener("click",function(){A[i]=k===0;Array.prototype.forEach.call(seg.children,function(c){c.setAttribute("aria-pressed",c===b?"true":"false")});ev()});seg.appendChild(b)});
+    row.appendChild(seg);box.appendChild(row);rows.push(row)});
+  document.getElementById("tiltReset").addEventListener("click",function(){A=[];box.querySelectorAll(".seg-b").forEach(function(c){c.setAttribute("aria-pressed","false")});ev()});
+  function ev(){var ans=0,red=0,yel=0;Q.forEach(function(q,i){var r=rows[i];r.classList.remove("done","bad");if(A[i]===undefined)return;ans++;var bad=q[1]?A[i]:!A[i];r.classList.add(bad?"bad":"done");if(bad){if(q[1])red++;else yel++}});
+    var c=ans<Q.length?"":red?"red":yel?"yel":"grn";bar.style.width=(ans/Q.length*100)+"%";bar.className=c;badge.className="tilt-badge "+c;badge.textContent=ans+"/"+Q.length;
+    if(ans<Q.length){out.textContent="Answered "+ans+" of "+Q.length+".";return}
+    out.innerHTML=red?"<b style='color:var(--bear)'>Red.</b> There is a stop condition. Today you watch or study, you don't trade.":yel?"<b style='color:var(--news)'>Yellow.</b> Finish the preparation (news, zones) before the first trade, or cut the size.":"<b style='color:var(--bull)'>Green.</b> The instrument is checked. Follow the plan."}
+  ev();
+  /* hesitation */
+  var x=["h1","h2","h3"].map(function(i){return document.getElementById(i)}),ho=document.getElementById("hOut");
+  function hs(){var s=+x[0].value,t=+x[1].value,d=+x[2].value,r0=t/s,s1=s+d,t1=Math.max(0,t-d),r1=t1/s1,loss=r0?(1-r1/r0)*100:0;
+    ho.innerHTML="<span>Planned R: <b>"+r0.toFixed(2)+"</b>.</span><span>R with the delay: <b style='color:"+(loss>25?"var(--bear)":loss>10?"var(--news)":"var(--bull)")+"'>"+r1.toFixed(2)+"</b> ("+loss.toFixed(0)+"% less).</span><span>For the same money at risk the position is "+(s1>s?((1-s/s1)*100).toFixed(0):0)+"% smaller, and the target is closer.</span>"}
+  x.forEach(function(i){i.addEventListener("input",hs)});hs();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cvetkovkristian545.github.io/fx-fundamentals/sitemap.xml

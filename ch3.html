@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Candles and Charts · FX Fundamentals</title>
+<meta name="description" content="Candles and Charts · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch3.html">
+<link rel="alternate" hreflang="bg" href="bg/ch3.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="3">
+  <!-- DOSSIER -->
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">3</div>
+    <h1>Candles and Charts</h1>
+    <blockquote class="quote">
+      There is nothing new on Wall Street. There can't be, because speculation is as old as the hills.
+      <cite>Jesse Livermore, in “Reminiscences of a Stock Operator” (Edwin Lefèvre, 1923)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>read every candle: where price started, how far it got and where it closed;</li>
+        <li>say who won the period, buyers or sellers, and how convincingly;</li>
+        <li>understand how 12 small M5 candles become one H1 candle and why that matters.</li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 3.1 -->
+  <section class="sec" aria-labelledby="s31">
+    <div class="main">
+      <h2 id="s31"><span class="dots" title="Level: basic">●</span>3.1 Anatomy of a candle</h2>
+      <p>A chart is not a drawing. It is a record. Every candle records four prices for one period of time: where price started (<b>Open</b>), the highest point (<b>High</b>), the lowest (<b>Low</b>) and where it finished (<b>Close</b>). Traders call them <span class="mono">OHLC</span> for short.</p>
+      <p>Our running example for the whole book is <b>EURUSD</b>, the euro against the dollar. We will come back to it chapter after chapter so you can see how each new idea layers onto a familiar market.</p>
+      <figure>
+        <div class="anat">
+          <svg id="anatSvg" viewBox="0 0 200 300" role="img" aria-label="Bullish EURUSD candle with its parts labelled">
+            <line x1="100" y1="30" x2="100" y2="270" stroke="var(--bull)" stroke-width="3"/>
+            <rect x="65" y="70" width="70" height="140" fill="var(--bull)"/>
+            <g id="anatMarks"></g>
+            <rect class="hit" data-part="high" x="70" y="20" width="60" height="22" fill="transparent"/>
+            <rect class="hit" data-part="upper" x="80" y="42" width="40" height="28" fill="transparent"/>
+            <rect class="hit" data-part="close" x="60" y="62" width="80" height="16" fill="transparent"/>
+            <rect class="hit" data-part="body" x="65" y="78" width="70" height="124" fill="transparent"/>
+            <rect class="hit" data-part="open" x="60" y="202" width="80" height="16" fill="transparent"/>
+            <rect class="hit" data-part="lower" x="80" y="218" width="40" height="44" fill="transparent"/>
+            <rect class="hit" data-part="low" x="70" y="262" width="60" height="22" fill="transparent"/>
+          </svg>
+          <div style="display:grid;gap:12px">
+            <div class="parts" id="partChips" role="group" aria-label="Parts of the candle"></div>
+            <p class="explain" id="partText" aria-live="polite"></p>
+          </div>
+        </div>
+        <figcaption>Press a part of the candle or a button. Example: EURUSD, H1, bullish candle. Prices are illustrative.</figcaption>
+      </figure>
+      <p>A green (<b>bullish</b>) candle closes <i>above</i> the open: buyers pushed price higher. A red (<b>bearish</b>) candle closes <i>below</i> the open. The colour tells you the direction. The shape tells you how hard it was won.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Candle · свещ</b>A graphic of the four prices (OHLC) for one period. <i>Japanese candlesticks, from the 18th century rice trade.</i></div>
+      <div class="term"><b>Body · тяло</b>The distance between Open and Close. It shows the net result of the period.</div>
+      <div class="term"><b>Wick · фитил</b>Also called a shadow. It shows prices the market reached but didn't hold.</div>
+    </aside>
+  </section>
+
+  <!-- 3.2 -->
+  <section class="sec" aria-labelledby="s32">
+    <div class="main">
+      <h2 id="s32"><span class="dots" title="Level: basic">●</span>3.2 Who won the candle?</h2>
+      <p>Behind every candle there are two sides. <b>Buyers</b> want a higher price and push it up. <b>Sellers</b> want to sell and press it down. The candle is the result of that battle for the period.</p>
+      <p>A long body and short wicks mean one side dominated from start to finish. A long wick means someone tried but was pushed back. A small body between two wicks means nobody won.</p>
+      <figure>
+        <div class="builder">
+          <svg id="bSvg" viewBox="0 0 220 300" role="img" aria-label="A candle that changes with the sliders">
+            <g id="bAxis"></g>
+            <line id="bWick" class="candle-anim" x1="120" x2="120" stroke-width="3"/>
+            <rect id="bBody" class="candle-anim" x="88" width="64"/>
+          </svg>
+          <div style="display:grid;gap:14px;min-width:0">
+            <div class="sliders">
+              <label for="sO">Open <input id="sO" type="range" min="10800" max="10900" step="1"> <output id="oO"></output></label>
+              <label for="sH">High <input id="sH" type="range" min="10800" max="10900" step="1"> <output id="oH"></output></label>
+              <label for="sL">Low <input id="sL" type="range" min="10800" max="10900" step="1"> <output id="oL"></output></label>
+              <label for="sC">Close <input id="sC" type="range" min="10800" max="10900" step="1"> <output id="oC"></output></label>
+            </div>
+            <div class="verdict" id="verdict" aria-live="polite"></div>
+            <div class="parts" role="group" aria-label="Presets">
+              <button class="chip" data-preset="strongBull">Strong buyers</button>
+              <button class="chip" data-preset="rejectLow">Rejected low</button>
+              <button class="chip" data-preset="doji">Indecision</button>
+              <button class="chip" data-preset="strongBear">Strong sellers</button>
+            </div>
+          </div>
+        </div>
+        <figcaption>Build your own candle. Drag the OHLC and read the verdict. High and Low can't sit inside the body; the book corrects that for you.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>A candle's colour is its loudest and least important part. Look at where it closed relative to its whole range. That is the real answer.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Bullish · бичи</b>Rising. Buyers are in control. The bull strikes upward with its horns.</div>
+      <div class="term"><b>Bearish · мечи</b>Falling. Sellers are in control. The bear strikes downward with its paw.</div>
+      <div class="term"><b>Range · диапазон</b>High minus Low. On EURUSD it is measured in pips: 0.0001 = 1 pip.</div>
+    </aside>
+  </section>
+
+  <!-- 3.3 -->
+  <section class="sec" aria-labelledby="s33">
+    <div class="main">
+      <h2 id="s33"><span class="dots" title="Level: intermediate">●●</span>3.3 Five candles you will meet every day</h2>
+      <p>The names sound exotic, but each of these candles simply describes a ratio between body and wicks. Learn what they say, not what they are called.</p>
+      <figure>
+        <div class="families" id="families"></div>
+        <figcaption>All candles here are schematic. In Chapter 10 you will see the engulfing and the pin bar as triggers in a zone of interest.</figcaption>
+      </figure>
+      <div class="box myth">
+        <div><span class="label">Myth</span><p>“I saw a pin bar, so the market will reverse.”</p></div>
+        <div><span class="label">Reality</span><p>A candle on its own means almost nothing. A pin bar in the middle of a range is noise. A pin bar after liquidity has been taken, in a zone of interest, in the direction of the higher timeframe, is information. Location decides.</p></div>
+      </div>
+      <div class="dialog" aria-label="Dialogue">
+        <p><span>Student</span>Why are you so fixated on wicks?</p>
+        <p><span>Mentor</span>Because the wick is where the market tried and was refused. The body tells you what happened. The wick tells you what was not allowed to happen.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Engulfing · поглъщане</b>A body that completely covers the previous candle's body.</div>
+      <div class="term"><b>Doji · доджи</b>Open ≈ Close. A draw between buyers and sellers.</div>
+    </aside>
+  </section>
+
+  <!-- 3.4 -->
+  <section class="sec" aria-labelledby="s34">
+    <div class="main">
+      <h2 id="s34"><span class="dots" title="Level: intermediate">●●</span>3.4 Timeframes: one candle is a whole film</h2>
+      <p>One H1 (one-hour) candle contains twelve M5 (five-minute) candles. The H1 candle shows only the start, the end and the two extremes. Everything in between is hidden inside it.</p>
+      <p>That is why analysts work <b>top-down</b>: D1 gives the direction, H4 and H1 show the picture, and M5 shows the detail. We will build this system in Chapter 8.</p>
+      <figure>
+        <div class="scroll"><svg id="tfSvg" viewBox="0 0 520 260" style="min-width:420px;width:100%" role="img" aria-label="Twelve M5 candles summarised as one H1 candle"></svg></div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <button class="toggle" id="tfToggle" aria-pressed="false">Show as 1 H1 candle</button>
+          <button class="toggle" id="annToggle" aria-pressed="false">Show annotations</button>
+        </div>
+        <figcaption>Look at the candles yourself first. Then switch on the annotations and compare. EURUSD, 09:00–10:00 Sofia time, illustrative prices.</figcaption>
+      </figure>
+      <div class="box ff">
+        <span class="label">Watch on Forex Factory</span>
+        <p>Candles around red-folder news (NFP, CPI, a Fed decision) are not read like ordinary ones. The first five-minute window after 15:30 Sofia time can have a range as big as a whole quiet hour. Don't read the news candle's wick as a rejection before price has found a new structure. The protocol is in Chapter 13.</p>
+      </div>
+      <h3>Live chart</h3>
+      <p>On today's EURUSD, find one candle of each type in this chapter: big body, long wick, doji. You only look, you don't trade.</p>
+      <div class="tv" data-sym="FX:EURUSD,OANDA:XAUUSD" data-int="60"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Timeframe · таймфрейм</b>The period of one candle: M1, M5, M15, H1, H4, D1, W1.</div>
+      <div class="term"><b>Top-down · отгоре надолу</b>Analysis from the higher timeframe to the lower one.</div>
+    </aside>
+  </section>
+
+  <!-- DEBRIEF -->
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 03</h2>
+    <ul>
+      <li>Every candle records four prices: Open, High, Low, Close.</li>
+      <li>The body shows the net result. The wicks show the rejected prices.</li>
+      <li>Where a candle closed within its range says more than its colour.</li>
+      <li>Engulfing, pin bar, doji, inside bar and marubozu are ratios, not magic. Location decides whether they mean anything.</li>
+      <li>The higher timeframe contains the lower one. Analysis goes top-down.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks" id="checks">
+      <li><label><input type="checkbox" id="ck1"> I can point out the OHLC of any candle in TradingView.</label></li>
+      <li><label><input type="checkbox" id="ck2"> I can say who won the last 10 H1 candles on EURUSD and why.</label></li>
+      <li><label><input type="checkbox" id="ck3"> I found at least one pin bar and one engulfing on D1 and noted where they are.</label></li>
+    </ul>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>EURUSD, H1. The last three candles: a big green candle with small wicks; then a candle with a small body and a long upper wick that goes above the previous high and comes back; after it a red candle whose body fully covers the green one's body. US CPI (red folder) is in 40 minutes. The daily chart is in a downtrend.</p>
+      <p><b>Task:</b> describe what you see candle by candle, what it might mean and what you will watch over the next two hours. Write scenario A and B and what would invalidate each.</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Candle 1… Candle 2… Scenario A… Scenario B…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>Candle 1: buyers dominate the whole hour.</li>
+          <li>Candle 2: price breaks above the high but closes back below. The upper wick is a rejection; the stops above the high were probably taken (liquidity, Chapter 7).</li>
+          <li>Candle 3: bearish engulfing. Sellers take control and erase the buyers' whole hour.</li>
+          <li>Context: D1 is falling, so candles 2–3 are in the direction of the higher timeframe. That adds to their weight.</li>
+          <li>Scenario A (more likely): continuation down after CPI if price stays below candle 3's body. Invalidation: an H1 close above candle 2's wick.</li>
+          <li>Scenario B: CPI surprises in the euro's favour, price climbs back above the high and closes there. Then the rejection was a trap and the picture flips.</li>
+          <li>Action before CPI: none. Watch the reaction 15–30 minutes after the number, then see which side kept control.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+    {q:"What does Close mean?",o:["The highest price of the period","The price at which the period ended","The price at which the period started"],a:1,e:"Close is the last price of the period. It is where the two sides last agreed."},
+    {q:"A green (bullish) candle means that…",o:["Close is above Open","High is above Low","Volume was large"],a:0,e:"The colour compares only Close with Open. High is always above Low."},
+    {q:"A long lower wick shows that…",o:["price stayed low for a long time","lower prices were tried and rejected","sellers won the period"],a:1,e:"The wick is where price got to but didn't stay."},
+    {q:"How many M5 candles are in one H1 candle?",o:["5","12","60"],a:1,e:"60 minutes ÷ 5 minutes = 12 candles."},
+    {q:"A doji is a candle where…",o:["Open and Close are almost equal","there are no wicks","the body engulfs the previous candle"],a:0,e:"With a doji neither side won the period."}
+  ],
+mid:[
+    {q:"EURUSD H1: O 1.0850, H 1.0880, L 1.0846, C 1.0852. How would you describe it?",o:["A strong bullish candle","A rejection of higher prices: buyers push 28 pips above the close and get sent back","Bearish engulfing"],a:1,e:"The body is 2 pips, the upper wick 28. It closes near the bottom of its range despite the green colour."},
+    {q:"A pin bar appears right in the middle of the daily range, with no link to an important level. How much does it weigh?",o:["A lot, a pin bar always reverses the market","Little, its location makes it noise","Medium, if it's green"],a:1,e:"A candle gets its meaning from its location. In the middle of a range there is nothing to reject."},
+    {q:"On Forex Factory: USD CPI, red folder, 15:30 Sofia time. The M5 candle at 15:30 has a 35-pip range and a long upper wick. What do you do?",o:["Read it as a rejection and act immediately","Wait 15–30 minutes for price to find a new structure","Nothing, news doesn't matter"],a:1,e:"The news candle is an anomaly. The protocol in Chapter 13 calls for a pause and a new structure."}
+  ]};
+</script>
+<script src="book.js"></script>
+<script>
+
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  var el=Book.svg;
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+
+  /* 3.1 anatomy */
+  var PARTS={
+    high:["High","The highest price of the period: 1.0882. Buyers got this far but couldn't hold price."],
+    upper:["Upper wick","From Close to High. Prices above the close that the market rejected. A short upper wick means buyers held control to the end."],
+    close:["Close","The close: 1.0874. The most important price of the candle, because it is where buyers and sellers last agreed."],
+    body:["Body","From Open to Close: 1.0838 → 1.0874 = 36 pips. The buyers' net win for the hour."],
+    open:["Open","The open: 1.0838. Where the hour started."],
+    lower:["Lower wick","From Open to Low. Sellers pushed down to 1.0821, but buyers brought price back. A long lower wick often means lower prices were rejected."],
+    low:["Low","The lowest price of the period: 1.0821."]
+  };
+  var Y={high:30,upper:52,close:70,body:140,open:210,lower:240,low:270};
+  var chips=document.getElementById("partChips"),txt=document.getElementById("partText"),marks=document.getElementById("anatMarks");
+  function showPart(p){
+    Array.prototype.forEach.call(chips.children,function(c){c.setAttribute("aria-pressed",c.dataset.part===p?"true":"false")});
+    txt.innerHTML="<b>"+PARTS[p][0]+".</b> "+PARTS[p][1];
+    marks.innerHTML="";
+    var y=Y[p];
+    el("line",{x1:14,x2:186,y1:y,y2:y,stroke:"var(--liq)","stroke-width":1.5,"stroke-dasharray":"4 3"},marks);
+    el("circle",{cx:100,cy:y,r:5,fill:"var(--liq)"},marks);
+  }
+  Object.keys(PARTS).forEach(function(p){
+    var b=document.createElement("button");b.className="chip";b.dataset.part=p;b.textContent=PARTS[p][0];b.setAttribute("aria-pressed","false");
+    b.addEventListener("click",function(){showPart(p)});chips.appendChild(b);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("#anatSvg .hit"),function(r){r.addEventListener("click",function(){showPart(r.dataset.part)})});
+  showPart("body");
+
+  /* 3.2 builder */
+  var MIN=10800,MAX=10900,top=24,bot=276;
+  function yP(v){return bot-(v-MIN)/(MAX-MIN)*(bot-top)}
+  var axis=document.getElementById("bAxis");
+  for(var v=MIN;v<=MAX;v+=20){
+    el("line",{x1:30,x2:214,y1:yP(v),y2:yP(v),stroke:"var(--line)","stroke-width":1},axis);
+    var t=el("text",{x:0,y:yP(v)+4,"font-size":10,fill:"var(--muted)"},axis);t.textContent=(v/10000).toFixed(4);
+  }
+  var s={O:document.getElementById("sO"),H:document.getElementById("sH"),L:document.getElementById("sL"),C:document.getElementById("sC")};
+  var o={O:document.getElementById("oO"),H:document.getElementById("oH"),L:document.getElementById("oL"),C:document.getElementById("oC")};
+  var wick=document.getElementById("bWick"),body=document.getElementById("bBody"),verdict=document.getElementById("verdict");
+  var PRE={strongBull:[10822,10884,10818,10880],rejectLow:[10860,10868,10812,10864],doji:[10850,10878,10822,10851],strongBear:[10878,10882,10816,10820]};
+  function set(a){s.O.value=a[0];s.H.value=a[1];s.L.value=a[2];s.C.value=a[3];draw()}
+  function draw(src){
+    var O=+s.O.value,C=+s.C.value,H=+s.H.value,L=+s.L.value;
+    var hi=Math.max(O,C),lo=Math.min(O,C);
+    if(H<hi){H=hi;s.H.value=H} if(L>lo){L=lo;s.L.value=L}
+    ["O","H","L","C"].forEach(function(k){o[k].textContent=(+s[k].value/10000).toFixed(4)});
+    var col=C>=O?"var(--bull)":"var(--bear)";
+    wick.setAttribute("y1",yP(H));wick.setAttribute("y2",yP(L));wick.setAttribute("stroke",col);
+    var bh=Math.max(2,yP(lo)-yP(hi));body.setAttribute("y",yP(hi));body.setAttribute("height",bh);body.setAttribute("fill",col);
+    var range=H-L,b=Math.abs(C-O),up=H-hi,dn=lo-L,pos=range?(C-L)/range:.5,msg;
+    if(range===0){msg="Price hasn't moved. The market is asleep."}
+    else if(b/range<0.12){msg="<b>Indecision.</b> The body is only "+b+" pips of "+range+". Neither side won."}
+    else if(dn>2*b&&dn>up){msg="<b>Lower prices rejected.</b> Sellers pushed "+dn+" pips down, but buyers brought price back. Close at "+Math.round(pos*100)+"% of the range."}
+    else if(up>2*b&&up>dn){msg="<b>Higher prices rejected.</b> Buyers tried "+up+" pips up, but sellers sent them back. Close at "+Math.round(pos*100)+"% of the range."}
+    else if(b/range>0.7){msg="<b>"+(C>O?"Buyers":"Sellers")+" dominate.</b> Body "+b+" pips of "+range+" (="+Math.round(b/range*100)+"%). Control from start to finish."}
+    else{msg="<b>"+(C>O?"Buyers":"Sellers")+" win, but with a fight.</b> Body "+b+" of "+range+" pips; wicks "+up+" at the top and "+dn+" at the bottom."}
+    verdict.innerHTML=msg;
+  }
+  ["O","H","L","C"].forEach(function(k){s[k].addEventListener("input",draw)});
+  Array.prototype.forEach.call(document.querySelectorAll("[data-preset]"),function(b){b.addEventListener("click",function(){set(PRE[b.dataset.preset])})});
+  set(PRE.strongBull);
+
+  /* 3.3 families */
+  var FAM=[
+    {n:"Bullish engulfing",d:"A green body engulfs the whole red body before it. Buyers erase the sellers' period.",c:[[60,50,62,46],[46,66,44,67]]},
+    {n:"Pin bar",d:"Small body, long wick in one direction. Price tried and was refused.",c:[[58,60,30,62]]},
+    {n:"Doji",d:"Open ≈ Close. A draw. It matters only at a significant level.",c:[[50,50.5,38,62]]},
+    {n:"Inside bar",d:"The whole candle is inside the previous one's range. The market is catching its breath.",c:[[40,64,36,68],[52,58,48,61]]},
+    {n:"Marubozu",d:"Almost no wicks. One side commanded the whole period.",c:[[36,68,35.5,68.5]]}
+  ];
+  var famBox=document.getElementById("families");
+  FAM.forEach(function(f){
+    var d=document.createElement("div");d.className="fam";
+    var sv=el("svg",{viewBox:"0 0 100 80",role:"img","aria-label":f.n});sv.style.width="100%";sv.style.maxHeight="110px";
+    var n=f.c.length,w=18,gap=10,x0=50-(n*w+(n-1)*gap)/2;
+    function fy(v){return 76-(v-30)/42*72}
+    f.c.forEach(function(c,i){var O=c[0],C=c[1],L=c[2],H=c[3],x=x0+i*(w+gap),col=C>=O?"var(--bull)":"var(--bear)";
+      el("line",{x1:x+w/2,x2:x+w/2,y1:fy(H),y2:fy(L),stroke:col,"stroke-width":2},sv);
+      el("rect",{x:x,width:w,y:fy(Math.max(O,C)),height:Math.max(1.5,fy(Math.min(O,C))-fy(Math.max(O,C))),fill:col},sv)});
+    d.appendChild(sv);
+    var b=document.createElement("b");b.textContent=f.n;d.appendChild(b);
+    var sp=document.createElement("span");sp.textContent=f.d;d.appendChild(sp);
+    famBox.appendChild(d);
+  });
+
+  /* 3.4 timeframe */
+  var M5=[[10840,10846,10836,10844],[10844,10849,10841,10842],[10842,10843,10829,10831],[10831,10835,10826,10834],[10834,10845,10833,10843],[10843,10852,10842,10850],[10850,10856,10847,10848],[10848,10858,10846,10857],[10857,10864,10855,10862],[10862,10866,10856,10858],[10858,10870,10857,10868],[10868,10872,10863,10866]];
+  var tf=document.getElementById("tfSvg"),lo2=10820,hi2=10880;
+  function ty(v){return 236-(v-lo2)/(hi2-lo2)*212}
+  var g=el("g",{},tf);
+  for(var p=lo2;p<=hi2;p+=10){el("line",{x1:52,x2:516,y1:ty(p),y2:ty(p),stroke:"var(--line)"},g);var tt=el("text",{x:0,y:ty(p)+4,"font-size":10,fill:"var(--muted)"},g);tt.textContent=(p/10000).toFixed(4)}
+  var small=el("g",{},tf),big=el("g",{},tf),ann=el("g",{},tf);
+  M5.forEach(function(c,i){var O=c[0],H=c[1],L=c[2],C=c[3],x=62+i*32,col=C>=O?"var(--bull)":"var(--bear)";
+    el("line",{x1:x+9,x2:x+9,y1:ty(H),y2:ty(L),stroke:col,"stroke-width":2},small);
+    el("rect",{x:x,width:18,y:ty(Math.max(O,C)),height:Math.max(1.5,ty(Math.min(O,C))-ty(Math.max(O,C))),fill:col},small);
+    if(i%3===0){var lt=el("text",{x:x-2,y:254,"font-size":9,fill:"var(--muted)"},small);lt.textContent="09:"+(i*5<10?"0":"")+(i*5)}
+  });
+  var hO=M5[0][0],hC=M5[11][3],hH=Math.max.apply(null,M5.map(function(c){return c[1]})),hL=Math.min.apply(null,M5.map(function(c){return c[2]}));
+  el("line",{x1:240,x2:240,y1:ty(hH),y2:ty(hL),stroke:"var(--bull)","stroke-width":4},big);
+  el("rect",{x:200,width:80,y:ty(hC),height:ty(hO)-ty(hC),fill:"var(--bull)","fill-opacity":.85},big);
+  var bt=el("text",{x:296,y:ty(hC)+4,"font-size":11,fill:"var(--fg)"},big);bt.textContent="H1: O "+(hO/1e4).toFixed(4)+" · C "+(hC/1e4).toFixed(4);
+  big.style.display="none";
+  function annLine(v,label,col){el("line",{x1:52,x2:516,y1:ty(v),y2:ty(v),stroke:col,"stroke-width":1.5,"stroke-dasharray":"5 4"},ann);var a=el("text",{x:400,y:ty(v)-5,"font-size":10,fill:col},ann);a.textContent=label}
+  annLine(hH,"Hour high "+(hH/1e4).toFixed(4),"var(--liq)");
+  annLine(hL,"Hour low "+(hL/1e4).toFixed(4),"var(--liq)");
+  var at=el("text",{x:120,y:ty(10826)+18,"font-size":10,fill:"var(--bear)"},ann);at.textContent="sellers probe 09:10–09:15";
+  var at2=el("text",{x:330,y:ty(10872)-6,"font-size":10,fill:"var(--bull)"},ann);at2.textContent="buyers close strong";
+  ann.style.display="none";
+  var tfT=document.getElementById("tfToggle"),anT=document.getElementById("annToggle");
+  tfT.addEventListener("click",function(){var on=tfT.getAttribute("aria-pressed")!=="true";tfT.setAttribute("aria-pressed",on);small.style.opacity=on?.2:1;big.style.display=on?"":"none";tfT.textContent=on?"Show the 12 M5 candles":"Show as 1 H1 candle"});
+  anT.addEventListener("click",function(){var on=anT.getAttribute("aria-pressed")!=="true";anT.setAttribute("aria-pressed",on);ann.style.display=on?"":"none";anT.textContent=on?"Hide annotations":"Show annotations"});
+
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

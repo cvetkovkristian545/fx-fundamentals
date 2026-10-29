@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thinking in Probabilities · FX Fundamentals</title>
+<meta name="description" content="Thinking in Probabilities · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch5.html">
+<link rel="alternate" hreflang="bg" href="bg/ch5.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="5">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">5</div>
+    <h1>Thinking in Probabilities</h1>
+    <blockquote class="quote">
+      It's not whether you're right or wrong that's important, but how much money you make when you're right and how much you lose when you're wrong.
+      <cite>George Soros (as told by Stanley Druckenmiller)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>explain why someone who wins only 4 trades out of 10 can be profitable;</li>
+        <li>calculate the expected value of an approach;</li>
+        <li>write three scenarios for tomorrow with approximate probabilities and invalidation conditions.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>5.1 There is no right and wrong, only more likely and less likely</h2>
+      <p>You roll a die. You say “it won't be a six”. A six comes up. Were you wrong? No. Your decision was good: the odds were 5 to 1 in your favour. The outcome was bad. These are two different things, and if you mix them up you will learn the wrong lessons.</p>
+      <p>The market is the same, except you don't know how many sides the die has. No analysis is “right”. It is an estimate of which scenario is more likely. A good analyst is not the one who guesses correctly. A good analyst is the one who <b>judges the odds more accurately than average</b> and <b>loses little when wrong</b>.</p>
+      <div class="four">
+        <div><span class="label" style="color:var(--bull)">Good decision · good outcome</span><p>A deserved win. Repeat the process.</p></div>
+        <div><span class="label" style="color:var(--news)">Good decision · bad outcome</span><p>A normal loss. Change nothing.</p></div>
+        <div><span class="label" style="color:var(--news)">Bad decision · good outcome</span><p>Dangerous luck. It teaches you bad habits.</p></div>
+        <div><span class="label" style="color:var(--bear)">Bad decision · bad outcome</span><p>A deserved loss. Fix the process.</p></div>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>The most expensive trade you will ever make is a winning trade without a plan. It teaches you that a plan isn't needed, and the bill comes later.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Probability · вероятност</b>How often you expect something to happen over many repetitions.</div>
+      <div class="term"><b>Process vs outcome · процес и резултат</b>The quality of a decision and what happened are different things.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>5.2 Expected value and R</h2>
+      <p>In trading we measure results not in money but in <b>R</b>. 1R is the amount you risk on one trade (the distance to the stop). If you risk 50 dollars and win 150, that is +3R. If the stop is hit, that is −1R. This lets you compare trades across different accounts and sizes.</p>
+      <p><b>Expected value</b> (expectancy) tells you how many R you make on average per trade if you repeat the approach many times:</p>
+      <p class="mono" style="background:var(--paper);padding:10px 12px;border:1px solid var(--line)">E = (% winners × average win in R) − (% losers × average loss in R)</p>
+      <p>Example: you win 40% of trades with an average of +3R and lose 60% at −1R. E = 0.40 × 3 − 0.60 × 1 = 1.2 − 0.6 = <b>+0.6R per trade</b>. You lose most trades and are still profitable. That is why in this book the target of every planned trade is at least 3R: it lets you be wrong often.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>% winners<input type="number" id="eW" value="40" min="1" max="99"></label>
+            <label>Average win (R)<input type="number" id="eR" step="0.1" value="3"></label>
+            <label>Number of trades<input type="number" id="eN" value="100"></label>
+          </div>
+          <div class="out" id="eOut" aria-live="polite"></div>
+          <svg id="eSvg" viewBox="0 0 520 200" role="img" aria-label="Five simulated equity curves"></svg>
+          <button class="toggle" id="eRun">New simulation</button>
+        </div>
+        <figcaption>Five random sequences with the same parameters. Each line is a possible future. Notice how different they are, even though the rules are the same.</figcaption>
+      </figure>
+      <div class="dialog">
+        <p><span>Student</span>Then why not just aim for 10R on every trade?</p>
+        <p><span>Mentor</span>Because the further the target, the less often price reaches it. The win rate falls. The art is in the balance, not in the biggest number. 3R is a sensible middle for the approach in this book.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>R · риск единица</b>The amount you lose if the stop is hit. Profit is measured in multiples of R.</div>
+      <div class="term"><b>Expectancy · очаквана стойност</b>The average result per trade in R over many repetitions.</div>
+      <div class="term"><b>Win rate · процент печеливши</b>The share of trades that end in profit.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>5.3 Losing streaks are normal</h2>
+      <p>Even with a good approach there will be long losing streaks. At a 55% win rate over 50 trades, seeing 4 to 6 losses in a row somewhere along the way is normal. At 40% a streak of 6 to 10 losses is no surprise. The simulation above shows them: look for the longest red streak.</p>
+      <p>That is why the rule in Chapter 36 is: <b>no conclusions before at least 20 trades and no changes to the approach because of a short losing streak.</b> If you change the rules after every streak of three losses, you will never know whether the approach works.</p>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>Five losses in a row mean the strategy is broken.</p></div>
+        <div><span class="label">Reality</span><p>Five losses in a row at a 40–55% win rate are statistically normal. A broken strategy shows itself over 30–50 trades, not five.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Losing streak · серия загуби</b>A run of losing trades one after another.</div>
+      <div class="term"><b>Sample size · размер на извадката</b>How many trades you need before you can say something about the approach.</div>
+      <div class="term"><b>Drawdown · спад</b>How far the account has fallen from its last peak.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>5.4 The scenario tree: A, B, C</h2>
+      <p>Instead of asking “where will price go?”, ask: “what are the possible paths, how likely is each and what would tell me I'm wrong?”. That is the <b>scenario tree</b>. Every analysis in this book ends with one.</p>
+      <figure>
+        <div class="calc" id="tree">
+          <div class="fields">
+            <label>Scenario A<input type="text" id="tA" value="London takes the Asian low and price turns up"></label>
+            <label>Probability A (%)<input type="number" id="pA" value="50"></label>
+            <label>A is wrong if…<input type="text" id="iA" value="H1 closes below 1.0815"></label>
+            <label>Scenario B<input type="text" id="tB" value="Price stays in the range until the 15:30 data"></label>
+            <label>Probability B (%)<input type="number" id="pB" value="30"></label>
+            <label>B is wrong if…<input type="text" id="iB" value="a break and close outside the range before 15:30"></label>
+            <label>Scenario C<input type="text" id="tC" value="A break down and continuation of the daily decline"></label>
+            <label>Probability C (%)<input type="number" id="pC" value="20"></label>
+            <label>C is wrong if…<input type="text" id="iC" value="price gets back above the Asian high"></label>
+          </div>
+          <svg id="treeSvg" viewBox="0 0 520 190" role="img" aria-label="A tree with three branches and their probabilities"></svg>
+          <div class="out" id="treeOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Fill in your own scenarios. The probabilities must add up to 100%. The entry is saved in this browser.</figcaption>
+      </figure>
+      <p>Quality rule: every scenario needs a <b>testable</b> invalidation condition. “If the market turns bearish” is not testable. “If H1 closes below 1.0815” is.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Scenario · сценарий</b>One possible price path with the conditions under which it holds.</div>
+      <div class="term"><b>Invalidation · обезсилване</b>The specific event that shows the scenario is wrong.</div>
+      <div class="term"><b>Base rate · базова честота</b>How often something happens in general, before you look at the specific case.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: intermediate">●●</span>5.5 How to update a view</h2>
+      <p>Scenarios are not promises. When new information arrives (price reaches a level, news comes out), the probabilities shift. A good analyst shifts them <b>calmly and in proportion</b>. A bad one does one of two things: doesn't shift them at all or flips them completely after one candle.</p>
+      <p>The four most common mental traps:</p>
+      <div class="tablewrap" data-name="kapani-na-uma">
+        <table class="data">
+          <thead><tr><th>Trap</th><th>What it looks like</th><th>Antidote</th></tr></thead>
+          <tbody>
+            <tr><td><b>Confirmation bias</b></td><td>You look only for the news and signals that say you are right.</td><td>Before the analysis, write down what would make you change your mind.</td></tr>
+            <tr><td><b>Anchoring</b></td><td>You stick to the first price or the first opinion you heard.</td><td>Start every day from D1 and afresh, as if you didn't know yesterday's analysis.</td></tr>
+            <tr><td><b>Recency</b></td><td>Your last three trades look like the truth about the approach.</td><td>Look at at least 20–30 trades in the journal, not the last three.</td></tr>
+            <tr><td><b>Narrative</b></td><td>A good story (about wars, about the end of the dollar) replaces the data.</td><td>Ask: what exactly do I need to see in price for the story to be true? (Chapter 25)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box ff">
+        <span class="label">Watch on Forex Factory</span>
+        <p>News is the most common reason to update your scenarios. Before every red folder write down: if the number is higher than expected, which scenario wins? If it is lower? That way your reaction is decided before the emotion arrives.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Confirmation bias</b>The tendency to notice only the evidence that confirms your view.</div>
+      <div class="term"><b>Anchoring · котва</b>Giving too much weight to the first piece of information you received.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 05</h2>
+    <ul>
+      <li>Decision and outcome are different things. Judge the process.</li>
+      <li>Measure in R. E = %W × average win − %L × average loss.</li>
+      <li>40% winners at 3R give +0.6R per trade. A target of at least 3R lets you be wrong often.</li>
+      <li>Losing streaks are normal. No conclusions under 20 trades.</li>
+      <li>Every analysis ends with A/B/C, probabilities and a testable invalidation.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I calculated the expected value for 35%, 45% and 55% winners at 3R.</label></li>
+      <li><label><input type="checkbox"> I wrote three scenarios for tomorrow's EURUSD session.</label></li>
+      <li><label><input type="checkbox"> After the session I judged which scenario happened and whether the invalidation worked.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>You have 12 trades in your journal: 4 winners (+3R, +3R, +2.5R, +3R) and 8 losers (−1R each). The last five are losses in a row. You want to change the approach and switch to 1R targets “to win more often”.</p>
+      <p><b>Task:</b> calculate the result so far in R. Is there enough data for a conclusion? What would happen to the expected value if you switched to 1R but the win rate rose only to 50%?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Result… Sample… New approach…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>Wins: 3 + 3 + 2.5 + 3 = 11.5R. Losses: 8 × 1 = 8R. Result: +3.5R over 12 trades, about +0.29R per trade. The approach is profitable despite the five losses.</li>
+          <li>12 trades are too few for a conclusion. The rule is at least 20, and 30–50 for a real assessment.</li>
+          <li>With a 1R target and 50% winners: E = 0.5 × 1 − 0.5 × 1 = 0. Zero, before costs. After spread and commissions it is negative.</li>
+          <li>Conclusion: the five losses are an emotional signal, not a statistical one. I stick to the plan, log every trade and review at 20.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"You risk $40 and win $120. How many R is that?",o:["+1R","+3R","+120R"],a:1,e:"120 ÷ 40 = 3."},
+  {q:"What is expected value?",o:["How much you make on your best trade","The average result per trade over many repetitions","The trade's target"],a:1,e:"Expectancy is the average result in R."},
+  {q:"Good decision, bad outcome. What do you do?",o:["Change the approach","Nothing, such losses are normal","Double the risk"],a:1,e:"The outcome doesn't make the decision bad."},
+  {q:"What is a scenario's invalidation?",o:["A specific event that shows the scenario is wrong","The opposite scenario","A stop order"],a:0,e:"A testable condition under which you change your view."},
+  {q:"What is the minimum number of trades for a first conclusion in this book?",o:["5","20","1000"],a:1,e:"Under 20 trades, conclusions are noise."}
+],mid:[
+  {q:"35% winners, average win 3R, loss 1R. What is the expected value?",o:["−0.35R","+0.40R","+1.05R"],a:1,e:"0.35 × 3 − 0.65 × 1 = 1.05 − 0.65 = +0.40R."},
+  {q:"Scenario A: 60%, B: 30%, C: 20%. What is wrong?",o:["Nothing","The total is 110%","C is too low"],a:1,e:"Mutually exclusive scenarios must add up to 100%."},
+  {q:"Your analysis says long. News comes out that is bad for your direction. You look for an article saying the news doesn't matter. What is this?",o:["Confirmation bias","Good analysis","Anchoring"],a:0,e:"You look only for what confirms your view."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* expectancy + simulation */
+  var w=document.getElementById("eW"),r=document.getElementById("eR"),n=document.getElementById("eN"),out=document.getElementById("eOut"),sv=document.getElementById("eSvg");
+  function sim(){
+    var W=Math.min(99,Math.max(1,+w.value))/100,R=+r.value,N=Math.min(500,Math.max(10,+n.value|0));
+    var E=W*R-(1-W);
+    var runs=[],minV=0,maxV=0,worst=0;
+    for(var k=0;k<5;k++){var eq=[0],s=0,st=0,mx=0;for(var i=0;i<N;i++){if(Math.random()<W){s+=R;st=0}else{s-=1;st++;if(st>mx)mx=st}eq.push(s);if(s<minV)minV=s;if(s>maxV)maxV=s}runs.push(eq);if(mx>worst)worst=mx}
+    sv.innerHTML="";var L=36,Rt=510,T=10,B=180;
+    function X(i){return L+(Rt-L)*i/N}function Y(v){return B-(B-T)*(v-minV)/((maxV-minV)||1)}
+    el("line",{x1:L,x2:Rt,y1:Y(0),y2:Y(0),stroke:"var(--muted)","stroke-dasharray":"3 3"},sv);
+    el("text",{x:0,y:Y(0)+4,"font-size":10,fill:"var(--muted)"},sv).textContent="0R";
+    el("text",{x:0,y:T+8,"font-size":10,fill:"var(--muted)"},sv).textContent=Math.round(maxV)+"R";
+    el("text",{x:0,y:B,"font-size":10,fill:"var(--muted)"},sv).textContent=Math.round(minV)+"R";
+    var cols=["var(--ink)","var(--liq)","var(--bull)","var(--news)","var(--bear)"];
+    runs.forEach(function(eq,k){var d="";eq.forEach(function(v,i){d+=(i?"L":"M")+X(i).toFixed(1)+","+Y(v).toFixed(1)});el("path",{d:d,fill:"none",stroke:cols[k],"stroke-width":1.6,"stroke-opacity":.9},sv)});
+    out.innerHTML="<span>Expected value: <b>"+(E>=0?"+":"")+E.toFixed(2)+"R per trade</b> → about "+(E*N>=0?"+":"")+(E*N).toFixed(0)+"R over "+N+" trades.</span><span>Longest losing streak across the five simulations: <b>"+worst+" in a row</b>.</span><span>"+(E>0?"The approach has a positive expectancy, if the parameters are right.":"Negative or zero expectancy: the more you trade, the more you lose.")+"</span>";
+  }
+  [w,r,n].forEach(function(x){x.addEventListener("change",sim)});document.getElementById("eRun").addEventListener("click",sim);sim();
+
+  /* scenario tree */
+  var ids=["tA","pA","iA","tB","pB","iB","tC","pC","iC"],ts=document.getElementById("treeSvg"),to=document.getElementById("treeOut");
+  ids.forEach(function(i){var s=Book.store("b5-"+i);if(s!=null)document.getElementById(i).value=s});
+  function wrap(t,n){return t.length>n?t.slice(0,n-1)+"…":t}
+  function tree(){
+    ids.forEach(function(i){Book.store("b5-"+i,document.getElementById(i).value)});
+    var P=[+pA.value||0,+pB.value||0,+pC.value||0],T=[tA.value,tB.value,tC.value],I=[iA.value,iB.value,iC.value],sum=P[0]+P[1]+P[2];
+    ts.innerHTML="";var cols=["var(--bull)","var(--news)","var(--bear)"];
+    el("circle",{cx:30,cy:95,r:10,fill:"var(--ink)"},ts);el("text",{x:14,y:124,"font-size":10,fill:"var(--muted)"},ts).textContent="now";
+    [35,95,155].forEach(function(y,k){el("path",{d:"M40,95 C110,95 110,"+y+" 180,"+y,fill:"none",stroke:cols[k],"stroke-width":Math.max(1.5,P[k]/8)},ts);
+      el("text",{x:186,y:y-4,"font-size":12,fill:cols[k]},ts).textContent=String.fromCharCode(65+k)+" · "+P[k]+"%";
+      el("text",{x:186,y:y+12,"font-size":10,fill:"var(--fg)"},ts).textContent=wrap(T[k],50)});
+    to.innerHTML=(sum===100?"<span>The total is 100%. ✓</span>":"<span style=\"color:var(--bear)\">The total is "+sum+"%. It must be 100%.</span>")+
+      I.map(function(x,k){return "<span>"+String.fromCharCode(65+k)+" is wrong if "+(x||"…")+(/\d/.test(x)?"":" <i style=\"color:var(--news)\">(add a specific level or time)</i>")+"</span>"}).join("");
+  }
+  var pA=document.getElementById("pA"),pB=document.getElementById("pB"),pC=document.getElementById("pC"),tA=document.getElementById("tA"),tB=document.getElementById("tB"),tC=document.getElementById("tC"),iA=document.getElementById("iA"),iB=document.getElementById("iB"),iC=document.getElementById("iC");
+  ids.forEach(function(i){document.getElementById(i).addEventListener("input",tree)});tree();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

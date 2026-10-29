@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>What Forex Is · FX Fundamentals</title>
+<meta name="description" content="What Forex Is · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch1.html">
+<link rel="alternate" hreflang="bg" href="bg/ch1.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="1">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">1</div>
+    <h1>What Forex Is and Who Moves It</h1>
+    <blockquote class="quote">
+      The market is never wrong. Opinions often are.
+      <cite>Jesse Livermore (attributed)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>read a quote such as EURUSD 1.0850 and say exactly what it means;</li>
+        <li>list who trades on the currency market and which of them have size and information;</li>
+        <li>say when London and New York are open in Sofia time, summer and winter.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>1.1 The currency pair: one economy against another</h2>
+      <p>Forex (<b>FX</b>, foreign exchange) is the market where one currency is exchanged for another. Currencies always trade in pairs, because you can't “buy a dollar” in a vacuum: you buy dollars by paying with something else, for example euros.</p>
+      <p>In the quote <b>EURUSD 1.0850</b> the first currency (EUR) is the <b>base</b> and the second (USD) is the <b>quote</b> currency. The number says how many units of the quote currency <i>one</i> unit of the base costs. In other words: one euro costs 1.0850 dollars.</p>
+      <p>When EURUSD rises, the euro is getting stronger against the dollar (or the dollar weaker against the euro, which is the same thing). If you buy EURUSD, you are in effect buying euros and selling dollars. That is why every pair is a bet on the <b>relative strength of two economies</b>: their interest rates, growth, inflation and politics. This is the bridge between the chart and Part III.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Pair<select id="pair">
+              <option value="EURUSD|1.0850">EURUSD</option>
+              <option value="GBPUSD|1.2700">GBPUSD</option>
+              <option value="USDJPY|150.20">USDJPY</option>
+              <option value="USDCHF|0.8820">USDCHF</option>
+              <option value="XAUUSD|2400.00">XAUUSD (gold)</option>
+            </select></label>
+            <label>Quote<input type="number" id="rate" step="any" value="1.0850"></label>
+            <label>Amount in the base currency<input type="number" id="amt" value="1000"></label>
+          </div>
+          <div class="out" id="pairOut" aria-live="polite"></div>
+        </div>
+        <figcaption>The quotes are examples, not live prices. Change the number and see what it means in plain language.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>When you hear “the dollar is strong”, always ask: against what? A currency is not strong on its own. It is stronger than another one.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>FX / Forex · валутен пазар</b>The global market for exchanging currencies. There is no single central exchange.</div>
+      <div class="term"><b>Base currency · базова валута</b>The first currency in the pair. The quote is the price of one unit of it.</div>
+      <div class="term"><b>Quote currency · котирана валута</b>The second currency. The price is expressed in it.</div>
+      <div class="term"><b>Long / Short</b>Long: you buy the base currency. Short: you sell the base currency.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>1.2 How big the market is and who moves it</h2>
+      <p>According to the Bank for International Settlements (BIS) survey of April 2025, about <b>9.6 trillion dollars a day</b> trade on the currency market on average. The dollar is on one side of almost nine out of every ten trades. EURUSD is the most traded pair in the world. That is why it is our running example.</p>
+      <p>Not everyone in this market is equal. The pyramid below shows the main players. Press a level to see what they do and why you, as a retail trader, should know about them.</p>
+      <figure>
+        <div class="anat">
+          <svg viewBox="0 0 220 240" role="img" aria-label="Pyramid of currency market participants">
+            <g id="pyr"></g>
+          </svg>
+          <div style="display:grid;gap:12px">
+            <div class="parts" id="pyrChips" role="group" aria-label="Participants"></div>
+            <p class="explain" id="pyrText" aria-live="polite"></p>
+          </div>
+        </div>
+        <figcaption>Top to bottom: more size and information towards less. Retail traders are at the base.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="uchastnici-fx">
+        <table class="data">
+          <thead><tr><th>Participant</th><th>Why they trade</th><th>Size</th><th>Information</th></tr></thead>
+          <tbody>
+            <tr><td>Central banks</td><td>Policy, reserves, sometimes intervention</td><td>Huge</td><td>The best: they set the rates themselves</td></tr>
+            <tr><td>Big banks (dealers)</td><td>Quote prices to clients, absorb flow</td><td>Huge</td><td>They see their clients' flow</td></tr>
+            <tr><td>Funds</td><td>Speculation, portfolio hedging</td><td>Large</td><td>Analysis, models, positioning</td></tr>
+            <tr><td>Corporations</td><td>Payments, hedging (exports, imports)</td><td>Medium to large</td><td>They know their own needs, not seeking profit from the rate</td></tr>
+            <tr><td>Retail traders</td><td>Speculation</td><td>Small</td><td>Public: charts and news</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Our edge is not size or information. Our edge is <b>flexibility</b>: we can stay out, wait, enter small and exit fast. A fund with billions can't. A large part of this book is about how to use exactly this edge.</p>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>The banks are “hunting” your stop specifically.</p></div>
+        <div><span class="label">Reality</span><p>Nobody sees your account. But when thousands of traders put stops in the same obvious place, that pile of orders is liquidity the big players use to get in. The answer is not to be where everyone is.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>BIS · Банка за международни разплащания</b>The central banks' bank. Every three years it measures currency market turnover.</div>
+      <div class="term"><b>Interbank · междубанков пазар</b>The network in which big banks trade currency with each other.</div>
+      <div class="term"><b>Hedging · хеджиране</b>A trade that reduces the risk of another position rather than seeking profit.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>1.3 A market that never sleeps: Asia, London, New York</h2>
+      <p>The currency market runs 24 hours from Monday morning in Asia to Friday evening in New York. The day is handed from one financial centre to the next like a relay: first Sydney and Tokyo, then London, then New York. Each centre has its own behaviour, which we will look at in detail in Chapter 9.</p>
+      <figure>
+        <div class="tabs" data-group="season">
+          <button class="chip" data-tab="summer">Summer (EEST, UTC+3)</button>
+          <button class="chip" data-tab="winter">Winter (EET, UTC+2)</button>
+        </div>
+        <svg id="clock" viewBox="0 0 520 170" role="img" aria-label="Timeline of the sessions in Sofia time"></svg>
+        <p class="verdict" id="nowText" aria-live="polite"></p>
+        <figcaption>The sessions in Sofia time. The coloured bars are each centre's approximate working hours; the vertical line is the current time in Sofia.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="sesii-sofia">
+        <table class="data">
+          <thead><tr><th>Session</th><th>Summer, Sofia</th><th>Winter, Sofia</th><th>Character</th></tr></thead>
+          <tbody>
+            <tr><td>Tokyo (Asia)</td><td class="mono">03:00–12:00</td><td class="mono">02:00–11:00</td><td>Calm, builds a range. JPY, AUD, NZD active.</td></tr>
+            <tr><td>London</td><td class="mono">10:00–19:00</td><td class="mono">10:00–19:00</td><td>Highest turnover. Often takes the Asian high or low.</td></tr>
+            <tr><td>New York</td><td class="mono">15:00–24:00</td><td class="mono">15:00–24:00</td><td>US data at 15:30. Overlap with London 15:00–19:00.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Note: London and New York keep the same hours in Sofia time in summer and winter, because the UK, the US and Bulgaria change their clocks together. The exception is a few weeks in March and October–November, when the US changes its clocks on a different date from Europe. During those weeks US data comes out at 14:30 Sofia time. Forex Factory shows the correct time if it is set to your time zone (Chapter 19).</p>
+      <div class="box ff">
+        <span class="label">Watch on Forex Factory</span>
+        <p>The most important US data (NFP, CPI, retail sales) comes out at 15:30 Sofia time. Fed decisions come out at 21:00 Sofia time (14:00 in New York), summer and winter. ECB decisions are at 15:15 Sofia time. Note these times down now.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Session · сесия</b>The working hours of a major financial centre. They decide when the market is active.</div>
+      <div class="term"><b>Overlap · припокриване</b>The time when two centres work at once. London and New York: the highest liquidity of the day.</div>
+      <div class="term"><b>UTC</b>Coordinated Universal Time. Most trading material uses it.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: basic">●</span>1.4 What you will watch</h2>
+      <p>You don't need to follow everything. This book works with a small, fixed list. You will meet most things many times, so don't try to memorise them all at once.</p>
+      <div class="tablewrap" data-name="spisak-za-nablyudenie">
+        <table class="data">
+          <thead><tr><th>Group</th><th>Tools</th><th>Why we watch them</th></tr></thead>
+          <tbody>
+            <tr><td>Majors</td><td class="mono">EURUSD, GBPUSD, USDJPY, USDCHF, AUDUSD, USDCAD, NZDUSD</td><td>Each includes the dollar. Lowest spreads, most analysis.</td></tr>
+            <tr><td>Crosses</td><td class="mono">EURGBP, EURJPY, GBPJPY</td><td>No dollar. They show the strength of two currencies without the USD effect.</td></tr>
+            <tr><td>Gold</td><td class="mono">XAUUSD</td><td>A safe haven in times of fear; reacts to real rates and the dollar.</td></tr>
+            <tr><td>Dollar index</td><td class="mono">DXY</td><td>The dollar against a basket of six currencies (about 58% euro). A thermometer for USD.</td></tr>
+            <tr><td>Stock indices</td><td class="mono">S&amp;P 500, Nasdaq 100, DAX</td><td>Show whether the market is in a mood for risk (risk-on) or for flight (risk-off).</td></tr>
+            <tr><td>Bitcoin</td><td class="mono">BTCUSD</td><td>Sensitive to liquidity and risk appetite.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>One market you know well is worth more than twenty you half know. That is why the book follows EURUSD from start to finish. The others are for comparison.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Major · мейджър</b>One of the seven most traded pairs against the dollar.</div>
+      <div class="term"><b>Cross · крос</b>A pair without the dollar, for example EURGBP.</div>
+      <div class="term"><b>DXY</b>The dollar index against EUR, JPY, GBP, CAD, SEK and CHF.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 01</h2>
+    <ul>
+      <li>EURUSD 1.0850 means one euro costs 1.0850 dollars. Buying EURUSD = buying euros against dollars.</li>
+      <li>Every pair is a comparison of two economies.</li>
+      <li>The market is huge (about $9.6 trillion a day) and is driven by central banks, big banks and funds.</li>
+      <li>The small trader's edge is flexibility, not size.</li>
+      <li>London 10:00–19:00, New York 15:00–24:00 Sofia time; US data comes out at 15:30.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I can explain what the quote USDJPY 150.20 means.</label></li>
+      <li><label><input type="checkbox"> I know when London opens and when US data comes out in Sofia time.</label></li>
+      <li><label><input type="checkbox"> I have written down the watchlist from 1.4.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>It's Wednesday, 14:50 Sofia time. EURUSD has been in a tight range since the morning. London is open; New York opens in 10 minutes. US CPI comes out at 15:30. A friend asks: “Why isn't price moving? Should I get in now, before it goes?”</p>
+      <p><b>Task:</b> explain what is happening in the market right now, who is missing and what is expected in the next hour. What would you watch?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="What is happening now… Who is missing… What is coming…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>The big US players aren't at their desks yet, and everyone is waiting for CPI. Nobody wants to take risk before the number.</li>
+          <li>New York opens at 15:00 and CPI comes at 15:30. That is usually where the day's move comes from.</li>
+          <li>Getting in now means a coin-flip bet before a release. The protocol in Chapter 13 says: no new positions 30 minutes before major news.</li>
+          <li>I would watch the high and low of the morning range. After CPI I look at which side gets taken and whether price stays beyond it or comes back.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"In EURUSD, which is the base currency?",o:["USD","EUR","Both"],a:1,e:"The first currency in the quote is the base."},
+  {q:"EURUSD rises from 1.0800 to 1.0900. What has happened?",o:["The euro has strengthened against the dollar","The dollar has strengthened against the euro","Nothing, it's noise"],a:0,e:"One euro now costs more dollars."},
+  {q:"What is the small trader's biggest edge?",o:["Information","Size","Flexibility"],a:2,e:"You can wait, stay out and exit fast."},
+  {q:"When does most important US data come out in Sofia time?",o:["10:00","15:30","21:00"],a:1,e:"8:30 New York time is 15:30 Sofia time for most of the year."},
+  {q:"What is DXY?",o:["A dollar index against a basket of currencies","A cryptocurrency","A stock index"],a:0,e:"DXY measures the dollar against six currencies, mainly the euro."}
+],mid:[
+  {q:"USDJPY is at 150.00 and rises to 152.00. You bought USDJPY. What happens?",o:["Nothing, the yen has strengthened","You profit, because the dollar has strengthened against the yen","You lose"],a:1,e:"You bought dollars against yen. The dollar strengthens, the position profits."},
+  {q:"Why do London and New York keep the same Sofia-time hours in summer and winter?",o:["Because they don't change their clocks","Because the UK, the US and Bulgaria change their clocks at about the same time","Because the market runs on UTC"],a:1,e:"All three change clocks in similar periods. They are out of step only a few weeks a year."},
+  {q:"A corporation buys 500 million dollars to pay for imports. What does it care about?",o:["Profiting from the rate","Paying on time and hedging the risk","Breaking the level"],a:1,e:"Corporations trade out of need, not for speculation. That is why their flow can be large and indifferent to technical levels."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* pair reader */
+  var pair=document.getElementById("pair"),rate=document.getElementById("rate"),amt=document.getElementById("amt"),out=document.getElementById("pairOut");
+  var NAMES={EUR:["euro","euro"],USD:["dollar","dollars"],GBP:["pound","pounds"],JPY:["yen","yen"],CHF:["franc","francs"],XAU:["troy ounce of gold","troy ounces of gold"]};
+  function read(){
+    var p=pair.value.split("|")[0],b=p.slice(0,3),q=p.slice(3),r=+rate.value,a=+amt.value;
+    if(!r||!a){out.textContent="Enter a quote and an amount.";return}
+    var dec=q==="JPY"?2:(b==="XAU"?2:4);
+    out.innerHTML="<span>1 "+NAMES[b][0]+" costs <b>"+r.toFixed(dec)+"</b> "+NAMES[q][1]+".</span>"+
+      "<span>"+a.toLocaleString("en-GB")+" "+NAMES[b][1]+" = <b>"+(a*r).toLocaleString("en-GB",{maximumFractionDigits:2})+"</b> "+NAMES[q][1]+".</span>"+
+      "<span>1 "+NAMES[q][0]+" costs <b>"+(1/r).toFixed(b==="XAU"?6:4)+"</b> "+NAMES[b][1]+".</span>"+
+      "<span>Buying "+p+" = buying "+NAMES[b][1]+", paying with "+NAMES[q][1]+".</span>";
+  }
+  pair.addEventListener("change",function(){rate.value=pair.value.split("|")[1];read()});rate.addEventListener("input",read);amt.addEventListener("input",read);read();
+
+  /* pyramid */
+  var P=[
+    ["Central banks","The Fed, the ECB, the Bank of Japan and the others. They set interest rates, the strongest driver of currencies. Sometimes they buy or sell directly (intervention), as Japan did with USDJPY around 160."],
+    ["Big banks","JPMorgan, UBS, Deutsche Bank, Citi and others. They quote prices to everyone else and see their clients' flow. The interbank market is built around them."],
+    ["Funds","Hedge funds, pension funds, asset managers. They trade macro themes with huge positions. When they all exit the same position at once, you get sharp moves (Chapter 29, the yen case)."],
+    ["Corporations","Exporters and importers who exchange currency out of need. Example: a European manufacturer that earns dollars from US sales and converts them into euros."],
+    ["You","The retail trader. Small size, public information. But you can choose when to take part, and that counts for a lot."]
+  ];
+  var g=document.getElementById("pyr"),chips=document.getElementById("pyrChips"),txt=document.getElementById("pyrText"),bands=[];
+  P.forEach(function(p,i){
+    var top=10+i*44,w1=30+i*40,w2=30+(i+1)*40;
+    var poly=el("polygon",{points:(110-w1/2)+","+top+" "+(110+w1/2)+","+top+" "+(110+w2/2)+","+(top+40)+" "+(110-w2/2)+","+(top+40),fill:"var(--ink)","fill-opacity":(0.95-i*0.17).toFixed(2),class:"hit"},g);
+    poly.addEventListener("click",function(){show(i)});bands.push(poly);
+    var b=document.createElement("button");b.className="chip";b.textContent=p[0];b.setAttribute("aria-pressed","false");b.addEventListener("click",function(){show(i)});chips.appendChild(b);
+  });
+  function show(i){Book.each(".chip",function(c,k){c.setAttribute("aria-pressed",k===i)},chips);bands.forEach(function(b,k){b.setAttribute("stroke",k===i?"var(--liq)":"none");b.setAttribute("stroke-width",3)});txt.innerHTML="<b>"+P[i][0]+".</b> "+P[i][1]}
+  show(4);
+
+  /* session timeline in Sofia time */
+  var clock=document.getElementById("clock"),nowText=document.getElementById("nowText"),season="summer";
+  var S={summer:[["Tokyo",3,12,"var(--liq)"],["London",10,19,"var(--bull)"],["New York",15,24,"var(--bear)"]],winter:[["Tokyo",2,11,"var(--liq)"],["London",10,19,"var(--bull)"],["New York",15,24,"var(--bear)"]]};
+  var L=70,R=510;function hx(hh){return L+(R-L)*hh/24}
+  function sofiaHour(){try{var f=new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Sofia",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date()).split(":");return +f[0]+(+f[1])/60}catch(e){return null}}
+  function draw(){
+    clock.innerHTML="";
+    for(var hh=0;hh<=24;hh+=3){el("line",{x1:hx(hh),x2:hx(hh),y1:14,y2:132,stroke:"var(--line)"},clock);el("text",{x:hx(hh)-8,y:150,"font-size":10,fill:"var(--muted)"},clock).textContent=(hh<10?"0":"")+hh}
+    S[season].forEach(function(s,i){var y=24+i*36;el("text",{x:0,y:y+17,"font-size":11,fill:"var(--fg)"},clock).textContent=s[0];
+      el("rect",{x:hx(s[1]),y:y,width:hx(s[2])-hx(s[1]),height:24,fill:s[3],"fill-opacity":.75,rx:3},clock)});
+    el("rect",{x:hx(15),y:14,width:hx(19)-hx(15),height:118,fill:"var(--news)","fill-opacity":.10},clock);
+    el("line",{x1:hx(15.5),x2:hx(15.5),y1:14,y2:132,stroke:"var(--news)","stroke-width":2,"stroke-dasharray":"3 3"},clock);
+    el("text",{x:hx(15.5)+4,y:166,"font-size":10,fill:"var(--news)"},clock).textContent="15:30 US data";
+    var n=sofiaHour();
+    if(n!=null){el("line",{x1:hx(n),x2:hx(n),y1:8,y2:138,stroke:"var(--fg)","stroke-width":2},clock);
+      var open=S[season].filter(function(s){return n>=s[1]&&n<s[2]}).map(function(s){return s[0]});
+      var d=new Date().getDay(),wk=(d===6)||(d===0&&n<23)||(d===5&&n>=24);
+      var hh=Math.floor(n),mm=Math.round((n-hh)*60);
+      nowText.textContent="Sofia time now: "+(hh<10?"0":"")+hh+":"+(mm<10?"0":"")+mm+". "+(wk?"Weekend: the market is closed.":(open.length?"Open: "+open.join(", ")+".":"Quiet zone between sessions."));}
+  }
+  Book.each('[data-group="season"] button',function(b){b.addEventListener("click",function(){season=b.getAttribute("data-tab");draw()})});
+  draw();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

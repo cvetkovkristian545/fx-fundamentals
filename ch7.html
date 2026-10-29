@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Liquidity and SMC Zones · FX Fundamentals</title>
+<meta name="description" content="Liquidity and SMC Zones · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch7.html">
+<link rel="alternate" hreflang="bg" href="bg/ch7.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="7">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">7</div>
+    <h1>Liquidity and SMC Zones</h1>
+    <blockquote class="quote">
+      If you've been in the game 30 minutes and you don't know who the patsy is, you're the patsy.
+      <cite>Old poker saying, popularised by Warren Buffett</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>point out where the stops sit on the chart: BSL, SSL, equal highs and lows, Asia, PDH, PDL;</li>
+        <li>draw an order block and a Fair Value Gap and say which zone is stronger;</li>
+        <li>split the range into an expensive and a cheap half (premium and discount).</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>7.1 Where the stops are</h2>
+      <div class="box note">
+        <span class="label">Before this chapter</span>
+        <p>If you are on the <a href="ch0-3.html">fast track</a>, this chapter belongs to Stage 4. Pass your first backtest with a simple setup, then use the ideas here as filters you test one at a time (<a href="ch0-3.html#s8">0.3.8</a>).</p>
+      </div>
+      <p>In Chapter 0.2 you saw that price moves to where the orders are. The biggest pile of orders on any chart is other traders' <b>stops</b>. Everyone who has sold has a stop above some high. Everyone who has bought has a stop below some low. A seller's stop is a <i>buy</i> order; a buyer's stop is a <i>sell</i> order.</p>
+      <div class="tablewrap" data-name="likvidnost">
+        <table class="data">
+          <thead><tr><th>Liquidity</th><th>Where</th><th>Whose orders</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--liq)"><b>BSL</b> (buy-side)</td><td>Above highs</td><td>Sellers' stops + breakout buy orders = buy orders</td></tr>
+            <tr><td style="color:var(--liq)"><b>SSL</b> (sell-side)</td><td>Below lows</td><td>Buyers' stops + breakout sell orders = sell orders</td></tr>
+            <tr><td><b>Equal highs / lows</b></td><td>Two or three highs at one price</td><td>The most obvious place for a stop, so the most attractive target</td></tr>
+            <tr><td><b>Asian range</b></td><td>The high and low of the overnight session</td><td>The stops of everyone who traded the night</td></tr>
+            <tr><td><b>PDH / PDL</b></td><td>The high and low of the previous day</td><td>Daily targets for London and New York</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A big player who wants to buy a billion euros needs someone to sell them a billion. Where will they find that many sellers at once? Below the obvious low, where thousands of buyers' stops will turn into sell orders. That is why price so often <b>first makes a false move towards liquidity</b> and only then sets off in the real direction.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>BSL · ликвидност отгоре</b>Buy-side liquidity: buy orders above the highs.</div>
+      <div class="term"><b>SSL · ликвидност отдолу</b>Sell-side liquidity: sell orders below the lows.</div>
+      <div class="term"><b>EQH / EQL</b>Equal highs / lows. A magnet for price.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>7.2 Sweep: the grab before the real move</h2>
+      <p>A <b>sweep</b> is a fast move beyond a level with liquidity, followed by a return. On the chart it looks like a wick above the high or below the low, with the candle closing back inside. It is the most common way real moves begin.</p>
+      <figure class="diagram">
+        <svg id="sw" viewBox="0 0 520 240" role="img" aria-label="Price sweeping the stops below equal lows and turning up"></svg>
+        <div class="parts">
+          <button class="chip" data-sw="1">1. Equal lows</button>
+          <button class="chip" data-sw="2">2. Sweep</button>
+          <button class="chip" data-sw="3">3. MSS</button>
+          <button class="chip" data-sw="4">4. Towards BSL</button>
+        </div>
+        <p class="verdict" id="swText" aria-live="polite"></p>
+        <figcaption>EURUSD M15, illustrative prices. Blue: liquidity.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/ch7-sweep-mss.jpg" alt="EURUSD M15: equal lows, a sweep below them and an MSS up" width="1075" height="774" loading="lazy" decoding="async">
+        <figcaption><b>Real example.</b> EURUSD M15, 2 October 2026, Sofia time. The equal lows around 1.1227 collect stops (SSL). At 15:00 price sweeps them with a wick to 1.1221 and closes back above the level. A close above the last internal high (MSS) follows, then an expansion to 1.1285.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>Your stop is no secret. It's where anyone would put it. If you want to survive, put it where your scenario is wrong, not where it's convenient.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Sweep / liquidity grab</b>A quick move beyond a level with liquidity and back again.</div>
+      <div class="term"><b>Stop hunt · лов на стопове</b>A colloquial name for a sweep.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>7.3 Order block and Fair Value Gap</h2>
+      <p>An <b>order block (OB)</b> is the last opposite-direction candle before a strong move. A bullish OB is the last red candle before the strong move up; a bearish OB is the last green candle before the strong move down. The idea: that is where the big player built their position. When price returns, they often defend it. A rule from practice: decisions in an OB are taken in the <b>lower 75%</b> of the candle (for bullish), not at its top end, because from there the stop below the zone is furthest away and the reward-to-risk ratio gets worse.</p>
+      <p>A <b>Fair Value Gap (FVG)</b> is the imbalance from Chapter 0.2, measured precisely. Take three consecutive candles. If the wick of the first and the wick of the third <b>don't overlap</b>, the empty space between them is an FVG. Price passed through so fast that there were almost no trades. The market often comes back to “fill” it.</p>
+      <figure>
+        <svg id="fvg" viewBox="0 0 520 230" role="img" aria-label="Three candles with a Fair Value Gap and an order block marked"></svg>
+        <div class="sliders">
+          <label>Strength<input type="range" id="fvgS" min="0" max="40" value="26"><span class="mono" id="fvgO"></span></label>
+        </div>
+        <p class="verdict" id="fvgText" aria-live="polite"></p>
+        <figcaption>Drag the strength of the middle candle. Blue is the FVG (if there is one), orange is the OB. With a weak move there is no gap.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/ch7-fvg.jpg" alt="EURUSD M15: a bullish FVG, a return into it and continuation up" width="1075" height="774" loading="lazy" decoding="async">
+        <figcaption><b>Real example.</b> EURUSD M15, 8 October 2026, Sofia time. The strong green candle at 20:00 leaves an FVG between 1.1198 and 1.1206. An hour later price returns into the gap but doesn't close below its lower edge, and continues up to 1.1230.</figcaption>
+      </figure>
+      <p><b>POI</b> (Point of Interest) is the general name for any zone where you expect a reaction. Not all are equal. The ranking in this book, from strongest to weakest:</p>
+      <ol class="steps">
+        <li><b>An OB and an FVG that overlap.</b> Two reasons in one place.</li>
+        <li><b>An OB formed after a sweep.</b> Liquidity has been taken, the position has been built.</li>
+        <li><b>A clean FVG</b> in the right half of the range.</li>
+        <li><b>A level with liquidity plus a structural level</b> (S/R from Chapter 4).</li>
+      </ol>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>OB · order block</b>The last opposite-direction candle before a strong impulse.</div>
+      <div class="term"><b>FVG · Fair Value Gap</b>A gap between the wicks of candle 1 and candle 3 in a strong move.</div>
+      <div class="term"><b>POI · зона на интерес</b>A place where you expect price to react.</div>
+      <div class="term"><b>Mitigation · връщане в зона</b>Price comes back to “touch” an OB or FVG.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>7.4 Premium and discount: expensive and cheap</h2>
+      <p>Take the last big move, from SSL to BSL. That is the <b>dealing range</b>. Its middle, 50%, is <b>equilibrium</b>. The upper half is <b>premium</b> (expensive): it makes more sense to look for sells there. The lower half is <b>discount</b> (cheap): it makes more sense to look for buys there. Buying in premium means you pay up and your stop is far away.</p>
+      <figure>
+        <svg id="dr" viewBox="0 0 520 240" role="img" aria-label="A range with premium, equilibrium and discount"></svg>
+        <div class="sliders">
+          <label>Price<input type="range" id="drP" min="0" max="100" value="35"><span class="mono" id="drO"></span></label>
+        </div>
+        <p class="verdict" id="drText" aria-live="polite"></p>
+        <figcaption>Range 1.0780 (SSL) – 1.0900 (BSL). Drag the price and see which half it is in.</figcaption>
+      </figure>
+      <p>The typical sequence in a range is: <b>sweep of SSL → climb → sweep of BSL → reversal</b>, or the reverse. Price “breathes” between the two pools of liquidity.</p>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>Buy when price has fallen a lot, because it's cheap.</p></div>
+        <div><span class="label">Reality</span><p>“Cheap” makes sense only in context: discount of a range in a bullish trend, after liquidity has been taken. Without context “cheap” can get a lot cheaper.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Dealing range · диапазон</b>The move between the last significant liquidity below and above.</div>
+      <div class="term"><b>Premium · скъпа зона</b>The upper half of the range.</div>
+      <div class="term"><b>Discount · евтина зона</b>The lower half of the range.</div>
+      <div class="term"><b>Equilibrium · равновесие</b>50% of the range.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5r">
+    <div class="main">
+      <h2 id="s5r"><span class="dots" title="Level: intermediate">●●</span>7.5 Frame-by-frame replay</h2>
+      <p>Here everything from the chapter happens on one chart: liquidity, sweep, MSS, FVG, entry, stop and a 3R target. Play it, then step through it and say out loud what you see before pressing “Next”.</p>
+      <div class="replay" data-rp="smc"></div>
+      <h3>Drill</h3>
+      <p>Press the line on the chart or the button with the letter. You get one try per question.</p>
+      <div class="drills" data-dr="ch7"></div>
+      <h3>Now live</h3>
+      <p>Find equal highs or equal lows on M15 and mark where the sweep would be. Then check a few hours later what happened.</p>
+      <div class="tv" data-sym="FX:EURUSD,FX:GBPUSD" data-int="15"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Replay · повторение</b>Stepping through the chart candle by candle without seeing the future. The cheapest way to practise reading.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-label="Go deeper">
+    <div class="main">
+      <details class="deeper">
+        <summary><span class="dots" aria-hidden="true">●●●</span><span class="dp-t"><small>Go deeper</small><b>What a stop hunt really is</b></span><span class="drop-caret" aria-hidden="true">▾</span></summary>
+        <div class="dp-body">
+          <p>Nobody at a bank is looking at <i>your</i> stop. What the big players see is where orders are likely to cluster: above equal highs, below round numbers, beyond yesterday's high. They care because they need <b>liquidity</b>: a fund that wants to buy 500 million euros cannot do it at one price unless many people are selling at the same moment. Triggered sell stops are exactly that.</p>
+          <p>So a "hunt" is usually not a conspiracy. It is a large order looking for the other side, plus short-term traders who know where the stops are and push price there because the fill is guaranteed. The exception is a B-book broker, who does see client stops, and that is one more reason to know your broker's model.</p>
+          <p>What this means for you: a stop placed exactly where everyone else's is will be filled in the sweep. Place it where your idea is wrong, beyond the obvious pool, and size down to keep the risk at 1%.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 07</h2>
+    <ul>
+      <li>Liquidity sits above highs (BSL) and below lows (SSL). Equal highs and lows are the strongest magnets.</li>
+      <li>A sweep is a wick beyond liquidity with a close back inside; it is often the start of the real move.</li>
+      <li>An OB is the last opposite candle before the impulse. An FVG is the gap between candle 1 and candle 3.</li>
+      <li>POI strength: OB+FVG > OB after a sweep > clean FVG > level + liquidity.</li>
+      <li>Buy in discount, sell in premium, always in the context of the higher timeframe.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I marked BSL and SSL, PDH, PDL and the Asian range on EURUSD for yesterday.</label></li>
+      <li><label><input type="checkbox"> I found three FVGs on H1 and checked how many price has filled.</label></li>
+      <li><label><input type="checkbox"> I drew a range with its 50% and decided whether price is in premium or discount.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>EURUSD H1, D1 is bullish. Range: SSL 1.0780, BSL 1.0900. Asia is between 1.0812 and 1.0830. In London price falls to 1.0806 and closes back above 1.0812, then prints a strong green candle that leaves an FVG between 1.0818 and 1.0824. The last red candle before it is 1.0809–1.0815.</p>
+      <p><b>Task:</b> name the sweep, the OB and the FVG. Which half of the range are we in? Which is the strongest zone to watch if price comes back? Where is the next liquidity above?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Sweep… OB… FVG… Premium/discount… Target…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>Sweep of the Asian SSL: a wick to 1.0806, a close above 1.0812.</li>
+          <li>OB: the last red candle, 1.0809–1.0815. FVG: 1.0818–1.0824. They don't overlap but are close; the OB comes after a sweep, which makes it stronger.</li>
+          <li>Range equilibrium: (1.0780 + 1.0900) ÷ 2 = 1.0840. Price is below it: discount. With a bullish D1 this is the logical place to watch for buys.</li>
+          <li>Strongest zone: the OB after the sweep (1.0809–1.0815), its lower 75%. The scenario is invalidated by a close below the sweep's low (1.0806).</li>
+          <li>Liquidity above: the Asian high at 1.0830, then BSL at 1.0900.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Where does BSL sit?",o:["Below the lows","Above the highs","In the middle of the range"],a:1,e:"Buy-side liquidity is above the highs."},
+  {q:"What is a sweep?",o:["A slow move with the trend","A wick beyond liquidity and back again","A close above the high"],a:1,e:"Taking the stops and coming back."},
+  {q:"A bullish order block is…",o:["The last red candle before a strong move up","The first green candle","Any big candle"],a:0,e:"The last opposite candle before the impulse."},
+  {q:"An FVG forms when…",o:["Candle 1 and candle 3 overlap","The wicks of candle 1 and candle 3 don't overlap","There is a doji"],a:1,e:"The gap between the wicks of 1 and 3."},
+  {q:"Where does it make more sense to look for buys?",o:["In premium","In discount","The same everywhere"],a:1,e:"Discount is the lower, cheap half."}
+],mid:[
+  {q:"Range 1.0700–1.0800. Price is 1.0785, D1 is bullish. What does premium/discount say?",o:["A good place to buy","Price is in premium: buying here is expensive","Equilibrium"],a:1,e:"Equilibrium is 1.0750. 1.0785 is in premium."},
+  {q:"Candle 1: H 1.0820. Candle 3: L 1.0816. Is there a bullish FVG?",o:["Yes, 4 pips","No, the wicks overlap","Yes, 20 pips"],a:1,e:"Candle 3's low (1.0816) is below candle 1's high (1.0820). They overlap, so there is no gap."},
+  {q:"Which zone is strongest?",o:["A clean FVG in premium","An OB that overlaps an FVG, in discount, after a sweep","S/R alone"],a:1,e:"Overlap + the right half + liquidity taken."}
+]};
+</script>
+<script>window.REPLAYS={"smc":{"title": "Sweep, MSS, FVG and target: a bearish scenario frame by frame", "candles": [[70, 71, 65.5, 67], [67, 72, 65.7, 71.5], [71.5, 78, 71, 77.5], [77.5, 84, 77, 83.5], [83.5, 90, 83, 89.5], [89.5, 100, 89, 98.5], [98.5, 99, 95, 95.5], [95.5, 96, 92, 93], [93, 97, 92.5, 96.5], [96.5, 99.9, 96, 98], [98, 98.5, 94.5, 95], [95, 97.5, 94.2, 97], [97, 101.5, 96.5, 98], [98, 98.5, 93.5, 94], [94, 94.5, 88, 88.5], [88.5, 90, 86.5, 87], [87, 89.5, 86.8, 89], [89, 92, 88.5, 91.5], [91.5, 93.2, 90.8, 91], [91, 91.5, 85, 85.5], [85.5, 86, 80, 81], [81, 83, 79.5, 82.5], [82.5, 83, 75, 75.5], [75.5, 76, 70, 70.5], [70.5, 71, 65.2, 66.5], [66.5, 69, 66, 68.5]], "y": [63, 104], "caption": "Teaching scenario with made-up prices. Real charts are noisier, but the sequence is the same.", "steps": [{"at": 10, "h": "Equal highs.", "text": "Two almost identical highs around 100. Above them sit the sellers' stops and the orders of those waiting for a breakout. That is buy-side liquidity.", "draw": [{"t": "level", "p": 100, "from": 5, "label": "BSL ~100", "c": "liq", "until": 3}, {"t": "level", "p": 65.5, "from": 0, "label": "SSL ~65.5", "c": "liq", "until": 4}]}, {"at": 13, "h": "Sweep.", "text": "The candle breaks above the highs with a wick to 101.5 and closes back below 100. The liquidity is taken, and the breakout buyers are trapped.", "draw": [{"t": "mark", "i": 12, "p": 101.5, "label": "sweep", "c": "news"}]}, {"at": 15, "h": "MSS.", "text": "A strong bearish candle closes below the last higher low at 94.2. After a sweep this is a change of structure, not just a pullback.", "draw": [{"t": "level", "p": 94.2, "from": 11, "label": "MSS 94.2", "c": "bear", "solid": 1, "until": 3}]}, {"at": 16, "h": "FVG.", "text": "The move is so fast that a gap is left between the low of the candle before the impulse and the high of the candle after it: 90 to 93.5. That is a fair value gap.", "draw": [{"t": "zone", "p1": 90, "p2": 93.5, "from": 13, "label": "FVG", "c": "bear", "right": 1, "below": 1}]}, {"at": 19, "h": "Return and plan.", "text": "Price returns into the FVG. Here the model gives an entry around 93, a stop above the sweep high (102), where the scenario is wrong. Risk 9 points.", "draw": [{"t": "level", "p": 93, "from": 18, "label": "entry 93", "c": "ink", "solid": 1}, {"t": "level", "p": 102, "from": 18, "label": "stop 102", "c": "bear", "solid": 1, "dy": -6}]}, {"at": 26, "h": "The target.", "text": "The target is the opposite liquidity: the equal lows. 93 − 66 = 27 points, exactly 3R at a risk of 9. Price gets there and sweeps them too.", "draw": [{"t": "level", "p": 66, "from": 18, "label": "target 3R", "c": "bull", "solid": 1, "dy": 12}]}]}};window.DRILLS={"ch7": [{"src": "smc", "n": 12, "q": "Where is the biggest concentration of stops above price?", "o": [{"p": 100.4, "from": 5, "t": "above the equal highs"}, {"p": 94.2, "from": 11, "t": "below the last low"}, {"p": 89.5, "from": 4, "t": "in the middle of the move"}], "a": 0, "e": "Above the equal highs: that is where the sellers' stops and the breakout traders' orders are. 94.2 is liquidity below, and the middle of the move has no concentration."}, {"src": "smc", "n": 19, "show": [{"t": "zone", "p1": 90, "p2": 93.5, "from": 13, "label": "FVG", "c": "bear", "right": 1, "below": 1}], "q": "Which stop for the short from the FVG is best protected according to the model in this chapter?", "o": [{"p": 94.2, "from": 13, "t": "just above the FVG"}, {"p": 98.6, "from": 13, "t": "above the MSS candle"}, {"p": 102, "from": 12, "t": "above the sweep high"}], "a": 2, "e": "Above the sweep high the scenario is wrong. A stop just above the FVG is in a zone price often retests, and 98.6 is in the middle of the noise."}, {"src": "smc", "n": 16, "q": "Between which prices is the fair value gap left by the impulse?", "o": [{"t": "About 90 to 93.5"}, {"t": "About 96 to 98"}, {"t": "About 85 to 86.5"}], "a": 0, "e": "From the low of the candle before the impulse (93.5) to the high of the candle after it (90)."}, {"src": "smc", "n": 26, "q": "Entry 93, stop 102, target the equal lows around 66. What is the reward-to-risk?", "o": [{"t": "About 1:1"}, {"t": "About 3:1"}, {"t": "About 5:1"}], "a": 1, "e": "Risk 9 points, reward 27 points: 27 ÷ 9 = 3R."}]};</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  function cand(g,c,x,w,yf){var o=c[0],cl=c[1],hi=c[2],lo=c[3],col=cl>=o?"var(--bull)":"var(--bear)";el("line",{x1:x+w/2,x2:x+w/2,y1:yf(hi),y2:yf(lo),stroke:col,"stroke-width":2},g);el("rect",{x:x,width:w,y:yf(Math.max(o,cl)),height:Math.max(1.5,Math.abs(yf(o)-yf(cl))),fill:col},g)}
+  /* sweep stepper */
+  var sw=document.getElementById("sw"),sy=function(v){return 220-v*1.9};
+  var C=[[70,60,74,56],[60,42,62,40],[42,50,54,40],[50,46,56,41],[46,58,60,44],[58,48,62,46],[48,52,56,41],[52,44,54,42],[44,47,50,30],[47,62,64,46],[62,74,76,60],[74,70,78,66],[70,84,88,68],[84,96,104,82]];
+  var ends=[8,9,11,14],TX=["Three lows at almost the same price (around 40). Below them, obviously, sit the buyers' stops: SSL.","The candle wicks down to 30, takes the stops and closes back above 40. The sellers who entered on the break are now trapped.","Price closes above the last small high: MSS. The sweep is confirmed as the start of a move up.","Price heads for the liquidity above (BSL above the 74–78 high) and takes it."];
+  function draw(n){sw.innerHTML="";el("rect",{x:20,y:sy(41),width:490,height:sy(39)-sy(41)+3,fill:"var(--liq)","fill-opacity":.25},sw);
+    el("text",{x:24,y:sy(40)+16,"font-size":10,fill:"var(--liq)"},sw).textContent="SSL (equal lows)";
+    el("line",{x1:20,x2:510,y1:sy(78),y2:sy(78),stroke:"var(--liq)","stroke-dasharray":"4 4"},sw);el("text",{x:24,y:sy(78)-6,"font-size":10,fill:"var(--liq)"},sw).textContent="BSL";
+    C.slice(0,ends[n-1]).forEach(function(c,i){cand(sw,c,26+i*34,18,sy)});
+    if(n>=3){el("line",{x1:26+5*34,x2:26+11*34,y1:sy(62),y2:sy(62),stroke:"var(--bull)","stroke-dasharray":"3 3"},sw);el("text",{x:26+9*34,y:sy(62)-5,"font-size":10,fill:"var(--bull)"},sw).textContent="MSS"}
+    document.getElementById("swText").textContent=TX[n-1];Book.each("[data-sw]",function(b){b.setAttribute("aria-pressed",b.dataset.sw==n)})}
+  Book.each("[data-sw]",function(b){b.addEventListener("click",function(){draw(+b.dataset.sw)})});draw(4);
+
+  /* FVG builder */
+  var fs=document.getElementById("fvg"),fy=function(v){return 215-v*2},sl=document.getElementById("fvgS");
+  function fvg(){var s=+sl.value;fs.innerHTML="";
+    var c1=[40,36,44,32],c2=[36,46+s,48+s,34],c3=[46+s,52+s,56+s,44+s-Math.round(s*0.15)],c0=[44,38,46,36];
+    var arr=[[52,46,54,44],c0,c1,c2,c3,[52+s,58+s,62+s,50+s]];
+    var gapLo=c1[2],gapHi=c3[3];
+    el("rect",{x:20,width:490,y:fy(c1[0]),height:fy(c1[3])-fy(c1[0]),fill:"var(--news)","fill-opacity":.2},fs);
+    el("text",{x:420,y:fy(c1[3])+14,"font-size":10,fill:"var(--news)"},fs).textContent="OB";
+    if(gapHi>gapLo){el("rect",{x:20,width:490,y:fy(gapHi),height:fy(gapLo)-fy(gapHi),fill:"var(--liq)","fill-opacity":.22},fs);el("text",{x:420,y:fy(gapHi)-4,"font-size":10,fill:"var(--liq)"},fs).textContent="FVG"}
+    arr.forEach(function(c,i){cand(fs,c,60+i*60,26,fy)});
+    ["1","2","3"].forEach(function(t,i){el("text",{x:68+(i+2)*60,y:226,"font-size":10,fill:"var(--muted)"},fs).textContent="c. "+t});
+    document.getElementById("fvgO").textContent=s;
+    document.getElementById("fvgText").textContent=gapHi>gapLo?"There is an FVG: from candle 1's high to candle 3's low, "+(gapHi-gapLo)+" units. Below it, the red candle before the impulse is a bullish OB.":"No FVG: the wicks of candle 1 and candle 3 overlap. The move wasn't strong enough to leave a gap. The OB is still marked."}
+  sl.addEventListener("input",fvg);fvg();
+
+  /* dealing range */
+  var dr=document.getElementById("dr"),dp=document.getElementById("drP"),lo=1.0780,hi=1.0900,T=20,B=220;
+  function dry(v){return B-(v-lo)/(hi-lo)*(B-T)}
+  function drw(){dr.innerHTML="";var p=lo+(hi-lo)*(+dp.value)/100,mid=(lo+hi)/2;
+    el("rect",{x:60,y:T,width:450,height:dry(mid)-T,fill:"var(--bear)","fill-opacity":.12},dr);
+    el("rect",{x:60,y:dry(mid),width:450,height:B-dry(mid),fill:"var(--bull)","fill-opacity":.12},dr);
+    el("line",{x1:60,x2:510,y1:dry(mid),y2:dry(mid),stroke:"var(--fg)","stroke-dasharray":"5 4"},dr);
+    [[hi,"BSL 1.0900","var(--liq)"],[mid,"50% 1.0840","var(--fg)"],[lo,"SSL 1.0780","var(--liq)"]].forEach(function(l){el("text",{x:0,y:dry(l[0])+4,"font-size":10,fill:l[2]},dr).textContent=l[1].split(" ")[1];el("text",{x:420,y:dry(l[0])+(l[0]===hi?14:-6),"font-size":10,fill:l[2]},dr).textContent=l[1].split(" ")[0]});
+    el("text",{x:70,y:T+18,"font-size":12,fill:"var(--bear)"},dr).textContent="PREMIUM: look for sells";
+    el("text",{x:70,y:B-8,"font-size":12,fill:"var(--bull)"},dr).textContent="DISCOUNT: look for buys";
+    el("line",{x1:60,x2:510,y1:dry(p),y2:dry(p),stroke:"var(--ink)","stroke-width":2.5},dr);el("circle",{cx:300,cy:dry(p),r:6,fill:"var(--ink)"},dr);
+    document.getElementById("drO").textContent=p.toFixed(4);
+    var pct=Math.round((p-lo)/(hi-lo)*100);
+    document.getElementById("drText").textContent="Price "+p.toFixed(4)+" is at "+pct+"% of the range: "+(pct>55?"premium. Buying here is expensive; in a bearish context it makes more sense to watch for sells.":pct<45?"discount. In a bullish context this is the logical place to watch for buys.":"around equilibrium. Neither expensive nor cheap: the worst place for a new decision.")}
+  dp.addEventListener("input",drw);drw();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

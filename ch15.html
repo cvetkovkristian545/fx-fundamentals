@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Order flow · FX Fundamentals</title>
+<meta name="description" content="Order flow · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch15.html">
+<link rel="alternate" hreflang="bg" href="bg/ch15.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="15">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">15</div>
+    <h1>Advanced: Order Flow</h1>
+    <blockquote class="quote">
+      The market is an auction. Price searches for a place where buyers and sellers agree to trade.
+      <cite>The core idea of Market Auction Theory (Peter Steidlmayer, CBOT)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>explain balance and imbalance in the language of the auction;</li>
+        <li>read DOM, heatmap, footprint, delta and CVD at a basic level;</li>
+        <li>find the POC, value area and LVN in a volume profile and recognise absorption.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s0">
+    <div class="main">
+      <div class="box note">
+        <span class="label">This chapter is ●●●</span>
+        <p>You can skip it on a first read. Order flow is the most precise layer in the book, but it is useless without the context from Chapters 6–10. The rule from Order Flow Mafia (cbrackn), borrowed from Carmine Rosato, is CLC: <b>Context</b> (direction from the higher timeframe), <b>Location</b> (a key level), <b>Confirmation</b> (order flow). Order flow is only the third C.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: advanced">●●●</span>15.1 The market as an auction</h2>
+      <div class="box note">
+        <span class="label">Before this chapter</span>
+        <p>Order flow is a refinement, not a starting point. On the <a href="ch0-3.html">fast track</a> it comes after your base setup has passed a backtest and a demo test. Then test each order-flow condition as a filter (<a href="ch0-3.html#s8">0.3.8</a>).</p>
+      </div>
+      <p>In an auction the price rises until buyers stop bidding and falls until sellers stop offering. The market works the same way. There are two modes:</p>
+      <div class="four">
+        <div><span class="label" style="color:var(--liq)">Balance</span><p>Price swings inside a range. Both sides agree this is a "fair" price. Most trading happens in the middle.</p></div>
+        <div><span class="label" style="color:var(--news)">Imbalance</span><p>One side is stronger. Price leaves the range and looks for a new area of agreement. The move is fast, with little trading.</p></div>
+      </div>
+      <p>The balance range rules in this framework: the meaningful levels are <b>the top and the bottom of the range</b>. At the bottom you expect buyers, at the top sellers. You do not sell at the bottom unless sellers break it and <b>accept</b> prices below it (volume trades there). You do not buy at the top unless buyers break it and accept prices above it.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>AMT · теория на пазарния аукцион</b>Auction Market Theory: price seeks a place of agreement between buyers and sellers.</div>
+      <div class="term"><b>Acceptance · приемане</b>Price stays beyond the level and volume trades there.</div>
+      <div class="term"><b>Rejection · отказ</b>Price quickly returns from the level, with almost no volume beyond it.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: advanced">●●●</span>15.2 The tools</h2>
+      <figure>
+        <div class="tabs" data-group="tools">
+          <button class="chip" data-tab="dom">DOM</button>
+          <button class="chip" data-tab="heat">Heatmap</button>
+          <button class="chip" data-tab="fp">Footprint</button>
+          <button class="chip" data-tab="cvd">Delta and CVD</button>
+        </div>
+        <div class="pane" data-group="tools" data-pane="dom">
+          <p><b>DOM</b> (Depth of Market) is the order book from Chapter 0.2: how many resting (passive, limit) orders sit at each price above and below the current one. It shows intentions. Caution: orders can be pulled before price reaches them.</p>
+        </div>
+        <div class="pane" data-group="tools" data-pane="heat">
+          <p>A <b>heatmap</b> (for example in Bookmap) draws the DOM over time: the bright horizontal lines are large limit orders sitting there. You can see when an order is eaten, when it is pulled and when price "bounces" off it.</p>
+        </div>
+        <div class="pane" data-group="tools" data-pane="fp">
+          <p>A <b>footprint</b> splits each candle into levels and shows how much was bought and how much sold with market (aggressive) orders at each level. You can see where inside the candle the battle took place.</p>
+          <div class="tablewrap" data-name="footprint-primer">
+            <table class="data"><thead><tr><th class="num">Price</th><th class="num">Sold (bid)</th><th class="num">Bought (ask)</th><th class="num">Delta</th></tr></thead>
+              <tbody><tr><td class="num">1.0844</td><td class="num">120</td><td class="num">310</td><td class="num" style="color:var(--bull)">+190</td></tr>
+              <tr><td class="num">1.0843</td><td class="num">260</td><td class="num">280</td><td class="num">+20</td></tr>
+              <tr><td class="num">1.0842</td><td class="num">540</td><td class="num">150</td><td class="num" style="color:var(--bear)">−390</td></tr>
+              <tr><td class="num">1.0841</td><td class="num">610</td><td class="num">90</td><td class="num" style="color:var(--bear)">−520</td></tr></tbody></table>
+          </div>
+          <p class="fb">A notional candle: at the bottom the sellers are aggressive, at the top the buyers. If price still closes high, the sellers at the bottom were taken in (absorbed).</p>
+        </div>
+        <div class="pane" data-group="tools" data-pane="cvd">
+          <p><b>Delta</b> = bought with market orders minus sold with market orders for one candle. <b>CVD</b> (Cumulative Volume Delta) is the delta accumulated over time. When price rises and CVD rises, buyers are moving price. When price stalls while CVD falls hard, someone is taking in the sellers: that is absorption (15.4).</p>
+        </div>
+      </figure>
+      <div class="box warn">
+        <span class="label">Important for forex</span>
+        <p>The spot currency market has no central exchange, so there is no total volume. The volume your broker shows is only its own flow or the tick count. For real order flow, analysts watch the CME <b>futures</b>: 6E for the euro, 6B for the pound, 6J for the yen, GC for gold. They move almost in sync with spot and are a good proxy.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>DOM</b>Depth of Market: resting orders by price.</div>
+      <div class="term"><b>Heatmap</b>The DOM drawn over time.</div>
+      <div class="term"><b>Footprint</b>A candle split by price, with bought and sold at each.</div>
+      <div class="term"><b>Delta / CVD</b>Aggressive buys minus aggressive sells; the accumulated delta.</div>
+      <div class="term"><b>Aggressive vs passive</b>A market order (aggressive) versus a limit order (passive).</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: advanced">●●●</span>15.3 Volume profile</h2>
+      <p>A volume profile turns volume sideways: it shows how much traded at each price over a period, not per candle. You get "mountains" and "valleys".</p>
+      <figure>
+        <svg id="vp" viewBox="0 0 520 280" role="img" aria-label="Volume profile with POC, value area and LVN"></svg>
+        <div class="tabs" data-group="shape">
+          <button class="chip" data-tab="D">D: balance</button>
+          <button class="chip" data-tab="P">P: short covering / buyers</button>
+          <button class="chip" data-tab="b">b: liquidation / sellers</button>
+          <button class="chip" data-tab="double">Double</button>
+        </div>
+        <p class="verdict" id="vpText" aria-live="polite"></p>
+        <figcaption>Four typical profile shapes. The blue band is the value area (70% of volume); the line is the POC.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="volume-profile">
+        <table class="data">
+          <thead><tr><th>Term</th><th>What it is</th><th>How to use it</th></tr></thead>
+          <tbody>
+            <tr><td><b>POC</b></td><td>The price with the most volume</td><td>The "fair" price; a magnet in balance.</td></tr>
+            <tr><td><b>Value area (VAH, VAL)</b></td><td>The area holding about 70% of volume</td><td>Its edges are reaction levels.</td></tr>
+            <tr><td><b>HVN</b></td><td>High volume node</td><td>Price slows down and trades for a long time.</td></tr>
+            <tr><td><b>LVN</b></td><td>Low volume node</td><td>Price passes through fast or bounces. Often lines up with an FVG from Chapter 7.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>POC</b>Point of Control: the price with the largest volume.</div>
+      <div class="term"><b>VAH / VAL</b>The upper and lower edges of the value area.</div>
+      <div class="term"><b>HVN / LVN</b>High and low volume nodes.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: advanced">●●●</span>15.4 Absorption: effort versus result</h2>
+      <p>Absorption happens when one side pushes hard (large <b>effort</b>: big negative delta) and price barely moves (small <b>result</b>). Someone big sits with limit orders and takes everything. When the aggressive sellers are exhausted, price usually turns the other way.</p>
+      <figure class="diagram">
+        <svg id="abs" viewBox="0 0 520 260" role="img" aria-label="Price makes a double bottom while CVD falls hard"></svg>
+        <button class="toggle" id="absBtn" aria-pressed="false">Show the divergence</button>
+        <figcaption>Top: price. Bottom: CVD. Price does not make a new low even though sellers push even harder.</figcaption>
+      </figure>
+      <p>This is a divergence between delta and price, a relative of the SMT and RSI divergences from Chapter 4, but on real orders. It is strongest at a key level (range low, PDL, zone after a sweep).</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Absorption · абсорбция</b>Passive orders take in aggressive pressure without price moving.</div>
+      <div class="term"><b>Effort vs result</b>Wyckoff's principle: big effort with a small result is a warning.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: intermediate">●●</span>15.5 If-then plans and bad conditions</h2>
+      <p>The most valuable practice from the order flow world is not a tool but a habit: <b>arrive at the session with an idea</b>. Before the open you write "if–then" sentences around the levels:</p>
+      <ul>
+        <li><b>If</b> price reaches the bottom of the range and I see strong buying (absorption, positive delta), <b>then</b> I expect a move to yesterday's high.</li>
+        <li><b>If</b> the bottom breaks and there is acceptance below it, <b>then</b> I expect a move to the next demand zone.</li>
+        <li><b>If</b> neither happens, <b>then</b> I do nothing today.</li>
+      </ul>
+      <p><b>When conditions are bad.</b> Before big news the market often "drifts" in a tight range with false breaks. On days before FOMC or early in a week when the market is waiting, breakouts often fail. The calendar is the first filter.</p>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>With Bookmap I will see what the banks are doing and win every time.</p></div>
+        <div><span class="label">Reality</span><p>Order flow shows what is happening now, not what will happen. Orders can be bait. Without context and location it is just a lot of flashing colours.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>If-then plan · план ако–тогава</b>Conditional sentences around the levels, written before the session.</div>
+      <div class="term"><b>CLC</b>Context, Location, Confirmation: the three things every good setup has.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 15</h2>
+    <ul>
+      <li>The market is an auction: balance and imbalance. In a range the meaningful levels are the edges.</li>
+      <li>DOM and heatmap: the passive orders. Footprint, delta, CVD: the aggressive ones.</li>
+      <li>Volume profile: POC, value area, HVN, LVN. LVN ≈ FVG.</li>
+      <li>Absorption: big effort, small result. Strongest at a key level.</li>
+      <li>CLC: context, location, confirmation. Order flow is only the confirmation. For forex: the CME futures.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I added Volume Profile (Fixed Range) in TradingView over the last week of EURUSD.</label></li>
+      <li><label><input type="checkbox"> I found the POC, VAH, VAL and one LVN, and compared the LVN with an FVG on the chart.</label></li>
+      <li><label><input type="checkbox"> I wrote three "if–then" sentences for tomorrow's session.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>6E (the euro future) is in a weekly range of 1.0820–1.0870. Yesterday was a balanced day. Today in London price drops to 1.0818, below the range low. The footprint shows a big negative delta at 1.0818–1.0820, but price does not continue lower. CVD makes a lower low, price makes an equal low. The EURUSD D1 is bullish.</p>
+      <p><b>Task:</b> apply CLC. What is the name for what you are seeing? Write two "if–then" plans.</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Context… Location… Confirmation… If… then…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>Context: D1 bullish. Location: the bottom of the weekly range, with a sweep below it. Confirmation: absorption (big negative delta, no new drop) and a CVD/price divergence.</li>
+          <li>If price comes back above 1.0820 with positive delta (buyers take the initiative), then I expect a move to the middle of the range and yesterday's high.</li>
+          <li>If price accepts prices below 1.0818 (volume trades there, CVD keeps falling, no absorption), then the absorption was only a pause and the setup is invalidated.</li>
+          <li>If neither is clear by the end of the London window, then today is not my day.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What does the DOM show?",o:["Past trades","Resting limit orders by price","The news"],a:1,e:"Depth of Market: the order book."},
+  {q:"What is the POC?",o:["The price with the most volume","The highest price","The average price"],a:0,e:"Point of Control."},
+  {q:"Roughly what share of volume does the value area include?",o:["30%","50%","70%"],a:2,e:"The standard is about 70%."},
+  {q:"Absorption is…",o:["A strong move with big delta","Big effort, small result","No volume"],a:1,e:"Pressure that someone takes in without price moving."},
+  {q:"Where do you get reliable volume for EURUSD?",o:["From the broker","From the CME 6E future","There is no way"],a:1,e:"Spot forex has no central volume."}
+],mid:[
+  {q:"Price is at the top of a range. Buyers break out but immediately come back inside, with almost no volume beyond. What is this?",o:["Acceptance","Rejection","Absorption of buyers"],a:1,e:"No volume beyond the level means no acceptance."},
+  {q:"Price enters an LVN. What is most likely?",o:["It will trade there for a long time","It will pass through fast or bounce","Nothing"],a:1,e:"In low volume there is nothing to hold price."},
+  {q:"Perfect absorption in the middle of the range, with no key level. How do you rate it by CLC?",o:["Strong","Weak: Location is missing","Perfect"],a:1,e:"Confirmation without location is noise."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* volume profile shapes */
+  var vp=document.getElementById("vp");
+  function gauss(x,m,s){return Math.exp(-((x-m)*(x-m))/(2*s*s))}
+  var SH={D:function(i){return gauss(i,20,6)},P:function(i){return gauss(i,29,4)+0.18*gauss(i,14,6)},b:function(i){return gauss(i,10,4)+0.18*gauss(i,25,6)},double:function(i){return gauss(i,10,3.5)+0.9*gauss(i,30,3.5)+0.04}};
+  var TX={D:"D profile: a balanced day. Volume sits in the middle, the POC is near the centre. The range rules apply: buyers at VAL, sellers at VAH.",P:"P profile: volume at the top, a thin tail below. Usually buying (or short covering) that lifted price and found agreement higher.",b:"b profile: volume at the bottom, a thin tail above. Usually selling or liquidation that pushed price down.",double:"Double profile: two areas of agreement with an LVN between them. Price often passes quickly through the LVN from one area to the other. The LVN here is the real FVG."};
+  function draw(k){vp.innerHTML="";var N=40,vals=[];for(var i=0;i<N;i++)vals.push(SH[k](i)+0.02);
+    var tot=vals.reduce(function(a,b){return a+b},0),poc=vals.indexOf(Math.max.apply(null,vals));
+    var lo=poc,hi=poc,acc=vals[poc];while(acc<tot*0.7){var up=hi+1<N?vals[hi+1]:-1,dn=lo-1>=0?vals[lo-1]:-1;if(up>=dn){hi++;acc+=up}else{lo--;acc+=dn}}
+    var mx=Math.max.apply(null,vals);function Y(i){return 260-i*6}
+    el("rect",{x:40,y:Y(hi)-3,width:460,height:(hi-lo+1)*6,fill:"var(--liq)","fill-opacity":.10},vp);
+    vals.forEach(function(v,i){el("rect",{x:40,y:Y(i)-3,width:Math.max(1,v/mx*360),height:5,fill:i===poc?"var(--news)":(i>=lo&&i<=hi?"var(--liq)":"var(--muted)"),"fill-opacity":i===poc?1:.7},vp)});
+    el("line",{x1:40,x2:500,y1:Y(poc),y2:Y(poc),stroke:"var(--news)","stroke-width":1.5},vp);el("text",{x:410,y:Y(poc)-5,"font-size":11,fill:"var(--news)"},vp).textContent="POC";
+    el("text",{x:410,y:Y(hi)-6,"font-size":10,fill:"var(--liq)"},vp).textContent="VAH";el("text",{x:410,y:Y(lo)+14,"font-size":10,fill:"var(--liq)"},vp).textContent="VAL";
+    if(k==="double"){el("text",{x:200,y:Y(20)+4,"font-size":11,fill:"var(--bear)"},vp).textContent="← LVN (≈ FVG)"}
+    document.getElementById("vpText").textContent=TX[k]}
+  Book.each('[data-group="shape"] button',function(b){b.addEventListener("click",function(){draw(b.dataset.tab)})});draw("D");
+
+  /* absorption */
+  var ab=document.getElementById("abs"),show=false;
+  var price=[70,64,58,50,44,40,46,52,48,42,40,41,48,56,64,70],cvd=[0,-6,-14,-24,-32,-38,-34,-30,-40,-52,-62,-66,-60,-48,-36,-26];
+  function d(){ab.innerHTML="";function X(i){return 30+i*31}function P(v){return 130-v*1.4}function C(v){return 170-v*1.2}
+    el("text",{x:30,y:14,"font-size":10,fill:"var(--muted)"},ab).textContent="price";el("text",{x:30,y:160,"font-size":10,fill:"var(--muted)"},ab).textContent="CVD";
+    el("line",{x1:20,x2:510,y1:150,y2:150,stroke:"var(--line)"},ab);
+    el("polyline",{points:price.map(function(v,i){return X(i)+","+P(v)}).join(" "),fill:"none",stroke:"var(--fg)","stroke-width":2.5},ab);
+    el("polyline",{points:cvd.map(function(v,i){return X(i)+","+C(v)}).join(" "),fill:"none",stroke:"var(--ink)","stroke-width":2},ab);
+    if(show){el("line",{x1:X(5),y1:P(40),x2:X(10),y2:P(40),stroke:"var(--bull)","stroke-width":2,"stroke-dasharray":"5 4"},ab);
+      el("line",{x1:X(5),y1:C(-38),x2:X(11),y2:C(-66),stroke:"var(--bear)","stroke-width":2,"stroke-dasharray":"5 4"},ab);
+      el("text",{x:X(6),y:P(40)+16,"font-size":10,fill:"var(--bull)"},ab).textContent="price: equal low";
+      el("text",{x:X(6),y:C(-66)+14,"font-size":10,fill:"var(--bear)"},ab).textContent="CVD: lower low (more selling)";
+      el("rect",{x:X(9)-8,y:P(42)-10,width:X(11)-X(9)+16,height:24,fill:"none",stroke:"var(--liq)","stroke-width":2,rx:4},ab);
+      el("text",{x:X(12),y:P(46),"font-size":10,fill:"var(--liq)"},ab).textContent="absorption"}}
+  var b=document.getElementById("absBtn");b.addEventListener("click",function(){show=!show;b.setAttribute("aria-pressed",show);b.textContent=show?"Hide the divergence":"Show the divergence";d()});d();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

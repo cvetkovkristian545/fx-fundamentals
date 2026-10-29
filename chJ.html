@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Journal and Bias File · FX Fundamentals</title>
+<meta name="description" content="Journal and Bias File · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="chJ.html">
+<link rel="alternate" hreflang="bg" href="bg/chJ.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+<style>
+.jform{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.jform label{display:grid;gap:4px;font:.78rem var(--f-mono);color:var(--muted)}
+.jform input,.jform select,.jform textarea{font:inherit;font-size:.95rem;font-family:var(--f-body);padding:8px 10px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--bg);color:var(--fg)}
+.jform label{min-width:0}.jform input,.jform select,.jform textarea{min-width:0;width:100%;box-sizing:border-box}
+.jform .wide{grid-column:1/-1}.jform textarea{min-height:64px}
+.jbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.jstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.jstats div{border:1px solid var(--line);border-radius:var(--r);padding:10px;text-align:center;background:var(--bg)}
+.jstats b{display:block;font:700 1.3rem var(--f-display)}.jstats span{font:.72rem var(--f-mono);color:var(--muted)}
+.jtab td,.jtab th{white-space:nowrap}.jtab .del{border:0;background:none;color:var(--bear);cursor:pointer;font-size:1rem}
+.rpos{color:var(--bull);font-weight:700}.rneg{color:var(--bear);font-weight:700}
+</style>
+</head>
+<body>
+<main class="book" data-ch="J">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">J</div>
+    <h1>Journal and Bias File</h1>
+    <blockquote class="quote">
+      The first principle is that you must not fool yourself, and you are the easiest person to fool.
+      <cite>Richard Feynman, 1974</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">Here you can</p>
+      <ul class="cando">
+        <li>log every trade with a score for the setup and for the execution (Chapter 36);</li>
+        <li>see the win rate, the average R and the expectancy without calculating by hand;</li>
+        <li>fill in the weekly bias file (Chapter 28);</li>
+        <li>download everything as an Excel file (CSV).</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>J.1 New trade</h2>
+      <p>Log skipped setups too: they show how often your hesitation costs you money. The data is stored only in this browser, so download the file from time to time.</p>
+      <form class="jform" id="tForm" autocomplete="off">
+        <label>Date<input type="date" name="date" required></label>
+        <label>Instrument<input type="text" name="pair" placeholder="EURUSD" required></label>
+        <label>Session<select name="session"><option>London</option><option>New York</option><option>Asia</option><option>Other</option></select></label>
+        <label>Direction<select name="dir"><option>Buy</option><option>Sell</option></select></label>
+        <label>Setup<input type="text" name="setup" placeholder="sweep + MSS + FVG"></label>
+        <label>Timeframe<input type="text" name="tf" placeholder="M15"></label>
+        <label>Entry<input type="number" name="entry" step="any"></label>
+        <label>Stop<input type="number" name="sl" step="any"></label>
+        <label>Target<input type="number" name="tp" step="any"></label>
+        <label>Result (R)<input type="number" name="r" step="0.1" placeholder="+3 / −1 / 0"></label>
+        <label>Status<select name="status"><option>Taken</option><option>Skipped</option></select></label>
+        <label>Setup score /10<input type="number" name="ss" min="0" max="10" step="0.5"></label>
+        <label>Execution score /10<input type="number" name="se" min="0" max="10" step="0.5"></label>
+        <label class="wide">Note: what I saw, what I felt, what I would do differently<textarea name="note"></textarea></label>
+        <div class="jbar wide"><button class="chip" type="submit">＋ Save the trade</button><span class="fb" id="tMsg" aria-live="polite"></span></div>
+      </form>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>R · единица риск</b>The result expressed as a number of risks. +3R means three times what was risked.</div>
+      <div class="term"><b>Expectancy · очакване</b>The average result per trade in R. Above zero means an edge.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>J.2 Your numbers</h2>
+      <div class="jstats" id="tStats"></div>
+      <div class="jwrap" style="margin-top:12px;overflow-x:auto"><table class="data jtab"><thead><tr><th>Date</th><th>Instrument</th><th>Session</th><th>Direction</th><th>Setup</th><th>R</th><th>Setup</th><th>Exec.</th><th>Status</th><th></th></tr></thead><tbody id="tBody"></tbody></table></div>
+      <div class="jbar"><button class="chip" type="button" id="tCsv">⬇ Download the journal (Excel)</button></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Win rate · процент печеливши</b>Winning trades divided by all trades taken.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>J.3 Weekly bias file</h2>
+      <p>Filled in on Sunday, before the market opens. If you can't write scenario A and B, you don't yet know what you are waiting for.</p>
+      <form class="jform" id="bForm" autocomplete="off">
+        <label>Week of<input type="date" name="week" required></label>
+        <label>DXY direction<select name="dxy"><option>Up</option><option>Down</option><option>Unclear</option></select></label>
+        <label>Risk-on / off<select name="risk"><option>Risk-on</option><option>Risk-off</option><option>Neutral</option></select></label>
+        <label>Pairs for the week<input type="text" name="pairs" placeholder="EURUSD, GBPUSD"></label>
+        <label class="wide">Key levels (weekly, daily)<input type="text" name="levels" placeholder="PWH 1.0950, PWL 1.0820, ..."></label>
+        <label class="wide">High-impact news (Forex Factory, red)<input type="text" name="news" placeholder="Wednesday 15:30 US CPI, ..."></label>
+        <label class="wide">Scenario A (main)<textarea name="a" placeholder="If… then…"></textarea></label>
+        <label class="wide">Scenario B (the opposite)<textarea name="b" placeholder="If… then…"></textarea></label>
+        <label class="wide">What I will NOT do this week<input type="text" name="avoid" placeholder="No trades 30 min before CPI"></label>
+        <div class="jbar wide"><button class="chip" type="submit">＋ Save the bias file</button><span class="fb" id="bMsg" aria-live="polite"></span></div>
+      </form>
+      <div class="jwrap" style="margin-top:12px;overflow-x:auto"><table class="data jtab"><thead><tr><th>Week</th><th>DXY</th><th>Risk</th><th>Pairs</th><th>Scenario A</th><th></th></tr></thead><tbody id="bBody"></tbody></table></div>
+      <div class="jbar"><button class="chip" type="button" id="bCsv">⬇ Download the bias files (Excel)</button></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Bias · посока</b>Your expectation for the week's direction, before you see a setup.</div>
+    </aside>
+  </section>
+
+</main>
+<script src="book.js"></script>
+<script>
+(function(){
+  var B=window.Book;
+  function load(k){try{return JSON.parse(B.store(k)||"[]")||[]}catch(e){return[]}}
+  function save(k,v){B.store(k,JSON.stringify(v))}
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function data(f){var o={};Array.prototype.forEach.call(f.elements,function(x){if(x.name)o[x.name]=x.value});return o}
+  var tf=document.getElementById("tForm"),bf=document.getElementById("bForm");
+  tf.date.value=new Date().toISOString().slice(0,10);bf.week.value=new Date().toISOString().slice(0,10);
+  /* trades */
+  function drawT(){var T=load("bJ-trades"),tb=document.getElementById("tBody"),played=T.filter(function(t){return t.status!=="Skipped"&&t.r!==""});
+    tb.innerHTML=T.map(function(t,i){var r=+t.r;return "<tr><td>"+esc(t.date)+"</td><td>"+esc(t.pair)+"</td><td>"+esc(t.session)+"</td><td>"+esc(t.dir)+"</td><td>"+esc(t.setup)+"</td><td class='"+(t.r===""?"":r>0?"rpos":r<0?"rneg":"")+"'>"+(t.r===""?"–":(r>0?"+":"")+r+"R")+"</td><td>"+esc(t.ss||"–")+"</td><td>"+esc(t.se||"–")+"</td><td>"+esc(t.status)+"</td><td><button class='del' data-i='"+i+"' aria-label='Delete'>✕</button></td></tr>"}).reverse().join("")||"<tr><td colspan='10'>No entries yet.</td></tr>";
+    var n=played.length,w=played.filter(function(t){return +t.r>0}).length,sum=played.reduce(function(a,t){return a+(+t.r)},0),
+        se=T.filter(function(t){return t.se!==""&&t.se!=null}),avgE=se.length?se.reduce(function(a,t){return a+(+t.se)},0)/se.length:0,miss=T.filter(function(t){return t.status==="Skipped"}).length;
+    document.getElementById("tStats").innerHTML=[["Taken",n],["Winners",n?Math.round(w/n*100)+"%":"–"],["Total",(sum>0?"+":"")+sum.toFixed(1)+"R"],["Expectancy",n?(sum/n).toFixed(2)+"R":"–"],["Execution",se.length?avgE.toFixed(1)+"/10":"–"],["Skipped",miss]].map(function(x){return "<div><b>"+x[1]+"</b><span>"+x[0]+"</span></div>"}).join("")}
+  tf.addEventListener("submit",function(e){e.preventDefault();var T=load("bJ-trades");T.push(data(tf));save("bJ-trades",T);
+    ["setup","entry","sl","tp","r","ss","se","note"].forEach(function(k){tf[k].value=""});document.getElementById("tMsg").textContent="Saved ✓ ("+T.length+" in total)";drawT()});
+  document.getElementById("tBody").addEventListener("click",function(e){var b=e.target.closest(".del");if(!b)return;if(!confirm("Delete this entry?"))return;var T=load("bJ-trades");T.splice(+b.getAttribute("data-i"),1);save("bJ-trades",T);drawT()});
+  document.getElementById("tCsv").addEventListener("click",function(){var T=load("bJ-trades"),H=[["Date","Instrument","Session","Direction","Setup","Timeframe","Entry","Stop","Target","Result R","Status","Setup score","Execution score","Note"]];
+    T.forEach(function(t){H.push([t.date,t.pair,t.session,t.dir,t.setup,t.tf,t.entry,t.sl,t.tp,t.r,t.status,t.ss,t.se,t.note])});B.saveFile(this,"FX-dnevnik.csv",B.csvText(H))});
+  /* bias */
+  function drawB(){var L=load("bJ-bias");B.store("bJ-bias-n",String(L.length));document.getElementById("bBody").innerHTML=L.map(function(b,i){return "<tr><td>"+esc(b.week)+"</td><td>"+esc(b.dxy)+"</td><td>"+esc(b.risk)+"</td><td>"+esc(b.pairs)+"</td><td>"+esc((b.a||"").slice(0,60))+"</td><td><button class='del' data-i='"+i+"' aria-label='Delete'>✕</button></td></tr>"}).reverse().join("")||"<tr><td colspan='6'>No bias files yet.</td></tr>"}
+  bf.addEventListener("submit",function(e){e.preventDefault();var L=load("bJ-bias");L.push(data(bf));save("bJ-bias",L);["pairs","levels","news","a","b","avoid"].forEach(function(k){bf[k].value=""});document.getElementById("bMsg").textContent="Saved ✓";drawB()});
+  document.getElementById("bBody").addEventListener("click",function(e){var b=e.target.closest(".del");if(!b)return;if(!confirm("Delete this entry?"))return;var L=load("bJ-bias");L.splice(+b.getAttribute("data-i"),1);save("bJ-bias",L);drawB()});
+  document.getElementById("bCsv").addEventListener("click",function(){var L=load("bJ-bias"),H=[["Week","DXY","Risk-on/off","Pairs","Levels","News","Scenario A","Scenario B","I avoid"]];
+    L.forEach(function(b){H.push([b.week,b.dxy,b.risk,b.pairs,b.levels,b.news,b.a,b.b,b.avoid])});B.saveFile(this,"FX-bias-fajlove.csv",B.csvText(H))});
+  drawT();drawB();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

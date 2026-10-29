@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>News risk · FX Fundamentals</title>
+<meta name="description" content="News risk · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch13.html">
+<link rel="alternate" hreflang="bg" href="bg/ch13.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="13">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">13</div>
+    <h1>News Risk Protocol</h1>
+    <blockquote class="quote">
+      The market can stay irrational longer than you can stay solvent.
+      <cite>Attributed to John Maynard Keynes</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>split news into red, orange and yellow, and know the buffer around each;</li>
+        <li>check Forex Factory for 30 seconds before every session;</li>
+        <li>recognise a sweep created by news and know when (and whether) to read it.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>13.1 Why news is a separate world</h2>
+      <p>In a normal hour EURUSD travels 10–20 pips. In the first minute after a surprise CPI it can travel 40 one way and 30 the other. The spread widens, stops fill with slippage, and candles lose their usual meaning. That is why news gets its own rules. Their goal is not for you to profit from the news but for the news not to catch you by surprise.</p>
+      <div class="box ff">
+        <span class="label">Watch on Forex Factory</span>
+        <p>Forex Factory (forexfactory.com) is the free economic calendar almost every trader uses. Each event has a coloured folder for impact: red (high), orange (medium), yellow (low). Chapter 19 shows how to set it up step by step.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>High impact · висока важност</b>A red folder on Forex Factory. Can move the market by dozens of pips in seconds.</div>
+      <div class="term"><b>Spread widening · разширяване на спреда</b>The spread grows around news because liquidity providers step back.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>13.2 Classification and buffers</h2>
+      <div class="tablewrap" data-name="novini-bufer">
+        <table class="data">
+          <thead><tr><th>Event</th><th>Impact</th><th>Action</th><th>Buffer</th></tr></thead>
+          <tbody>
+            <tr><td>NFP (US employment)</td><td style="color:var(--bear)">High</td><td>No new positions</td><td class="mono">−30 min → +60 min</td></tr>
+            <tr><td>Fed decision (FOMC)</td><td style="color:var(--bear)">High</td><td>No new positions</td><td class="mono">−60 min → +60 min</td></tr>
+            <tr><td>CPI / Core CPI</td><td style="color:var(--bear)">High</td><td>No new positions</td><td class="mono">−30 min → +30 min</td></tr>
+            <tr><td>ECB, BoJ, BoE decision</td><td style="color:var(--bear)">High</td><td>No new positions</td><td class="mono">−60 min → +60 min</td></tr>
+            <tr><td>GDP (first estimate)</td><td style="color:var(--bear)">High</td><td>No new positions</td><td class="mono">−30 min → +30 min</td></tr>
+            <tr><td>Central bank press conference</td><td style="color:var(--bear)">High</td><td>No new positions</td><td class="mono">the whole event</td></tr>
+            <tr><td>PMI, retail sales, ADP, trade balance</td><td style="color:var(--news)">Medium</td><td>Half size</td><td class="mono">about ±15 min</td></tr>
+            <tr><td>Housing data, permits, small surveys</td><td>Low</td><td>Normal</td><td class="mono">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Event<select id="ev">
+              <option value="30|60">NFP</option>
+              <option value="60|60">FOMC</option>
+              <option value="30|30" selected>CPI</option>
+              <option value="60|60">ECB / BoJ / BoE</option>
+              <option value="30|30">GDP</option>
+              <option value="15|15">Medium impact</option>
+            </select></label>
+            <label>Time (Sofia time)<input type="time" id="evT" value="15:30"></label>
+          </div>
+          <svg id="evSvg" viewBox="0 0 520 90" role="img" aria-label="No-trade window around the news"></svg>
+          <div class="out" id="evOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Work out today's window with no new positions.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>NFP</b>Non-Farm Payrolls: new US jobs outside agriculture. Usually the first Friday of the month.</div>
+      <div class="term"><b>FOMC</b>The Fed committee that sets interest rates. 8 times a year.</div>
+      <div class="term"><b>CPI</b>Consumer Price Index: the main measure of inflation.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>13.3 The pre-session check</h2>
+      <p>This check takes 30 seconds and is done before every analysis, no exceptions:</p>
+      <div class="calc">
+        <div style="display:grid;gap:6px" id="pn">
+          <label><input type="checkbox"> Forex Factory checked for the next 4 hours</label>
+          <label><input type="checkbox"> Red folders for the currencies in my pairs are marked</label>
+          <label><input type="checkbox"> Buffers calculated and written down</label>
+          <label><input type="checkbox"> Open positions have a plan for the news (Chapter 12)</label>
+          <label><input type="checkbox"> New decisions only after the buffer</label>
+        </div>
+        <div class="out" id="pnOut" aria-live="polite"></div>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>The most common cause of an "unexplained" loss for beginners is news they did not know about. It was in the calendar. The calendar is not to blame.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Economic calendar · икономически календар</b>A list of the times of all data releases and speeches.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>13.4 A sweep created by news</h2>
+      <p>Sometimes the news creates a setup by itself. The spike after the number often runs past an important level with liquidity (the London low, PDH), takes the stops and comes back. Once the market calms down, an MSS in the opposite direction forms on the lower timeframe, along with a zone (OB or FVG) around the spike.</p>
+      <figure class="diagram">
+        <svg id="ns" viewBox="0 0 520 230" role="img" aria-label="News spike, sweep of a level and a reverse structure shift"></svg>
+        <div class="parts">
+          <button class="chip" data-ns="1">1. Before</button>
+          <button class="chip" data-ns="2">2. The spike</button>
+          <button class="chip" data-ns="3">3. Settling</button>
+          <button class="chip" data-ns="4">4. MSS and zone</button>
+        </div>
+        <p class="verdict" id="nsText" aria-live="polite"></p>
+      </figure>
+      <p>Requirements to read it as a setup: at least 30 minutes after the news, D1/H4 structure confirms the direction, and there is at least 3R to the next liquidity. Without them it is just noise.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>News spike · новинарски шип</b>The sharp move in the first seconds and minutes after the release.</div>
+      <div class="term"><b>Settle · успокояване</b>Volatility returning to normal, usually 15–30 minutes after the number.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: intermediate">●●</span>13.5 Geopolitical shock</h2>
+      <p>Wars, attacks and escalations are not in the calendar. When they happen, the market switches to risk-off mode (Chapter 22). The typical reaction:</p>
+      <div class="tablewrap" data-name="geopolitika-reakcia">
+        <table class="data">
+          <thead><tr><th>Instrument</th><th>Usual direction in a shock</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Gold (XAUUSD)</td><td style="color:var(--bull)">Up</td><td>Safe haven; reacts first</td></tr>
+            <tr><td>Japanese yen</td><td style="color:var(--bull)">Up (USDJPY down)</td><td>Safe haven; carry positions unwound</td></tr>
+            <tr><td>Swiss franc</td><td style="color:var(--bull)">Up</td><td>Safe haven</td></tr>
+            <tr><td>AUD, NZD, emerging-market currencies</td><td style="color:var(--bear)">Down</td><td>Risk currencies</td></tr>
+            <tr><td>Stock indices</td><td style="color:var(--bear)">Down</td><td>Risk-off</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>First steps: check whether you hold several positions that are really the same bet (for example long AUDUSD and long NZDUSD). Do not open new risk positions until the market finds structure.</p>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>If I know what the news will be, I know where price will go.</p></div>
+        <div><span class="label">Reality</span><p>Price reacts to the gap between the number and the expectation, not to the number itself (Chapter 19). Good news that everyone expects can push price down.</p></div>
+      </div>
+      <h3>The live calendar</h3>
+      <p>An embedded calendar for the week with medium- and high-impact events for the major currencies. Our working tool is still Forex Factory: here you just take a quick look.</p>
+      <div class="ecal"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Safe haven · убежище</b>An asset capital flees to in fear: gold, yen, franc, US Treasuries.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-label="Go deeper">
+    <div class="main">
+      <details class="deeper">
+        <summary><span class="dots" aria-hidden="true">●●●</span><span class="dp-t"><small>Go deeper</small><b>The second before the number</b></span><span class="drop-caret" aria-hidden="true">▾</span></summary>
+        <div class="dp-body">
+          <p>In the last seconds before a big release, banks and market makers pull their quotes or widen them sharply: nobody wants to be on the wrong side of the number. The order book becomes thin exactly when the most orders arrive.</p>
+          <p>A stop order is not a price guarantee. When it is triggered it becomes a <b>market order</b> and takes whatever price is available. In a thin book that can be 10, 20 or more pips away. Slippage is also asymmetric: in a fast move against you, you get the worse price; a limit order in your favour simply may not be filled.</p>
+          <p>That is why the protocol in this chapter is built around time, not price: be out or protected before the number, and come back after the first minutes, when quotes return and the spread normalises.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 13</h2>
+    <ul>
+      <li>Red folder: no new positions inside the buffer (CPI ±30, NFP −30/+60, central banks ±60 min).</li>
+      <li>Forex Factory for the next 4 hours before every analysis.</li>
+      <li>A spike can create a sweep. Read it only after it settles, with an MSS and in the D1/H4 direction.</li>
+      <li>Geopolitical shock: gold, yen and franc up; AUD, NZD and indices down.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I opened Forex Factory and found this week's red folders.</label></li>
+      <li><label><input type="checkbox"> I watched the last CPI and NFP on M5 and saw how much the range widened.</label></li>
+      <li><label><input type="checkbox"> I found one example of a sweep created by news.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>Wednesday. FOMC is at 21:00. Until 18:00 EURUSD sits in a tight range. At 21:00 price jumps 35 pips up above PDH, at 21:04 it drops back 50 pips, at 21:30 the press conference starts. D1 is bearish. A friend asks: "The spike above PDH is a sweep, right? Should I sell now?"</p>
+      <p><b>Task:</b> what would you tell them? What are the buffers here? What conditions must be met for there to be a setup, and when at the earliest?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Buffers… Conditions… When…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>Yes, in shape it looks like a sweep of BSL above PDH in the direction of a bearish D1.</li>
+          <li>But: the FOMC buffer runs from 20:00 to 22:00, and the press conference (21:30) is a separate event that matters for its whole duration. The market can flip everything twice more.</li>
+          <li>Conditions: the end of the press conference, at least 30 minutes of settling, an MSS down on M5, a clear zone around the spike, 3R to the next SSL.</li>
+          <li>At the earliest after about 22:30, when it is already New York afternoon and liquidity is falling. The honest answer is: "Not today. Write it in the journal and see tomorrow in London what is left."</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What colour is the high-impact folder on Forex Factory?",o:["Yellow","Orange","Red"],a:2,e:"Red = high impact."},
+  {q:"Buffer around CPI?",o:["±5 min","±30 min","±1 day"],a:1,e:"30 minutes before and after."},
+  {q:"What do you do with an open winning position before a red folder?",o:["Widen the stop","Consider a partial close or a breakeven stop","Add to it"],a:1,e:"You protect, you never widen."},
+  {q:"Where does gold usually go in a geopolitical shock?",o:["Up","Down","No reaction"],a:0,e:"Gold is a safe haven."},
+  {q:"How far ahead do you check the calendar?",o:["1 hour","4 hours","1 week"],a:1,e:"The next 4 hours before every analysis (and on Sunday: the whole week)."}
+],mid:[
+  {q:"NFP is at 15:30. When is a new decision reasonable at the earliest?",o:["15:35","around 16:30","15:00"],a:1,e:"The NFP buffer is +60 minutes."},
+  {q:"The spike after CPI runs below the London low and comes back. D1 is bullish. When does it read as a setup?",o:["Immediately","After it settles, with an MSS up on M5 and at least 3R to the target","Never"],a:1,e:"A news sweep is read after the buffer and with confirmation."},
+  {q:"You hold long AUDUSD and long NZDUSD. News of a military escalation breaks. What is the main danger?",o:["None, these are two different pairs","The two positions are effectively one bet against risk-off","The yen"],a:1,e:"Correlated positions double the risk in a shock."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  var ev=document.getElementById("ev"),t=document.getElementById("evT"),sv=document.getElementById("evSvg"),o=document.getElementById("evOut");
+  function mm(s){var p=s.split(":");return +p[0]*60+(+p[1])}function hm(m){m=(m+1440)%1440;var h=Math.floor(m/60),x=m%60;return (h<10?"0":"")+h+":"+(x<10?"0":"")+x}
+  function calc(){var b=ev.value.split("|"),pre=+b[0],post=+b[1],m=mm(t.value||"15:30"),a=m-pre,z=m+post;
+    sv.innerHTML="";var L=20,R=500,S=m-120,E=m+150;function X(v){return L+(R-L)*(v-S)/(E-S)}
+    el("line",{x1:L,x2:R,y1:50,y2:50,stroke:"var(--line)","stroke-width":2},sv);
+    el("rect",{x:X(a),y:30,width:X(z)-X(a),height:40,fill:"var(--bear)","fill-opacity":.18},sv);
+    el("line",{x1:X(m),x2:X(m),y1:20,y2:80,stroke:"var(--news)","stroke-width":3},sv);
+    el("text",{x:X(m)+4,y:18,"font-size":11,fill:"var(--news)"},sv).textContent="news "+hm(m);
+    el("text",{x:X(a),y:86,"font-size":10,fill:"var(--bear)"},sv).textContent=hm(a);el("text",{x:X(z)-30,y:86,"font-size":10,fill:"var(--bear)"},sv).textContent=hm(z);
+    el("text",{x:X(a)+4,y:54,"font-size":10,fill:"var(--bear)"},sv).textContent="no new positions";
+    o.innerHTML="<span>No new positions from <b>"+hm(a)+"</b> to <b>"+hm(z)+"</b> Sofia time.</span><span>After "+hm(z)+": check whether volatility has settled and whether there is new structure.</span>"}
+  ev.addEventListener("change",calc);t.addEventListener("input",calc);calc();
+
+  var pn=document.getElementById("pn"),po=document.getElementById("pnOut");
+  function pc(){var n=0,a=0;Book.each("input",function(c){a++;if(c.checked)n++},pn);po.innerHTML=n===a?"<span style=\"color:var(--bull)\">Check passed. ✓</span>":"<span>"+n+" / "+a+": finish the check before the analysis.</span>"}
+  Book.each("input",function(c){c.addEventListener("change",pc)},pn);pc();
+
+  var ns=document.getElementById("ns"),ny=function(v){return 215-v*1.8};
+  var C=[[60,62,64,58],[62,60,64,58],[60,61,63,58],[61,60,62,59],[60,30,62,24],[30,52,56,28],[52,46,54,44],[46,50,52,44],[50,47,51,44],[47,58,60,46],[58,56,60,52],[56,64,66,55],[64,72,74,63]];
+  var ends=[4,6,9,13],TX=["Before 15:30: a tight range, nobody takes risk. At 46–48 is the London low, and the stops sit below it.","15:30: the number comes out, the M5 candle drops 36 units and breaks the London low, then comes back. A huge wick: the stops are taken.","15:35–16:00: volatility eases, candles become normal. This is the buffer: nothing gets decided.","After 16:00: price closes above the last small high (MSS) and leaves a zone at 44–52. If D1 is bullish and there is 3R to the next liquidity, this is now a setup to watch."];
+  function d(n){ns.innerHTML="";el("line",{x1:20,x2:510,y1:ny(46),y2:ny(46),stroke:"var(--liq)","stroke-dasharray":"4 4"},ns);el("text",{x:24,y:ny(46)+14,"font-size":10,fill:"var(--liq)"},ns).textContent="London low (SSL)";
+    var x0=20+4*36;el("line",{x1:x0+9,x2:x0+9,y1:10,y2:220,stroke:"var(--news)","stroke-dasharray":"3 3"},ns);el("text",{x:x0+14,y:20,"font-size":10,fill:"var(--news)"},ns).textContent="15:30";
+    if(n>=3){el("rect",{x:x0,y:10,width:36*5,height:210,fill:"var(--news)","fill-opacity":.08},ns)}
+    if(n>=4){el("rect",{x:20,y:ny(52),width:490,height:ny(44)-ny(52),fill:"var(--bull)","fill-opacity":.12},ns);el("line",{x1:20+7*36,x2:20+11*36,y1:ny(54),y2:ny(54),stroke:"var(--bull)","stroke-dasharray":"3 3"},ns);el("text",{x:20+10*36,y:ny(54)-5,"font-size":10,fill:"var(--bull)"},ns).textContent="MSS"}
+    C.slice(0,ends[n-1]).forEach(function(c,i){var o=c[0],cl=c[1],hi=c[2],lo=c[3],x=20+i*36,col=cl>=o?"var(--bull)":"var(--bear)";el("line",{x1:x+9,x2:x+9,y1:ny(hi),y2:ny(lo),stroke:col,"stroke-width":2},ns);el("rect",{x:x,width:18,y:ny(Math.max(o,cl)),height:Math.max(1.5,Math.abs(ny(o)-ny(cl))),fill:col},ns)});
+    document.getElementById("nsText").textContent=TX[n-1];Book.each("[data-ns]",function(b){b.setAttribute("aria-pressed",b.dataset.ns==n)})}
+  Book.each("[data-ns]",function(b){b.addEventListener("click",function(){d(+b.dataset.ns)})});d(4);
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

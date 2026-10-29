@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Prop Firms Compared · FX Fundamentals</title>
+<meta name="description" content="Prop Firms Compared · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch30.html">
+<link rel="alternate" hreflang="bg" href="bg/ch30.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="30">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">33</div>
+    <h1>Prop Firms Compared</h1>
+    <blockquote class="quote">
+      Don't focus on making money; focus on protecting what you have.
+      <cite>Paul Tudor Jones (attributed)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>explain how a prop challenge works: phases, target, daily and maximum loss, minimum days;</li>
+        <li>tell a static limit from a trailing one and see when the second throws you out earlier;</li>
+        <li>compare several firms by price and rules, with the date of the check;</li>
+        <li>calculate a rough chance of passing a challenge with your own numbers.</li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="box warn">
+    <span class="label">Prices with a date</span>
+    <p>The data in this chapter were checked on <b>21 October 2026</b> on the official FTMO website and in public comparisons updated between 10 and 16 October 2026. Prop firms change prices, promotions and rules almost every month. Before buying, read all the rules on the official site, not just the table.</p>
+  </div>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>33.1 What a prop firm really is</h2>
+      <p>A prop firm (from proprietary trading) lets you trade an account with large money if you first pass a challenge. You pay a fee for the challenge. If you pass and then make a profit, you get a large share of it, usually 80–90%.</p>
+      <p>The honest truth the ads do not put on the front page: at most firms for retail traders <b>both the challenge and the "funded" account are simulated</b>. You trade on a demo, and the firm pays you a share of the simulated profit from its own revenue, much of which is the fees of people who don't pass. That does not make the model a scam; it makes it a business in which most customers lose the fee.</p>
+      <div class="four">
+        <div><span class="label">Plus</span><p>You risk only the fee, not a large sum. You learn to follow strict risk rules.</p></div>
+        <div><span class="label">Minus</span><p>Many people lose the fee again and again. The rules punish mistakes that would slide on a personal account.</p></div>
+        <div><span class="label">The firm's risk</span><p>In 2023–2024 several firms shut down or withheld payouts. Choose firms with a long history and public payouts.</p></div>
+        <div><span class="label">Who it is for</span><p>For someone with a proven process on demo (Chapter 34), not for someone who "wants to give it a try".</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Challenge · изпит</b>The phase in which you prove you can reach the target without breaking the rules.</div>
+      <div class="term"><b>Funded account · финансирана сметка</b>The account after a successful challenge. The profit is split.</div>
+      <div class="term"><b>Profit split · дял от печалбата</b>The percentage you receive.</div>
+      <div class="term"><b>Payout · изплащане</b>The transfer of your share.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: intermediate">●●</span>33.2 The challenge rules</h2>
+      <div class="tablewrap" data-name="pravila-izpit">
+        <table class="data">
+          <thead><tr><th>Rule</th><th>Example (FTMO 2-Step)</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td>Profit target</td><td>10% in phase 1, 5% in phase 2</td><td>You have to reach this profit.</td></tr>
+            <tr><td>Maximum daily loss</td><td>5%</td><td>You cannot lose more than this in one day. Open positions count too.</td></tr>
+            <tr><td>Maximum loss</td><td>10%, static</td><td>The account can never fall below 90% of the start.</td></tr>
+            <tr><td>Minimum trading days</td><td>4 per phase</td><td>You cannot pass with one big trade.</td></tr>
+            <tr><td>Time limit</td><td>No time limit</td><td>No pressure to hurry. Some firms do have a time limit.</td></tr>
+            <tr><td>Consistency rule</td><td>None on 2-Step; on 1-Step the best day ≤ 50% of the profit</td><td>The whole profit cannot come from one day.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The most important difference between firms is how the maximum loss is calculated. A <b>static</b> one stays in one place. A <b>trailing</b> one rises with your highest balance, usually at the end of the day. Try it: first take the account up, then bring it down.</p>
+      <figure class="diagram">
+        <svg id="ddSvg" viewBox="0 0 520 230" role="img" aria-label="Static versus trailing loss limit"></svg>
+        <div class="sliders">
+          <label>Growth over the first 5 days: <b id="uV"></b><input type="range" id="dU" min="0" max="9" step="0.5" value="6"></label>
+          <label>Drop over the next 5 days: <b id="dV"></b><input type="range" id="dD" min="0" max="16" step="0.5" value="11"></label>
+        </div>
+        <p class="verdict" id="ddText" aria-live="polite"></p>
+        <figcaption>A 10% limit in both cases. At some firms the trailing limit stops rising once it reaches the starting balance; check the specific firm's rules.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Static drawdown · статичен лимит</b>Calculated from the starting balance and does not move.</div>
+      <div class="term"><b>Trailing drawdown · плъзгащ се лимит</b>Follows the highest balance or equity. Profit "raises the floor".</div>
+      <div class="term"><b>EOD · край на деня</b>With EOD trailing the limit moves only with the end-of-day balance.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>33.3 Comparing firms</h2>
+      <p>I picked five programmes at four of the best-known firms for currency trading. This is not a recommendation. It is a template for how to compare.</p>
+      <div class="tablewrap" data-name="prop-firmi-2026-10-21">
+        <table class="data">
+          <thead><tr><th>Programme</th><th>Price (examples)</th><th>Targets</th><th>Daily / max loss</th><th>Min. days</th><th>Split</th></tr></thead>
+          <tbody>
+            <tr><td>FTMO 2-Step</td><td>10K €89 · 25K €250 · 50K €345 · 100K ~€540 · 200K €1 080</td><td>10% / 5%</td><td>5% / 10% static</td><td>4 per phase</td><td>80%, up to 90% with the Scaling Plan; the fee is refunded with the first payout</td></tr>
+            <tr><td>FTMO 1-Step</td><td>from €79 · 25K €199 · 50K €319</td><td>10%</td><td>3% / 10% EOD trailing</td><td>—</td><td>90%; the fee is not refunded</td></tr>
+            <tr><td>The5ers High Stakes</td><td>2.5K $19 · 100K $405</td><td>10% / 5%</td><td>5% / 10% (4% / 8% on 50K and 100K)</td><td>3 per phase</td><td>from 80%</td></tr>
+            <tr><td>FundedNext Stellar 2-Step</td><td>6K $59.99 (Lite 5K $32.99)</td><td>8% / 5%</td><td>5% / 10%</td><td>5 per phase</td><td>80%, up to 95% with an add-on</td></tr>
+            <tr><td>FundingPips 2-Step Standard</td><td>5K $44 · 100K $652</td><td>8% / 5%</td><td>3–5% / 10% static</td><td>3</td><td>60–100% depending on payout frequency</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>At FTMO the first payout is possible 14 days after the first trade on the funded account. For 100K two prices appear in public comparisons (€439 and €540), probably because of a promotion; check on the website.</p>
+      <div class="box ff">
+        <span class="label">How to read a table like this</span>
+        <p>Don't look at the price first. Look at the <b>daily loss relative to your risk</b>. With 1% risk and a 3% daily limit, three losses in a row in one day end the challenge. With a 5% limit you have five. A scalper with several trades a day has to think about exactly this.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Scaling plan · план за растеж</b>The firm increases your account if you profit steadily.</div>
+      <div class="term"><b>Refundable fee · връщаема такса</b>The challenge fee is returned with the first payout.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: advanced">●●●</span>33.4 The maths of the challenge</h2>
+      <p>Enter your numbers. The calculator plays the challenge 2,000 times with random sequences of wins and losses and counts how many times you reach the target before hitting a limit.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Win rate (%)<input type="number" id="m1" value="40" min="1" max="99"></label>
+            <label>Average win (R)<input type="number" id="m2" value="3" step="0.1" min="0.1"></label>
+            <label>Risk per trade (%)<input type="number" id="m3" value="1" step="0.1" min="0.1"></label>
+            <label>Trades per day (max)<input type="number" id="m4" value="2" min="1" max="10"></label>
+            <label>Target (%)<input type="number" id="m5" value="10" step="0.5" min="1"></label>
+            <label>Daily limit (%)<input type="number" id="m6" value="5" step="0.5" min="0.5"></label>
+            <label>Maximum limit (%)<input type="number" id="m7" value="10" step="0.5" min="1"></label>
+          </div>
+          <div class="out" id="mOut" aria-live="polite"></div>
+        </div>
+        <figcaption>A model with assumptions: trades are independent, every win is exactly the average, every loss is exactly 1R, no slippage and no fees, a static limit, a 120-trading-day window. Reality is rougher.</figcaption>
+      </figure>
+      <div class="dialog">
+        <p><span>Student</span>So with 2% risk I'll pass faster?</p>
+        <p><span>Mentor</span>You'll reach either the target or the limit faster. Try it in the calculator. Most people find that with double the risk the chance falls rather than rises. The challenge does not reward courage, it rewards survival.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Expectancy · очакване</b>The average profit per trade in R: win × probability − loss × probability.</div>
+      <div class="term"><b>Risk of ruin · риск от разорение</b>The probability of hitting the loss limit before the target.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: basic">●</span>33.5 How challenges fail, and the free trial</h2>
+      <div class="tablewrap" data-name="prichini-provala">
+        <table class="data">
+          <thead><tr><th>Cause</th><th>What it looks like</th><th>Antidote</th></tr></thead>
+          <tbody>
+            <tr><td>Rushing</td><td>"I want to pass in 3 days", big risk</td><td>With no time limit there is nothing to rush for. The same risk as on demo.</td></tr>
+            <tr><td>Revenge after a loss</td><td>A new trade 5 minutes after the stop</td><td>Rule: after 2 losses in one day you stop.</td></tr>
+            <tr><td>The daily limit</td><td>Three trades, all stopped out, plus an open position in the red</td><td>Work out how many losses the day can take before you start.</td></tr>
+            <tr><td>News</td><td>An open position at 15:30 on CPI</td><td>The calendar in the morning, no positions around the red news.</td></tr>
+            <tr><td>Close to the target</td><td>At 9% of 10% and a big bet "to finish it"</td><td>The last percent is traded like the first.</td></tr>
+            <tr><td>An unread rule</td><td>You didn't read the consistency rule</td><td>Read all the rules on the official site.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>FTMO offers a <b>free trial</b>: 14 days, with half the target (5%) and the same loss limits. You can do an unlimited number of trials, one at a time. It ends if you don't trade in the first 7 days. Passing it does not give a funded account, but it is the cheapest way to see how you react to the rules.</p>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>If your budget is about 75 euros a month, one 10K challenge at FTMO is more than a month's budget. That is not bad. It means every attempt has to be earned: at least two consecutive free trials passed with the process respected before you pay. The fee is not a lottery ticket. It is an exam fee.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Free trial · пробен период</b>A free simulation of the challenge with the same rules.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 33</h2>
+    <ul>
+      <li>Most prop accounts are simulated. The firm pays a share of the simulated profit.</li>
+      <li>Target, daily loss, maximum loss, minimum days, time limit, consistency.</li>
+      <li>A trailing limit eats the profit as a buffer; a static one does not.</li>
+      <li>Compare firms first by the daily limit relative to your risk, then by price.</li>
+      <li>Bigger risk rarely increases the chance of passing.</li>
+      <li>The free trial is a mandatory test before a paid challenge.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I read one prop firm's rules on its official website.</label></li>
+      <li><label><input type="checkbox"> I ran the calculator from 33.4 with my real demo numbers.</label></li>
+      <li><label><input type="checkbox"> I know how many losses in a row the daily limit can take at my risk.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>A scalper has been on demo for two months: 46 trades, 39% winners, average win 3.1R, 1% risk, usually 2–3 trades a day. For two weeks in that period they broke their own rule on the number of trades. They are torn between FTMO 2-Step 10K (5% daily limit, static 10%) and 1-Step (3% daily, 10% EOD trailing), because the second is cheaper.</p>
+      <p><b>Task:</b> which format fits their style and why? What does the calculator say with their numbers? Are they ready at all, and what would they check first?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Format… Calculator… Readiness…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>With 2–3 trades a day and 1% risk, a 3% daily limit is reached with three losses, and with 39% winners three losses in a row in one day are not rare. A 5% limit gives more breathing room. The 1-Step trailing also shrinks the buffer after the first profits. The cheaper format is probably the more expensive one for this style.</li>
+          <li>With 39% and 3.1R the expectancy is about +0.6R per trade, which is good. The calculator with 2-Step rules gives a high chance, but with 1-Step rules (set the daily limit to 3%) the chance drops visibly. The number is a guide, because 46 trades is a small sample.</li>
+          <li>46 trades is above the threshold of 30, but the two weeks of broken rules are a more important signal than the win rate. First: another two to four weeks of demo without a violation, then a free trial. The decision is theirs, but the data say the process is not stable yet.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What do you pay to take part in a prop challenge?",o:["A deposit you risk","A challenge fee","Nothing"],a:1,e:"Your risk is the fee."},
+  {q:"What is a static loss limit?",o:["It moves with profit","It stays in one place relative to the starting balance","There is no limit"],a:1,e:"For example always 90% of the start."},
+  {q:"Risk 1%, daily limit 3%. How many losses in a row in one day end the challenge?",o:["3","10","1"],a:0,e:"That is why the daily limit is the first thing you look at."},
+  {q:"Most \"funded\" accounts for retail traders are…",o:["Real money on the exchange","Simulated","Bank deposits"],a:1,e:"A share of the simulated profit is paid."},
+  {q:"What does the FTMO free trial give you?",o:["A funded account","Experience with the rules at no cost","Fee refunds"],a:1,e:"It gives a test, not an account."}
+],mid:[
+  {q:"A 100K account, 10% trailing limit on the end-of-day balance. Balance at the end of day 5: 106K. Where is the limit?",o:["90K","96K","100K"],a:1,e:"106K − 10K = 96K."},
+  {q:"40% winners, 3R average win. Expectancy per trade?",o:["+0.6R","+1.2R","−0.2R"],a:0,e:"0.4 × 3 − 0.6 × 1 = 0.6R."},
+  {q:"Why does doubling the risk often reduce the chance of passing a challenge?",o:["The firm penalises it","You hit the loss limit with half as many consecutive losses","It doesn't reduce it"],a:1,e:"A 10% limit at 2% risk is 5 losses."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* drawdown */
+  var sv=document.getElementById("ddSvg"),uI=document.getElementById("dU"),dI=document.getElementById("dD"),tx=document.getElementById("ddText");
+  function draw(){var u=+uI.value,d=+dI.value;document.getElementById("uV").textContent="+"+u+"%";document.getElementById("dV").textContent="−"+d+"%";
+    var B=[100];for(var i=1;i<=5;i++)B.push(100+u*i/5);for(i=1;i<=5;i++)B.push(100+u-d*i/5);
+    var T=[],mx=100;B.forEach(function(b){mx=Math.max(mx,b);T.push(mx-10)});
+    var lo=Math.min(85,Math.min.apply(null,B)-2),hi=Math.max(110,Math.max.apply(null,B)+2);function x(i){return 44+i*46}function y(v){return 15+(hi-v)/(hi-lo)*180}
+    sv.innerHTML="";
+    [lo,90,100,hi].forEach(function(v){v=Math.round(v);el("text",{x:4,y:y(v)+4,"font-size":10,fill:"var(--muted)"},sv).textContent=v+"K"});
+    el("line",{x1:44,x2:504,y1:y(90),y2:y(90),stroke:"var(--liq)","stroke-width":2,"stroke-dasharray":"6 4"},sv);
+    el("path",{d:T.map(function(v,i){return(i?"L":"M")+x(i)+","+y(v).toFixed(1)}).join(""),fill:"none",stroke:"var(--bear)","stroke-width":2,"stroke-dasharray":"3 3"},sv);
+    el("path",{d:B.map(function(v,i){return(i?"L":"M")+x(i)+","+y(v).toFixed(1)}).join(""),fill:"none",stroke:"var(--ink)","stroke-width":3},sv);
+    el("text",{x:504,y:y(90)+14,"font-size":11,"text-anchor":"end",fill:"var(--liq)"},sv).textContent="static";
+    el("text",{x:x(5),y:y(T[5])-6,"font-size":11,"text-anchor":"middle",fill:"var(--bear)"},sv).textContent="trailing";
+    el("text",{x:44,y:224,"font-size":10,fill:"var(--muted)"},sv).textContent="day 0";el("text",{x:504,y:224,"font-size":10,"text-anchor":"end",fill:"var(--muted)"},sv).textContent="day 10";
+    var bs=-1,bt=-1;B.forEach(function(b,i){if(bs<0&&b<=90)bs=i;if(bt<0&&b<=T[i])bt=i});
+    [[bs,"var(--liq)"],[bt,"var(--bear)"]].forEach(function(p){if(p[0]>=0)el("circle",{cx:x(p[0]),cy:y(B[p[0]]),r:6,fill:p[1]},sv)});
+    var end=B[10].toFixed(1);
+    tx.innerHTML="Final balance: <b>"+end+"K</b>. Static limit: "+(bs<0?"<b style='color:var(--bull)'>survives</b>":"<b style='color:var(--bear)'>breached on day "+bs+"</b>")+". Trailing: "+(bt<0?"<b style='color:var(--bull)'>survives</b>":"<b style='color:var(--bear)'>breached on day "+bt+"</b>")+"."+(bt>=0&&bs<0?" Same trades, different fate: the profit from the first days raised the floor.":"")}
+  uI.addEventListener("input",draw);dI.addEventListener("input",draw);draw();
+  /* monte carlo */
+  var m=["m1","m2","m3","m4","m5","m6","m7"].map(function(i){return document.getElementById(i)}),mo=document.getElementById("mOut"),tm;
+  function sim(){var p=+m[0].value/100,R=+m[1].value,r=+m[2].value,n=Math.max(1,+m[3].value|0),tg=+m[4].value,dl=+m[5].value,ml=+m[6].value,N=2000,pass=0,days=0,dfail=0;
+    for(var k=0;k<N;k++){var eq=0,res=0;for(var d=0;d<120&&!res;d++){var day=0;for(var t=0;t<n;t++){var w=Math.random()<p;var ch=w?R*r:-r;eq+=ch;day+=ch;
+          if(eq>=tg){res=1;break}if(eq<=-ml){res=-1;break}if(day<=-dl){res=-2;break}if(w)break}
+        if(res===1){pass++;days+=d+1}}
+      if(res===-2)dfail++}
+    var ev=p*R-(1-p);
+    mo.innerHTML="<span>Expectancy: <b>"+(ev>=0?"+":"")+ev.toFixed(2)+"R</b> per trade.</span><span>Chance of reaching the target: <b style='color:"+(pass/N>0.5?"var(--bull)":pass/N>0.25?"var(--news)":"var(--bear)")+"'>~"+Math.round(pass/N*100)+"%</b>"+(pass?" (on average "+Math.round(days/pass)+" trading days)":"")+".</span><span>Failures from the daily limit: <b>~"+Math.round(dfail/N*100)+"%</b> of attempts.</span><span style='color:var(--muted)'>Model: after a winning trade the day stops."+(pass/N>0.8?" A high percentage is a ceiling, not a promise: live, wins are not all 3R, losing streaks are longer, and emotion adds mistakes.":"")+"</span>"}
+  m.forEach(function(x){x.addEventListener("input",function(){clearTimeout(tm);tm=setTimeout(sim,250)})});sim();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>From Macro to a Market Read · FX Fundamentals</title>
+<meta name="description" content="From Macro to a Market Read · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch26.html">
+<link rel="alternate" hreflang="bg" href="bg/ch26.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="26">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">28</div>
+    <h1>From Macro to a Market Read</h1>
+    <blockquote class="quote">
+      When the facts change, I change my mind. What do you do, sir?
+      <cite>Attributed to John Maynard Keynes</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>separate "which way" (macro) from "where and when" (technicals) and combine them into one verdict: green, yellow or red;</li>
+        <li>build a weekly bias file with probabilities, invalidation and a check of your own forecasts;</li>
+        <li>tell fact, forecast and opinion apart in the same headline;</li>
+        <li>see when two positions are really the same bet.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>28.1 Direction versus place and moment</h2>
+      <p>Part III gave you a lot of macro. Now it is important not to misuse it. Macro answers the question <b>"which way is the wind more likely to blow this week?"</b>. The technical analysis from Part II answers <b>"where exactly and when do I enter, and where am I wrong?"</b>. If you mix up the two questions, you will enter on news with no level, or on levels against the whole world.</p>
+      <div class="four">
+        <div><span class="label">Macro says</span><p>EUR is weaker than USD this week, probability about 55%.</p></div>
+        <div><span class="label">Macro does not say</span><p>Where to enter, where the stop is, when to exit.</p></div>
+        <div><span class="label">Technicals say</span><p>The H4 structure is down, liquidity is above 1.1269, the entry zone is here.</p></div>
+        <div><span class="label">Technicals do not say</span><p>That tomorrow at 15:30 there is a CPI that can wipe out everything.</p></div>
+      </div>
+      <p>The two come together in a <b>verdict</b>. Try every combination.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Macro bias for the pair<select id="v1"><option value="1">Up</option><option value="0" selected>Neutral</option><option value="-1">Down</option></select></label>
+            <label>H4/D1 structure<select id="v2"><option value="1">Up</option><option value="0">Range</option><option value="-1" selected>Down</option></select></label>
+            <label>Big news in the next 2 h<select id="v3"><option value="0" selected>No</option><option value="1">Yes</option></select></label>
+            <label>Conviction (1–5)<input type="number" id="v4" value="3" min="1" max="5" step="1"></label>
+          </div>
+          <div class="out" id="vOut" aria-live="polite"></div>
+        </div>
+        <figcaption>The logic of the verdict, not an entry rule. Green says "you may look for a setup by your rules", not "go in".</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="prisuda-matrica">
+        <table class="data">
+          <thead><tr><th>Macro ↓ / Technicals →</th><th>Same direction</th><th>Range</th><th>Opposite direction</th></tr></thead>
+          <tbody>
+            <tr><td>Clear bias (conviction 4–5)</td><td><b style="color:var(--bull)">Green</b></td><td><b style="color:var(--news)">Yellow</b>: wait for a break</td><td><b style="color:var(--bear)">Red</b></td></tr>
+            <tr><td>Lean (conviction 3)</td><td><b style="color:var(--news)">Yellow</b>: smaller size</td><td><b style="color:var(--news)">Yellow</b></td><td><b style="color:var(--bear)">Red</b></td></tr>
+            <tr><td>Neutral</td><td><b style="color:var(--news)">Yellow</b>: technicals only, small</td><td><b style="color:var(--bear)">Red</b></td><td><b style="color:var(--news)">Yellow</b>: technicals only, small</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Bias · пристрастие</b>Your prior judgement of the more likely direction. It is not a position.</div>
+      <div class="term"><b>HTF · по-висок таймфрейм</b>Higher timeframe: D1, H4. That is where structure comes from.</div>
+      <div class="term"><b>Conviction · увереност</b>How strongly macro, technicals and price behaviour point the same way.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: intermediate">●●</span>28.2 The weekly bias file</h2>
+      <p>Everything from this part comes together in one document that is written on Sunday and updated every morning. It is not a diary for feelings and not a list of trades. It is the map you enter the week with. A good bias file has nine parts.</p>
+      <ol class="steps">
+        <li><b>A three-line summary.</b> What matters most this week and why.</li>
+        <li><b>Macro backdrop.</b> The regime (growth × inflation), rates, which central banker is a hawk.</li>
+        <li><b>Calendar.</b> From Forex Factory, only high-impact events, with Sofia times.</li>
+        <li><b>Currency matrix.</b> For each currency: bias with probability, main driver, invalidation, conviction 1–5.</li>
+        <li><b>Intermarket links.</b> Gold, oil, yields, indices: do they confirm the picture?</li>
+        <li><b>Scenarios.</b> Two or three outcomes with rough probabilities and how each would look on the chart.</li>
+        <li><b>Ranking by conviction.</b> Which ideas are cleanest and what threatens them.</li>
+        <li><b>Risk watch.</b> What kills the picture (the falsifier) and which positions are really one bet.</li>
+        <li><b>Review.</b> Last week: how many scenarios came true, how many did not, how many did not trigger.</li>
+      </ol>
+      <p>Here is what part of the matrix looked like in the real notes on the morning of 21 October 2026. The levels are removed on purpose: the aim is to see the format, not to trade from it.</p>
+      <div class="tablewrap" data-name="primer-matrica-21-10-2026">
+        <table class="data">
+          <thead><tr><th>Currency</th><th>Macro bias</th><th>Main driver</th><th>What kills the idea</th><th>Conviction</th></tr></thead>
+          <tbody>
+            <tr><td>USD</td><td>Neutral-weak, ~55%</td><td>10y yield, expected Fed hike in December</td><td>10y above 5.20%</td><td>3</td></tr>
+            <tr><td>EUR</td><td>Lean down, ~55%</td><td>The OAT–Bund spread, the Moody's review</td><td>A break up on H4</td><td>3</td></tr>
+            <tr><td>GBP</td><td>Up, ~56–57%</td><td>Hot CPI (3.5% versus a 3.4% forecast), a BoE hike</td><td>A soft tone from Bailey</td><td>3</td></tr>
+            <tr><td>AUD</td><td>Up, ~56%, the strongest</td><td>A hawkish RBA</td><td>Risk-off after tech company earnings</td><td>3–4</td></tr>
+            <tr><td>JPY</td><td>Weak / range, ~54%</td><td>Carry versus Ministry of Finance intervention</td><td>Sustained above the ceiling</td><td>2–3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>Notice three habits in this file. First, nowhere does it say "EUR will fall": it says "~55%". The gap between 55 and 100 is where the stops live. Second, every idea has a sentence on "what kills it". Third, the file has a note "the data do not match": different sources give different oil prices. An analyst who does not notice this will sooner or later trade a wrong number.</p>
+      </div>
+      <div class="tablewrap" data-name="etiketi-proizhod">
+        <table class="data">
+          <thead><tr><th>Label</th><th>Meaning</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>[C] confirmed</td><td>Seen live from a reliable source</td><td>Published CPI: 3.5%</td></tr>
+            <tr><td>[D] derived</td><td>Calculated or inferred from confirmed data</td><td>"The hike is almost fully priced"</td></tr>
+            <tr><td>[X] unverified</td><td>A rumour, a single source, an old note</td><td>"According to a post on X the deal is done"</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Invalidation · инвалидация</b>The condition under which the idea is wrong and you drop it.</div>
+      <div class="term"><b>Falsifier · фалсификатор</b>One event that flips the whole picture at once.</div>
+      <div class="term"><b>Provenance · произход</b>Where a number comes from and how much you trust it.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>28.3 The Sunday ritual</h2>
+      <p>The bias file is not written on Monday at 9:55, five minutes before London. It is written on Sunday, calmly, and updated in the morning in 15–20 minutes.</p>
+      <div class="timeline">
+        <div class="tick"><span class="t">Sunday · 1</span><b>Review of last week</b><span>Mark every scenario: came true, wrong or did not trigger. No excuses.</span></div>
+        <div class="tick news"><span class="t">Sunday · 2</span><b>Forex Factory</b><span>The calendar for the week, filtered to high impact and your currencies only. Write down the Sofia times.</span></div>
+        <div class="tick"><span class="t">Sunday · 3</span><b>The matrix</b><span>Rates, the latest data, central bank tone. Probability and conviction for each currency.</span></div>
+        <div class="tick"><span class="t">Sunday · 4</span><b>The charts</b><span>Weekly and daily structure. Where the liquidity and the zones are. Do they match the matrix?</span></div>
+        <div class="tick"><span class="t">Sunday · 5</span><b>Scenarios and risks</b><span>What I expect, what would surprise me, what kills everything.</span></div>
+        <div class="tick news"><span class="t">Every morning</span><b>Update</b><span>What happened overnight, what data come out today, does anything in the matrix change? If not, leave it alone.</span></div>
+      </div>
+      <div class="dialog">
+        <p><span>Student</span>Sounds like a lot of work for a 100-euro account.</p>
+        <p><span>Mentor</span>The account is small. The habit is not. Funds do not look at how much you made from 100 euros, but at whether you can repeat the process with 100,000. Besides, an hour on Sunday is cheaper than three impulsive trades on Tuesday.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Morning update · сутрешно обновяване</b>A short check before the session: new data, overnight news, changes to the map.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>28.4 Fact, forecast, opinion</h2>
+      <p>The news flow mixes three different things in one sentence. A fact is something that has already happened and can be checked. A forecast is a claim about the future, usually with a number. An opinion is an interpretation. The market trades facts against forecasts; opinions are noise, unless they belong to someone who votes on rates.</p>
+      <p>Classify each sentence.</p>
+      <div id="fx3"></div>
+      <p class="verdict" id="fx3Sum" aria-live="polite"></p>
+      <div class="tablewrap" data-name="iztochnici-novini">
+        <table class="data">
+          <thead><tr><th>Source</th><th>Speed</th><th>Price</th><th>What for</th><th>Trap</th></tr></thead>
+          <tbody>
+            <tr><td>Forex Factory</td><td>Fast</td><td>Free</td><td>Calendar, forecasts, actual values, forum</td><td>The forum is opinions, not analysis</td></tr>
+            <tr><td>Reuters</td><td>Very fast</td><td>Partly paid</td><td>Facts, economist polls, statements</td><td>Headlines come out before the context</td></tr>
+            <tr><td>Bloomberg</td><td>Very fast</td><td>Expensive (terminal)</td><td>Data, market levels, interviews</td><td>The free version is very limited</td></tr>
+            <tr><td>Financial Times</td><td>Medium</td><td>Subscription</td><td>Analysis, policy, fiscal topics</td><td>The columns are opinions</td></tr>
+            <tr><td>FXStreet</td><td>Fast</td><td>Free</td><td>Summaries by pair, technical and fundamental</td><td>Lots of content, varying quality</td></tr>
+            <tr><td>X (Twitter)</td><td>The fastest</td><td>Free</td><td>The first signal of news</td><td>Rumours, fake "breaking", echo chambers</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Consensus · консенсус</b>The average forecast of polled economists. On Forex Factory it is the Forecast column.</div>
+      <div class="term"><b>Sources say · според източници</b>A leak. It may be true, it may be a trial balloon.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: advanced">●●●</span>28.5 Positioning: who is already in</h2>
+      <p>Good macro is not enough if everyone has already bought it. When a view is shared by almost everyone, there is no one left to buy, and a small surprise triggers a fast exit through the same door. That is a <b>crowded trade</b>.</p>
+      <div class="tablewrap" data-name="pozicionirane">
+        <table class="data">
+          <thead><tr><th>Instrument</th><th>What it shows</th><th>How to read it</th></tr></thead>
+          <tbody>
+            <tr><td>The COT report (CFTC)</td><td>Speculators' positions in futures, published on Friday for Tuesday's data</td><td>An extreme net position = the risk of a reversal grows</td></tr>
+            <tr><td>Retail trader sentiment</td><td>The percentage long and short at brokers</td><td>Usually a contrarian indicator: the crowd is often on the wrong side</td></tr>
+            <tr><td>Options (risk reversals)</td><td>How much people pay for protection on the upside versus the downside</td><td>Expensive protection in one direction = fear in that direction</td></tr>
+            <tr><td>Price behaviour</td><td>Good news, yet price does not rise</td><td>The news is already in the price</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box ff">
+        <span class="label">From the notes · CPI, 14 October 2026</span>
+        <p>Before the data retail traders are long gold (about 68%), the pound (about 71%) and the euro (about 66%), and even added to those positions the day before. CPI comes out hot, the dollar jumps, and gold, the pound and the euro fall. The crowd is caught on the wrong side in exactly the scenario the file had described in advance.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Crowded trade · претъпкана сделка</b>A position that almost everyone already holds.</div>
+      <div class="term"><b>COT · Commitments of Traders</b>A weekly report from the US regulator CFTC on futures positions.</div>
+      <div class="term"><b>Priced in · в цената</b>The expected event is already reflected in the exchange rate.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="main">
+      <h2 id="s6"><span class="dots" title="Level: intermediate">●●</span>28.6 Don't mix horizons and don't bet twice</h2>
+      <div class="tablewrap" data-name="horizonti">
+        <table class="data">
+          <thead><tr><th>Horizon</th><th>Question</th><th>Tools</th><th>Mistake</th></tr></thead>
+          <tbody>
+            <tr><td>Week (W1/D1)</td><td>Which way does the wind blow?</td><td>Bias file, central banks, regime</td><td>Changing it after every 20-pip move</td></tr>
+            <tr><td>Day (H4/H1)</td><td>Where are the zones and the liquidity?</td><td>Structure, POI, sessions</td><td>Trading an H4 zone without looking at the calendar</td></tr>
+            <tr><td>Entry (M15/M5/M1)</td><td>When exactly, and where is the stop?</td><td>Trigger, confirmation</td><td>Making macro decisions on M1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The second trap is quieter. You buy GBPUSD because the pound is strong. You buy AUDUSD because the Australian dollar is strong. They look like two ideas. In fact both are <b>short dollar</b>: if the dollar strengthens, you lose twice. Try it.</p>
+      <figure>
+        <div id="expo"></div>
+        <div class="out" id="expoOut" aria-live="polite"></div>
+        <figcaption>Every position is the same size. The number shows how many times you are exposed to one currency.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Net exposure · нетна експозиция</b>The sum of all bets for and against one currency.</div>
+      <div class="term"><b>Relative trade · относителна сделка</b>A bet on a strong versus a weak currency, without the dollar: for example GBP versus EUR.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s7">
+    <div class="main">
+      <h2 id="s7"><span class="dots" title="Level: intermediate">●●</span>28.7 Check yourself as an analyst</h2>
+      <p>Analysis without a check is opinion. Write down your scenarios every day and grade them in the evening: came true, wrong, did not trigger, not gradable. After a month you will see which topics you are good at and where you are fooling yourself.</p>
+      <div class="tablewrap" data-name="proverka-scenarii">
+        <table class="data">
+          <thead><tr><th>Day (from the notes)</th><th>Came true</th><th>Wrong</th><th>Other</th><th>Lesson written down the same evening</th></tr></thead>
+          <tbody>
+            <tr><td>Friday, 16 October</td><td>8</td><td>0</td><td>3 did not trigger</td><td>The dollar ignored hot inflation expectations: the regime is confirmed</td></tr>
+            <tr><td>Monday, 19 October</td><td>4</td><td>5</td><td>2 with no forecast</td><td>Risk-on together with a stronger dollar: yields were driving it, not risk appetite</td></tr>
+            <tr><td>Tuesday, 20 October</td><td>6</td><td>4</td><td>1 not gradable</td><td>All the misses come from betting against the weak dollar on single news items</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>A good analyst is right almost every time.</p></div>
+        <div><span class="label">Reality</span><p>A good analyst knows <i>when</i> they are wrong and writes down why. 6 out of 10 with a clear reason for the misses is worth more than 9 out of 10 with no record, because the first can be improved.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Calibration · калибриране</b>Whether the things you give 60% actually happen about 60% of the time.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 28</h2>
+    <ul>
+      <li>Macro says which way, technicals say where and when. The verdict combines them: green, yellow, red.</li>
+      <li>The bias file has probabilities, invalidation, scenarios, a falsifier and a review.</li>
+      <li>Label every number: confirmed, derived, unverified.</li>
+      <li>The market trades facts against forecasts. Opinions are noise.</li>
+      <li>A crowded trade is dangerous even with the right macro.</li>
+      <li>Two pairs against the dollar are one bet. Check your net exposure.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I wrote my first weekly bias file, even with only three currencies.</label></li>
+      <li><label><input type="checkbox"> For each idea I have a sentence on "what kills it".</label></li>
+      <li><label><input type="checkbox"> I graded my scenarios for at least one day.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>Your Sunday file says: EUR leaning down, ~55%, conviction 3, driver the French spread. Tuesday, London. EURUSD makes a clean break up through the H1 structure and takes the liquidity above yesterday's high. An ECB member speaks at 15:00. You already hold a short GBPJPY and are thinking of buying AUDUSD.</p>
+      <p><b>Task:</b> what is the verdict for EURUSD and why? Does the H1 break change the weekly bias? What does your net exposure say? What will you write down in the evening, whatever happens?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Verdict… Bias… Exposure… The evening entry…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>Red for EURUSD shorts: the macro is only a lean (conviction 3), and the H1 technicals point the other way. Yellow if I am looking to buy: the technicals are "for", but the macro is "against" and there is a speaker at 15:00. The most common sensible conclusion is not to trade EURUSD until the two agree.</li>
+          <li>An H1 break does not change the weekly bias. It would change if the invalidation from the file triggered (for example an H4 break) or if the driver changed (the French spread narrowed). I log the break as a warning.</li>
+          <li>A short GBPJPY is a bet against the pound and for the yen; buying AUDUSD is a bet against the dollar. They do not overlap directly, but both are sensitive to risk sentiment: in risk-off GBPJPY gains and AUDUSD loses. It is important to know this before adding.</li>
+          <li>In the evening: did the EUR scenario come true, was the H1 break a liquidity trap or the start of a reversal, and did I respect the verdict. The decision whether to trade remains mine; the entry is mandatory.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Which question does macro answer?",o:["Where the stop is","Which way price is more likely to go","When exactly to enter"],a:1,e:"Direction, not place and moment."},
+  {q:"When is the weekly bias file written?",o:["On Sunday, calmly","Five minutes before London","After a loss"],a:0,e:"And it is updated in the morning."},
+  {q:"\"Economists expect CPI at 3.4%.\" This is…",o:["A fact","A forecast","An opinion"],a:1,e:"A claim about the future with a number."},
+  {q:"You are long GBPUSD and AUDUSD. What is your bet on the dollar?",o:["Long dollar","Short dollar twice","Neutral"],a:1,e:"Both positions sell dollars."},
+  {q:"What does \"priced in\" mean?",o:["The event is already reflected in the exchange rate","The price is low","The broker is expensive"],a:0,e:"The expected does not move the market, the surprise does."}
+],mid:[
+  {q:"Macro: clear bias up (conviction 5). H4: range. Verdict?",o:["Green","Yellow: wait for a break","Red"],a:1,e:"The direction is clear, the place is not yet."},
+  {q:"Good news for a currency, yet it does not strengthen. Most likely…",o:["The news is priced in or positioning is crowded","The data are wrong","The broker is manipulating"],a:0,e:"Read the reaction, not the headline."},
+  {q:"You give 60% to 50 scenarios. 45 come true. What does that say?",o:["Well calibrated","You underestimate your conviction","You overestimate your conviction"],a:1,e:"45 out of 50 is 90%, not 60%."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var h=Book.h;
+  /* verdict */
+  var v=["v1","v2","v3","v4"].map(function(i){return document.getElementById(i)}),vo=document.getElementById("vOut");
+  function vd(){var m=+v[0].value,t=+v[1].value,n=+v[2].value,c=Math.max(1,Math.min(5,+v[3].value||1)),col,txt,why;
+    if(n){col=2;why="Big news shortly: the technicals can be wiped out in seconds. Wait for the reaction."}
+    else if(m===0&&t===0){col=2;why="Neither wind nor direction. There is nothing to trade."}
+    else if(m!==0&&t===-m){col=2;why="Macro and technicals point in different directions. One of them will be wrong, you don't know which."}
+    else if(m!==0&&t===m&&c>=4){col=0;why="Macro, technicals and conviction point the same way. Look for a setup by your rules."}
+    else if(m!==0&&t===m){col=1;why="The direction matches, but conviction is medium. Smaller size or a stricter trigger."}
+    else if(m!==0){col=1;why="The direction is clear, the place is not yet. Wait for the structure to agree."}
+    else{col=1;why="Technicals only, no macro wind. Possible, but with smaller size and quick targets."}
+    var c2=["var(--bull)","var(--news)","var(--bear)"][col];txt=["GREEN","YELLOW","RED"][col];
+    vo.innerHTML="<span><b style='color:"+c2+"'>● "+txt+"</b></span><span>"+why+"</span>"}
+  v.forEach(function(x){x.addEventListener("input",vd);x.addEventListener("change",vd)});vd();
+  /* fact / forecast / opinion */
+  var F=[["US CPI for September is 3.7% year on year.",0],["Economists in the Reuters poll expect the Fed to hike in December.",1],["The dollar looks exhausted and will soon turn.",2],["The BoE will hike on 5 November, according to 9 out of 10 polled economists.",1],["The ECB left the deposit rate at 2.50%.",0],["This is the worst economic policy in decades.",2]],L=["A fact","A forecast","An opinion"],box=document.getElementById("fx3"),sum=document.getElementById("fx3Sum"),ok=0,done=0;
+  F.forEach(function(f){var row=h("div","box note");row.appendChild(h("p","",f[0]));var bar=h("div","tabs");
+    L.forEach(function(l,i){var b=h("button","chip",l);b.type="button";b.addEventListener("click",function(){if(row.dataset.done)return;row.dataset.done=1;done++;
+      if(i===f[1]){ok++;b.style.background="var(--bull)";b.style.color="var(--bg)"}else{b.style.background="var(--bear)";b.style.color="var(--bg)";bar.children[f[1]].style.outline="2px solid var(--bull)"}
+      sum.textContent=ok+" of "+done+" correct"+(done===F.length?". Remember: the market moves when the fact diverges from the forecast.":"")});bar.appendChild(b)});
+    row.appendChild(bar);box.appendChild(row)});
+  /* exposure */
+  var P=["EURUSD","GBPUSD","AUDUSD","USDJPY","USDCAD","USDCHF","EURGBP","GBPJPY","AUDJPY","EURJPY"],ex=document.getElementById("expo"),eo=document.getElementById("expoOut"),S=[];
+  var fl=h("div","fields");
+  for(var i=0;i<3;i++){var lab=h("label","","Position "+(i+1)),sp=document.createElement("select"),sd=document.createElement("select");
+    sp.innerHTML="<option value=''>—</option>"+P.map(function(p){return "<option>"+p+"</option>"}).join("");
+    sd.innerHTML="<option value='1'>Buy</option><option value='-1'>Sell</option>";
+    if(i===0)sp.value="GBPUSD";if(i===1)sp.value="AUDUSD";
+    lab.appendChild(sp);lab.appendChild(sd);fl.appendChild(lab);S.push([sp,sd]);sp.addEventListener("change",calc);sd.addEventListener("change",calc)}
+  var cw=h("div","calc");cw.appendChild(fl);ex.appendChild(cw);
+  function calc(){var E={};S.forEach(function(s){var p=s[0].value,d=+s[1].value;if(!p)return;var a=p.slice(0,3),b=p.slice(3);E[a]=(E[a]||0)+d;E[b]=(E[b]||0)-d});
+    var k=Object.keys(E).filter(function(c){return E[c]!==0}).sort(function(a,b){return Math.abs(E[b])-Math.abs(E[a])});
+    if(!k.length){eo.innerHTML="<span>No net exposure.</span>";return}
+    var out=k.map(function(c){var n=E[c];return "<span><b style='color:"+(n>0?"var(--bull)":"var(--bear)")+"'>"+(n>0?"long ":"short ")+c+" ×"+Math.abs(n)+"</b></span>"}).join("");
+    var big=k.filter(function(c){return Math.abs(E[c])>=2});
+    eo.innerHTML=out+"<span>"+(big.length?"Warning: "+big.join(", ")+" appears in more than one position. That is one bet placed several times.":"The bets do not pile up on one currency.")+"</span>"}
+  calc();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

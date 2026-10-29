@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Trading styles · FX Fundamentals</title>
+<meta name="description" content="Trading styles · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="chS.html">
+<link rel="alternate" hreflang="bg" href="bg/chS.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="S">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">30</div>
+    <h1>Trading Styles: Which One Is Yours</h1>
+    <blockquote class="quote">
+      There is no best style. There is a style that fits your hours, your nerves and your account.
+      <cite>Trader's wisdom</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>tell scalping, day trading, swing and position trading apart by timeframe, holding time and screen time;</li>
+        <li>calculate how much of your risk the spread and commission eat in each style;</li>
+        <li>explain what price action, SMC, ICT, order flow, macro and algorithmic traders read;</li>
+        <li>pick one style, one market and one session for your first 90 days.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>30.1 The four horizons</h2>
+      <p>Style is first a question of <b>time</b>: how long you hold the trade and how many hours you can sit in front of the chart. The same setup, for example the sweep and MSS from Chapter 7, works on M1 and on a daily chart. The difference is how many pips the stop is, how many times a day it appears and how hard costs hit you.</p>
+      <div class="tablewrap" data-name="stilove-horizont">
+        <table class="data">
+          <thead><tr><th>Style</th><th>Entry on</th><th>Holding</th><th>Trades</th><th>Screen time</th><th>Typical EURUSD stop</th></tr></thead>
+          <tbody>
+            <tr><td><b>Scalping</b></td><td>M1–M5</td><td>seconds to 30 min</td><td>many a day</td><td>2–4 h straight</td><td>3–8 pips</td></tr>
+            <tr><td><b>Day trading</b></td><td>M5–M15, H1 context</td><td>until the end of the day</td><td>0–3 a day</td><td>2–5 h in one session</td><td>10–25 pips</td></tr>
+            <tr><td><b>Swing trading</b></td><td>H1–H4, D1 context</td><td>2 to 10 days</td><td>1–4 a week</td><td>30–60 min a day</td><td>30–100 pips</td></tr>
+            <tr><td><b>Position trading</b></td><td>D1–W1</td><td>weeks to months</td><td>a few a month</td><td>a few hours a week</td><td>100–400 pips</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The figures are a guide, not a rule. The good news: with 1% risk the position size is calculated from the stop (Chapter 11), so the pips do not change how much you lose when you are wrong. They do change how much of the risk goes on <b>costs</b>.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Stop (pips)<input type="number" id="cStop" value="15" min="1" step="1"></label>
+            <label>Spread (pips)<input type="number" id="cSpr" value="0.8" min="0" step="0.1"></label>
+            <label>Commission (pips round trip)<input type="number" id="cCom" value="0.7" min="0" step="0.1"></label>
+          </div>
+          <div class="chips" role="group" aria-label="Example by style" style="display:flex;flex-wrap:wrap;gap:6px;margin:10px 0">
+            <button class="chip" type="button" data-s="5">Scalp 5</button><button class="chip" type="button" data-s="15">Day 15</button><button class="chip" type="button" data-s="50">Swing 50</button><button class="chip" type="button" data-s="150">Position 150</button>
+          </div>
+          <div class="out" id="cOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Cost as a share of risk. With a 5-pip stop and 1.5 pips of cost, every trade starts at −0.3R before price moves. The spread and commission are examples for an ECN account; check your own with your broker (Chapter 32).</figcaption>
+      </figure>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>"Scalping is the fastest way to big money because you make lots of trades."</p></div>
+        <div><span class="label">Reality</span><p>More trades mean more costs, more decisions under pressure and more chances of an execution mistake. Scalping is the least forgiving. For a beginner it is usually the hardest style, not the easiest.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Scalping · скалпиране</b>Very short trades for a few pips, usually on M1–M5.</div>
+      <div class="term"><b>Day trading · дневна търговия</b>All trades are closed within the day, with no overnight positions.</div>
+      <div class="term"><b>Swing trading</b>Trades of several days that catch one "swing" in price.</div>
+      <div class="term"><b>Position trading</b>Long positions lasting weeks to months, driven mainly by macro.</div>
+      <div class="term"><b>Swap · суап</b>The interest you pay or receive for a position held overnight.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>30.2 The schools: what each one reads</h2>
+      <p>The horizon says <i>how long</i>. The school says <i>what you look at</i> to decide. Most traders combine two schools, for example SMC for the entry and macro for the direction.</p>
+      <div class="four">
+        <div><span class="label">Classic price action</span><b>Candles, levels, trend</b><span>Support and resistance, candle patterns, breakout and retest (Chapters 3–4). Simple and transparent. Weakness: lots of subjective levels.</span></div>
+        <div><span class="label">SMC</span><b>Liquidity and structure</b><span>BOS, CHoCH, sweep, order block, FVG, premium/discount (Chapters 6–7). Explains why price raids stops. Weakness: it is easy to see a zone everywhere.</span></div>
+        <div><span class="label">ICT</span><b>Time + liquidity</b><span>Kill zones, OTE, PD arrays, Silver Bullet, Power of 3. Much of the SMC vocabulary comes from here. Weakness: lots of rules, some untestable.</span></div>
+        <div><span class="label">Order flow</span><b>Real orders and volume</b><span>Footprint, DOM, delta, volume profile on futures like ES and NQ (Chapter 15). You see who is pushing. Weakness: you need exchange data and a platform.</span></div>
+        <div><span class="label">Macro FX</span><b>Rates and the economy</b><span>Rate differentials, inflation, central banks, risk-on/off (Part III). Gives the direction for weeks. Weakness: poor for a precise entry.</span></div>
+        <div><span class="label">Algorithmic</span><b>Rules in code</b><span>A strategy tested statistically and executed by a program. No emotion at entry. Weakness: it requires programming, and the trap is "fitting" to the past.</span></div>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>Schools are not religions. They are different glasses for the same chart. The danger is wearing six pairs at once: then you will always find a reason for a trade. Pick one main pair of glasses and one for checking.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>SMC · Smart Money Concepts</b>An approach that reads structure and liquidity through the eyes of the big players.</div>
+      <div class="term"><b>ICT · Inner Circle Trader</b>Michael Huddleston's methodology, the source of much of the SMC vocabulary.</div>
+      <div class="term"><b>Overfitting · нагласяване</b>A strategy tuned so precisely to the past that it does not work in the future.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>30.3 Order flow: indices versus forex</h2>
+      <p>Order flow is the most honest pair of "glasses" because it looks at real trades. But it works fully only where there is a <b>central exchange</b> that sees all orders.</p>
+      <div class="tablewrap" data-name="orderflow-pazari">
+        <table class="data">
+          <thead><tr><th></th><th>Index futures (ES, NQ)</th><th>Spot forex (EURUSD)</th></tr></thead>
+          <tbody>
+            <tr><td>Where it trades</td><td>One exchange: CME</td><td>Hundreds of banks and brokers, no centre</td></tr>
+            <tr><td>Volume</td><td>Real, every contract</td><td>Tick volume: the number of price changes at your broker</td></tr>
+            <tr><td>Footprint and delta</td><td>Complete and accurate</td><td>Approximate</td></tr>
+            <tr><td>DOM (order book)</td><td>Visible</td><td>Only your broker's, not the market's</td></tr>
+            <tr><td>Workaround</td><td>Not needed</td><td>The CME 6E (euro) future as a proxy</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>That is why order flow traders usually trade indices and futures, while forex traders rely on structure, liquidity and sessions. If you want order flow on the euro, watch 6E and carry the read over to EURUSD.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Footprint</b>A chart showing contracts bought and sold at each price within the candle.</div>
+      <div class="term"><b>Delta · делта</b>Bought minus sold with market orders over a period.</div>
+      <div class="term"><b>DOM · Depth of Market</b>The book of resting limit orders above and below the price.</div>
+      <div class="term"><b>Tick volume</b>The number of price changes over a period. A volume proxy in spot forex.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>30.4 ICT in brief</h2>
+      <p>ICT is the most discussed school on YouTube and so deserves a sober look. Here are the main ideas, translated into this book's language.</p>
+      <div class="tablewrap" data-name="ict-poniatia">
+        <table class="data">
+          <thead><tr><th>Concept</th><th>What it means</th><th>Where it is in the book</th></tr></thead>
+          <tbody>
+            <tr><td><b>Kill zones</b></td><td>The windows with the biggest moves. In the ICT version: London 09:00–12:00 and New York 14:00–17:00 Sofia time; in Chapter 9 the book uses narrower windows</td><td>Chapter 9</td></tr>
+            <tr><td><b>PD arrays</b></td><td>Zones price returns to: order block, FVG, old highs and lows</td><td>Chapter 7</td></tr>
+            <tr><td><b>Premium / discount</b></td><td>Buy in the lower half of the range, sell in the upper</td><td>Chapter 7</td></tr>
+            <tr><td><b>OTE</b></td><td>Optimal Trade Entry: entry on a pullback to between 62% and 79% of the last move</td><td>Chapter 10</td></tr>
+            <tr><td><b>Power of 3 (AMD)</b></td><td>Accumulation in Asia, manipulation (sweep) in London, distribution (the real move) after</td><td>Chapters 9 and 14</td></tr>
+            <tr><td><b>Silver Bullet</b></td><td>An FVG setup in a narrow window: 17:00–18:00 Sofia time (10–11 am in New York)</td><td>Chapters 7 and 9</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>"Price is driven by a hidden algorithm (IPDA) that ICT has uncovered."</p></div>
+        <div><span class="label">Reality</span><p>There is no public evidence of such an algorithm. Concepts like liquidity, sessions and FVG describe useful repetitions in price behaviour. Treat them as hypotheses you test with a backtest, not as a law.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>OTE · Optimal Trade Entry</b>Entry on a pullback to between 62% and 79% of the last move (by Fibonacci).</div>
+      <div class="term"><b>PD array</b>A price zone the market is likely to return to: OB, FVG, an old high or low.</div>
+      <div class="term"><b>Power of 3 · AMD</b>Accumulation, manipulation, distribution.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: basic">●</span>30.5 Which style is for you</h2>
+      <p>Answer honestly. The result is a starting point, not a verdict. You can change style later, but not before you have done 90 days with one.</p>
+      <figure>
+        <div class="calc" id="finder"></div>
+        <figcaption>A teaching quiz. It does not account for everything, for example your time zone or the prop firm's rules.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">The 1-1-1 rule</span>
+        <p>One style, one market, one session for the first 90 days (Chapter 34). If after that you have 30+ trades with positive expectancy, then you add a second. Not before.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Screen time · време пред екрана</b>The hours you spend watching charts. A resource the style demands.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 30</h2>
+    <ul>
+      <li>The horizon (scalp, day, swing, position) sets the timeframe, the stop and the screen time.</li>
+      <li>The smaller the stop, the bigger the share of risk eaten by spread and commission.</li>
+      <li>The school (price action, SMC, ICT, order flow, macro, algorithmic) sets what you read. One main, one for checking.</li>
+      <li>Full order flow exists where there is a central exchange: indices and futures.</li>
+      <li>ICT concepts are useful hypotheses. Test them with a backtest.</li>
+      <li>The 1-1-1 rule: one style, one market, one session for 90 days.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I took the quiz in 30.5 and wrote down the result.</label></li>
+      <li><label><input type="checkbox"> I calculated costs as a share of risk for my stop.</label></li>
+      <li><label><input type="checkbox"> I wrote down my 1-1-1: style, market, session.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>A trader works from 9 to 18 and has 40 free minutes in the morning and an hour in the evening. They watch ICT videos and want to scalp the Silver Bullet at 17:00 Sofia time on M1 with a 4-pip stop. Their broker has a 1.0 spread and 0.7 pips commission.</p>
+      <p><b>Task:</b> what are the two problems in the plan? Which style and window fit their life better, and how will they carry over the ideas they like?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Problem 1… Problem 2… Better style… How I carry the ideas over…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>Time: at 17:00 they are at work. A plan that needs a screen during working hours will be broken or traded from a phone under pressure.</li>
+          <li>Costs: 1.7 pips of cost with a 4-pip stop is 0.43R per trade. It takes a huge winning streak just to cover the fees.</li>
+          <li>Swing on H1–H4 fits better: analysis in the evening, limit orders with a stop and a target, a check in the morning. A 30–60-pip stop brings the cost below 6% of the risk.</li>
+          <li>The ideas stay: liquidity, FVG and premium/discount work on H4 too. Kill zone logic is replaced by daily and weekly levels. Which style to choose is their decision, but the schedule and the account have already voted.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Which style holds trades from seconds to about 30 minutes?",o:["Swing","Scalping","Position"],a:1,e:"Scalping is the shortest horizon."},
+  {q:"Does a day trader hold positions overnight?",o:["Yes, always","No, they close everything within the day","Only on Fridays"],a:1,e:"That is the definition of day trading."},
+  {q:"Which style needs the least screen time each day?",o:["Scalping","Day trading","Position trading"],a:2,e:"Decisions are made on the daily and weekly chart."},
+  {q:"Where does order flow work fully?",o:["In spot forex","In futures with a central exchange, like ES and NQ","The same everywhere"],a:1,e:"Only there is there real volume and an order book."},
+  {q:"What is the 1-1-1 rule?",o:["1 trade a day","One style, one market, one session for 90 days","1% risk, 1R target, 1 hour"],a:1,e:"Focus gives data that mean something."}
+],mid:[
+  {q:"Stop 6 pips, spread 0.9, commission 0.6. How many R is the cost per trade?",o:["0.05R","0.25R","1R"],a:1,e:"1.5 / 6 = 0.25R."},
+  {q:"Which is true of ICT concepts?",o:["A proven law of the market","Useful hypotheses that are tested with a backtest","Useless"],a:1,e:"Use them, but measure them."},
+  {q:"Why would a forex trader watch the 6E future?",o:["Because it is cheaper","To see real volume and delta for the euro","Because it is more volatile"],a:1,e:"Spot forex has no central exchange."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  /* cost as a share of risk */
+  var st=document.getElementById("cStop"),sp=document.getElementById("cSpr"),cm=document.getElementById("cCom"),out=document.getElementById("cOut");
+  function calc(){var s=Math.max(+st.value||0,0.1),c=(+sp.value||0)+(+cm.value||0),r=c/s,pct=Math.round(r*100);
+    var col=pct>=20?"var(--bear)":pct>=8?"var(--news)":"var(--bull)";
+    out.innerHTML="<span>Cost per trade: <b>"+c.toFixed(1)+" pips</b></span><span>As a share of risk: <b style='color:"+col+"'>"+pct+"% = −"+r.toFixed(2)+"R</b></span>"+
+      "<span>"+(pct>=20?"Costs are a serious opponent. You need a very high win rate.":pct>=8?"Noticeable. Track costs in the journal.":"Costs barely affect the result.")+"</span>"}
+  [st,sp,cm].forEach(function(x){x.addEventListener("input",calc)});
+  Array.prototype.forEach.call(document.querySelectorAll("[data-s]"),function(b){b.addEventListener("click",function(){st.value=b.getAttribute("data-s");calc()})});
+  calc();
+  /* style finder */
+  var Q=[
+    ["How long a day can you sit in front of the chart without a break?",[["Under 1 hour",{sw:2,po:2}],["1–3 hours in one session",{da:2,sw:1}],["3+ hours",{sc:2,da:1}]]],
+    ["When are you free?",[["Only in the evening or early morning",{sw:2,po:1}],["During London or New York",{da:2,sc:1}],["Flexible",{da:1,sw:1}]]],
+    ["How do you react to quick decisions under pressure?",[["I love them, I think fast",{sc:2,da:1}],["I cope, but I prefer a plan",{da:1,sw:1}],["I prefer having time to think",{sw:2,po:1}]]],
+    ["How do you feel when a trade stays open overnight?",[["I can't sleep",{sc:2,da:2}],["Fine, as long as there is a stop",{sw:2}],["No problem, even for weeks",{po:2,sw:1}]]],
+    ["What interests you more?",[["The chart and the precise entry",{sc:1,da:2}],["A mix of chart and macro",{sw:2}],["The economy and rates",{po:2}]]]
+  ];
+  var N={sc:["Scalping","Watch the costs: keep them under 20% of risk. Start with M5, not M1."],da:["Day trading","One session, one or two setups a day, no overnight positions. Fits the model from Chapter 10."],sw:["Swing trading","Analysis in the evening, limit orders, a check once or twice a day. A good start for people with a job."],po:["Position trading","Macro direction from Part III, entry on D1, few trades and patience."]};
+  var box=document.getElementById("finder"),ans=[];
+  function draw(){var h="";Q.forEach(function(q,i){h+="<p style='margin:10px 0 6px'><b>"+(i+1)+". "+q[0]+"</b></p><div style='display:flex;flex-wrap:wrap;gap:6px'>";
+      q[1].forEach(function(o,j){h+="<button type='button' class='chip' data-q='"+i+"' data-o='"+j+"' aria-pressed='"+(ans[i]===j)+"'>"+o[0]+"</button>"});h+="</div>"});
+    var done=ans.filter(function(x){return x!==undefined}).length;
+    if(done===Q.length){var t={sc:0,da:0,sw:0,po:0};ans.forEach(function(j,i){var w=Q[i][1][j][1];for(var k in w)t[k]+=w[k]});
+      var best=Object.keys(t).sort(function(a,b){return t[b]-t[a]})[0];
+      h+="<div class='out' style='margin-top:12px'><span>Closest to you: <b style='color:var(--liq)'>"+N[best][0]+"</b></span><span>"+N[best][1]+"</span></div>";
+      try{Book.store("bS-style",best)}catch(e){}}
+    else h+="<p class='label' style='margin-top:12px'>Answered: "+done+" of "+Q.length+"</p>";
+    box.innerHTML=h}
+  box.addEventListener("click",function(e){var b=e.target.closest("[data-q]");if(!b)return;ans[+b.getAttribute("data-q")]=+b.getAttribute("data-o");draw()});
+  draw();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

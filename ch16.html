@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Economic Thinking · FX Fundamentals</title>
+<meta name="description" content="Economic Thinking · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch16.html">
+<link rel="alternate" hreflang="bg" href="bg/ch16.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="16">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">16</div>
+    <h1>Economic Thinking</h1>
+    <blockquote class="quote">
+      The first lesson of economics is scarcity: there is never enough of anything to fully satisfy all those who want it. The first lesson of politics is to disregard the first lesson of economics.
+      <cite>Thomas Sowell</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>explain scarcity, opportunity cost and incentives with examples from life and from the market;</li>
+        <li>show why a price ceiling creates a shortage and a price floor creates a surplus;</li>
+        <li>explain why two countries gain from trade even when one is better at everything;</li>
+        <li>connect these ideas to the exchange rate: the exchange rate is a price too.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s0">
+    <div class="main">
+      <p class="label">Part III starts here</p>
+      <p>So far you have looked at the chart: candles, structure, liquidity, zones. The chart tells you <b>where</b> and <b>when</b>. This part answers <b>which way</b> and <b>why</b>. It is about the economy, money, central banks, the news and the world a currency lives in.</p>
+      <p>Much of this part rests on Thomas Sowell's <i>Basic Economics</i> and on the notes this book grew out of. Sowell writes without formulas. We will try to as well, apart from a few calculators that do the maths for you.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Fundamentals · фундаментален анализ</b>Analysis of the causes of a move: economy, rates, politics, capital flows.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>16.1 Scarcity: there are no solutions, only trade-offs</h2>
+      <p>Scarce does not mean "rare". Scarce means that <b>the sum of what everyone wants is more than what there is</b>. Your time is scarce. A country's money is scarce. Market liquidity at 03:00 is scarce.</p>
+      <p>Once something is scarce, you have to choose. And every choice is a <b>trade-off</b>: you get one thing by giving up another. That is why an economist rarely talks about "solutions" and instead about what you gain and lose with each option.</p>
+      <div class="dialog">
+        <p><span>Student</span>So why do politicians always have solutions and economists only trade-offs?</p>
+        <p><span>Mentor</span>Because "solutions" win elections and "trade-offs" win arguments. Only one of the two gets voted on.</p>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>A central bank lives exactly in this world. If it raises rates, it brings inflation down but slows the economy and employment. If it cuts, it helps growth but risks inflation. There is no free move. That is why every rate decision creates winners and losers, and that moves the currency (Chapter 18).</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Scarcity · оскъдност</b>Wants exceed the available resources, so choices have to be made.</div>
+      <div class="term"><b>Trade-off · компромис</b>Getting something by giving up something else.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>16.2 Opportunity cost</h2>
+      <p>The real cost of something is not only what you pay. It is <b>the value of the best alternative you give up</b>. If you spend an hour watching a series, its cost is the hour you could have spent studying, sleeping or working.</p>
+      <p>In markets this is everywhere. Cash in your account "costs nothing" until you see a government bond paying 4% a year. Then every year in cash costs you 4%. Gold pays no interest; when rates rise, the opportunity cost of holding it rises and gold often gets cheaper (Chapter 22).</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Amount (€)<input type="number" id="o1" value="10000" min="0" step="500"></label>
+            <label>Yield of the alternative (% per year)<input type="number" id="o2" value="4" step="0.25" min="0" max="30"></label>
+            <label>Years<input type="number" id="o3" value="5" min="1" max="40"></label>
+          </div>
+          <div class="out" id="oOut" aria-live="polite"></div>
+        </div>
+        <figcaption>What it costs you to hold money with no yield when an alternative pays interest. Compound interest, no taxes or inflation.</figcaption>
+      </figure>
+      <div class="box ff">
+        <span class="label">Watch on Forex Factory</span>
+        <p>When you see a rate decision (for example the "Federal Funds Rate"), think opportunity cost. A higher US rate makes holding dollars more attractive than other currencies and than gold. That is the first reason currencies react to rates.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Opportunity cost · алтернативна цена</b>The value of the best choice you passed up.</div>
+      <div class="term"><b>Yield · доходност</b>What percentage per year an asset pays, for example a bond.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>16.3 Incentives: people respond</h2>
+      <p>People do more of what they are rewarded for and less of what they pay for. It sounds obvious, but entire laws are written as if it were not true. Sowell repeats one rule: <b>judge a policy by the incentives it creates, not by the goals it announces</b>.</p>
+      <p>Prices are the strongest incentive. Profit says "do more". Loss says "stop, the resources are needed elsewhere". That is why a market economy is a system of profits <i>and</i> losses. Without the losses the signal is only half there.</p>
+      <div class="tablewrap" data-name="stimuli-i-pazari">
+        <table class="data">
+          <thead><tr><th>Incentive</th><th>What people do</th><th>Where you see it in the market</th></tr></thead>
+          <tbody>
+            <tr><td>Higher rate in country A</td><td>Move savings to A</td><td>A's currency is in higher demand</td></tr>
+            <tr><td>A depreciating currency</td><td>Buy dollars, gold or property</td><td>Capital flight, a black market in currency</td></tr>
+            <tr><td>A bonus for short-term profit</td><td>Take more risk</td><td>Bubbles and manias (Chapter 27)</td></tr>
+            <tr><td>Government bailout</td><td>Take more risk because the loss is not entirely theirs</td><td>Moral hazard at banks, 2008</td></tr>
+            <tr><td>A prop firm with a daily limit</td><td>The trader cuts size after a loss</td><td>Chapter 33</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>Prices are high because sellers are greedy.</p></div>
+        <div><span class="label">Reality</span><p>A seller can ask any price. It becomes real only if someone pays it. Competition limits prices, not kindness. When house prices fall, it does not mean sellers have become better people.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Incentive · стимул</b>A reward or penalty that changes behaviour.</div>
+      <div class="term"><b>Moral hazard · морален риск</b>Taking more risk when someone else will pay for the loss.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>16.4 Prices as messages, and what happens when you ban them</h2>
+      <p>A price is a message. If coffee gets more expensive, you do not need to know there was frost in Brazil. Seeing the price is enough for you to drink a little less, and for a farmer somewhere else to plant more. Millions of people coordinate without anyone giving them orders.</p>
+      <p>When the state forbids a price from moving, the scarcity does not disappear. Only the message does. There are two kinds of price control:</p>
+      <ul>
+        <li>A <b>ceiling</b> below the market price, for example rent control. Result: a <b>shortage</b>, queues, a black market, worse quality.</li>
+        <li>A <b>floor</b> above the market price, for example minimum purchase prices for grain. Result: a <b>surplus</b> that someone has to buy up, store or destroy.</li>
+      </ul>
+      <figure>
+        <div class="calc">
+          <div class="sliders">
+            <label>Regulated price<input type="range" id="pc" min="20" max="80" value="50"><span class="mono" id="pcOut"></span></label>
+          </div>
+          <svg id="pcSvg" viewBox="0 0 520 260" role="img" aria-label="Supply and demand with a regulated price"></svg>
+          <p class="verdict" id="pcText" aria-live="polite"></p>
+        </div>
+        <figcaption>Red: demand. Green: supply. The dashed line is the regulated price. Move the slider below and above equilibrium (50).</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>A fixed exchange rate is a price control on the currency. When a country keeps its currency artificially strong, dollars are "unavailable" except on the black market. Argentina, Venezuela, Nigeria and Egypt have all been through this. In the end the rate is let go and corrects sharply. Chapter 27 explains exactly how a fixed rate breaks.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Price ceiling · таван</b>A legal maximum price. If it is below the market price, it creates a shortage.</div>
+      <div class="term"><b>Price floor · под</b>A legal minimum price. If it is above the market price, it creates a surplus.</div>
+      <div class="term"><b>Shortage · недостиг</b>The quantity demanded exceeds the quantity supplied at a given price.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: intermediate">●●</span>16.5 Comparative advantage: why countries trade</h2>
+      <p>Trade is not a zero-sum game. Both sides gain, otherwise they would not trade. The most surprising idea in economics is that this holds even when one country is better <i>at everything</i>.</p>
+      <p>Sowell's example: in the US one worker makes 500 chairs or 200 TVs a month. In Canada one worker makes 450 chairs or 100 TVs. The US is better at both. But in Canada one TV "costs" 4.5 chairs, while in the US only 2.5. Canada gives up less when it makes chairs. That is <b>comparative advantage</b>.</p>
+      <div class="tabs" data-group="trade">
+        <button class="chip" data-tab="no">Without trade</button>
+        <button class="chip" data-tab="yes">With specialisation</button>
+      </div>
+      <div class="pane" data-group="trade" data-pane="no">
+        <div class="tablewrap" data-name="bez-targoviya">
+          <table class="data">
+            <thead><tr><th>Country (500 workers each)</th><th class="num">Chairs</th><th class="num">TVs</th></tr></thead>
+            <tbody>
+              <tr><td>US: 250 on chairs, 250 on TVs</td><td class="num">125 000</td><td class="num">50 000</td></tr>
+              <tr><td>Canada: 250 on chairs, 250 on TVs</td><td class="num">112 500</td><td class="num">25 000</td></tr>
+              <tr><td><b>Total</b></td><td class="num"><b>237 500</b></td><td class="num"><b>75 000</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="pane" data-group="trade" data-pane="yes">
+        <div class="tablewrap" data-name="sas-specializaciya">
+          <table class="data">
+            <thead><tr><th>Country (500 workers each)</th><th class="num">Chairs</th><th class="num">TVs</th></tr></thead>
+            <tbody>
+              <tr><td>US: 100 on chairs, 400 on TVs</td><td class="num">50 000</td><td class="num">80 000</td></tr>
+              <tr><td>Canada: all 500 on chairs</td><td class="num">225 000</td><td class="num">0</td></tr>
+              <tr><td><b>Total</b></td><td class="num" style="color:var(--bull)"><b>275 000</b></td><td class="num" style="color:var(--bull)"><b>80 000</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The same thousand people, more of both goods. The difference is shared through trade.</p>
+      </div>
+      <p>What does this have to do with currencies? Comparative advantage decides what a country exports. Australia exports iron ore, Canada and Norway oil, New Zealand dairy. That is why the prices of those goods move their currencies (Chapter 20). When trade is closed off with tariffs, these flows change and the currencies feel it (Chapter 25).</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Comparative advantage · сравнително предимство</b>Producing what costs you the least of the other good.</div>
+      <div class="term"><b>Absolute advantage · абсолютно предимство</b>Producing something more efficiently than the other side.</div>
+      <div class="term"><b>Terms of trade · условия на търговия</b>The price of a country's exports relative to the price of its imports.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="main">
+      <h2 id="s6"><span class="dots" title="Level: intermediate">●●</span>16.6 Think at the margin and in consequences</h2>
+      <p>Three habits set economic thinking apart from everyday thinking.</p>
+      <ol class="steps">
+        <li><b>Think at the margin.</b> The question is rarely "all or nothing". The question is "one more or not". The first trade of the day on an A+ setup has one expectancy. The fifth, once there are no more A+ setups, has a completely different one. The decision is about the next one, not the average.</li>
+        <li><b>Ask "and then what?"</b> Sowell calls this thinking beyond stage one. Rent control looks good in the first month. Five years later there are no new buildings. Low rates look good for loans. Two years later there may be inflation.</li>
+        <li><b>Separate intention from result.</b> The law says what is wanted. The incentives say what will happen.</li>
+      </ol>
+      <div class="tablewrap" data-name="granichno-mislene">
+        <table class="data">
+          <thead><tr><th>Trade of the day</th><th>Setup quality</th><th class="num">Expectancy (R)</th><th>Decision at the margin</th></tr></thead>
+          <tbody>
+            <tr><td>1st</td><td>A+ in the kill zone</td><td class="num">+0.7</td><td>Yes</td></tr>
+            <tr><td>2nd</td><td>B, after TP on the first</td><td class="num">+0.3</td><td>Optional, half size</td></tr>
+            <tr><td>3rd</td><td>C, outside the kill zone</td><td class="num">−0.1</td><td style="color:var(--bear)">No</td></tr>
+            <tr><td>4th</td><td>"To win back the loss"</td><td class="num">−0.4</td><td style="color:var(--bear)">No, the day is over</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--muted);font-size:.9rem">The numbers illustrate the idea; they are not measurements. Yours only appear after at least 20 journal entries (Chapter 36).</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Marginal · пределен, в граница</b>The effect of one more unit, not of all of them together.</div>
+      <div class="term"><b>Second-order effects · ефекти от втори ред</b>The consequences of the consequences.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 16</h2>
+    <ul>
+      <li>Scarcity means choice; every choice is a trade-off. Central banks choose too.</li>
+      <li>Opportunity cost: the cost of cash is the missed interest, the cost of gold is the missed yield.</li>
+      <li>Judge by incentives, not intentions. Capital flows to where it is rewarded.</li>
+      <li>Ceiling → shortage; floor → surplus. A fixed rate is a price control on a currency.</li>
+      <li>Trade is positive-sum; what a country exports moves its currency.</li>
+      <li>Think about the next unit and ask "and then what?".</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I can give an example of opportunity cost from my own day.</label></li>
+      <li><label><input type="checkbox"> I tried the slider and saw a shortage and a surplus.</label></li>
+      <li><label><input type="checkbox"> I can explain the chairs-and-TVs example to a friend.</label></li>
+      <li><label><input type="checkbox"> I know which commodity moves AUD, CAD and NOK.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>A made-up country with a fixed rate of 10 local units per 1 dollar. Inflation there is 40% a year, in the US 3%. The government refuses to change the rate and bans selling dollars outside the banks. On the street the dollar trades at 16.</p>
+      <p><b>Task:</b> explain what is happening using the concepts from this chapter (ceiling or floor, shortage or surplus, incentives). What is more likely to happen to the official rate over the next 12 months? Who wins and who loses from the current situation? What signals would you watch as an analyst?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Control… Shortage… Incentives… Likely outcome… Signals…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>The official price of the dollar (10) is a <b>ceiling</b> below the market price (about 16). Result: a <b>shortage</b> of dollars in the banks and a black market.</li>
+          <li>Incentives: exporters hide dollars abroad, importers pay bribes for access to the official rate, citizens buy dollars on the street and goods "just in case".</li>
+          <li>The inflation gap (40% versus 3%) makes the local currency more overvalued every month. The central bank's reserves melt away. It is more likely that the rate gets devalued or floated within the next year than that it holds. This is a probability, not a certainty; IMF help or large exports can buy time.</li>
+          <li>Winners: those with access to the official rate. Losers: exporters, savers in local currency, people without connections.</li>
+          <li>Signals: FX reserves, the gap between the official and the street rate, IMF talks, import restrictions, statements that "there will be no devaluation".</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What does \"scarce\" mean in economics?",o:["Very rare","Wants exceed what is available","Expensive"],a:1,e:"Scarcity is a mismatch between wants and resources, not rarity."},
+  {q:"Opportunity cost is…",o:["The price in the shop","The value of the best choice passed up","The price in another currency"],a:1,e:"What you give up."},
+  {q:"A price ceiling below the market price leads to…",o:["A surplus","A shortage","Nothing"],a:1,e:"At a lower price demand rises and supply falls: a shortage."},
+  {q:"If rates rise, the opportunity cost of holding gold…",o:["It falls","Rises","Does not change"],a:1,e:"Gold pays no interest; you miss out on more."},
+  {q:"Which currency most often follows the oil price?",o:["JPY","CAD","CHF"],a:1,e:"Canada is a large oil exporter."}
+],mid:[
+  {q:"Country A is better at both chairs and TVs. Does it make sense for it to trade with B?",o:["No, it is better at everything","Yes, if the relative costs differ","Only with tariffs"],a:1,e:"Comparative advantage depends on the relative cost, not the absolute one."},
+  {q:"A government fixes its currency well above the market level. What is most likely?",o:["A surplus of dollars","A black market and melting reserves","The currency strengthens further"],a:1,e:"A ceiling on the price of the dollar → shortage, black market, pressure on reserves."},
+  {q:"Two losses in a row, you see a C setup outside the kill zone. What does marginal thinking say?",o:["You are positive on average, go in","The decision is about this trade; its expectancy is negative","Double the size"],a:1,e:"Think about the next unit, not the average."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* opportunity cost */
+  var o1=document.getElementById("o1"),o2=document.getElementById("o2"),o3=document.getElementById("o3"),oo=document.getElementById("oOut");
+  function oc(){var s=+o1.value||0,r=(+o2.value||0)/100,n=Math.max(1,+o3.value|0),fv=s*Math.pow(1+r,n);
+    oo.innerHTML="<span>After "+n+" years the alternative grows to <b>"+fv.toFixed(0)+" €</b>.</span><span>The cost of holding cash: <b>"+(fv-s).toFixed(0)+" €</b> in missed profit.</span>"}
+  [o1,o2,o3].forEach(function(x){x.addEventListener("input",oc)});oc();
+  /* price control */
+  var pc=document.getElementById("pc"),sv=document.getElementById("pcSvg"),pt=document.getElementById("pcText"),po=document.getElementById("pcOut");
+  var X0=50,X1=490,Y0=230,Y1=20;
+  function X(q){return X0+q/100*(X1-X0)}function Y(p){return Y0-p/100*(Y0-Y1)}
+  function dQ(p){return 100-p}function sQ(p){return p}
+  function draw(){var p=+pc.value;po.textContent=p;sv.innerHTML="";
+    el("line",{x1:X0,y1:Y0,x2:X1,y2:Y0,stroke:"var(--line)"},sv);el("line",{x1:X0,y1:Y0,x2:X0,y2:Y1,stroke:"var(--line)"},sv);
+    el("text",{x:X1-70,y:Y0+18,"font-size":11,fill:"var(--muted)"},sv).textContent="quantity";
+    el("text",{x:4,y:Y1+4,"font-size":11,fill:"var(--muted)"},sv).textContent="price";
+    el("line",{x1:X(0),y1:Y(100),x2:X(100),y2:Y(0),stroke:"var(--bear)","stroke-width":2.5},sv);
+    el("line",{x1:X(0),y1:Y(0),x2:X(100),y2:Y(100),stroke:"var(--bull)","stroke-width":2.5},sv);
+    el("text",{x:X(8),y:Y(96),"font-size":11,fill:"var(--bear)"},sv).textContent="demand";
+    el("text",{x:X(84),y:Y(96),"font-size":11,fill:"var(--bull)"},sv).textContent="supply";
+    el("circle",{cx:X(50),cy:Y(50),r:4,fill:"var(--ink)"},sv);
+    el("line",{x1:X0,y1:Y(p),x2:X1,y2:Y(p),stroke:"var(--news)","stroke-width":2,"stroke-dasharray":"6 4"},sv);
+    var qd=dQ(p),qs=sQ(p);
+    if(p!==50){var a=Math.min(qd,qs),b=Math.max(qd,qs);
+      el("line",{x1:X(a),y1:Y(p),x2:X(b),y2:Y(p),stroke:p<50?"var(--bear)":"var(--liq)","stroke-width":8,opacity:.45},sv);
+      el("text",{x:(X(a)+X(b))/2-30,y:Y(p)-10,"font-size":12,fill:"var(--fg)"},sv).textContent=(p<50?"shortage ":"surplus ")+(b-a);}
+    if(p<50)pt.innerHTML="<b>Ceiling below equilibrium.</b> Demand is "+qd+" units, supply is "+qs+". A shortage of "+(qd-qs)+": queues, a black market, worse quality.";
+    else if(p>50)pt.innerHTML="<b>Floor above equilibrium.</b> Supply is "+qs+" units, demand is "+qd+". A surplus of "+(qs-qd)+": someone has to buy it up or destroy it.";
+    else pt.innerHTML="<b>Equilibrium.</b> Quantity demanded and supplied are equal (50). The market clears.";}
+  pc.addEventListener("input",draw);draw();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

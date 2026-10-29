@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Market Structure · FX Fundamentals</title>
+<meta name="description" content="Market Structure · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch6.html">
+<link rel="alternate" hreflang="bg" href="bg/ch6.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="6">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">6</div>
+    <h1>Market Structure</h1>
+    <blockquote class="quote">
+      The trend is your friend until it bends.
+      <cite>Old trading saying</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>decide whether a market is bullish, bearish or ranging from its highs and lows alone;</li>
+        <li>tell BOS from CHoCH and MSS and apply the rule “close, not wick”;</li>
+        <li>recognise inducement, the false break that traps latecomers.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>6.1 Highs and lows: the alphabet of trend</h2>
+      <p>Price never moves in a straight line. It moves in waves: move, pullback, move. Every wave leaves a <b>swing high</b> and a <b>swing low</b>. How they line up relative to each other is <b>market structure</b>. Without clear structure there is no clear analysis.</p>
+      <div class="tablewrap" data-name="struktura">
+        <table class="data">
+          <thead><tr><th>Structure</th><th>Highs</th><th>Lows</th><th>Invalidation</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--bull)"><b>Bullish</b></td><td>Higher (HH)</td><td>Higher (HL)</td><td>A close below the last HL</td></tr>
+            <tr><td style="color:var(--bear)"><b>Bearish</b></td><td>Lower (LH)</td><td>Lower (LL)</td><td>A close above the last LH</td></tr>
+            <tr><td><b>Range</b></td><td>Roughly equal</td><td>Roughly equal</td><td>A break and acceptance outside the range</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="diagram">
+        <svg id="zz" viewBox="0 0 520 240" role="img" aria-label="Price zigzag with highs and lows marked"></svg>
+        <div class="tabs" data-group="zz">
+          <button class="chip" data-tab="bull">Bullish</button>
+          <button class="chip" data-tab="bear">Bearish</button>
+          <button class="chip" data-tab="range">Range</button>
+        </div>
+        <button class="toggle" id="zzLab" aria-pressed="false">Show labels</button>
+        <figcaption>First try to name each point yourself, then switch on the labels.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>If you have to squint to see a trend, it isn't a trend. Clean structure is visible from across the room.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>HH · Higher High</b>A high above the previous high.</div>
+      <div class="term"><b>HL · Higher Low</b>A low above the previous low.</div>
+      <div class="term"><b>LH · Lower High</b>A high below the previous high.</div>
+      <div class="term"><b>LL · Lower Low</b>A low below the previous low.</div>
+      <div class="term"><b>Swing · люлка</b>A high or low around which price has turned.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>6.2 BOS: close, not wick</h2>
+      <p><b>BOS</b> (Break of Structure) means price has broken the previous high in a bullish trend or the previous low in a bearish one. It confirms that the trend continues.</p>
+      <p>One rule, no exceptions: <b>a break counts only if the candle closes beyond the level.</b> A wick above the high is not a break. It is an attempt and often a liquidity grab (Chapter 7).</p>
+      <figure class="diagram">
+        <svg id="bos" viewBox="0 0 520 200" role="img" aria-label="Comparison: a wick above the high versus a close above the high"></svg>
+        <div class="tabs" data-group="bos">
+          <button class="chip" data-tab="wick">Wick only</button>
+          <button class="chip" data-tab="close">Close</button>
+        </div>
+        <p class="verdict" id="bosText" aria-live="polite"></p>
+      </figure>
+      <figure class="shot">
+        <img src="img/ch6-bos-wick.jpg" alt="EURUSD H1: a wick above the high without a close versus a body closed above the high" width="1075" height="774" loading="lazy" decoding="async">
+        <figcaption><b>Real example.</b> EURUSD H1, 18–19 August 2026, Sofia time. The high is 1.1586. At 17:00 a wick goes above it, but the candle closes below: that is not a BOS. The next morning a body closes above the level, and only then does the trend get going.</figcaption>
+      </figure>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>Price went 3 pips above the high, so it's a break.</p></div>
+        <div><span class="label">Reality</span><p>Until the candle has closed there is no break. And if it closes back below the high, you have exactly the opposite: a rejection.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>BOS · пробив на структурата</b>A close beyond the previous high (in a bullish trend) or low (in a bearish one). Confirms continuation.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>6.3 CHoCH and MSS: when the character changes</h2>
+      <p><b>CHoCH</b> (Change of Character) is the first break <i>against</i> the trend. In a bullish trend it is a close below the last HL. It doesn't immediately mean the trend has reversed. It means buyers have lost control for the first time and the picture needs re-assessing.</p>
+      <p><b>MSS</b> (Market Structure Shift) is the same thing on the small timeframe where decisions are made (M5, M15). In this book's approach the MSS comes after liquidity has been taken and is the signal that the reaction from the zone is real. The sequence you will meet again and again is:</p>
+      <p class="mono" style="background:var(--paper);padding:10px 12px;border:1px solid var(--line)">Liquidity sweep → MSS on M5 → return into a zone (OB/FVG) → decision</p>
+      <figure class="diagram">
+        <svg id="choch" viewBox="0 0 520 240" role="img" aria-label="A bullish trend that changes character"></svg>
+        <div class="parts">
+          <button class="chip" data-cs="1">1. Bullish trend</button>
+          <button class="chip" data-cs="2">2. Sweep of the high</button>
+          <button class="chip" data-cs="3">3. CHoCH</button>
+          <button class="chip" data-cs="4">4. New LH and BOS down</button>
+        </div>
+        <p class="verdict" id="chText" aria-live="polite"></p>
+      </figure>
+      <div class="tablewrap" data-name="bos-choch-mss">
+        <table class="data">
+          <thead><tr><th>Term</th><th>Direction</th><th>Timeframe</th><th>What it says</th></tr></thead>
+          <tbody>
+            <tr><td><b>BOS</b></td><td>With the trend</td><td>Any</td><td>The trend continues.</td></tr>
+            <tr><td><b>CHoCH</b></td><td>Against the trend</td><td>Usually H1 and above</td><td>A first sign the trend may be turning.</td></tr>
+            <tr><td><b>MSS</b></td><td>Against the short move</td><td>M5, M15</td><td>The reaction from the zone is confirmed; the trigger for a decision.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>CHoCH · смяна на характера</b>The first close against the trend, beyond the last protected point.</div>
+      <div class="term"><b>MSS · смяна на структурата</b>A CHoCH on the small timeframe, usually after liquidity has been taken.</div>
+      <div class="term"><b>Protected low · защитено дъно</b>The HL that must survive for the bullish trend to stay alive.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>6.4 Inducement: the trap for latecomers</h2>
+      <p><b>Inducement</b> is a small, seemingly clear break that invites traders in the wrong direction. Example: in a bearish trend price makes a small bounce and breaks a minor internal high. The impatient buy the “reversal” and put their stops below the last small low. Minutes later price comes back, takes those stops and continues down.</p>
+      <p>How you recognise it: the break is on a <b>small timeframe</b>, against the direction of the <b>bigger one</b>, with no significant liquidity taken before it, often with a small body and quickly reversed. A real CHoCH usually comes <i>after</i> a sweep of an important level. A CHoCH with no sweep before it is suspicious.</p>
+      <div class="dialog">
+        <p><span>Student</span>How do I know whether a break is real or a lure while it's happening?</p>
+        <p><span>Mentor</span>You can't know for sure. So you ask three things: is it in the D1 direction? Was liquidity taken before it? Has the candle closed? Two “no”s out of three and you stay out.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Inducement · примамка</b>A false break that pulls traders into the wrong direction so their stops can be used.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: basic">●</span>6.5 The most common reading mistakes</h2>
+      <div class="tablewrap" data-name="greshki-struktura">
+        <table class="data">
+          <thead><tr><th>Mistake</th><th>Consequence</th></tr></thead>
+          <tbody>
+            <tr><td>Counting a wick as a break</td><td>You enter just as liquidity is being taken, usually at the worst place.</td></tr>
+            <tr><td>Entering immediately on a BOS, without a pullback</td><td>A big stop, a poor reward-to-risk ratio.</td></tr>
+            <tr><td>Ignoring the D1 structure</td><td>You trade against the big flow.</td></tr>
+            <tr><td>Mistaking inducement for a CHoCH</td><td>A quick stop-out.</td></tr>
+            <tr><td>Labelling every small wobble</td><td>Noise. Only clear swings, visible without zooming in, are structure.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Pullback · корекция</b>A temporary move against the trend before it continues.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6r">
+    <div class="main">
+      <h2 id="s6r"><span class="dots" title="Level: intermediate">●●</span>6.6 Frame-by-frame replay</h2>
+      <p>Play the replay or go step by step. Watch above all the difference between step 2 and step 3: the wick and the body look close but mean different things.</p>
+      <div class="replay" data-rp="bos"></div>
+      <h3>Drill</h3>
+      <p>Press the line on the chart or the button with the letter. You get one try per question.</p>
+      <div class="drills" data-dr="ch6"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Replay · повторение</b>Stepping through the chart candle by candle without seeing the future. The cheapest way to practise reading.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 06</h2>
+    <ul>
+      <li>Bullish: HH + HL. Bearish: LH + LL. Range: equal highs and lows.</li>
+      <li>A break counts only on a close. A wick is an attempt or a sweep.</li>
+      <li>BOS continues the trend. CHoCH is the first blow against it. MSS is a CHoCH on the small timeframe.</li>
+      <li>The key sequence: sweep → MSS → return into a zone.</li>
+      <li>Inducement: a small break against the big trend, with no sweep before it.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I labelled HH, HL, LH, LL on EURUSD D1 for the last 3 months.</label></li>
+      <li><label><input type="checkbox"> I found one BOS with a close and one wick-only attempt on H1.</label></li>
+      <li><label><input type="checkbox"> I found a CHoCH on H1 and checked whether liquidity was taken before it.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>EURUSD: D1 is bullish (last HL at 1.0780). On H1 price falls towards 1.0800, wicks through the Asian low at 1.0806 and closes above it. On M5, price then closes above the last small LH at 1.0814.</p>
+      <p><b>Task:</b> name each event with the terms from the chapter. What is the protected low on D1 and on M5? When would the picture break down?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="D1… The wick… M5…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>D1: bullish structure; protected low 1.0780. The pullback to 1.0800 is within the trend.</li>
+          <li>The wick below 1.0806 with a close above it is a sweep of the liquidity under Asia, not a break.</li>
+          <li>The M5 close above 1.0814 is an MSS: the short bearish move is broken after a sweep, in the D1 direction.</li>
+          <li>Protected low on M5: the low of the sweep (below 1.0806). A close below it breaks the short-term picture. A D1 close below 1.0780 breaks the big one.</li>
+          <li>The next step is to find the zone the MSS started from (Chapter 7) and see whether price returns there.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What is an HL?",o:["Higher high","Higher low","Lower low"],a:1,e:"Higher Low: a low above the previous low."},
+  {q:"A bearish trend consists of…",o:["HH and HL","LH and LL","Equal highs"],a:1,e:"Lower highs and lower lows."},
+  {q:"When does a BOS count?",o:["When the wick passes the level","When the candle closes beyond the level","When RSI is above 70"],a:1,e:"Only the close counts."},
+  {q:"What is a CHoCH?",o:["A continuation of the trend","The first break against the trend","Indicator"],a:1,e:"A change of character is the first close against the trend."},
+  {q:"An MSS usually comes after…",o:["Liquidity taken","News","A weekend"],a:0,e:"Sweep → MSS is the key sequence."}
+],mid:[
+  {q:"Bullish trend, last HL 1.0820. An H1 candle drops to 1.0815 and closes at 1.0825. What is this?",o:["A CHoCH down","A sweep below the HL without a change of structure","A BOS up"],a:1,e:"The close is above the HL. The wick took the stops; the structure is intact."},
+  {q:"D1 is bearish. On M1 there is a small break up with no liquidity taken before it. How do you rate it?",o:["A trend reversal","Probably inducement","A BOS on D1"],a:1,e:"Small timeframe, against the big trend, no sweep: classic inducement."},
+  {q:"Price makes 5 highs at almost the same price and 5 lows at almost the same price. What do you do?",o:["Trade in the direction of the last candle","Define it as a range and wait for a break with acceptance","Look for a BOS at every high"],a:1,e:"Equal highs and lows are a range. The significant levels are its edges."}
+]};
+</script>
+<script>window.REPLAYS={"bos":{"title": "BOS with a close versus a wick, then a CHoCH", "candles": [[50, 52, 49, 51.5], [51.5, 56, 51, 55.5], [55.5, 58, 55, 57.5], [57.5, 58, 53, 53.5], [53.5, 54.5, 52, 54], [54, 57, 53.5, 56.5], [56.5, 59.5, 56, 57.5], [57.5, 58, 55.5, 56], [56, 60, 55.8, 59.5], [59.5, 63, 59, 62.5], [62.5, 63, 58.5, 59], [59, 60.5, 57.5, 60], [60, 62.5, 59.5, 62], [62, 62.3, 58, 58.5], [58.5, 59, 55.5, 56], [56, 57, 54, 54.5], [54.5, 56.5, 54, 56], [56, 57.8, 55.5, 56.2], [56.2, 56.5, 52, 52.5]], "y": [50, 64.5], "caption": "Teaching scenario. We count only body closes, not wicks.", "steps": [{"at": 6, "h": "Uptrend.", "text": "High 58 (HH) and higher low 52 (HL). The structure is bullish.", "draw": [{"t": "mark", "i": 2, "p": 58, "label": "HH 58", "c": "ink"}, {"t": "mark", "i": 4, "p": 52, "label": "HL 52", "c": "ink", "pos": "down"}, {"t": "level", "p": 58, "from": 2, "label": "58", "c": "liq", "until": 2}]}, {"at": 7, "h": "Wick only.", "text": "The wick reaches 59.5, but the candle closes below 58. That is not a BOS. Liquidity above the high was taken, nothing more.", "draw": [{"t": "mark", "i": 6, "p": 59.5, "label": "wick", "c": "news"}]}, {"at": 9, "h": "BOS.", "text": "A body closes above 58. That is a break of structure. The trend is confirmed.", "draw": [{"t": "mark", "i": 8, "p": 55.8, "label": "BOS", "c": "bull", "pos": "down", "anchor": "start"}]}, {"at": 13, "h": "Fatigue.", "text": "A new high at 63 and a higher low at 57.5. Then a lower high at 62.5: the first sign buyers are weakening.", "draw": [{"t": "level", "p": 57.5, "from": 11, "label": "HL 57.5", "c": "liq"}, {"t": "mark", "i": 12, "p": 62.5, "label": "LH", "c": "bear"}]}, {"at": 15, "h": "CHoCH.", "text": "A close below the last higher low at 57.5. The character changes from bullish to bearish.", "draw": [{"t": "mark", "i": 14, "p": 56, "label": "CHoCH", "c": "bear", "pos": "down"}]}, {"at": 19, "h": "What follows.", "text": "A bounce up and a new low. A CHoCH on its own is not an entry. It is a signal to look for new structure in the new direction.", "draw": []}]}};window.DRILLS={"ch6": [{"src": "bos", "n": 9, "q": "A close above which level is the BOS?", "o": [{"p": 59.5, "t": "59.5"}, {"p": 58, "t": "58"}, {"p": 52, "t": "52"}], "a": 1, "e": "The BOS is measured against the last high at 58, with a body. 59.5 is just the wick, and 52 is the higher low."}, {"src": "bos", "n": 14, "q": "A close below which level would be the CHoCH?", "o": [{"p": 62.5, "t": "62.5"}, {"p": 57.5, "from": 11, "t": "57.5"}, {"p": 52, "t": "52"}], "a": 1, "e": "The CHoCH is a close below the last higher low that led to the last high: 57.5. 52 is an old low, and 62.5 is a high."}, {"src": "bos", "n": 11, "q": "Candle 11 drops to 58.5. Is this a CHoCH?", "o": [{"t": "Yes, price is below 59"}, {"t": "No: there is no close below the last higher low, around 55.5"}, {"t": "Only if volume rises"}], "a": 1, "e": "A CHoCH needs a close below the higher low that led to the last high. A pullback to 58.5 is just a pullback."}, {"src": "bos", "n": 19, "q": "After the CHoCH price bounces to 57.8 (candle 18) and then falls to 52. What is 57.8 now?", "o": [{"p": 57.8, "from": 13, "t": "a lower high (LH)"}, {"p": 63, "from": 9, "t": "a higher high"}, {"p": 52, "from": 13, "t": "a BOS"}], "a": 0, "e": "In the new bearish structure 57.8 is the first lower high. A close above it would cancel the bearish idea."}]};</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* zigzag */
+  var Z={bull:{p:[40,90,65,130,100,170,140,205],l:["","HH","HL","HH","HL","HH","HL","HH"]},
+         bear:{p:[200,150,175,110,140,70,100,35],l:["","LL","LH","LL","LH","LL","LH","LL"]},
+         range:{p:[60,170,65,168,62,172,64,170],l:["","high","low","= high","= low","= high","= low","= high"]}};
+  var zz=document.getElementById("zz"),labOn=false,cur="bull";
+  function drawZ(k){cur=k;zz.innerHTML="";var d=Z[k],pts=d.p.map(function(v,i){return [30+i*66,220-v]});
+    el("polyline",{points:pts.map(function(p){return p.join(",")}).join(" "),fill:"none",stroke:k==="bull"?"var(--bull)":k==="bear"?"var(--bear)":"var(--ink)","stroke-width":3},zz);
+    pts.forEach(function(p,i){if(!i)return;var up=i%2===(k==="bear"?0:1);el("circle",{cx:p[0],cy:p[1],r:4,fill:"var(--fg)"},zz);
+      if(labOn){var t=el("text",{x:p[0]-12,y:up?p[1]-10:p[1]+18,"font-size":12,fill:"var(--fg)"},zz);t.textContent=d.l[i]}});
+    if(k==="bull"&&labOn){var hl=pts[6];el("line",{x1:hl[0],x2:510,y1:hl[1],y2:hl[1],stroke:"var(--bear)","stroke-dasharray":"4 4"},zz);el("text",{x:hl[0]+10,y:hl[1]+14,"font-size":10,fill:"var(--bear)"},zz).textContent="invalidation: close below the last HL"}
+    if(k==="bear"&&labOn){var lh=pts[6];el("line",{x1:lh[0],x2:510,y1:lh[1],y2:lh[1],stroke:"var(--bull)","stroke-dasharray":"4 4"},zz);el("text",{x:lh[0]+10,y:lh[1]-6,"font-size":10,fill:"var(--bull)"},zz).textContent="invalidation: close above the last LH"}}
+  Book.each('[data-group="zz"] button',function(b){b.addEventListener("click",function(){drawZ(b.dataset.tab)})});
+  var zl=document.getElementById("zzLab");zl.addEventListener("click",function(){labOn=!labOn;zl.setAttribute("aria-pressed",labOn);zl.textContent=labOn?"Hide labels":"Show labels";drawZ(cur)});drawZ("bull");
+
+  /* BOS wick vs close */
+  var bs=document.getElementById("bos"),by=function(v){return 190-v*1.6};
+  function cand(g,c,x,w){var o=c[0],cl=c[1],hi=c[2],lo=c[3],col=cl>=o?"var(--bull)":"var(--bear)";el("line",{x1:x+w/2,x2:x+w/2,y1:by(hi),y2:by(lo),stroke:col,"stroke-width":2},g);el("rect",{x:x,width:w,y:by(Math.max(o,cl)),height:Math.max(1.5,Math.abs(by(o)-by(cl))),fill:col},g)}
+  var BASE=[[20,40,44,18],[40,70,74,38],[70,92,96,66],[92,80,94,76],[80,70,82,64],[70,78,82,68],[78,84,88,76]];
+  function drawB(k){bs.innerHTML="";el("line",{x1:20,x2:510,y1:by(96),y2:by(96),stroke:"var(--liq)","stroke-dasharray":"5 4","stroke-width":1.5},bs);
+    el("text",{x:24,y:by(96)-6,"font-size":10,fill:"var(--liq)"},bs).textContent="previous high";
+    var arr=BASE.concat(k==="wick"?[[84,90,102,82],[90,78,92,74],[78,66,80,62]]:[[84,104,106,82],[104,98,108,96],[98,106,110,96]]);
+    arr.forEach(function(c,i){cand(bs,c,30+i*46,20)});
+    document.getElementById("bosText").textContent=k==="wick"?"The wick goes above the high, but the candle closes below it. No BOS. The next candles fall: it was a liquidity grab above the high.":"The candle closes above the previous high. That is a BOS: the bullish structure continues. A good analyst now waits for a pullback rather than chasing price."}
+  Book.each('[data-group="bos"] button',function(b){b.addEventListener("click",function(){drawB(b.dataset.tab)})});drawB("wick");
+
+  /* CHoCH stepper */
+  var ch=document.getElementById("choch"),P=[[30,40],[85,100],[130,75],[185,140],[230,110],[290,175],[330,185],[370,95],[410,135],[450,70],[500,40]];
+  var ends=[6,7,8,11],TX=["Bullish trend: HH, HL, HH, HL. The protected low is the last HL (around 110).","Price makes a small higher high and quickly comes back: the liquidity above the high has been taken (a sweep).","Price closes below the last HL. That is a CHoCH: the first blow against the bullish structure.","The bounce makes a lower high (LH) and price breaks down: a BOS in the new bearish direction. The character has changed."];
+  function drawC(n){ch.innerHTML="";var pts=P.slice(0,ends[n-1]).map(function(p){return [p[0],230-p[1]]});
+    el("polyline",{points:pts.map(function(p){return p.join(",")}).join(" "),fill:"none",stroke:"var(--ink)","stroke-width":3},ch);
+    el("line",{x1:230,x2:510,y1:230-110,y2:230-110,stroke:"var(--bull)","stroke-dasharray":"4 4"},ch);el("text",{x:236,y:230-110+14,"font-size":10,fill:"var(--bull)"},ch).textContent="last HL";
+    if(n>=2){el("circle",{cx:330,cy:230-185,r:10,fill:"none",stroke:"var(--liq)","stroke-width":2},ch);el("text",{x:344,y:230-185,"font-size":10,fill:"var(--liq)"},ch).textContent="sweep"}
+    if(n>=3){el("text",{x:376,y:230-110+28,"font-size":11,fill:"var(--bear)"},ch).textContent="CHoCH"}
+    if(n>=4){el("text",{x:400,y:230-135-8,"font-size":11,fill:"var(--bear)"},ch).textContent="LH";el("text",{x:456,y:230-70+18,"font-size":11,fill:"var(--bear)"},ch).textContent="BOS"}
+    document.getElementById("chText").textContent=TX[n-1];Book.each("[data-cs]",function(b){b.setAttribute("aria-pressed",b.dataset.cs==n)})}
+  Book.each("[data-cs]",function(b){b.addEventListener("click",function(){drawC(+b.dataset.cs)})});drawC(4);
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

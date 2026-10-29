@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Practice Room · FX Fundamentals</title>
+<meta name="description" content="Practice Room · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="chP.html">
+<link rel="alternate" hreflang="bg" href="bg/chP.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="P">
+
+  <header class="dossier">
+    <span class="label">Appendix</span>
+    <div class="no">P</div>
+    <h1>Practice Room</h1>
+    <blockquote class="quote">
+      We do not rise to the level of our expectations. We fall to the level of our training.
+      <cite>Archilochus</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">What is here</p>
+      <ul class="cando">
+        <li>Random exercises from the scenarios in the book: liquidity, structure, levels, sessions, management.</li>
+        <li>Every scenario can also appear mirrored, bullish or bearish, and the answers are shuffled.</li>
+        <li>Your score and best streak are stored in this browser.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1">Exercise</h2>
+      <p>Tap the line or the button. Then "Next". Ten correct answers in a row mean you read the pictures confidently. They don't mean you are ready to trade live: that is what the journal is for.</p>
+      <div class="practice"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Deliberate practice · целенасочена тренировка</b>Short repetitions of one skill with fast feedback.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="game">
+    <div class="main">
+      <h2 id="game"><span class="dots" title="Level: intermediate">●●</span>P.2 Game: Find the setup</h2>
+      <p>Ten charts, 20 seconds each. Click the <b>candle</b> that answers the question. A correct answer earns 10 points plus the remaining seconds, so the maximum is 300. The charts are generated at random, so every game is different.</p>
+      <div class="game" id="gameBox">
+        <div class="g-head"><span class="g-score" id="gScore"></span><span class="g-best" id="gBest"></span></div>
+        <p class="g-q" id="gQ">Press "Start" when you are ready.</p>
+        <div class="g-timer"><i id="gBar"></i></div>
+        <svg viewBox="0 0 340 220" id="gSvg" role="img" aria-label="Game chart"></svg>
+        <p class="fb" id="gFb" aria-live="polite"></p>
+        <div class="g-ctrl"><button class="chip" type="button" id="gGo">▶ Start</button></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Pattern recognition · разпознаване на модели</b>The skill of seeing a familiar picture in a new chart within seconds.</div>
+    </aside>
+  </section>
+
+</main>
+<script>window.REPLAYS={"smc": {"title": "Sweep, MSS, FVG and target: a bearish scenario frame by frame", "candles": [[70, 71, 65.5, 67], [67, 72, 65.7, 71.5], [71.5, 78, 71, 77.5], [77.5, 84, 77, 83.5], [83.5, 90, 83, 89.5], [89.5, 100, 89, 98.5], [98.5, 99, 95, 95.5], [95.5, 96, 92, 93], [93, 97, 92.5, 96.5], [96.5, 99.9, 96, 98], [98, 98.5, 94.5, 95], [95, 97.5, 94.2, 97], [97, 101.5, 96.5, 98], [98, 98.5, 93.5, 94], [94, 94.5, 88, 88.5], [88.5, 90, 86.5, 87], [87, 89.5, 86.8, 89], [89, 92, 88.5, 91.5], [91.5, 93.2, 90.8, 91], [91, 91.5, 85, 85.5], [85.5, 86, 80, 81], [81, 83, 79.5, 82.5], [82.5, 83, 75, 75.5], [75.5, 76, 70, 70.5], [70.5, 71, 65.2, 66.5], [66.5, 69, 66, 68.5]], "y": [63, 104], "caption": "Teaching scenario with made-up prices. Real charts are noisier, but the sequence is the same.", "steps": [{"at": 10, "h": "Equal highs.", "text": "Two almost identical highs around 100. Above them sit the sellers' stops and the orders of those waiting for a breakout. That is buy-side liquidity.", "draw": [{"t": "level", "p": 100, "from": 5, "label": "BSL ~100", "c": "liq", "until": 3}, {"t": "level", "p": 65.5, "from": 0, "label": "SSL ~65.5", "c": "liq", "until": 4}]}, {"at": 13, "h": "Sweep.", "text": "The candle breaks above the highs with a wick to 101.5 and closes back below 100. The liquidity is taken, and the breakout buyers are trapped.", "draw": [{"t": "mark", "i": 12, "p": 101.5, "label": "sweep", "c": "news"}]}, {"at": 15, "h": "MSS.", "text": "A strong bearish candle closes below the last higher low (94.2). After a sweep this is a change of structure, not just a pullback.", "draw": [{"t": "level", "p": 94.2, "from": 11, "label": "MSS 94.2", "c": "bear", "solid": 1, "until": 3}]}, {"at": 16, "h": "FVG.", "text": "The move is so fast that a gap is left between the wick of candle 13 and the wick of candle 15: 90 to 93.5. That is a fair value gap.", "draw": [{"t": "zone", "p1": 90, "p2": 93.5, "from": 13, "label": "FVG", "c": "bear", "right": 1, "below": 1}]}, {"at": 19, "h": "Return and plan.", "text": "Price returns into the FVG. Here the model gives an entry around 93, a stop above the sweep high (102), where the scenario is wrong. Risk 9 points.", "draw": [{"t": "level", "p": 93, "from": 18, "label": "entry 93", "c": "ink", "solid": 1}, {"t": "level", "p": 102, "from": 18, "label": "stop 102", "c": "bear", "solid": 1, "dy": -6}]}, {"at": 26, "h": "The target.", "text": "The target is the opposite liquidity: the equal lows. 93 − 66 = 27 points, exactly 3R at a risk of 9. Price gets there and sweeps them too.", "draw": [{"t": "level", "p": 66, "from": 18, "label": "target 3R", "c": "bull", "solid": 1, "dy": 12}]}]}, "bos": {"title": "BOS with a close versus a wick, then a CHoCH", "candles": [[50, 52, 49, 51.5], [51.5, 56, 51, 55.5], [55.5, 58, 55, 57.5], [57.5, 58, 53, 53.5], [53.5, 54.5, 52, 54], [54, 57, 53.5, 56.5], [56.5, 59.5, 56, 57.5], [57.5, 58, 55.5, 56], [56, 60, 55.8, 59.5], [59.5, 63, 59, 62.5], [62.5, 63, 58.5, 59], [59, 60.5, 57.5, 60], [60, 62.5, 59.5, 62], [62, 62.3, 58, 58.5], [58.5, 59, 55.5, 56], [56, 57, 54, 54.5], [54.5, 56.5, 54, 56], [56, 57.8, 55.5, 56.2], [56.2, 56.5, 52, 52.5]], "y": [50, 64.5], "caption": "Teaching scenario. We count only body closes, not wicks.", "steps": [{"at": 6, "h": "Uptrend.", "text": "High 58 (HH) and higher low 52 (HL). The structure is bullish.", "draw": [{"t": "mark", "i": 2, "p": 58, "label": "HH 58", "c": "ink"}, {"t": "mark", "i": 4, "p": 52, "label": "HL 52", "c": "ink", "pos": "down"}, {"t": "level", "p": 58, "from": 2, "label": "58", "c": "liq", "until": 2}]}, {"at": 7, "h": "Wick only.", "text": "The wick reaches 59.5, but the candle closes below 58. That is not a BOS. Liquidity above the high was taken, nothing more.", "draw": [{"t": "mark", "i": 6, "p": 59.5, "label": "wick", "c": "news"}]}, {"at": 9, "h": "BOS.", "text": "A body closes above 58. That is a break of structure. The trend is confirmed.", "draw": [{"t": "mark", "i": 8, "p": 55.8, "label": "BOS", "c": "bull", "pos": "down", "anchor": "start"}]}, {"at": 13, "h": "Fatigue.", "text": "A new high at 63 and a higher low at 57.5. Then a lower high at 62.5: the first sign buyers are weakening.", "draw": [{"t": "level", "p": 57.5, "from": 11, "label": "HL 57.5", "c": "liq"}, {"t": "mark", "i": 12, "p": 62.5, "label": "LH", "c": "bear"}]}, {"at": 15, "h": "CHoCH.", "text": "A close below the last higher low at 57.5. The character changes from bullish to bearish.", "draw": [{"t": "mark", "i": 14, "p": 56, "label": "CHoCH", "c": "bear", "pos": "down"}]}, {"at": 19, "h": "What follows.", "text": "A bounce up and a new low. A CHoCH on its own is not an entry. It is a signal to look for new structure in the new direction.", "draw": []}]}, "flip": {"title": "Resistance becomes support", "candles": [[40, 43, 39, 42.5], [42.5, 47, 42, 46.5], [46.5, 50.2, 46, 48], [48, 48.5, 44, 44.5], [44.5, 46, 43, 45.5], [45.5, 49.9, 45, 48.5], [48.5, 49, 45.5, 46], [46, 48, 45.8, 47.5], [47.5, 53, 47.2, 52.5], [52.5, 55, 52, 54.5], [54.5, 55, 51.5, 52], [52, 52.5, 50.1, 51.5], [51.5, 54, 51, 53.8], [53.8, 58, 53.5, 57.5], [57.5, 60, 57, 59.5], [59.5, 60.5, 58, 58.5]], "y": [37, 62], "caption": "Teaching scenario. The level is a zone, not a thin line.", "steps": [{"at": 7, "h": "Resistance.", "text": "Twice price reaches about 50 and is pushed back. Sellers defend the level.", "draw": [{"t": "level", "p": 50, "from": 2, "label": "resistance 50", "c": "bear", "until": 1}]}, {"at": 9, "h": "Break.", "text": "A candle closes clearly above 50. The sellers who defended the level have stops above it, and those are now burning.", "draw": [{"t": "mark", "i": 8, "p": 53, "label": "break", "c": "bull"}]}, {"at": 12, "h": "Retest.", "text": "Price returns to 50 from above and the level holds. The old resistance is the new support: an S/R flip.", "draw": [{"t": "level", "p": 50, "from": 8, "label": "support 50", "c": "bull", "solid": 1}, {"t": "mark", "i": 11, "p": 50.1, "label": "retest", "c": "liq", "pos": "down"}]}, {"at": 16, "h": "Continuation.", "text": "Buyers who missed the break get in on the retest. The trend continues. If the retest had closed below 50, the break would have been false.", "draw": []}]}, "day": {"title": "Asia builds, London sweeps, New York delivers", "candles": [[43, 45, 42, 44], [44, 46, 43.5, 45], [45, 45.5, 42, 42.5], [42.5, 43, 40, 41], [41, 44, 40.5, 43.5], [43.5, 45.8, 43, 45], [45, 45.5, 42.5, 43], [43, 44, 38.5, 39.5], [39.5, 40, 37.5, 39], [39, 43, 38.8, 42.5], [42.5, 47, 42, 46.5], [46.5, 48, 45.8, 47.5], [47.5, 48.2, 46.4, 46.8], [46.8, 51, 46.6, 50.5], [50.5, 53, 50, 52.5], [52.5, 53.8, 51.5, 53.2], [53.2, 53.5, 51, 51.5]], "y": [36, 56], "x": [[0, "03:00"], [7, "10:00"], [13, "15:30"]], "caption": "Hourly candles, Sofia time. Teaching scenario: not every day follows this order, but often enough that you should know it.", "steps": [{"at": 7, "h": "Asia.", "text": "From 03:00 to 09:00 price sits in a tight range: high 46, low 40. You only mark them.", "draw": [{"t": "zone", "p1": 40, "p2": 46, "from": 0, "to": 6, "c": "liq"}, {"t": "level", "p": 46, "from": 0, "label": "Asia 46", "c": "liq"}, {"t": "level", "p": 40, "from": 0, "label": "Asia 40", "c": "liq"}]}, {"at": 9, "h": "London sweeps.", "text": "10:00: London opens and breaks the Asian low down to 37.5. The sellers who entered on the break will soon be trapped.", "draw": [{"t": "mark", "i": 8, "p": 37.5, "label": "sweep", "c": "news", "pos": "down"}]}, {"at": 11, "h": "Reversal.", "text": "Price returns into the range and closes above the Asian high. A sweep followed by displacement in the opposite direction.", "draw": [{"t": "mark", "i": 10, "p": 47, "label": "MSS", "c": "bull"}]}, {"at": 13, "h": "Pullback.", "text": "A calm return to the breakout zone before New York. This is where the model looks for an entry, not by chasing the candle.", "draw": []}, {"at": 16, "h": "New York.", "text": "15:30: the US data delivers the second displacement up. This is the move of the day.", "draw": []}, {"at": 17, "h": "Fade.", "text": "After 18:00 the move weakens and false moves begin. You open no new positions, you only manage the open ones.", "draw": []}]}, "mgmt": {"title": "One trade from entry to 3R: TP1, breakeven, TP2", "candles": [[97, 98.5, 96, 98], [98, 100.5, 97.5, 100], [100, 103, 99.2, 102.5], [102.5, 105, 101.5, 104.5], [104.5, 108.2, 104, 107], [107, 107.5, 103, 103.5], [103.5, 104, 100.8, 102], [102, 106, 101.5, 105.5], [105.5, 111, 105, 110.5], [110.5, 115, 110, 114.5], [114.5, 118, 113, 117.5], [117.5, 123, 117, 121], [121, 121.5, 118, 118.5]], "y": [93, 125], "caption": "Teaching scenario. 1R = 5 points. Half is closed at TP1, half at TP2.", "steps": [{"at": 2, "h": "The plan.", "text": "Entry 100, stop 95 (1R). TP1 at 107.5 (1.5R) for half, TP2 at 122.5 (4.5R) for the other half. 3R on average. Everything is decided before entry.", "draw": [{"t": "level", "p": 100, "from": 1, "label": "entry 100", "c": "ink", "solid": 1}, {"t": "level", "p": 95, "from": 1, "label": "stop 95", "c": "bear", "solid": 1, "until": 1}, {"t": "level", "p": 107.5, "from": 1, "label": "TP1 1.5R", "c": "bull"}, {"t": "level", "p": 122.5, "from": 1, "label": "TP2 4.5R", "c": "bull"}]}, {"at": 5, "h": "TP1.", "text": "Price reaches 107.5. You close half: +0.75R is in the bag.", "draw": [{"t": "mark", "i": 4, "p": 108.2, "label": "TP1", "c": "bull"}]}, {"at": 5, "h": "Breakeven.", "text": "The stop goes to the entry, 100. From this moment the trade cannot end in a loss, except through slippage.", "draw": [{"t": "level", "p": 100, "from": 4, "label": "stop = breakeven", "c": "news", "solid": 1, "dy": 12}]}, {"at": 7, "h": "The pullback.", "text": "Price drops to 100.8, a hair from breakeven. You do nothing: you don't move the stop, you don't close out of fear. The three “nevers” apply.", "draw": [{"t": "mark", "i": 6, "p": 100.8, "label": "test", "c": "news", "pos": "down"}]}, {"at": 12, "h": "TP2.", "text": "Price reaches 122.5. You close the second half: +2.25R.", "draw": [{"t": "mark", "i": 11, "p": 123, "label": "TP2", "c": "bull", "anchor": "end"}]}, {"at": 13, "h": "The result.", "text": "0.5 × 1.5R + 0.5 × 4.5R = 3R. If price had hit breakeven after TP1, the result would have been +0.75R, not a loss.", "draw": []}]}};window.PRACTICE=[{"src": "smc", "name": ["Sweep and FVG, bearish", "Sweep and FVG, bullish"], "qs": [{"n": 12, "q": ["Where is the biggest concentration of stops above price?", "Where is the biggest concentration of stops below price?"], "o": [{"p": 100.4, "from": 5, "t": ["above the equal highs", "below the equal lows"]}, {"p": 94.2, "from": 11, "t": ["below the last low", "above the last high"]}, {"p": 89.5, "from": 4, "t": "in the middle of the move"}], "a": 0, "e": ["Above the equal highs sit the sellers' stops and the breakout traders' orders.", "Below the equal lows sit the buyers' stops and the breakout traders' orders."]}, {"n": 16, "q": "The break of which level confirmed the market structure shift (MSS)?", "o": [{"p": 94.2, "from": 11, "t": "the last swing before the sweep"}, {"p": 100, "from": 5, "t": "the level of the equal extremes"}, {"p": 87, "from": 15, "t": "the last close"}], "a": 0, "e": "An MSS is a close beyond the last swing that led to the sweep."}, {"n": 19, "show": [{"t": "zone", "p1": 90, "p2": 93.5, "from": 13, "label": "FVG", "c": "bear", "right": 1, "below": 1}], "q": ["Which stop for the short from the FVG is best protected?", "Which stop for the long from the FVG is best protected?"], "o": [{"p": 94.2, "from": 13, "t": "right next to the FVG"}, {"p": 98.6, "from": 13, "t": "in the middle of the noise"}, {"p": 102, "from": 12, "t": ["above the sweep high", "below the sweep low"]}], "a": 2, "e": "Beyond the sweep extreme the scenario is wrong. Closer stops sit in an area price often retests."}, {"n": 19, "show": [{"t": "zone", "p1": 90, "p2": 93.5, "from": 13, "label": "FVG", "c": "bear", "right": 1, "below": 1}], "q": "Entry around 93.5 (in the FVG), stop 102.5. Which target gives at least 3R?", "o": [{"p": 66, "from": 0, "t": ["the equal lows", "the equal highs"]}, {"p": 85, "from": 13, "t": "the nearby swing"}, {"p": 89, "from": 13, "t": "the lower edge of the FVG"}], "a": 0, "e": "Risk 9. 3R = 27 points: the opposite liquidity at the equal extremes. The other targets are under 1R."}]}, {"src": "bos", "name": ["Structure, bullish trend", "Structure, bearish trend"], "qs": [{"n": 9, "q": "A close beyond which level is a BOS?", "o": [{"p": 59.5, "t": "the wick"}, {"p": 58, "t": "the last swing"}, {"p": 52, "t": "the opposite swing"}], "a": 1, "e": "A BOS is measured with the body against the last swing. The wick does not count."}, {"n": 14, "q": "A close beyond which level would be a CHoCH?", "o": [{"p": 62.5, "t": "the last high"}, {"p": 57.5, "from": 11, "t": "the last protected swing"}, {"p": 52, "t": "the old swing"}], "a": 1, "e": "A CHoCH is a break of the last swing that was protecting the trend."}]}, {"src": "flip", "name": ["Level, upward", "Level, downward"], "qs": [{"n": 7, "q": "Where is the key level?", "o": [{"p": 50, "from": 2, "t": "around 50"}, {"p": 46, "t": "around 46"}, {"p": 43, "t": "around 43"}], "a": 0, "e": "Two rejections in one place make the level."}, {"n": 11, "q": "Price comes back to the level after the break. What role does it play now?", "o": [{"t": "resistance"}, {"t": "support"}, {"t": "none"}], "a": [1, 0], "e": "After a break with a close, the level's role flips: an S/R flip."}]}, {"src": "day", "name": ["Sessions, bullish bias", "Sessions, bearish bias"], "qs": [{"n": 7, "q": ["The daily bias is bullish. Which liquidity is London more likely to sweep first?", "The daily bias is bearish. Which liquidity is London more likely to take first?"], "o": [{"p": 46, "t": ["the Asian high", "the Asian low"]}, {"p": 43, "t": "the middle of Asia"}, {"p": 40, "t": ["the Asian low", "the Asian high"]}], "a": 2, "e": "London often takes the side against the bias first, to fill orders in its direction. More likely, not certain."}, {"n": 11, "q": "London took one side of Asia and closed beyond the other. What is this?", "o": [{"t": "a sweep and a change of direction"}, {"t": "an ordinary breakout with no meaning"}, {"t": "a signal to trade against the move"}], "a": 0, "e": "A sweep followed by displacement beyond the other side: the pattern from 9.5."}]}, {"src": "mgmt", "name": ["Management", "Management"], "qs": [{"n": 5, "q": "TP1 is taken. Where does the stop go?", "o": [{"p": 95, "from": 1, "t": "stays"}, {"p": 100, "from": 1, "t": "at the entry"}, {"p": 105, "from": 1, "t": "very close to price"}], "a": 1, "e": "After TP1 the stop goes to the entry. The trade can no longer lose."}]}];</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var B=window.Book,svg=document.getElementById("gSvg"),NS="http://www.w3.org/2000/svg";
+  var q=document.getElementById("gQ"),fb=document.getElementById("gFb"),go=document.getElementById("gGo"),bar=document.getElementById("gBar"),sc=document.getElementById("gScore"),bs=document.getElementById("gBest");
+  function R(a,b){return a+Math.random()*(b-a)}
+  function el(t,a,p){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e}
+  /* build candles from a path of closes; wick noise */
+  function fromPath(cl,start){var out=[],o=start;cl.forEach(function(c){var h=Math.max(o,c)+R(.2,.9),l=Math.min(o,c)-R(.2,.9);out.push([o,h,l,c]);o=c+R(-.25,.25)});return out}
+  function path(pts,n){/* piecewise linear through [index,value] points with noise */var out=[];for(var i=0;i<n;i++){var a=pts[0],b=pts[pts.length-1];for(var j=0;j<pts.length-1;j++)if(i>=pts[j][0]&&i<=pts[j+1][0]){a=pts[j];b=pts[j+1];break}
+      var t=b[0]===a[0]?0:(i-a[0])/(b[0]-a[0]);out.push(a[1]+(b[1]-a[1])*t+R(-.8,.8))}return out}
+  function fix(C){C.forEach(function(x){x[1]=Math.max(x[1],x[0],x[3]);x[2]=Math.min(x[2],x[0],x[3])});return C}
+  function fvgs(C){var r=[];for(var i=1;i<C.length-1;i++){if(C[i+1][2]>C[i-1][1]+.3)r.push(i)}return r}
+  var GEN={
+    sweep:function(){var H=70,k=16,C=fromPath(path([[0,52],[6,68.5],[9,61],[13,68.5],[15,65.5],[16,65],[21,52]],22),51);
+      C.forEach(function(x,i){if(i!==k){x[1]=Math.min(x[1],H-.4);x[0]=Math.min(x[0],H-.6);x[3]=Math.min(x[3],H-.6);x[2]=Math.min(x[2],Math.min(x[0],x[3])-.1)}});
+      C[6][1]=H;C[13][1]=H-.15;var o=C[15][3];C[k]=[o,H+R(2,3.5),Math.min(o,H-5.5)-.5,H-5];C[17][0]=H-5;
+      return {C:fix(C),k:k,q:"Click the candle that takes the liquidity above the equal highs and closes back below them.",e:"The two equal highs collect stops (BSL). The candle with the long wick breaks them and closes below: that is a sweep. After it price falls."}},
+    fvg:function(){var k=12,C=fromPath(path([[0,50],[11,50.5]],12),50),b=C[11][3];
+      var hi=Math.max(C[11][1],b)+.2;C[11][1]=hi;
+      var big=[b,b+R(7,9)+.4,b-.3,b+R(7,9)];big[1]=big[3]+.4;C.push(big);
+      var lo=hi+R(2,3);C.push([big[3],big[3]+1.6,lo,big[3]+1]);
+      var rest=fromPath(path([[0,big[3]+1.2],[8,big[3]+3]],8),big[3]+1);rest.forEach(function(x){x[2]=Math.min(x[2],x[3]-.5,x[0]-.5);if(x[2]>lo+1.2)x[2]=lo+R(.8,1.2);x[1]=Math.max(x[1],x[0],x[3])+.2});
+      C=C.concat(rest);
+      /* close any accidental gaps elsewhere */
+      for(var i=1;i<C.length-1;i++)if(i!==k&&C[i+1][2]>C[i-1][1])C[i+1][2]=C[i-1][1]-.2;
+      return {C:fix(C),k:k,q:"Click the middle candle of the bullish FVG (the gap between the wick before it and the wick after it).",e:"The big green candle leaves a gap: the low of the next candle is above the high of the previous one. The middle candle is the one that creates the FVG."}},
+    bos:function(){var H=60,k=16,C=fromPath(path([[0,45],[7,59],[12,53],[15,58.6],[16,61.5],[21,66]],22),45);
+      C.forEach(function(x,i){if(i!==7&&i<k){x[1]=Math.min(x[1],H-.3);x[0]=Math.min(x[0],H-.5);x[3]=Math.min(x[3],H-.5);x[2]=Math.min(x[2],x[0],x[3])}});
+      C[7][1]=H;C[7][3]=Math.min(C[7][3],H-.6);var o=C[15][3];C[k]=[o,H+2.4,o-.3,H+2];
+      for(var i=k+1;i<C.length;i++){C[i][2]=Math.max(C[i][2],H-.2);C[i][1]=Math.max(C[i][1],C[i][0],C[i][3])+.1}
+      return {C:fix(C),k:k,lvl:H,q:"Click the candle that makes the BOS: the first body close above the last high (the dotted line).",e:"Wicks that touch the high are not a BOS. A BOS is the first body close above the level."}}
+  };
+  function mirror(r){r.C=r.C.map(function(x){return [100-x[0],100-x[2],100-x[1],100-x[3]]});if(r.lvl)r.lvl=100-r.lvl;
+    r.q=r.q.replace("above the equal highs and closes back below them","below the equal lows and closes back above them").replace("bullish FVG","bearish FVG").replace("above the last high","below the last low");
+    r.e=r.e.replace("The two equal highs collect stops (BSL). The candle with the long wick breaks them and closes below: that is a sweep. After it price falls.","The two equal lows collect stops (SSL). The candle with the long wick breaks them and closes above: that is a sweep. After it price rises.")
+      .replace("The big green candle leaves a gap: the low of the next candle is above the high of the previous one.","The big red candle leaves a gap: the high of the next candle is below the low of the previous one.")
+      .replace("body close above the level","body close below the level").replace("touch the high","touch the low");return r}
+  var cur,round=0,total=0,timer=null,left=0,answered=true,T=20;
+  function draw(r,show){svg.innerHTML="";var C=r.C,n=C.length,mn=Infinity,mx=-Infinity;C.forEach(function(x){mn=Math.min(mn,x[2]);mx=Math.max(mx,x[1])});var pad=(mx-mn)*.08;mn-=pad;mx+=pad;
+    function Y(p){return 205-(p-mn)/(mx-mn)*190}var w=330/n,cw=w*.6;
+    if(r.lvl!=null){el("line",{x1:5,x2:335,y1:Y(r.lvl),y2:Y(r.lvl),stroke:"var(--liq)","stroke-dasharray":"4 4","stroke-width":1.2});var t=el("text",{x:8,y:Y(r.lvl)-4,fill:"var(--liq)","font-size":9,"font-family":"var(--f-mono)"});t.textContent=r.q.indexOf("low")>0?"last low":"last high"}
+    C.forEach(function(x,i){var cx=5+w*i+w/2,up=x[3]>=x[0],col=up?"var(--bull)":"var(--bear)",g=el("g",{});
+      if(show&&(i===r.k||i===show.pick)){el("rect",{x:cx-w/2+.5,y:8,width:w-1,height:200,rx:3,fill:i===r.k?"rgba(56,189,248,.22)":"rgba(220,60,60,.18)",stroke:i===r.k?"#38bdf8":"var(--bear)","stroke-width":1},g)}
+      el("line",{x1:cx,x2:cx,y1:Y(x[1]),y2:Y(x[2]),stroke:col,"stroke-width":1.3},g);
+      el("rect",{x:cx-cw/2,y:Y(Math.max(x[0],x[3])),width:cw,height:Math.max(1.5,Math.abs(Y(x[0])-Y(x[3]))),fill:col},g);
+      var hit=el("rect",{x:cx-w/2,y:0,width:w,height:220,fill:"transparent",style:"cursor:pointer","data-i":i},g)});}
+  function tick(){left-=.1;bar.style.width=Math.max(0,left/T*100)+"%";if(left<=0){clearInterval(timer);answer(-1)}}
+  function next(){if(round>=10){end();return}round++;var keys=Object.keys(GEN),kk=keys[Math.floor(Math.random()*keys.length)];cur=GEN[kk]();if(Math.random()<.5)cur=mirror(cur);
+    if(kk==="fvg"){var f=fvgs(cur.C);cur.ok=f.length?f:[cur.k]}else cur.ok=[cur.k];
+    q.innerHTML="<b>"+round+"/10.</b> "+cur.q;fb.textContent="";draw(cur);answered=false;left=T;bar.style.width="100%";clearInterval(timer);timer=setInterval(tick,100);go.hidden=true;upd()}
+  function answer(i){if(answered)return;answered=true;clearInterval(timer);var ok=cur.ok.indexOf(i)>=0,pts=ok?10+Math.ceil(left):0;total+=pts;
+    draw(cur,{pick:i});fb.innerHTML=(ok?"<b style='color:var(--bull)'>✓ Correct! +"+pts+"</b> ":i<0?"<b style='color:var(--bear)'>⏱ Time's up.</b> ":"<b style='color:var(--bear)'>✗ Not that one.</b> ")+cur.e;
+    go.textContent=round>=10?"See the result ▶":"Next ▶";go.hidden=false;upd()}
+  function end(){var best=Math.max(total,+(B.store("bG-best")||0));B.store("bG-best",String(best));B.store("bG-n",String(+(B.store("bG-n")||0)+1));
+    svg.innerHTML="";q.innerHTML="<b>Game over: "+total+" out of 300 points.</b> "+(total>=250?"Sharp eye. 👁":total>=200?"Very good. The \"Sharp Eye\" badge is yours.":total>=120?"Good. A few more games and your eye will adjust.":"Reread Chapters 6 and 7 and try again.");
+    fb.textContent="";go.textContent="▶ New game";go.hidden=false;round=0;total=0;upd(best)}
+  function upd(b){sc.textContent=round?"Round "+round+"/10 · points "+total:"";bs.textContent="Record: "+(b||B.store("bG-best")||0)}
+  svg.addEventListener("click",function(e){var t=e.target.closest("[data-i]");if(t&&!answered)answer(+t.getAttribute("data-i"))});
+  go.addEventListener("click",function(){if(!round&&answered){total=0}next()});
+  upd();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

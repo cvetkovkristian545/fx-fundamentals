@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Classic Price Action · FX Fundamentals</title>
+<meta name="description" content="Classic Price Action · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch4.html">
+<link rel="alternate" hreflang="bg" href="bg/ch4.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="4">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">4</div>
+    <h1>Classic Price Action</h1>
+    <blockquote class="quote">
+      Markets are constantly in a state of uncertainty and flux, and money is made by discounting the obvious and betting on the unexpected.
+      <cite>George Soros (attributed)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>draw support and resistance levels by importance, from weekly down to hourly;</li>
+        <li>tell a real trendline break from a false one;</li>
+        <li>recognise regular, hidden and SMT divergence and know how much each weighs.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>4.1 Support and resistance</h2>
+      <p><b>Support</b> is a price level below which price struggles to fall, because buyers were strong there. <b>Resistance</b> is a level above which price struggles to rise, because sellers were strong there. These are the demand and supply zones from Chapter 0.2, seen as lines.</p>
+      <p>Not all levels are equal. Here is the hierarchy you will draw them by in this book, from the most important to the smallest:</p>
+      <div class="tablewrap" data-name="ierarhiya-na-nivata">
+        <table class="data">
+          <thead><tr><th>Level</th><th>Examples</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td><b>1 · Macro</b></td><td>Weekly high and low, monthly open, last year's high and low, round numbers (1.1000)</td><td>Every institution sees them. Reactions here are the strongest.</td></tr>
+            <tr><td><b>2 · Daily structure</b></td><td>Previous day's high and low (PDH, PDL), daily zones</td><td>Daily targets and reference points.</td></tr>
+            <tr><td><b>3 · Sessions</b></td><td>Asian high and low, London high and low, the opening price</td><td>That is where stops pile up during the day (Chapter 9).</td></tr>
+            <tr><td><b>4 · Intraday</b></td><td>H4 and H1 highs and lows, M15 zones</td><td>Precision when analysing the detail.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>When is a level strong?</b> When price has reacted to it several times, when stops (liquidity) are stacked behind it, when it lines up with another zone and when it is visible on a higher timeframe. <b>When is it weak?</b> When it has only one touch, when it is on M1 or M5, when it is in the middle of a range with no reason to exist.</p>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>Draw zones, not lines. The market doesn't respect the price 1.08500 to the fifth digit. It respects the area 1.0845–1.0855.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Support · подкрепа</b>A level where buyers have stopped declines.</div>
+      <div class="term"><b>Resistance · съпротива</b>A level where sellers have stopped rallies.</div>
+      <div class="term"><b>PDH / PDL</b>Previous Day High / Low: the high and the low of the previous day.</div>
+      <div class="term"><b>Round number · кръгло число</b>A psychological level such as 1.1000 or 2400. Orders pile up there.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>4.2 Role reversal (S/R flip)</h2>
+      <p>When price breaks a level decisively, its role often flips. Broken resistance becomes support. Broken support becomes resistance. Why? Because the sellers who sold at resistance are now losing. When price comes back there, many of them close at breakeven, i.e. they buy, and the buyers who missed the breakout are waiting for exactly that level.</p>
+      <figure class="diagram">
+        <svg id="flipSvg" viewBox="0 0 520 240" role="img" aria-label="Price breaks resistance, comes back from above and bounces"></svg>
+        <div class="parts">
+          <button class="chip" data-step="1">1. Resistance</button>
+          <button class="chip" data-step="2">2. Break with a close</button>
+          <button class="chip" data-step="3">3. Retest</button>
+          <button class="chip" data-step="4">4. Rejection and continuation</button>
+        </div>
+        <p class="verdict" id="flipText" aria-live="polite"></p>
+        <figcaption>EURUSD H1, illustrative prices. The blue zone is the level that changes its role.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/ch4-sr-flip.jpg" alt="EURUSD H1: broken support becomes resistance on the retest" width="1075" height="774" loading="lazy" decoding="async">
+        <figcaption><b>Real example.</b> EURUSD H1, 29 September – 1 October 2026, Sofia time. The low of 29 September (1.1312) is support. On 1 October a candle closes below it; at 14:00 price returns from below, touches the level and is rejected. The old support is now resistance; a fall to 1.1215 follows.</figcaption>
+      </figure>
+      <p>The reliable sign is at steps 3 and 4: price returns to the level, fails to close back below it and shows rejection (a candle with a long lower wick, an engulfing candle or a change of structure on a lower timeframe, Chapter 6).</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Breakout · пробив</b>Price closes beyond an important level.</div>
+      <div class="term"><b>Retest · повторен тест</b>A return to the broken level from the other side.</div>
+      <div class="term"><b>S/R flip · обръщане</b>Broken resistance becomes support or vice versa.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>4.3 Trendlines and the liquidity around them</h2>
+      <p>A trendline connects a series of higher lows (rising) or lower highs (falling). It is <b>moving support or resistance</b>: its level shifts over time. The rules:</p>
+      <ul>
+        <li>At least two points to draw it. Three or more for it to be strong.</li>
+        <li>The points are real highs or lows, not random places.</li>
+        <li>The line runs through the wicks, not the candle bodies.</li>
+        <li>A higher timeframe means a more important line: D1 and H4 above H1 and M15.</li>
+      </ul>
+      <p>Score a line using the criteria below. Tick what applies:</p>
+      <figure>
+        <div class="calc">
+          <div style="display:grid;gap:6px" id="tlChecks">
+            <label><input type="checkbox" data-w="2"> 3 or more touches</label>
+            <label><input type="checkbox" data-w="2"> Drawn on H4 or D1</label>
+            <label><input type="checkbox" data-w="1"> The touches haven't broken the line</label>
+            <label><input type="checkbox" data-w="2"> Lines up with a demand zone or a supply zone</label>
+          </div>
+          <div class="out" id="tlOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Trendline score from 0 to 7. A 2-point line on a low timeframe scores 0 and on its own is no reason to act.</figcaption>
+      </figure>
+      <p><b>Liquidity along the trendline.</b> The more obvious a line, the more traders buy on it and put their stops just below it. Below the pretty four-touch trendline sits a pile of sell orders. The market often breaks it with a wick, takes the stops and comes back. That is a trap, not a breakout.</p>
+      <figure class="diagram">
+        <svg id="tlSvg" viewBox="0 0 520 220" role="img" aria-label="A false trendline break with a wick and a real break with a close and retest"></svg>
+        <div class="tabs" data-group="tl">
+          <button class="chip" data-tab="fake">False break</button>
+          <button class="chip" data-tab="real">Real break</button>
+        </div>
+        <p class="verdict" id="tlText" aria-live="polite"></p>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Trendline · трендлиния</b>A line through a series of higher lows or lower highs.</div>
+      <div class="term"><b>Channel · канал</b>Two parallel trendlines around price.</div>
+      <div class="term"><b>Trendline liquidity</b>The stops stacked just beyond an obvious trendline.</div>
+      <div class="term"><b>Fakeout · фалшив пробив</b>A break with a wick after which the candle closes back inside.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>4.4 Divergences</h2>
+      <p>A divergence occurs when price and a momentum indicator (for example RSI) contradict each other. Price makes a new high and RSI doesn't. That suggests the force behind the move is fading. A divergence is <b>additional confirmation</b>, never a reason on its own.</p>
+      <figure class="diagram">
+        <div class="tabs" data-group="div">
+          <button class="chip" data-tab="bear">Regular bearish</button>
+          <button class="chip" data-tab="bull">Regular bullish</button>
+          <button class="chip" data-tab="hbull">Hidden bullish</button>
+          <button class="chip" data-tab="hbear">Hidden bearish</button>
+        </div>
+        <svg id="divSvg" viewBox="0 0 520 260" role="img" aria-label="Price above and RSI below with the divergence marked"></svg>
+        <p class="verdict" id="divText" aria-live="polite"></p>
+        <figcaption>Top: price. Bottom: RSI(14). The lines connect the two highs or the two lows being compared.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="divergencii">
+        <table class="data">
+          <thead><tr><th>Type</th><th>Price</th><th>Indicator</th><th>Suggests</th></tr></thead>
+          <tbody>
+            <tr><td>Regular bullish</td><td>Lower low</td><td>Higher low</td><td>Possible reversal up</td></tr>
+            <tr><td>Regular bearish</td><td>Higher high</td><td>Lower high</td><td>Possible reversal down</td></tr>
+            <tr><td>Hidden bullish</td><td>Higher low</td><td>Lower low</td><td>Continuation up</td></tr>
+            <tr><td>Hidden bearish</td><td>Lower high</td><td>Higher high</td><td>Continuation down</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>SMT divergence</b> is different: it compares two correlated pairs. EURUSD and GBPUSD usually move together. If EURUSD makes a new low and GBPUSD doesn't, the dollar is not as strong as it looks in EURUSD. The weaker pair is often the one where stops have just been taken. The stronger one shows the real direction.</p>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>RSI above 70 means “overbought”, so sell.</p></div>
+        <div><span class="label">Reality</span><p>In a strong trend RSI can stay above 70 for weeks. Selling just because of the number is a bet against the trend. A divergence matters only at an important level and in the context of structure.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Divergence · дивергенция</b>A mismatch between price and a momentum indicator.</div>
+      <div class="term"><b>RSI</b>Relative Strength Index: a momentum indicator from 0 to 100.</div>
+      <div class="term"><b>Momentum · инерция</b>The strength and speed of a move.</div>
+      <div class="term"><b>SMT</b>Smart Money Technique: a mismatch between two correlated pairs.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: intermediate">●●</span>4.5 Why SMC builds on this rather than replacing it</h2>
+      <p>In Part II you will meet Smart Money Concepts (SMC): order blocks, FVGs, liquidity sweeps. Some present them as something completely new. They aren't. They are a <b>more precise vocabulary</b> for the same things you see in this chapter:</p>
+      <div class="tablewrap" data-name="pa-vs-smc">
+        <table class="data">
+          <thead><tr><th>Classic Price Action</th><th>SMC (Part II)</th><th>What SMC adds</th></tr></thead>
+          <tbody>
+            <tr><td>Demand / supply zone</td><td>Order block</td><td>The exact candle the move started from</td></tr>
+            <tr><td>Gap, imbalance</td><td>Fair Value Gap (FVG)</td><td>Exact boundaries from three candles</td></tr>
+            <tr><td>False break</td><td>Liquidity sweep</td><td>Why it happens: stops are liquidity</td></tr>
+            <tr><td>Trend break</td><td>BOS / CHoCH / MSS</td><td>A rule for the close, not the wick</td></tr>
+            <tr><td>Support and resistance</td><td>BSL / SSL, PDH / PDL</td><td>Which levels are magnets for price</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>New names don't make the market new. If you understand demand, supply and stops, SMC will look like an old friend in a new suit.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Price action · ценово действие</b>Analysis of price and candles alone, with few or no indicators.</div>
+      <div class="term"><b>SMC</b>Smart Money Concepts: a framework for reading the footprints of big players.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6r">
+    <div class="main">
+      <h2 id="s6r"><span class="dots" title="Level: intermediate">●●</span>4.6 Frame-by-frame replay</h2>
+      <p>An S/R flip on one chart: resistance, break, retest, continuation.</p>
+      <div class="replay" data-rp="flip"></div>
+      <h3>Drill</h3>
+      <p>Press the line on the chart or the button. You get one try per question.</p>
+      <div class="drills" data-dr="ch4"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Replay · повторение</b>Stepping through the chart candle by candle without seeing the future. The cheapest way to practise reading.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 04</h2>
+    <ul>
+      <li>Levels have a hierarchy: macro, daily, session, intraday. Draw them top-down and as zones.</li>
+      <li>A broken level often changes its role. The signal is in the retest, not the break.</li>
+      <li>An obvious trendline attracts stops. A wick break is a trap; a break with a close and a retest is more serious.</li>
+      <li>A divergence is confirmation, not a reason. SMT compares two pairs.</li>
+      <li>SMC is a more precise vocabulary for the same logic.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I drew the weekly high and low, PDH and PDL on EURUSD in TradingView.</label></li>
+      <li><label><input type="checkbox"> I found one example of an S/R flip on H1 or H4.</label></li>
+      <li><label><input type="checkbox"> I found a regular divergence on H1 and checked whether it is at an important level.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>EURUSD H4: a rising trendline with four touches over two weeks. Below it, at 1.0790, is last week's low. On H1 price makes a lower low at 1.0802 while RSI makes a higher low. The break below the trendline is a wick; the H1 candle closes back above the line.</p>
+      <p><b>Task:</b> what do you see? Where is the liquidity? What might have happened with the wick? Write scenario A and B and what invalidates each.</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Level… Trendline… Divergence… A… B…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>An obvious four-touch trendline: there are stops below it. Further down, below 1.0790, there are stops under the weekly low (level 1).</li>
+          <li>The wick below the line and the close above it suggest the stops under the line were taken. The regular bullish divergence on H1 supports the idea that the selling pressure is fading.</li>
+          <li>Scenario A: price stays above the line and makes a higher high on H1. Invalidation: an H1 close below 1.0802.</li>
+          <li>Scenario B: this is only the first step; price goes back below the line and heads to 1.0790, where the bigger liquidity is. Invalidation of B: a strong close above the last H1 high.</li>
+          <li>The divergence alone decides nothing. Chapter 6 on structure will give you the rule for when the picture has changed.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What is support?",o:["A level where sellers have stopped rallies","A level where buyers have stopped declines","The average price"],a:1,e:"Support is where buyers were stronger."},
+  {q:"Which level is more important?",o:["An M5 high","A weekly high","A random line on H1"],a:1,e:"Higher-timeframe levels are seen by more participants."},
+  {q:"How many points does a strong trendline need?",o:["One","Two","Three or more"],a:2,e:"Two outline it; three or more make it strong."},
+  {q:"Price makes a higher high, RSI makes a lower high. What is this?",o:["Regular bearish divergence","Hidden bullish","Nothing"],a:0,e:"Momentum is fading at the new high: regular bearish divergence."},
+  {q:"What is an S/R flip?",o:["Price reverses direction every day","Broken resistance becomes support or vice versa","Indicator"],a:1,e:"The level's role flips after a decisive break."}
+],mid:[
+  {q:"Price breaks resistance with a wick, but the H1 candle closes below it. What is most likely?",o:["Real break","A possible false break, liquidity taken","It means nothing"],a:1,e:"The close decides. A wick beyond the level and a close back inside is often a stop run."},
+  {q:"EURUSD makes a new low, GBPUSD doesn't. What does SMT suggest?",o:["The dollar is very strong","The pressure against the European currencies is not as strong as it looks","The two pairs have stopped correlating for good"],a:1,e:"The stronger pair (GBPUSD) shows the drop in EURUSD may be a liquidity grab."},
+  {q:"You see a regular bullish divergence on M1 in the middle of the daily range. How much does it weigh?",o:["A lot","Almost nothing","Enough to enter"],a:1,e:"Low timeframe and bad location. A divergence weighs something only at an important level with confirmed structure."}
+]};
+</script>
+<script>window.REPLAYS={"flip": {"title": "Resistance becomes support", "candles": [[40, 43, 39, 42.5], [42.5, 47, 42, 46.5], [46.5, 50.2, 46, 48], [48, 48.5, 44, 44.5], [44.5, 46, 43, 45.5], [45.5, 49.9, 45, 48.5], [48.5, 49, 45.5, 46], [46, 48, 45.8, 47.5], [47.5, 53, 47.2, 52.5], [52.5, 55, 52, 54.5], [54.5, 55, 51.5, 52], [52, 52.5, 50.1, 51.5], [51.5, 54, 51, 53.8], [53.8, 58, 53.5, 57.5], [57.5, 60, 57, 59.5], [59.5, 60.5, 58, 58.5]], "y": [37, 62], "caption": "Teaching scenario. The level is a zone, not a thin line.", "steps": [{"at": 7, "h": "Resistance.", "text": "Twice price reaches about 50 and is pushed back. Sellers defend the level.", "draw": [{"t": "level", "p": 50, "from": 2, "label": "resistance 50", "c": "bear", "until": 1}]}, {"at": 9, "h": "Break.", "text": "A candle closes clearly above 50. The sellers who defended the level have stops above it, and those are now burning.", "draw": [{"t": "mark", "i": 8, "p": 53, "label": "break", "c": "bull"}]}, {"at": 12, "h": "Retest.", "text": "Price returns to 50 from above and the level holds. The old resistance is the new support: an S/R flip.", "draw": [{"t": "level", "p": 50, "from": 8, "label": "support 50", "c": "bull", "solid": 1}, {"t": "mark", "i": 11, "p": 50.1, "label": "retest", "c": "liq", "pos": "down"}]}, {"at": 16, "h": "Continuation.", "text": "Buyers who missed the break get in on the retest. The trend continues. If the retest had closed below 50, the break would have been false.", "draw": []}]}};window.DRILLS={"ch4": [{"src": "flip", "n": 7, "q": "Where is resistance?", "o": [{"p": 50, "from": 2, "t": "around 50"}, {"p": 46, "t": "around 46"}, {"p": 43, "t": "around 43"}], "a": 0, "e": "Rejected twice around 50. 46 and 43 are just places price passed through."}, {"src": "flip", "n": 11, "q": "Price returns to 50 from above. What role does the level have now?", "o": [{"t": "resistance"}, {"t": "support"}, {"t": "none"}], "a": 1, "e": "After a break with a close, old resistance often becomes support: an S/R flip."}, {"src": "flip", "n": 12, "q": "Candle 12 dips to 50.1 and closes at 51.5. What does this tell you?", "o": [{"t": "The flip holds: old resistance is acting as support"}, {"t": "The break has failed"}, {"t": "Nothing yet"}], "a": 0, "e": "The low held just above 50 and the close is well above it. That is what a successful retest looks like."}, {"src": "flip", "n": 13, "q": "Where does a stop for a long on the retest logically sit?", "o": [{"p": 49, "from": 8, "t": "below 50, around 49"}, {"p": 51.5, "from": 8, "t": "at 51.5"}, {"p": 53.8, "from": 8, "t": "above the last close"}], "a": 0, "e": "Where the idea is wrong: a close back below 50 ends the flip. 51.5 sits inside normal noise."}]};</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  function candles(g,arr,x0,step,w,yf){arr.forEach(function(c,i){var o=c[0],cl=c[1],hi=c[2],lo=c[3],x=x0+i*step,col=cl>=o?"var(--bull)":"var(--bear)";
+    el("line",{x1:x+w/2,x2:x+w/2,y1:yf(hi),y2:yf(lo),stroke:col,"stroke-width":2},g);
+    el("rect",{x:x,width:w,y:yf(Math.max(o,cl)),height:Math.max(1.5,Math.abs(yf(o)-yf(cl))),fill:col},g)})}
+
+  /* S/R flip stepper: prices 0..100 */
+  var fs=document.getElementById("flipSvg"),fy=function(v){return 220-v*2};
+  var F=[[30,40,44,26],[40,52,55,38],[52,60,64,50],[60,55,66,52],[55,62,65,53],[62,58,66,56],[58,64,66,56],[64,59,65,57],[59,74,76,58],[74,80,84,72],[80,76,82,72],[76,70,77,66],[70,68,71,63],[68,74,76,64],[74,82,84,73],[82,88,92,80]];
+  var stepEnds=[8,10,13,16],lvl=el("rect",{x:20,width:490,y:fy(66),height:fy(62)-fy(66),fill:"var(--liq)","fill-opacity":.18},fs),cg=el("g",{},fs);
+  var lab=el("text",{x:24,y:fy(66)-6,"font-size":11,fill:"var(--liq)"},fs);
+  var TXT=["Price tries three times around 1.0862–1.0866 and is sent back every time. That is resistance: sellers are stronger there.","A big green candle closes decisively above the zone. The sellers at resistance are now losing.","Price returns to the old resistance from above. The wicks reach the zone, but the bodies don't close below it.","Buyers defend the level and price continues higher. The old resistance has become support."];
+  function step(n){cg.innerHTML="";candles(cg,F.slice(0,stepEnds[n-1]),26,30,16,fy);lab.textContent=n<3?"resistance":"support (former resistance)";
+    document.getElementById("flipText").textContent=TXT[n-1];Book.each("[data-step]",function(b){b.setAttribute("aria-pressed",b.dataset.step==n)})}
+  Book.each("[data-step]",function(b){b.addEventListener("click",function(){step(+b.dataset.step)})});step(4);
+
+  /* trendline scorer */
+  function tl(){var s=0;Book.each("#tlChecks input",function(c){if(c.checked)s+=+c.dataset.w});
+    document.getElementById("tlOut").innerHTML="Score: <b>"+s+" / 7</b>. "+(s>=5?"Strong line: worth attention as a zone to watch.":s>=3?"Medium line: use it only together with another level.":"Weak line: noise. Don't use it on its own.")}
+  Book.each("#tlChecks input",function(c){c.addEventListener("change",tl)});tl();
+
+  /* trendline fake vs real */
+  var ts=document.getElementById("tlSvg"),ty=function(v){return 200-v*1.8};
+  var base=[[20,30,33,18],[30,26,32,23],[26,40,42,25],[40,34,41,31],[34,48,50,33],[48,42,49,39],[42,56,58,41],[56,50,57,47]];
+  var FAKE=base.concat([[50,52,55,36],[52,62,64,50],[62,70,72,60]]);
+  var REAL=base.concat([[50,40,52,38],[40,36,42,32],[36,44,46,35],[44,38,45,34],[38,30,40,28]]);
+  function line(x){return 18+x*0.0}
+  function drawTL(kind){ts.innerHTML="";
+    var x1=26,y1=ty(20),x2=26+7*36,y2=ty(48);var slope=(y2-y1)/(x2-x1);
+    el("line",{x1:x1,y1:y1,x2:510,y2:y1+slope*(510-x1),stroke:"var(--liq)","stroke-width":2},ts);
+    el("rect",{x:x1,width:484,y:y1+slope*(510-x1)+6,height:16,fill:"var(--liq)","fill-opacity":0},ts);
+    candles(ts,kind==="fake"?FAKE:REAL,20,36,16,ty);
+    if(kind==="fake"){el("circle",{cx:20+8*36+8,cy:ty(36),r:9,fill:"none",stroke:"var(--liq)","stroke-width":2},ts);
+      el("text",{x:20+8*36+20,y:ty(36)+4,"font-size":10,fill:"var(--liq)"},ts).textContent="wick takes the stops";
+      document.getElementById("tlText").textContent="The wick dips below the line and takes the buyers' stops, but the candle closes above it. Strong green candles follow. This is a trap for sellers, not a breakout."}
+    else{el("text",{x:20+9*36,y:ty(30),"font-size":10,fill:"var(--bear)"},ts).textContent="close below the line";
+      el("text",{x:20+11*36-10,y:ty(50),"font-size":10,fill:"var(--bear)"},ts).textContent="retest from below";
+      document.getElementById("tlText").textContent="The candle closes below the line. Price comes back to test the line from below, fails to get above it and continues down. Break, close, retest, rejection."}}
+  Book.each('[data-group="tl"] button',function(b){b.addEventListener("click",function(){drawTL(b.dataset.tab)})});drawTL("fake");
+
+  /* divergence */
+  var dsv=document.getElementById("divSvg");
+  var D={
+    bear:{p:[40,60,50,70,58],r:[45,72,55,64,50],pi:[1,3],txt:"Price makes a higher high (point 2 above point 1) while RSI makes a lower high. Buyers are pushing with less force. Regular bearish divergence: a possible reversal down, if structure confirms it."},
+    bull:{p:[60,40,50,30,42],r:[55,28,45,36,48],pi:[1,3],txt:"Price makes a lower low while RSI makes a higher low. Sellers are weakening. Regular bullish divergence: a possible reversal up."},
+    hbull:{p:[30,55,40,65,48],r:[30,60,22,64,40],pi:[0,2],txt:"Price makes a higher low (a pullback in an uptrend) while RSI makes a lower low. The pullback is deep in momentum but not in price. Hidden bullish divergence: suggests continuation up."},
+    hbear:{p:[70,45,60,35,52],r:[70,40,78,36,60],pi:[0,2],txt:"Price makes a lower high (a bounce in a downtrend) while RSI makes a higher high. Hidden bearish divergence: suggests continuation down."}
+  };
+  function drawDiv(k){dsv.innerHTML="";var d=D[k];
+    function px(i){return 40+i*110} function py(v){return 130-v*1.4} function ry(v){return 250-v*0.9}
+    el("line",{x1:20,x2:510,y1:150,y2:150,stroke:"var(--line)"},dsv);
+    el("text",{x:20,y:14,"font-size":10,fill:"var(--muted)"},dsv).textContent="price";el("text",{x:20,y:166,"font-size":10,fill:"var(--muted)"},dsv).textContent="RSI";
+    var pp="",rp="";d.p.forEach(function(v,i){pp+=(i?"L":"M")+px(i)+","+py(v)});d.r.forEach(function(v,i){rp+=(i?"L":"M")+px(i)+","+ry(v)});
+    el("path",{d:pp,fill:"none",stroke:"var(--fg)","stroke-width":2.5},dsv);el("path",{d:rp,fill:"none",stroke:"var(--ink)","stroke-width":2},dsv);
+    var a=d.pi[0],b=d.pi[1],up=k==="bear"||k==="hbear"?-1:1;
+    var col=k==="bear"||k==="hbear"?"var(--bear)":"var(--bull)";
+    el("line",{x1:px(a),y1:py(d.p[a]),x2:px(b),y2:py(d.p[b]),stroke:col,"stroke-width":2,"stroke-dasharray":"5 4"},dsv);
+    el("line",{x1:px(a),y1:ry(d.r[a]),x2:px(b),y2:ry(d.r[b]),stroke:col,"stroke-width":2,"stroke-dasharray":"5 4"},dsv);
+    [a,b].forEach(function(i,n){el("circle",{cx:px(i),cy:py(d.p[i]),r:5,fill:col},dsv);el("circle",{cx:px(i),cy:ry(d.r[i]),r:5,fill:col},dsv);
+      el("text",{x:px(i)+8,y:py(d.p[i])+(up<0?-8:16),"font-size":11,fill:col},dsv).textContent=String(n+1)});
+    document.getElementById("divText").textContent=d.txt}
+  Book.each('[data-group="div"] button',function(b){b.addEventListener("click",function(){drawDiv(b.dataset.tab)})});drawDiv("bear");
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

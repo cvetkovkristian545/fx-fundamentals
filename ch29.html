@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Brokers, Demo Accounts, Platforms · FX Fundamentals</title>
+<meta name="description" content="Brokers, Demo Accounts, Platforms · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch29.html">
+<link rel="alternate" hreflang="bg" href="bg/ch29.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="29">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">32</div>
+    <h1>Brokers, Demo Accounts, Platforms</h1>
+    <blockquote class="quote">
+      If something sounds too good to be true, it probably is.
+      <cite>Folk wisdom, confirmed by every regulator</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>check whether a broker is regulated, and by whom;</li>
+        <li>recognise the red flags of scams;</li>
+        <li>choose between MT4, MT5 and cTrader and open a demo account;</li>
+        <li>calculate what one trade costs you and how much of the stop it eats.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>32.1 What "regulated broker" means</h2>
+      <p>The broker holds your money and executes your trades. The regulator is the state body that licenses and supervises it: whether it keeps client money separate from its own, whether it shows fair prices, whether it has enough capital. If the broker has no licence from a serious regulator, there is no one to turn to when something goes wrong.</p>
+      <div class="tablewrap" data-name="regulatori">
+        <table class="data">
+          <thead><tr><th>Regulator</th><th>Country</th><th>What it means for you</th></tr></thead>
+          <tbody>
+            <tr><td>FSC (Financial Supervision Commission)</td><td>Bulgaria</td><td>The local regulator. Its register also shows the foreign EU firms that are allowed to operate in Bulgaria.</td></tr>
+            <tr><td>CySEC</td><td>Cyprus</td><td>Many brokers serving Europe are here. EU rules apply in full, and the licence is valid across the EU.</td></tr>
+            <tr><td>FCA</td><td>United Kingdom</td><td>One of the strictest. EU clients are usually served by the broker's European subsidiary.</td></tr>
+            <tr><td>ASIC</td><td>Australia</td><td>A strict regulator. The leverage rules are close to the European ones.</td></tr>
+            <tr><td>"Offshore" licences</td><td>Islands, small jurisdictions</td><td>Weak supervision. Often used to offer leverage of 1:500 and more. Protection when something goes wrong is minimal.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>For an EU client the ESMA rules are mandatory. The most important for a beginner:</p>
+      <div class="tablewrap" data-name="esma-pravila">
+        <table class="data">
+          <thead><tr><th>Rule</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td>Maximum leverage of 1:30 on major currency pairs</td><td>For 1 lot of EURUSD (~100,000 euros) you need about 3,333 euros of margin.</td></tr>
+            <tr><td>1:20 on other pairs, gold and major indices</td><td>Less leverage where volatility is higher.</td></tr>
+            <tr><td>Forced close-out at 50% margin</td><td>The broker closes the positions before you lose everything.</td></tr>
+            <tr><td>Negative balance protection</td><td>You cannot owe more than the money in the account. You remember SNB 2015 from Chapter 29.</td></tr>
+            <tr><td>A warning with the percentage of losing clients</td><td>Every EU broker must show how many of its clients lose money. The number is usually between 60 and 80%.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box ff">
+        <span class="label">How to check in 5 minutes</span>
+        <p>Find the licence number at the bottom of the broker's website. Open the regulator's register (the FSC, CySEC or FCA website) and search by number or name. Check that the firm's name and website match those in the register. Scammers often copy a real broker's name with a small difference in the address.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Leverage · ливъридж</b>How many times bigger the position can be than the margin.</div>
+      <div class="term"><b>Margin · маржин</b>The amount the broker blocks as collateral for the position.</div>
+      <div class="term"><b>Segregated funds · отделени средства</b>Client money is held separately from the broker's money.</div>
+      <div class="term"><b>ESMA</b>The European Securities and Markets Authority. Sets the common rules for the EU.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>32.2 Red flags</h2>
+      <p>Tick everything you see at the broker or the "mentor" you are in contact with.</p>
+      <div id="flags"></div>
+      <p class="verdict" id="flagOut" aria-live="polite"></p>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>"My account manager is very kind and helps me."</p></div>
+        <div><span class="label">Reality</span><p>At scam brokers the "manager" is a salesperson on commission. Their job is to get you to deposit more. An honest broker does not call you to talk you into taking risk.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Clone firm · клонирана фирма</b>A scammer using the name and licence of a real regulated broker.</div>
+      <div class="term"><b>Withdrawal · теглене</b>Taking money out of the account. The first real test of any broker.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>32.3 The platforms</h2>
+      <p>The platform is the program you send orders through. You can do the analysis in TradingView and the execution in the broker's platform, or straight from TradingView if the broker is connected to it.</p>
+      <div class="tablewrap" data-name="platformi">
+        <table class="data">
+          <thead><tr><th></th><th>MetaTrader 4</th><th>MetaTrader 5</th><th>cTrader</th></tr></thead>
+          <tbody>
+            <tr><td>Age</td><td>2005, outdated but everywhere</td><td>2010, the successor to MT4</td><td>Modern, fewer brokers</td></tr>
+            <tr><td>Timeframes</td><td>9</td><td>21</td><td>Many, including by tick count</td></tr>
+            <tr><td>Markets</td><td>Mainly currencies and CFDs</td><td>Currencies, stocks, futures, CFDs</td><td>Currencies and CFDs</td></tr>
+            <tr><td>Robots</td><td>MQL4</td><td>MQL5</td><td>C# (cBots)</td></tr>
+            <tr><td>Interface</td><td>Old, functional</td><td>Richer, built-in calendar</td><td>Cleanest, market depth</td></tr>
+            <tr><td>Prop firms</td><td>Often</td><td>Almost always</td><td>Often</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The recommendation for a beginner is simple: <b>MT5 or cTrader</b>, whichever your broker or prop firm offers. If you are planning a prop challenge, practise on the platform the firm uses.</p>
+      <h3>A demo account in six steps</h3>
+      <ol class="steps">
+        <li>Choose a regulated broker (32.1) and open a "Demo account". All you need is an email.</li>
+        <li>Choose a platform (MT5 or cTrader), an account type (see 32.4) and a <b>realistic</b> balance: as much as you would really deposit, or the size of the prop account you are aiming for.</li>
+        <li>Download the platform or open it in the browser. Log in with the details from the email.</li>
+        <li>Set the chart time zone if the platform allows it, and add the pairs from your list.</li>
+        <li>Make one test trade with the minimum size: open, move the stop, close. Learn the buttons before you need them fast.</li>
+        <li>If the broker is connected to TradingView, log in from the "Trading" panel in TradingView and try an order from there.</li>
+      </ol>
+      <div class="box warn">
+        <span class="label">The demo trap</span>
+        <p>A demo with 100,000 dollars when you will really trade with 500 teaches the wrong habits: huge positions, indifference to losses. Set the balance you will use and stick to 1% risk as if the money were real.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>CFD</b>Contract for difference: you gain or lose from the price move without owning the asset.</div>
+      <div class="term"><b>Hedging / netting</b>Whether you can hold a long and a short position on one pair at the same time (hedging) or they net into one.</div>
+      <div class="term"><b>Depth of market · дълбочина на пазара</b>How many orders are waiting at each price.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>32.4 Account types and the real cost of a trade</h2>
+      <p>A broker earns in two ways: from the <b>spread</b> (the difference between the buy price and the sell price) and from <b>commission</b>. There are usually two account types.</p>
+      <div class="tablewrap" data-name="tipove-smetki">
+        <table class="data">
+          <thead><tr><th>Type</th><th>EURUSD spread (typical)</th><th>Commission</th><th>Suits</th></tr></thead>
+          <tbody>
+            <tr><td>Standard</td><td>0.8–1.5 pips</td><td>None</td><td>Swing, few trades</td></tr>
+            <tr><td>Raw / ECN</td><td>0.0–0.3 pips</td><td>About $5–7 per lot for opening and closing combined</td><td>Scalping and intraday</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Typical values are a guide. Check the exact ones with your broker, and <b>at the hour you trade</b>: in Asia and around news the spread is wider.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Size (lots)<input type="number" id="c1" value="0.5" step="0.01" min="0"></label>
+            <label>Spread (pips)<input type="number" id="c2" value="0.2" step="0.1" min="0"></label>
+            <label>Commission ($ per lot, round trip)<input type="number" id="c3" value="7" step="0.5" min="0"></label>
+            <label>Stop (pips)<input type="number" id="c4" value="6" step="1" min="1"></label>
+            <label>Trades per month<input type="number" id="c5" value="40" step="1" min="0"></label>
+          </div>
+          <div class="out" id="cOut" aria-live="polite"></div>
+        </div>
+        <figcaption>For dollar-quoted pairs (EURUSD, GBPUSD), 1 pip on 1 lot ≈ $10.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>For a scalper the cost is part of the stop. With a 6-pip stop and 0.9 pips of cost, every trade starts with a 15% loss of the risk. That is not a reason not to scalp. It is a reason to count.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Lot · лот</b>Standard size: 100,000 units of the base currency. Mini = 0.1, micro = 0.01.</div>
+      <div class="term"><b>Round turn · пълен цикъл</b>Opening plus closing. Commission is often quoted per round turn.</div>
+      <div class="term"><b>Swap · суап</b>Interest you pay or receive if you hold a position overnight.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 32</h2>
+    <ul>
+      <li>Only a regulated broker. Check the licence in the register, not on the broker's website.</li>
+      <li>In the EU: leverage up to 1:30 on major pairs and negative balance protection.</li>
+      <li>Guaranteed profits, pressure to deposit and difficult withdrawals are red flags.</li>
+      <li>MT5 or cTrader. Practise on the platform you will use.</li>
+      <li>A demo with a realistic balance and a real 1% risk.</li>
+      <li>The cost of a trade is spread plus commission. For a scalper it is part of the stop.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I checked my chosen broker's licence in the regulator's register.</label></li>
+      <li><label><input type="checkbox"> I opened a demo account with a realistic balance.</label></li>
+      <li><label><input type="checkbox"> I know the cost of one trade in pips for my pair and my hour.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>A scalper trades EURUSD in London with an average stop of 5 pips and about 60 trades a month, at 0.4 lots. Broker A: Standard account, 1.1 pip spread, no commission. Broker B: Raw account, 0.1 pip spread, $7 per lot round trip. Both are regulated by CySEC.</p>
+      <p><b>Task:</b> what is the difference in monthly cost? What share of the stop does the cost eat with each? What else would you check besides price?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Cost A… Cost B… Share of stop… What else…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>A: 1.1 pips × $10 × 0.4 = $4.40 per trade, about $264 a month. B: 0.1 pips × $4 = $0.40 spread plus $7 × 0.4 = $2.80 commission, $3.20 per trade in total, about $192 a month. A difference of about $72 a month in B's favour.</li>
+          <li>A eats 1.1 of 5 pips, that is 22% of the risk on every trade. B eats 0.8 pips, about 16%. Both are significant; with a 5-pip stop the cost is a large share.</li>
+          <li>The spread at the exact hour of entry (the London open, around news), slippage on stops, execution speed, whether the Raw account has a minimum deposit, swaps if they hold overnight, and how withdrawals go. Price is only the first filter.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Who is the Bulgarian financial regulator?",o:["FSC","BNB","NRA"],a:0,e:"The Financial Supervision Commission."},
+  {q:"What is the maximum leverage on EURUSD for an EU client?",o:["1:30","1:500","1:1000"],a:0,e:"An ESMA rule."},
+  {q:"A broker guarantees a 20% monthly profit. This is…",o:["A good deal","A red flag","Normal"],a:1,e:"No one can guarantee profit in the market."},
+  {q:"Which is better for a demo?",o:["$100,000, since it's free","The balance you will really use","$1 000 000"],a:1,e:"Otherwise you learn the wrong habits."},
+  {q:"Negative balance protection means…",o:["You don't lose","You don't owe more than the account","The broker refunds the losses"],a:1,e:"Mandatory in the EU."}
+],mid:[
+  {q:"0.5 lots EURUSD, spread 0.2, commission $7/lot. Cost per trade?",o:["$4.50","$1.00","$14.00"],a:0,e:"Spread: 0.2 × $10 × 0.5 = $1. Commission: $7 × 0.5 = $3.50. Total $4.50."},
+  {q:"Stop 8 pips, cost 1.2 pips. What share of the risk is the cost?",o:["15%","1.2%","50%"],a:0,e:"1.2 ÷ 8 = 15%."},
+  {q:"The broker's site shows a licence, but the address in the regulator's register is different. Most likely…",o:["An error in the register","A clone firm","A new office"],a:1,e:"Scammers copy real licences."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var h=Book.h;
+  /* red flags */
+  var F=["Guaranteed or \"safe\" monthly profit","An \"account manager\" calls me and insists I deposit more","The licence is offshore only, or I cannot find it in a register","It offers leverage of 1:500 or more to an EU client","A deposit bonus that \"locks\" the money until I generate huge turnover","Withdrawals are delayed, and an extra \"fee\" or \"tax\" is demanded before I get my money","The contact started from an ad with a celebrity or from a stranger on social media","They want access to my computer or my bank card details over the phone"],
+      box=document.getElementById("flags"),out=document.getElementById("flagOut"),cb=[];
+  var wrap=h("div","box note");
+  F.forEach(function(f,i){var l=document.createElement("label");l.style.display="flex";l.style.gap="10px";l.style.alignItems="flex-start";l.style.margin="8px 0";
+    var c=document.createElement("input");c.type="checkbox";c.addEventListener("change",fl);cb.push(c);l.appendChild(c);l.appendChild(h("span","",f));wrap.appendChild(l)});
+  box.appendChild(wrap);
+  function fl(){var n=cb.filter(function(c){return c.checked}).length;
+    out.innerHTML=n===0?"No flags ticked. Still, check the licence in the register.":n===1?"<b style='color:var(--news)'>One flag.</b> Stop and check before you deposit.":"<b style='color:var(--bear)'>"+n+" flags.</b> This is a scam pattern. Do not deposit. If you already have, report it to the FSC and to your bank."}
+  fl();
+  /* cost */
+  var c=["c1","c2","c3","c4","c5"].map(function(i){return document.getElementById(i)}),co=document.getElementById("cOut");
+  function cs(){var l=+c[0].value,s=+c[1].value,m=+c[2].value,st=Math.max(1,+c[3].value),n=+c[4].value,per=s*10*l+m*l,pips=l?per/(10*l):0,share=pips/st*100;
+    var col=share>20?"var(--bear)":share>10?"var(--news)":"var(--bull)";
+    co.innerHTML="<span>Cost per trade: <b>$"+per.toFixed(2)+"</b> (≈ "+pips.toFixed(2)+" pips).</span><span>Share of the stop: <b style='color:"+col+"'>"+share.toFixed(0)+"%</b>.</span><span>Per month: <b>$"+(per*n).toFixed(0)+"</b>.</span>"}
+  c.forEach(function(x){x.addEventListener("input",cs)});cs();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Start Here · FX Fundamentals</title>
+<meta name="description" content="Start Here · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch0-3.html">
+<link rel="alternate" hreflang="bg" href="bg/ch0-3.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="0.3">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">0.3</div>
+    <h1>Start Here: the Fast Track and Your First Backtest</h1>
+    <blockquote class="quote">
+      Amateurs practise until they get it right. Professionals practise until they can't get it wrong.
+      <cite>Trader's wisdom</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>follow a short path through the book instead of reading 41 chapters in a row;</li>
+        <li>write one simple setup as a set of yes/no rules;</li>
+        <li>backtest it on 100 trades, read the numbers honestly and decide whether it has earned real money;</li>
+        <li>add liquidity, SMC and order flow later, one piece at a time, and prove that each piece helps.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>0.3.1 This book is a library, not a to-do list</h2>
+      <p>FX Fundamentals has 41 chapters and seven appendices. You don't need all of them before your first trade. You need a small core that lets you run <b>one setup</b> cleanly: read the chart, find the level, size the position, respect the news, manage the trade and write it down.</p>
+      <p>Everything else, like liquidity sweeps, order blocks, order flow and the dollar system, is a <b>refinement</b>. A refinement only has value if it improves something that already works. If you add it to a process that doesn't exist yet, you just get more ways to be confused.</p>
+      <p>So the book has three layers:</p>
+      <ol>
+        <li><b>The core:</b> enough to take one well-defined trade with correct risk.</li>
+        <li><b>The proof:</b> a backtest that shows whether that trade has a positive expectancy.</li>
+        <li><b>The refinements:</b> SMC, order flow and macro, added one at a time and tested again.</li>
+      </ol>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>Most beginners do it backwards. They learn twenty concepts, mix them into one chart and then wonder why nothing is repeatable. One simple setup that you have tested is worth more than ten clever ones you haven't.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Setup · сетъп</b>A trade idea written as fixed rules: where, when, entry, stop, target.</div>
+      <div class="term"><b>Refinement · надграждане</b>An extra filter added to a setup that already works, to improve its numbers.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>0.3.2 The fast track, stage by stage</h2>
+      <p>Each stage ends with a <b>gate</b>: a short test you must pass before you move on. Tick the stages as you finish them. Your ticks are saved in this browser.</p>
+      <ol class="track" id="track">
+        <li data-st="1">
+          <label class="tk"><input type="checkbox"> <b>Stage 1 · Foundations</b> <span class="tk-time">about 1–2 weeks</span></label>
+          <p><a href="ch0-2.html">0.2 Absolute Zero</a> · <a href="ch1.html">1 What Forex Is</a> · <a href="ch2.html">2 The Mechanics of a Trade</a> · <a href="ch3.html">3 Candles and Charts</a> · <a href="ch4.html">4 Classic Price Action</a> · <a href="ch5.html">5 Thinking in Probabilities</a></p>
+          <p class="gate"><span class="label">Gate</span> You can explain bid, ask, spread and pip value, read any candle, mark support and resistance, and say why a 35% win rate can still make money.</p>
+        </li>
+        <li data-st="2">
+          <label class="tk"><input type="checkbox"> <b>Stage 2 · Your first complete setup</b> <span class="tk-time">about 2 weeks</span></label>
+          <p><a href="ch6.html">6 Market Structure</a> · <a href="ch9.html">9 Sessions and Kill Zones</a> · <a href="ch11.html">11 Risk and Position Size</a> · <a href="ch10.html">10 The 6-Step Framework</a> · <a href="ch12.html">12 Managing an Open Position</a> · <a href="ch13.html">13 News Risk Protocol</a></p>
+          <p class="gate"><span class="label">Gate</span> You can fill in the setup card in section 0.3.3 without leaving a field vague.</p>
+        </li>
+        <li data-st="3">
+          <label class="tk"><input type="checkbox"> <b>Stage 3 · Records and mindset</b> <span class="tk-time">alongside stage 2</span></label>
+          <p><a href="ch32.html">35 Psychology and Discipline</a> · <a href="ch33.html">36 Journal and Measurement</a> · <a href="chJ.html">J Journal and Bias File</a> · <a href="chC.html">C Checklists and Templates</a></p>
+          <p class="gate"><span class="label">Gate</span> You have a journal ready, with columns for date, session, direction, entry, stop, target, result in R, a screenshot link and "rules followed: yes/no".</p>
+        </li>
+        <li data-st="4" class="tk-check">
+          <label class="tk"><input type="checkbox"> <b>Checkpoint · Backtest, then demo</b> <span class="tk-time">about 4–6 weeks</span></label>
+          <p>Sections <a href="#s4">0.3.4</a> to <a href="#s7">0.3.7</a> of this page, then <a href="ch29.html">32 Brokers, Demo Accounts, Platforms</a> and <a href="ch31.html">34 The First 90 Days</a>.</p>
+          <p class="gate"><span class="label">Gate</span> 100 backtested trades that pass the numbers in 0.3.7, then 30 demo trades with the same rules.</p>
+        </li>
+        <li data-st="5">
+          <label class="tk"><input type="checkbox"> <b>Stage 4 · Refinements, only after the checkpoint</b></label>
+          <p><a href="ch7.html">7 Liquidity and SMC Zones</a> · <a href="ch8.html">8 Top-Down Analysis</a> · <a href="ch14.html">14 A Day in the Market</a> · <a href="ch15.html">15 Order Flow</a></p>
+          <p class="gate"><span class="label">Rule</span> Add one idea at a time and retest it on at least 50 trades (section 0.3.8). Keep it only if the numbers get better.</p>
+        </li>
+        <li data-st="6">
+          <label class="tk"><input type="checkbox"> <b>Stage 5 · The macro layer</b> <span class="tk-time">read any time after stage 1</span></label>
+          <p><a href="ch16.html">16 Economic Thinking</a> to <a href="ch27.html">29 Case Files</a>, plus <a href="chE.html">E Case Library</a> and <a href="chF.html">F Currency Profiles</a>.</p>
+          <p class="gate"><span class="label">Rule</span> Use macro for your daily bias and for news risk. It is context, not an entry signal.</p>
+        </li>
+        <li data-st="7">
+          <label class="tk"><input type="checkbox"> <b>Stage 6 · Career and life</b> <span class="tk-time">when you're ready</span></label>
+          <p><a href="chS.html">30 Trading Styles</a> · <a href="ch28.html">31 Your Analysis Workspace</a> · <a href="ch30.html">33 Prop Firms Compared</a> · <a href="ch34.html">37 Daily and Weekly Routine</a> · <a href="ch35.html">38–41 Money, Other Markets, Crypto, Taxes</a></p>
+        </li>
+      </ol>
+      <div class="out" id="trackOut" aria-live="polite"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Gate · праг</b>A short test that says whether you are ready for the next stage.</div>
+      <div class="term"><b>Checkpoint · контролна точка</b>The point where you stop learning new ideas and prove the ones you have.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>0.3.3 Write your setup on one card</h2>
+      <p>A backtest can only test rules, not feelings. "I enter when it looks strong" can't be tested. "I enter when an M15 candle closes back above the level after taking out the previous low" can. Fill in each field with a rule you could hand to a stranger. The card is saved in this browser.</p>
+      <div class="calc setup-card" id="card">
+        <div class="fields">
+          <label>Pair<input type="text" data-k="pair" placeholder="EURUSD"></label>
+          <label>Session and hours<input type="text" data-k="sess" placeholder="London open, 09:00–12:00 local"></label>
+          <label>Timeframes (bias / entry)<input type="text" data-k="tf" placeholder="H1 / M15"></label>
+          <label>Context: when is the setup allowed?<input type="text" data-k="ctx" placeholder="H1 structure bullish (higher highs and higher lows), Ch. 6"></label>
+          <label>Level: where?<input type="text" data-k="lvl" placeholder="Previous support or demand zone, Ch. 4"></label>
+          <label>Trigger: what exactly makes you enter?<input type="text" data-k="trg" placeholder="M15 bullish engulfing close at the level, Ch. 3–4"></label>
+          <label>Stop: where, exactly?<input type="text" data-k="stp" placeholder="A few pips beyond the swing low of the trigger"></label>
+          <label>Target and management<input type="text" data-k="tgt" placeholder="Fixed 3R; no moving the stop before +1.5R, Ch. 12"></label>
+          <label>Risk per trade<input type="text" data-k="rsk" placeholder="1% of the account, Ch. 11"></label>
+          <label>No-trade rules<input type="text" data-k="no" placeholder="No entry 30 min before or after red news, Ch. 13"></label>
+        </div>
+        <div class="out" id="cardOut" aria-live="polite"></div>
+      </div>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>I'll keep it flexible and use my judgement on each trade.</p></div>
+        <div><span class="label">Reality</span><p>Judgement comes after hundreds of trades with fixed rules. Before that, "flexible" usually means "changing the rules after you see the result".</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Trigger · тригер</b>The exact event that turns a possible trade into an entry.</div>
+      <div class="term"><b>Invalidation · отмяна</b>The price at which the idea is wrong. Your stop goes there, not at a round number of pips.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: basic">●</span>0.3.4 Where to backtest</h2>
+      <p>You need a chart that shows the past one candle at a time, with the future hidden. These are the main options. Plans and prices change, so check the current terms before you pay for anything.</p>
+      <div class="tablewrap">
+        <table class="data">
+          <thead><tr><th>Tool</th><th>Cost</th><th>What it does well</th><th>Limits</th></tr></thead>
+          <tbody>
+            <tr><td><b>TradingView Bar Replay</b></td><td>Free on daily and higher. Intraday replay needs a paid plan.</td><td>The chart you already use (Ch. 31). Easy drawing, one-click replay.</td><td>The Essential plan replays about 6 months of 1-minute data and more on higher timeframes. Free accounts can't replay M15 or H1.</td></tr>
+            <tr><td><b>MetaTrader 5 Strategy Tester, visual mode</b></td><td>Free with any demo account (Ch. 32)</td><td>Years of broker data and real spreads; you can speed the replay up or slow it down.</td><td>Built for robots. To click trades by hand you need a small manual-trading panel added to the tester.</td></tr>
+            <tr><td><b>Dedicated replay apps</b> (Forex Tester, FX Replay and similar)</td><td>Paid</td><td>Made for manual backtesting: many pairs, sessions, built-in statistics.</td><td>A cost to justify. Not needed for your first 100 trades.</td></tr>
+            <tr><td><b>Scroll back and hide the future</b></td><td>Free</td><td>Works on any chart. Scroll to a past date, cover the right side, move forward one candle at a time.</td><td>Slow, and it's easy to peek. Hindsight is the main danger.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>Good start for most readers:</b> the MT5 tester on a free demo for intraday data, or TradingView replay on H4 or daily to learn the routine. Log every trade in your journal (<a href="chJ.html">Appendix J</a>) or a spreadsheet, not in the tool's own statistics. You want your own records.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Backtest · бектест</b>Testing fixed rules on past data as if you were trading live.</div>
+      <div class="term"><b>Bar Replay · преиграване на барове</b>A chart mode that hides the future and shows the past one candle at a time.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: intermediate">●●</span>0.3.5 How to backtest, step by step</h2>
+      <ol>
+        <li><b>Freeze the card.</b> Copy your setup card into the journal. You are not allowed to change it until the test is over. A change means a new test from trade 1.</li>
+        <li><b>One pair, one session.</b> EURUSD is the running example of this book. One pair means you learn its rhythm instead of averaging ten different ones.</li>
+        <li><b>Pick a long, mixed period.</b> Start at least 6–12 months back. You need trending months and ranging months, quiet weeks and news weeks.</li>
+        <li><b>Mark the context first.</b> At the start of each day in replay, mark the H1 structure and the key levels, exactly as your card says. Only then move forward.</li>
+        <li><b>Move one candle at a time.</b> Never jump ahead "to see what happens". The moment you look at the future, that day's trades are contaminated.</li>
+        <li><b>Log every valid setup.</b> Including the ones you "wouldn't have taken". Skipping trades you don't like is the fastest way to fake a good result.</li>
+        <li><b>Record in R.</b> A full stop is −1R. A full target is +3R. Partials and breakeven exits are recorded as they happened (+1.2R, 0R). Subtract costs: spread and commission are roughly 0.05–0.15R per trade for a typical intraday stop.</li>
+        <li><b>Screenshot entry and exit.</b> In 0.3.8 you will re-sort these screenshots to find what a refinement could fix.</li>
+        <li><b>Respect the news rules.</b> Check the past economic calendar for each day. If your card says "no trade around red news", skip those setups as you would live.</li>
+        <li><b>Stop at 100 trades.</b> Then read the numbers in 0.3.6 and only then judge.</li>
+      </ol>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>Backtesting is boring. That's the point. Live trading is the same boring routine, with money attached. If you can't sit through 100 replayed trades, the live market will find that out much faster and much more expensively.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Hindsight bias · заблуда на задната дата</b>Seeing the "obvious" trade only because you already know what happened next.</div>
+      <div class="term"><b>R-multiple · R-кратно</b>The result of a trade measured in units of the initial risk.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="main">
+      <h2 id="s6"><span class="dots" title="Level: intermediate">●●</span>0.3.6 The backtest lab: read your numbers</h2>
+      <p>Paste your results in R, in the order they happened, separated by commas or spaces. For example: <span class="mono">3, -1, -1, 2.4, -1, 0, 3</span>. The lab works out the statistics and checks them against the gates in 0.3.7.</p>
+      <div class="calc" id="lab">
+        <label class="label" for="labIn">Results in R, in order</label>
+        <textarea id="labIn" rows="4" placeholder="3, -1, -1, 2.4, -1, 0, 3 ..."></textarea>
+        <div class="fields">
+          <label>Cost per trade (R)<input type="number" id="labCost" value="0.1" step="0.05" min="0" max="1"></label>
+          <label>Risk per trade (%)<input type="number" id="labRisk" value="1" step="0.25" min="0.25" max="5"></label>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="toggle" id="labDemo">Fill in a sample of 100 trades</button>
+          <button type="button" class="toggle" id="labClear">Clear</button>
+        </div>
+        <div class="tablewrap"><table class="data" id="labTable"><tbody></tbody></table></div>
+        <svg id="labCurve" viewBox="0 0 520 160" role="img" aria-label="Equity curve of the backtest in R"></svg>
+        <div class="out" id="labOut" aria-live="polite"></div>
+      </div>
+      <p>Two numbers matter more than the rest. <b>Expectancy</b> is the average result per trade, after costs. <b>The range of the win rate</b> tells you how sure you can be. With 100 trades and a 35% win rate, the true win rate could plausibly be anywhere from about 26% to 44%. With 30 trades the range is twice as wide. That is why 30 trades prove almost nothing (<a href="ch5.html">Chapter 5</a>).</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Expectancy · очакване</b>Average result per trade: win rate × average win − loss rate × average loss.</div>
+      <div class="term"><b>Profit factor · профит фактор</b>Total won ÷ total lost. Above 1 means the setup made money.</div>
+      <div class="term"><b>Max drawdown · максимален спад</b>The deepest fall from a peak of the equity curve, here in R.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s7">
+    <div class="main">
+      <h2 id="s7"><span class="dots" title="Level: intermediate">●●</span>0.3.7 The gates: has it earned real money?</h2>
+      <div class="tablewrap">
+        <table class="data">
+          <thead><tr><th>Gate</th><th>Pass</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Sample</td><td class="num">≥ 100 trades</td><td>Below that, luck and skill look the same.</td></tr>
+            <tr><td>Expectancy after costs</td><td class="num">≥ +0.25R</td><td>A thin edge disappears with real slippage and the mistakes you'll make live.</td></tr>
+            <tr><td>Worst plausible expectancy</td><td class="num">&gt; 0R</td><td>Even at the low end of the win-rate range, the setup still doesn't lose.</td></tr>
+            <tr><td>Max drawdown</td><td class="num">≤ 10R</td><td>At 1% risk that is about a 10% drop, the usual prop-firm limit (Ch. 33).</td></tr>
+            <tr><td>Longest losing streak</td><td>One you accept in advance</td><td>If 9 losses in a row would make you quit, you'll quit live too (Ch. 35).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>If it passes:</b> forward test on a demo account for 30 trades with the same card (Ch. 32 and 34). Live results are usually a little worse than the backtest. If the demo expectancy is still positive and you followed your rules on at least 90% of trades, go live small, at 0.5–1% risk.</p>
+      <p><b>If it fails:</b> that is a result, not a defeat. Look at the screenshots of the losers. Is there a pattern? Maybe they cluster in one session, against the H1 trend, or right after news. That pattern is exactly what a refinement in the next section is for.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Forward test · форуърд тест</b>Running the same rules on live data, on a demo account or with tiny risk, to check the backtest.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s8">
+    <div class="main">
+      <h2 id="s8"><span class="dots" title="Level: advanced">●●●</span>0.3.8 Only now: SMC and order flow, one piece at a time</h2>
+      <p>Now the advanced chapters have a job. Each idea from <a href="ch7.html">Chapter 7</a> or <a href="ch15.html">Chapter 15</a> becomes a <b>filter</b> you can test against your base setup:</p>
+      <ul>
+        <li>"Only take the trade if a liquidity sweep of the previous low happened first."</li>
+        <li>"Only enter inside a fair value gap or order block, not just at the level."</li>
+        <li>"Only take it in the London or New York kill zone."</li>
+        <li>"Only when delta or volume confirms at the level" (order flow, Ch. 15).</li>
+      </ul>
+      <p>The method is always the same. Add <b>one</b> filter. Re-run it on your old trades and on at least 50 new ones. Compare expectancy and drawdown with the base version. Keep the filter only if the numbers improve <b>and</b> you still get enough trades. A filter that turns 100 trades into 12 has not improved anything. It has just made the sample too small to judge.</p>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>Advanced concepts give a higher win rate, so I should start with them.</p></div>
+        <div><span class="label">Reality</span><p>More conditions usually mean fewer trades and a later entry. Sometimes that helps, sometimes it doesn't. The only way to know is to test it against something simpler.</p></div>
+      </div>
+      <p class="label">Common backtest traps</p>
+      <ul>
+        <li><b>Peeking:</b> scrolling ahead, then "deciding" to take the trade.</li>
+        <li><b>Cherry-picking:</b> testing only the clean, trending months.</li>
+        <li><b>Rule drift:</b> slowly changing the card halfway through the test.</li>
+        <li><b>Curve fitting:</b> adding filters until the past looks perfect. It won't look perfect in the future.</li>
+        <li><b>Forgetting costs:</b> a +0.1R edge before spread is roughly zero after it.</li>
+      </ul>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Filter · филтър</b>An extra condition that must be true before the setup is allowed.</div>
+      <div class="term"><b>Curve fitting · напасване</b>Tuning rules to the past so tightly that they stop working on new data.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 0.3</h2>
+    <ul>
+      <li>Learn the core first: stages 1–3. Those chapters are enough to run one setup.</li>
+      <li>Write the setup as rules a stranger could follow, and freeze them during a test.</li>
+      <li>Backtest at least 100 trades, one candle at a time, logging every valid setup in R.</li>
+      <li>Judge by expectancy after costs, the range of the win rate and the drawdown, not by the best week.</li>
+      <li>Add SMC and order flow later, one filter at a time, and keep only what improves the numbers.</li>
+    </ul>
+    <p class="label">Checklist before you go on</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> My setup card has no vague fields.</label></li>
+      <li><label><input type="checkbox"> I have chosen a backtest tool and a period of at least 6 months.</label></li>
+      <li><label><input type="checkbox"> I know my pass gates before I start testing.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>A reader backtested a setup on 40 trades: 18 wins at +3R, 22 losses at −1R. They are excited and want to add an order-block filter and go live next week with 2% risk.</p>
+      <p><b>Task:</b> what are the numbers really saying? What would you tell them to do next, and in what order?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="The numbers… The sample… Next steps…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>The raw result looks great: 45% win rate, expectancy 0.45 × 3 − 0.55 × 1 = +0.80R before costs. That is suspiciously high, so first check for peeking or skipped trades.</li>
+          <li>40 trades is too few. The plausible win-rate range is roughly 30% to 60%. The setup may be good, but this sample can't show it yet.</li>
+          <li>Next: keep the card frozen and continue to 100 trades. Then 30 demo trades.</li>
+          <li>The order-block filter comes after that, tested against the base version on at least 50 trades.</li>
+          <li>Risk stays at 1% or less. Doubling risk on an unproven edge doubles the cost of being wrong.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What is the main job of the fast track?",o:["To skip the risk chapters","To give you the minimum core to run one setup before adding advanced ideas","To replace the book"],a:1,e:"Stages 1–3 are the core. Everything else refines a setup that already exists."},
+  {q:"When should you start with SMC and order flow?",o:["First, because they are the most powerful","After a simple setup has passed a backtest and a demo test","Never"],a:1,e:"They are refinements. You add them to something that works and test whether they help."},
+  {q:"In a backtest you see a setup you \"wouldn't have taken\". What do you do?",o:["Skip it","Log it, because it meets the rules","Change the rules"],a:1,e:"Skipping valid setups you don't like is the fastest way to fake a good result."},
+  {q:"A full stop-out is recorded as…",o:["−1R","−1%","The number of pips lost"],a:0,e:"Results in R make different stop sizes comparable."},
+  {q:"What is the minimum sample for a first verdict in this book?",o:["20 trades","100 trades","1 month"],a:1,e:"Below about 100 trades, luck and skill look the same."}
+],mid:[
+  {q:"Win rate 30%, average win +3R, average loss −1R, cost 0.1R. What is the expectancy?",o:["+0.10R","+0.20R","−0.10R"],a:0,e:"0.30 × 3 − 0.70 × 1 = +0.20R, minus 0.1R costs = +0.10R. Positive, but below the +0.25R gate."},
+  {q:"You add a liquidity-sweep filter. Expectancy rises from +0.30R to +0.45R, but trades drop from 100 to 15. What do you conclude?",o:["Keep it, the expectancy is higher","Not proven yet: 15 trades is far too few to judge","Remove it at once"],a:1,e:"The filter may help, but 15 trades can't show it. Collect more trades before you decide."},
+  {q:"Max drawdown in the backtest is 14R and you risk 1% per trade. Why is that a problem for a prop challenge?",o:["It isn't","A 14% drop breaks the usual 10% maximum-loss limit","Prop firms don't measure drawdown"],a:1,e:"At 1% risk, 14R is about 14%. Most prop firms stop the account at 10% (Ch. 33)."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  function S(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  /* fast-track ticks */
+  var tr=document.getElementById("track"),to=document.getElementById("trackOut"),st={};
+  try{st=JSON.parse(S("fx-track")||"{}")||{}}catch(e){st={}}
+  function drawT(){var n=0,all=tr.querySelectorAll("li").length;Array.prototype.forEach.call(tr.querySelectorAll("li"),function(li){var on=!!st[li.getAttribute("data-st")];li.classList.toggle("done",on);li.querySelector("input").checked=on;if(on)n++});
+    var next=Array.prototype.filter.call(tr.querySelectorAll("li"),function(li){return !st[li.getAttribute("data-st")]})[0];
+    to.textContent=n+" of "+all+" stages done."+(next?" Next: "+next.querySelector("b").textContent+".":" You've walked the whole track.")}
+  tr.addEventListener("change",function(e){var li=e.target.closest("li");st[li.getAttribute("data-st")]=e.target.checked;S("fx-track",JSON.stringify(st));drawT()});
+  drawT();
+  /* setup card */
+  var card=document.getElementById("card"),co=document.getElementById("cardOut"),cd={};
+  try{cd=JSON.parse(S("fx-setup-card")||"{}")||{}}catch(e){cd={}}
+  var ins=card.querySelectorAll("input[data-k]");
+  function drawC(){var f=0;Array.prototype.forEach.call(ins,function(i){if(i.value.trim())f++});co.textContent=f+" of "+ins.length+" fields filled."+(f===ins.length?" Ready to freeze and test.":" Leave nothing to judgement.")}
+  Array.prototype.forEach.call(ins,function(i){i.value=cd[i.getAttribute("data-k")]||"";i.addEventListener("input",function(){cd[i.getAttribute("data-k")]=i.value;S("fx-setup-card",JSON.stringify(cd));drawC()})});
+  drawC();
+  /* backtest lab */
+  var inp=document.getElementById("labIn"),cost=document.getElementById("labCost"),risk=document.getElementById("labRisk"),tb=document.querySelector("#labTable tbody"),out=document.getElementById("labOut"),svg=document.getElementById("labCurve"),NS="http://www.w3.org/2000/svg";
+  inp.value=S("fx-bt-log")||"";
+  function f2(x){return (x>=0?"+":"")+x.toFixed(2)}
+  function calc(){S("fx-bt-log",inp.value);
+    var r=(inp.value.match(/[-+−]?\d+(?:[.,]\d+)?/g)||[]).map(function(s){return parseFloat(s.replace("−","-").replace(",","."))}).filter(function(x){return isFinite(x)});
+    var c=Math.max(0,+cost.value||0),rk=Math.max(0,+risk.value||0),n=r.length;svg.innerHTML="";tb.innerHTML="";
+    if(n<2){out.textContent="Enter at least a few results to see the statistics.";return}
+    var net=r.map(function(x){return x-c}),w=r.filter(function(x){return x>0}),l=r.filter(function(x){return x<0});
+    var wr=w.length/n,aw=w.length?w.reduce(function(a,b){return a+b},0)/w.length:0,al=l.length?-l.reduce(function(a,b){return a+b},0)/l.length:0;
+    var exp=net.reduce(function(a,b){return a+b},0)/n,gw=net.filter(function(x){return x>0}).reduce(function(a,b){return a+b},0),gl=-net.filter(function(x){return x<0}).reduce(function(a,b){return a+b},0);
+    var pf=gl?gw/gl:Infinity,se=Math.sqrt(wr*(1-wr)/n),lo=Math.max(0,wr-1.96*se),hi=Math.min(1,wr+1.96*se);
+    var nb=n-w.length-l.length;
+    var worst=lo*aw-(1-lo-(nb/n))*al-c;
+    var eq=0,pk=0,dd=0,run=0,ls=0,pts=[0];net.forEach(function(x){eq+=x;pts.push(eq);if(eq>pk)pk=eq;dd=Math.max(dd,pk-eq);if(x<0){run++;ls=Math.max(ls,run)}else run=0});
+    var rows=[["Trades",n],["Win rate",(wr*100).toFixed(1)+"%  (plausible range "+(lo*100).toFixed(0)+"–"+(hi*100).toFixed(0)+"%)"],["Average win / loss",f2(aw)+"R / −"+al.toFixed(2)+"R"],
+      ["Expectancy after costs",f2(exp)+"R per trade"],["Worst plausible expectancy",f2(worst)+"R"],["Profit factor",isFinite(pf)?pf.toFixed(2):"∞"],["Total result",f2(eq)+"R ≈ "+f2(eq*rk)+"% at "+rk+"% risk"],
+      ["Max drawdown",dd.toFixed(1)+"R ≈ "+(dd*rk).toFixed(1)+"%"],["Longest losing streak",ls+" trades"]];
+    rows.forEach(function(rw){var t=document.createElement("tr");t.innerHTML="<td>"+rw[0]+'</td><td class="num">'+rw[1]+"</td>";tb.appendChild(t)});
+    var g=[[n>=100,"sample ≥ 100"],[exp>=0.25,"expectancy ≥ +0.25R"],[worst>0,"worst plausible expectancy > 0"],[dd<=10,"drawdown ≤ 10R"]],ok=g.filter(function(x){return x[0]}).length;
+    out.innerHTML=g.map(function(x){return (x[0]?"✓ ":"✗ ")+x[1]}).join(" · ")+"<br>"+(ok===4?"<b>All gates passed.</b> Next: 30 demo trades with the same card.":n<100?"<b>Not enough trades yet.</b> Keep the card frozen and keep testing.":"<b>Not ready for real money.</b> Study the losers for a pattern before you change anything.");
+    var mn=Math.min.apply(null,pts),mx=Math.max.apply(null,pts),sp=(mx-mn)||1,W=500,H=140;
+    function y(v){return 10+H-(v-mn)/sp*H}
+    var z=document.createElementNS(NS,"line");z.setAttribute("x1",10);z.setAttribute("x2",510);z.setAttribute("y1",y(0));z.setAttribute("y2",y(0));z.setAttribute("stroke","var(--line)");z.setAttribute("stroke-dasharray","4 4");svg.appendChild(z);
+    var p=document.createElementNS(NS,"polyline");p.setAttribute("fill","none");p.setAttribute("stroke",eq>=0?"var(--bull)":"var(--bear)");p.setAttribute("stroke-width","2.5");
+    p.setAttribute("points",pts.map(function(v,i){return (10+i/(pts.length-1)*W).toFixed(1)+","+y(v).toFixed(1)}).join(" "));svg.appendChild(p)}
+  inp.addEventListener("input",calc);cost.addEventListener("input",calc);risk.addEventListener("input",calc);
+  document.getElementById("labDemo").addEventListener("click",function(){var s=7,a=[];function rnd(){s=(s*16807)%2147483647;return s/2147483647}
+    for(var i=0;i<100;i++){var u=rnd();a.push(u<0.33?3:u<0.38?1.5:u<0.42?0:-1)}inp.value=a.join(", ");calc()});
+  document.getElementById("labClear").addEventListener("click",function(){inp.value="";calc()});
+  calc();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

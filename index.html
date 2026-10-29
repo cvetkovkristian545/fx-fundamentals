@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FX Fundamentals</title>
+<meta name="description" content="FX Fundamentals: a free interactive beginner's guide to forex: price action, SMC, liquidity, Forex Factory, central banks and macro, risk and discipline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Orbitron:wght@700;900&family=Tektur:wght@500;700&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+<link rel="alternate" hreflang="en" href="./">
+<link rel="alternate" hreflang="bg" href="bg/">
+</head>
+<body>
+<main class="book home">
+  <header class="cover">
+    <span class="label">Web book</span>
+    <h1>FX Fundamentals</h1>
+    <p class="sub">A complete beginner's guide: from what a buyer and a seller are to order flow, central banks and the world order. What to watch, how to analyse and how to read the news.</p>
+    <svg viewBox="0 0 520 120" role="img" aria-label="A row of candles climbing from left to right">
+      <g id="coverCandles"></g>
+      <g id="coverPrice"></g>
+    </svg>
+    <div class="cover-icons" id="coverIcons"></div>
+    <div class="ticker" aria-hidden="true"><div class="tt-row" id="tape"></div></div>
+    <span class="authors">Kristian Tsvetkov</span>
+  </header>
+
+  <section class="debrief" aria-labelledby="how">
+    <span class="label">Before you start</span>
+    <h2 id="how">How the book is organised</h2>
+    <p>The book has seven parts and runs from Level 0 to Level 6. Every chapter opens with a dossier, has terms in the margin and interactive diagrams, and ends with a debrief, a checklist and a three-level quiz: Easy, Intermediate and Experienced Trader.</p>
+    <p><a class="start-cta" href="ch0-3.html">🏁 New here? Start with the fast track</a></p>
+    <div style="display:grid;gap:6px">
+      <span class="label" id="progLabel">Progress</span>
+      <div class="meter" aria-labelledby="progLabel"><i id="progBar"></i></div>
+      <span class="score" id="progText"></span>
+    </div>
+  </section>
+
+  <div class="drops3">
+  <section class="debrief drop" aria-labelledby="td">
+    <details id="tdd">
+      <summary>
+        <span class="drop-ic" aria-hidden="true">🔥</span>
+        <span class="drop-t"><span class="label">Today</span><h2 id="td">Your day in the book</h2><span class="drop-sub" id="tdSum">Streak, term of the day and task of the day</span></span>
+        <span class="drop-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="drop-body"><div class="today" id="today"></div></div>
+    </details>
+  </section>
+
+  <section class="debrief drop" aria-labelledby="pm">
+    <details id="pmd">
+      <summary>
+        <span class="drop-ic" aria-hidden="true">🗺</span>
+        <span class="drop-t"><span class="label">Your path</span><h2 id="pm">Progress map</h2><span class="drop-sub" id="pmSum"></span></span>
+        <span class="drop-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="drop-body">
+        <div id="pmap" style="display:grid;gap:12px"></div>
+        <div class="listen"><button class="chip" type="button" id="printAllBtn">⎙ All summaries and checklists (PDF)</button></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="debrief drop" aria-labelledby="bd">
+    <details id="bdd">
+      <summary>
+        <span class="drop-ic" aria-hidden="true">🏅</span>
+        <span class="drop-t"><span class="label">Achievements</span><h2 id="bd">Badges</h2><span class="drop-sub" id="bdSum"></span></span>
+        <span class="drop-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="drop-body"><div id="bdShelf"></div></div>
+    </details>
+  </section>
+  </div>
+
+  <nav class="toc" id="toc" aria-label="Contents"></nav>
+
+  <section class="debrief drop prize" aria-labelledby="pz">
+    <details id="pzd">
+      <summary>
+        <span class="prize-img" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="64" height="64"><defs><linearGradient id="pzg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd76a"/><stop offset="1" stop-color="#f0a020"/></linearGradient></defs>
+            <path d="M20 10h24v14a12 12 0 0 1-24 0z" fill="url(#pzg)"/><path d="M20 14h-8a8 8 0 0 0 8 10M44 14h8a8 8 0 0 1-8 10" fill="none" stroke="#f0a020" stroke-width="3"/>
+            <rect x="29" y="35" width="6" height="9" fill="#f0a020"/><rect x="21" y="44" width="22" height="7" rx="2" fill="url(#pzg)"/>
+            <path d="M32 15l2 4.2 4.6.6-3.3 3.2.8 4.5-4.1-2.2-4.1 2.2.8-4.5-3.3-3.2 4.6-.6z" fill="#fff8e1"/></svg>
+          <i class="spark s1">✳</i><i class="spark s2">✨</i><i class="spark s3">✳</i>
+        </span>
+        <span class="drop-t"><span class="label">Prize · first finishers only</span><h2 id="pz">Finish the book and win Claude Pro</h2><span class="drop-sub">Tap to see the conditions ✳</span></span>
+        <span class="drop-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="drop-body">
+        <p class="prize-big">🎁 <b>1 week of Claude Pro</b>, a gift from the author to the <b>first 3 readers</b> who finish the whole book. ✳🤖✨</p>
+        <ol class="steps">
+          <li>Tick the full checklist in every chapter from 0.1 to 38 (and S).</li>
+          <li>Pass the final exam (easy and intermediate) with at least 70%.</li>
+          <li>Your personal prize code will appear here. Send it to the author on <b>Instagram</b> with a screenshot of this card.</li>
+        </ol>
+        <div class="prize-status" id="pzStatus" aria-live="polite"></div>
+        <p class="fb">The prize is the author's personal promise, not Anthropic's. There are 3 prizes: the first three to send their code win.</p>
+      </div>
+    </details>
+  </section>
+
+  <footer>
+    <span>Kristian Tsvetkov</span>
+    <span>Educational material, not investment advice</span>
+  </footer>
+</main>
+<script>
+/* three cards stay in one row; the opened card's content shows in a full-width panel below */
+(function(){var row=document.querySelector(".drops3");if(!row)return;
+  var pan=document.createElement("div");pan.className="debrief drops3-panel";pan.hidden=true;row.parentNode.insertBefore(pan,row.nextSibling);
+  var ds=row.querySelectorAll("details"),timer=0;
+  function park(){var cur=pan.firstChild;if(cur&&cur._home)cur._home.appendChild(cur)}
+  function show(body){clearTimeout(timer);park();pan.appendChild(body);pan.hidden=false;pan.classList.remove("out","in");
+    requestAnimationFrame(function(){pan.classList.add("in")})}
+  function hide(){pan.classList.remove("in");pan.classList.add("out");clearTimeout(timer);
+    timer=setTimeout(function(){park();pan.hidden=true;pan.classList.remove("out")},170)}
+  Array.prototype.forEach.call(ds,function(d){var body=d.querySelector(".drop-body");if(!body)return;body._home=d;
+    d.addEventListener("toggle",function(){
+      if(d.open){Array.prototype.forEach.call(ds,function(o){if(o!==d&&o.open)o.open=false});show(body)}
+      else if(body.parentNode===pan&&!row.querySelector("details[open]"))hide()})})})();
+</script>
+
+
+<script src="book.js"></script>
+<script>
+(function(){
+  var B=window.Book,toc=document.getElementById("toc");
+  /* cover candles: a gentle uptrend with one pullback */
+  /* each candle: open and close as y (smaller = higher price) */
+  var g=document.getElementById("coverCandles"),c=[[100,88],[88,94],[94,76],[76,82],[82,64],[64,56],[56,62],[62,48],[48,36],[36,42],[42,30],[30,20],[20,26],[26,12]];
+  c.forEach(function(k,i){var o=k[0],cl=k[1],x=14+i*36,up=cl<o,col=up?"#ffffff":"#000000",wk=up?"#ffffff":"#000000",ol=up?"#ffffff":"#94a3b8";
+    var cg=B.svg("g",{"class":"cc"+(i===c.length-1?" live":""),style:"animation-delay:"+(0.25+i*0.07)+"s"+(i===c.length-1?","+(0.9+i*0.07)+"s":"")},g);
+    B.svg("line",{x1:x+9,x2:x+9,y1:Math.min(o,cl)-7,y2:Math.max(o,cl)+7,stroke:wk,"stroke-width":2},cg);
+    B.svg("rect",{x:x,width:18,y:Math.min(o,cl),height:Math.max(2,Math.abs(o-cl)),fill:col},cg)});
+  /* live price line on the last candle + ticker tape */
+  var lp=document.getElementById("coverPrice"),ly=12;
+  B.svg("line",{x1:38,x2:520,y1:ly,y2:ly},lp);B.svg("rect",{x:0,y:ly-7,width:34,height:14,rx:3},lp);var tx=B.svg("text",{x:17,y:ly+3,"text-anchor":"middle"},lp);tx.textContent="LIVE";
+  var words="EURUSD,GBPUSD,USDJPY,XAUUSD,DXY,BOS,CHoCH,FVG,BSL,SSL,Order block,Kill zone,London,New York,CPI,NFP,FOMC,1% risk,≥3R,Journal".split(","),tape=document.getElementById("tape"),row="";
+  words.forEach(function(w){row+="<span>"+w+"</span>"});tape.innerHTML=row+row;
+  /* cover icons: what the book covers */
+  var ci=document.getElementById("coverIcons");
+  [["candles","Candles"],["drop","Liquidity"],["clock","Sessions"],["shield","Risk"],["bank","Macro"],["pulse","Psychology"]].forEach(function(x){
+    var d=B.h("div","ci");var ic=B.icon(x[0],30);if(ic)d.appendChild(ic);d.appendChild(B.h("span",null,x[1]));
+    d.addEventListener("animationend",function(e){if(e.target===d&&e.animationName==="rise")d.classList.add("settled")});ci.appendChild(d)});
+  /* contents */
+  var read=0,total=0;
+  B.PARTS.forEach(function(p,pi){
+    var list=B.CHAPTERS.filter(function(c){return c.part===pi});if(!list.length)return;
+    var sec=B.h("section","part"),h2=B.h("h2",null,(pi<7?"Part "+p.n+" · ":"")+p.t+(pi<7?" <small>"+B.LEVELS[p.lv]+"</small>":""));
+    sec.appendChild(h2);var ol=B.h("ol");
+    list.forEach(function(c){
+      var li=B.h("li"),done=B.store("b"+c.id+"-done"),qe=B.store("b"+c.id+"-qe"),st="";
+      total++;
+      if(done||qe){var parts=[];if(done)parts.push("checklist "+done);if(qe)parts.push("quiz "+qe);st=parts.join(" · ");if(done&&done.split("/")[0]===done.split("/")[1])read++}
+      if(c.ready){var a=B.h("a");a.href=c.file;a.innerHTML='<span class="n">'+c.label+'</span><span class="tt"><span class="mk">'+c.title+'</span></span><span class="st'+(st?" ok":"")+'">'+(st||"")+'</span>';var ic=B.icon(B.CHICON[c.id],18);if(ic)a.querySelector('.tt').insertBefore(ic,a.querySelector('.tt').firstChild);li.appendChild(a)}
+      else li.appendChild(B.h("span","soon",'<span class="n">'+c.label+'</span><span>'+c.title+'</span><span class="st">soon</span>'));
+      ol.appendChild(li);
+    });
+    sec.appendChild(ol);toc.appendChild(sec);
+  });
+  /* dropdowns: progress map + prize open from the quick links or a #hash */
+  function openDrop(hash){var d={"#pm":"pmd","#pz":"pzd","#bd":"bdd","#td":"tdd"}[hash];d=d?document.getElementById(d):null;if(!d)return false;d.open=true;setTimeout(function(){d.scrollIntoView({behavior:"smooth",block:"start"})},30);return true}
+  Array.prototype.forEach.call(document.querySelectorAll('.quick a[href^="#p"],.quick a[href="#bd"]'),function(a){a.addEventListener("click",function(e){if(openDrop(a.getAttribute("href")))e.preventDefault()})});
+  if(location.hash)openDrop(location.hash);
+  /* prize: finished = every chapter checklist complete + final exam (easy and middle) at 70%+ */
+  (function(){var st=document.getElementById("pzStatus"),ch=B.CHAPTERS.filter(function(c){return c.part<7}),full=0;
+    ch.forEach(function(c){var d=B.store("b"+c.id+"-done");if(d&&d.split("/")[0]===d.split("/")[1]&&+d.split("/")[1]>0)full++});
+    var ex=[B.store("bX-qe"),B.store("bX-qm")],r=0,n=0,exOk=ex[0]&&ex[1];if(exOk)ex.forEach(function(x){var a=x.split("/");r+=+a[0];n+=+a[1]});
+    var pct=n?Math.round(r/n*100):0,won=full===ch.length&&exOk&&pct>=70;
+    if(won){var code=B.store("fx-prize-code");if(!code){var a="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",x="";for(var i=0;i<8;i++)x+=a[Math.floor(Math.random()*a.length)];code="FXF-"+x.slice(0,4)+"-"+x.slice(4);B.store("fx-prize-code",code)}
+      st.innerHTML='<span class="label">🎉 You finished the book!</span><p>Your code: <b class="prize-code">'+code+'</b></p><p>Send it to the author on Instagram with a screenshot of this card. The first 3 win. ✳</p><span class="label">🎓 Your certificate</span><div class="cert"><input type="text" id="certName" maxlength="60" placeholder="First and last name for the certificate"><button class="chip" type="button" id="certBtn">Download the certificate (PDF)</button></div>';st.classList.add("won");
+      var cb=document.getElementById("certBtn"),cn=document.getElementById("certName");cn.value=B.store("fx-cert-name")||"";
+      cb.addEventListener("click",function(){var n=cn.value.trim();if(!n){cn.focus();return}B.store("fx-cert-name",n);B.certificate(cb,n,{total:ch.length,exam:pct,code:code})})}
+    else st.innerHTML='<span class="label">Your path to the prize</span><div class="meter"><i style="width:'+Math.round(full/ch.length*100)+'%"></i></div><p>Checklists: <b>'+full+' / '+ch.length+'</b> · Final exam: <b>'+(exOk?pct+"%":"not taken yet")+'</b></p>';
+  })();
+  /* today + badges */
+  B.todayCard(document.getElementById("today"));
+  var sk=B.streak();document.getElementById("tdSum").textContent="🔥 "+sk.now+" "+(sk.now===1?"day":"days")+" in a row · term and task of the day · tap to open";
+  var bc=B.badgeShelf(document.getElementById("bdShelf"));document.getElementById("bdSum").textContent="Unlocked: "+bc[0]+" of "+bc[1]+" · tap to see them";
+  B.progressMap(document.getElementById("pmap"));B.printAll(document.getElementById("printAllBtn"));B.printAll(document.getElementById("printAllTop"));
+  var ready=B.CHAPTERS.filter(function(c){return c.ready}).length;
+  document.getElementById("progBar").style.width=Math.round(read/total*100)+"%";
+  document.getElementById("pmSum").textContent="Completed chapters: "+read+" of "+total+" · tap to open";
+  document.getElementById("progText").textContent="Completed chapters (full checklist ticked): "+read+" of "+total+" · written so far: "+ready;
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

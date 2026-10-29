@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sessions and Volatility · FX Fundamentals</title>
+<meta name="description" content="Sessions and Volatility · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch9.html">
+<link rel="alternate" hreflang="bg" href="bg/ch9.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="9">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">9</div>
+    <h1>Sessions, Kill Zones and Volatility</h1>
+    <blockquote class="quote">
+      There is a time to go long, a time to go short and a time to go fishing.
+      <cite>Jesse Livermore (attributed)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>tell the story of a typical day: Asia builds the range, London sweeps it, New York delivers the move;</li>
+        <li>name the kill zones in Sofia time and know when not to open anything new;</li>
+        <li>use ATR to judge how far away the stop should be.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>9.1 A day in three acts</h2>
+      <p>Every trading day has a recurring rhythm that shows more clearly in currencies than anywhere else. It doesn't happen every day, but it happens often enough to be the basis of the daily plan.</p>
+      <figure class="diagram">
+        <svg id="day" viewBox="0 0 520 250" role="img" aria-label="A typical day: a tight Asian range, a London sweep and a New York expansion"></svg>
+        <div class="parts">
+          <button class="chip" data-act="1">Act 1: Asia</button>
+          <button class="chip" data-act="2">Act 2: London</button>
+          <button class="chip" data-act="3">Act 3: New York</button>
+          <button class="chip" data-act="0">The whole day</button>
+        </div>
+        <p class="verdict" id="dayText" aria-live="polite"></p>
+        <figcaption>An illustrative bullish EURUSD day in Sofia time. The coloured bands are kill zones.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/ch9-london-sweep.jpg" alt="EURUSD M15: a tight Asian range, a sweep of its low at the European open and an expansion in New York" width="1075" height="774" loading="lazy" decoding="async">
+        <figcaption><b>Real example.</b> EURUSD M15, 6 October 2026, Sofia time. Asia (03:00–09:00) builds a tight range. At 09:00–09:30, with the European (Frankfurt) open, price sweeps the Asian low and closes back inside. London breaks the upper edge, and New York extends the move to 1.1276.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>Asia sets the stage, London runs the false plot, New York reveals the killer. Don't walk out of the cinema during the first act.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Asia range · азиатски диапазон</b>The high and low of the overnight session. A target for London.</div>
+      <div class="term"><b>Expansion · разширение</b>The big move of the day, usually after a sweep.</div>
+      <div class="term"><b>Judas swing</b>The false initial move against the day's direction.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>9.2 Kill zones in Sofia time</h2>
+      <div class="sessclock"></div>
+
+      <p><b>Kill zones</b> are the short windows when the biggest volume and the cleanest moves arrive. Outside them the market either sleeps or wanders without direction. The good news: in Sofia time they keep the same hours in summer and winter.</p>
+      <div class="tablewrap" data-name="kill-zones">
+        <table class="data">
+          <thead><tr><th>Window</th><th>Sofia</th><th>UTC (summer)</th><th>What happens</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Asia</td><td class="mono">03:00–09:00</td><td class="mono">00:00–06:00</td><td>A quiet range and the day's lowest turnover. JPY pairs are the exception.</td><td>You only mark the high and the low.</td></tr>
+            <tr><td><b>London open</b></td><td class="mono">10:00–12:00</td><td class="mono">07:00–09:00</td><td>High volume. Often sweeps one side of Asia.</td><td>Wait for the first 15 minutes; watch for a sweep and an MSS.</td></tr>
+            <tr><td><b>New York morning</b></td><td class="mono">15:30–18:00</td><td class="mono">12:30–15:00</td><td>US data at 15:30; overlap with London. The biggest moves.</td><td>The main window, after the news buffer.</td></tr>
+            <tr><td>New York afternoon</td><td class="mono">18:00–20:00</td><td class="mono">15:00–17:00</td><td>Fades. False moves, stop hunts.</td><td>Don't open new positions. Manage the open ones.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fb">During the few weeks in March and October–November when the US and Europe change their clocks on different dates, the New York windows come one hour earlier in Sofia time.</p>
+      <div class="box ff">
+        <span class="label">Watch on Forex Factory</span>
+        <p>If there is a red folder at 15:30 (CPI, NFP), the New York kill zone starts after the buffer: 15 to 30 minutes after the number, and about an hour for NFP and central bank decisions. News can replace the day's normal rhythm.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Kill zone</b>A time window with the highest probability of a clean move.</div>
+      <div class="term"><b>London open · отваряне на Лондон</b>08:00 London time = 10:00 Sofia time.</div>
+      <div class="term"><b>NY AM</b>The New York morning, 8:30–11:00 New York time.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>9.3 Pair profiles</h2>
+      <p>Every pair has its own character. A stop that is sensible for EURUSD is too tight for GBPJPY, and a target that is realistic for gold in New York is a dream in Asia.</p>
+      <div class="tablewrap" data-name="profili-dvoiki">
+        <table class="data">
+          <thead><tr><th>Instrument</th><th>Typical daily ATR</th><th>Best session</th><th>Character</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">EURUSD</td><td>about 50–100 pips</td><td>London + New York</td><td>The most liquid, the lowest spreads, inverse to DXY.</td></tr>
+            <tr><td class="mono">GBPUSD</td><td>about 70–130 pips</td><td>London</td><td>More volatile than EURUSD; needs wider stops.</td></tr>
+            <tr><td class="mono">USDJPY</td><td>about 70–130 pips</td><td>Tokyo + New York</td><td>Up on risk appetite, down on fear. Risk of Japanese intervention when the yen is very weak.</td></tr>
+            <tr><td class="mono">USDCHF</td><td>about 50–90 pips</td><td>London</td><td>Almost a mirror image of EURUSD. The franc is a safe haven.</td></tr>
+            <tr><td class="mono">XAUUSD</td><td>tens of dollars; far more on news</td><td>New York</td><td>Sharp reactions to geopolitics and real rates. First to react to fear.</td></tr>
+            <tr><td class="mono">BTCUSD</td><td>thousands of dollars</td><td>New York</td><td>3–5 times more volatile than currencies; often moves together with the Nasdaq.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fb">The ranges are rough guides and change over the years. Before trading anything, check the current ATR(14) on D1 in TradingView.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>ATR · среден истински диапазон</b>Average True Range: the average distance price covers in one candle, usually over 14 candles.</div>
+      <div class="term"><b>Volatility · волатилност</b>How strongly and quickly price moves.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>9.4 ATR: how far away the stop should be</h2>
+      <p>If your stop is smaller than the usual noise of the candles, a random wick will hit it even when the analysis is right. The simple rule in this book: <b>the minimum stop is half the ATR(14) of the timeframe you make the decision on, plus a buffer of a few pips</b> for wicks and spread. If the M5 ATR is too small, use the M15 ATR.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>ATR(14) of the timeframe (pips)<input type="number" id="aAtr" value="8" step="0.5"></label>
+            <label>Buffer (pips)<input type="number" id="aBuf" value="3" step="0.5"></label>
+            <label>Stop from the analysis (pips)<input type="number" id="aSl" value="6" step="0.5"></label>
+            <label>Daily ATR(14) (pips)<input type="number" id="aD" value="75"></label>
+            <label>Target (pips)<input type="number" id="aTp" value="30"></label>
+          </div>
+          <div class="out" id="aOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Example: EURUSD, decision on M15 with an ATR of 8 pips.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="volatilnost-pravila">
+        <table class="data">
+          <thead><tr><th>Situation</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>News, a move over 2× ATR</td><td>Wait for it to calm down; don't enter the spike.</td></tr>
+            <tr><td>Normal volatility</td><td>Standard size.</td></tr>
+            <tr><td>Very low volatility (under 0.5× ATR)</td><td>Expect a breakout, but wait for a signal.</td></tr>
+            <tr><td>Asian range</td><td>Watch, don't trade (except JPY).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>A tight stop is a safe stop.</p></div>
+        <div><span class="label">Reality</span><p>A tight stop is a frequent stop. Safety comes from position size (Chapter 11), not from how close the stop is.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Buffer · буфер</b>Extra pips beyond the level to survive a random wick and the spread.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5r">
+    <div class="main">
+      <h2 id="s5r"><span class="dots" title="Level: intermediate">●●</span>9.5 Frame-by-frame replay</h2>
+      <p>The day's three acts on one chart. The times below are Sofia time.</p>
+      <div class="replay" data-rp="day"></div>
+      <h3>Drill</h3>
+      <p>Press the line on the chart or the button with the letter. You get one try per question.</p>
+      <div class="drills" data-dr="ch9"></div>
+      <h3>Today</h3>
+      <p>Mark the Asian range (03:00–09:00 Sofia time) and see which side London swept.</p>
+      <div class="tv" data-sym="FX:EURUSD,FX:GBPUSD" data-int="60"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Replay · повторение</b>Stepping through the chart candle by candle without seeing the future. The cheapest way to practise reading.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-label="Go deeper">
+    <div class="main">
+      <details class="deeper">
+        <summary><span class="dots" aria-hidden="true">●●●</span><span class="dp-t"><small>Go deeper</small><b>Fixes and month-end flows</b></span><span class="drop-caret" aria-hidden="true">▾</span></summary>
+        <div class="dp-body">
+          <p>Every day at 16:00 London time (18:00 Sofia) the <b>WM/Reuters fix</b> sets the benchmark rates used to value trillions in funds and indices. Many large orders are executed "at the fix", inside a five-minute window around it. In Tokyo there is a similar fixing at 09:55 local time (02:55 Sofia).</p>
+          <p>On the last business days of the month, global funds rebalance: if foreign stocks rose a lot, they sell some and convert the money back, which creates currency flows unrelated to any news. Banks publish estimates of these flows in the last week of the month.</p>
+          <p>For a scalper: sharp, newsless moves between 17:55 and 18:05 Sofia, especially at month-end, are usually fix flows. They often reverse afterwards. Do not read them as a new trend, and do not put a tight stop next to price at that time.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 09</h2>
+    <ul>
+      <li>Asia builds a range, London sweeps it, New York delivers the move.</li>
+      <li>Kill zones (Sofia): London 10:00–12:00, New York 15:30–18:00. No new positions after 18:00.</li>
+      <li>Every pair has its own character and ATR. Check the ATR before you trade.</li>
+      <li>Minimum stop ≈ 0.5 × the timeframe's ATR plus a buffer.</li>
+      <li>On a news spike over 2× ATR: you wait.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I added a sessions indicator in TradingView (Chapter 31) and saw Asia, London, New York.</label></li>
+      <li><label><input type="checkbox"> I checked the last 10 days: on how many did London sweep one side of Asia?</label></li>
+      <li><label><input type="checkbox"> I wrote down the current daily ATR of EURUSD, GBPUSD and XAUUSD.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>Tuesday. Asia on EURUSD: 1.0832–1.0848 (16 pips). The daily ATR is 70 pips. At 10:20 London breaks up to 1.0855 and comes back below 1.0848. D1 is bearish. There are US retail sales at 15:30 (orange folder). It is 11:05.</p>
+      <p><b>Task:</b> what happened in London? What does ATR say about the rest of the day? Which is the next window where you expect a move, and what will you watch?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="London… ATR… New York…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>London swept the Asian high (BSL above 1.0848) and came back inside: a sweep against the bearish D1. A classic false first act.</li>
+          <li>About 23 pips of 70 have been covered. There is room for about 40–50 pips of movement, probably down towards the SSL below 1.0832 and further.</li>
+          <li>If there is an MSS down on M5/M15 after the sweep, the zone it started from is worth watching while still in the London window (until 12:00).</li>
+          <li>The next window is New York after 15:30. Retail sales are medium importance: a buffer of about 15–30 minutes, then I look for continuation down towards the liquidity under Asia.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Which session usually builds the range?",o:["Asia","London","New York afternoon"],a:0,e:"Asia is the quiet session that leaves the high and the low."},
+  {q:"When is the London kill zone in Sofia time?",o:["03:00–05:00","10:00–12:00","21:00–23:00"],a:1,e:"The first two hours of London: 10:00–12:00 Sofia time."},
+  {q:"What do you do in the New York afternoon (after 18:00)?",o:["Open new positions","Manage the open ones, no new ones","Double the risk"],a:1,e:"A fading market, false moves."},
+  {q:"What does ATR measure?",o:["The direction","The average range of the candles","Volume"],a:1,e:"Average True Range: the average distance per candle."},
+  {q:"Which pair is usually more volatile?",o:["EURUSD","GBPUSD","They are the same"],a:1,e:"The pound usually moves more."}
+],mid:[
+  {q:"ATR(14) on M15 is 10 pips, buffer 3. Your analysis gives a 4-pip stop. What do you do?",o:["Use 4 pips","The minimum is about 8 pips; widen it and reduce the size, or skip","Remove the stop"],a:1,e:"0.5 × 10 + 3 = 8 pips. A tighter stop is a lottery ticket."},
+  {q:"London breaks the Asian low and closes back inside the range; D1 is bullish. What might this be?",o:["The start of a bearish trend","A sweep of SSL in the D1 direction","Nothing"],a:1,e:"Taking the liquidity under Asia in a bullish context."},
+  {q:"By 14:00 EURUSD has covered 95 pips with a daily ATR of 70. What do you expect?",o:["Another 70 pips","Much of the daily move is probably used up; smaller targets","Nothing follows"],a:1,e:"ATR is an average. It isn't a ceiling, but it makes extra targets less likely."}
+]};
+</script>
+<script>window.REPLAYS={"day":{"title": "Asia builds, London sweeps, New York delivers", "candles": [[43, 45, 42, 44], [44, 46, 43.5, 45], [45, 45.5, 42, 42.5], [42.5, 43, 40, 41], [41, 44, 40.5, 43.5], [43.5, 45.8, 43, 45], [45, 45.5, 42.5, 43], [43, 44, 38.5, 39.5], [39.5, 40, 37.5, 39], [39, 43, 38.8, 42.5], [42.5, 47, 42, 46.5], [46.5, 48, 45.8, 47.5], [47.5, 48.2, 46.4, 46.8], [46.8, 51, 46.6, 50.5], [50.5, 53, 50, 52.5], [52.5, 53.8, 51.5, 53.2], [53.2, 53.5, 51, 51.5]], "y": [36, 56], "x": [[0, "03:00"], [7, "10:00"], [13, "15:30"]], "caption": "Hourly candles, Sofia time. Teaching scenario: not every day follows this order, but often enough that you should know it.", "steps": [{"at": 7, "h": "Asia.", "text": "From 03:00 to 09:00 price sits in a tight range: high 46, low 40. You only mark them.", "draw": [{"t": "zone", "p1": 40, "p2": 46, "from": 0, "to": 6, "c": "liq"}, {"t": "level", "p": 46, "from": 0, "label": "Asia 46", "c": "liq"}, {"t": "level", "p": 40, "from": 0, "label": "Asia 40", "c": "liq"}]}, {"at": 9, "h": "London sweeps.", "text": "10:00: London opens and breaks the Asian low down to 37.5. The sellers who entered on the break will soon be trapped.", "draw": [{"t": "mark", "i": 8, "p": 37.5, "label": "sweep", "c": "news", "pos": "down"}]}, {"at": 11, "h": "Reversal.", "text": "Price returns into the range and closes above the Asian high. A sweep followed by displacement in the opposite direction.", "draw": [{"t": "mark", "i": 10, "p": 47, "label": "MSS", "c": "bull"}]}, {"at": 13, "h": "Pullback.", "text": "A calm return to the breakout zone before New York. This is where the model looks for an entry, not by chasing the candle.", "draw": []}, {"at": 16, "h": "New York.", "text": "15:30: the US data delivers the second displacement up. This is the move of the day.", "draw": []}, {"at": 17, "h": "Fade.", "text": "After 18:00 the move weakens and false moves begin. You open no new positions, you only manage the open ones.", "draw": []}]}};window.DRILLS={"ch9": [{"src": "day", "n": 7, "q": "The daily bias is bullish. Which liquidity is London more likely to sweep first?", "o": [{"p": 46, "t": "the Asian high"}, {"p": 43, "t": "the middle of Asia"}, {"p": 40, "t": "the Asian low"}], "a": 2, "e": "With a bullish bias London often sweeps the Asian low first, to fill buys against the sellers' stops. It isn't a rule, just the more likely scenario."}, {"src": "day", "n": 17, "q": "From what time, Sofia time, do you stop opening new positions?", "o": [{"t": "10:00"}, {"t": "15:30"}, {"t": "18:00"}], "a": 2, "e": "After 18:00 New York fades: false moves and stop hunts. You manage the open ones and don't open new ones."}, {"src": "day", "n": 11, "q": "Candle 11 closes at 46.5, above the Asian high. What has London done?", "o": [{"t": "Swept the Asian low, then displaced up through the range"}, {"t": "Broken down"}, {"t": "Nothing important"}], "a": 0, "e": "The sweep of the low trapped the breakout sellers, and the close above 46 shows displacement the other way."}, {"src": "day", "n": 13, "q": "Where does the model look for an entry before New York?", "o": [{"p": 46, "from": 5, "t": "the breakout zone around the Asian high"}, {"p": 48, "from": 10, "t": "at the high, 48"}, {"p": 38, "from": 7, "t": "back at the low"}], "a": 0, "e": "A calm return to the breakout zone, not chasing the candle."}]};</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  var sv=document.getElementById("day");
+  function hx(h){return 30+(h-2)*(480/22)} /* 02:00..24:00 Sofia */
+  function py(v){return 215-v*1.7}
+  /* path: hour, value */
+  var P=[[2,60],[3,58],[4,64],[5,57],[6,63],[7,59],[8,65],[9,60],[10,58],[10.4,45],[10.8,52],[11.3,62],[12,68],[13,66],[14,70],[15,68],[15.5,64],[16,80],[16.6,92],[17.2,104],[18,110],[19,106],[20,108],[22,104],[24,106]];
+  var ACT=[[2,9.5,"Asia (03:00–09:00): price swings in a tight range between about 57 and 65. No big player is at the desk. The Asian high and low become targets for later."],[9.5,15.3,"London (10:00–12:00): price breaks below the Asian low, takes the stops and comes back. This is the false first act. After an MSS price sets off upward."],[15.3,24,"New York (15:30–18:00): after the data price expands in the day's direction towards the liquidity above the previous high. After 18:00 the move fades."]];
+  function draw(n){sv.innerHTML="";
+    [[10,12,"London KZ"],[15.5,18,"New York KZ"]].forEach(function(z){el("rect",{x:hx(z[0]),y:10,width:hx(z[1])-hx(z[0]),height:210,fill:"var(--news)","fill-opacity":.12},sv);el("text",{x:hx(z[0])+3,y:22,"font-size":10,fill:"var(--news)"},sv).textContent=z[2]});
+    el("rect",{x:hx(3),y:py(65),width:hx(9)-hx(3),height:py(57)-py(65),fill:"var(--liq)","fill-opacity":.15},sv);
+    el("line",{x1:hx(3),x2:hx(24),y1:py(57),y2:py(57),stroke:"var(--liq)","stroke-dasharray":"4 4"},sv);el("text",{x:hx(3),y:py(57)+14,"font-size":10,fill:"var(--liq)"},sv).textContent="Asian low (SSL)";
+    el("line",{x1:hx(3),x2:hx(24),y1:py(65),y2:py(65),stroke:"var(--liq)","stroke-dasharray":"4 4"},sv);el("text",{x:hx(3),y:py(65)-5,"font-size":10,fill:"var(--liq)"},sv).textContent="Asian high (BSL)";
+    var pts=P.filter(function(p){return n===0||(p[0]>=ACT[0][0]&&p[0]<=ACT[n-1][1])});
+    el("polyline",{points:pts.map(function(p){return hx(p[0]).toFixed(1)+","+py(p[1]).toFixed(1)}).join(" "),fill:"none",stroke:"var(--ink)","stroke-width":2.5},sv);
+    if(n===0||n>=2){el("circle",{cx:hx(10.4),cy:py(45),r:8,fill:"none",stroke:"var(--liq)","stroke-width":2},sv);el("text",{x:hx(10.4)+10,y:py(45)+4,"font-size":10,fill:"var(--liq)"},sv).textContent="sweep"}
+    for(var h=3;h<=24;h+=3)el("text",{x:hx(h)-10,y:244,"font-size":10,fill:"var(--muted)"},sv).textContent=(h<10?"0":"")+h+":00";
+    document.getElementById("dayText").textContent=n===0?"The whole day: a quiet range, a false break down in London, the real move up in New York. Not every day is like this, but it is the most common scenario, which the book uses as a starting point.":ACT[n-1][2];
+    Book.each("[data-act]",function(b){b.setAttribute("aria-pressed",b.dataset.act==n)})}
+  Book.each("[data-act]",function(b){b.addEventListener("click",function(){draw(+b.dataset.act)})});draw(0);
+
+  /* ATR stop */
+  var f=["aAtr","aBuf","aSl","aD","aTp"].map(function(i){return document.getElementById(i)}),o=document.getElementById("aOut");
+  function calc(){var atr=+f[0].value,buf=+f[1].value,sl=+f[2].value,d=+f[3].value,tp=+f[4].value,min=atr*0.5+buf,use=Math.max(sl,min);
+    o.innerHTML="<span>Minimum stop: 0.5 × "+atr+" + "+buf+" = <b>"+min.toFixed(1)+" pips</b>.</span>"+
+      (sl<min?"<span style=\"color:var(--bear)\">The stop from the analysis ("+sl+") is tighter than the noise. Either widen it to "+min.toFixed(1)+" and reduce the size, or skip.</span>":"<span style=\"color:var(--bull)\">The stop from the analysis is above the minimum. ✓</span>")+
+      "<span>Target "+tp+" pips with a stop of "+use.toFixed(1)+" = <b>"+(tp/use).toFixed(1)+"R</b>"+(tp/use<3?" (under 3R: check whether there is a more distant logical target)":"")+".</span>"+
+      "<span>The target is "+Math.round(tp/d*100)+"% of the daily ATR"+(tp>d*0.8?": ambitious for one day.":".")+"</span>"}
+  f.forEach(function(x){x.addEventListener("input",calc)});calc();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

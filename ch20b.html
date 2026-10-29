@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Positioning and Sentiment · FX Fundamentals</title>
+<meta name="description" content="Positioning and Sentiment · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch20b.html">
+<link rel="alternate" hreflang="bg" href="bg/ch20b.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="20b">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">21</div>
+    <h1>Positioning and Sentiment</h1>
+    <blockquote class="quote">
+      When everyone thinks alike, no one is thinking.
+      <cite>Attributed to Walter Lippmann</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>read the COT report and turn a net position into a 0–100 index;</li>
+        <li>use retail sentiment as a contrarian signal, and know when not to;</li>
+        <li>read options: implied volatility, the expected move, risk reversals and large expiries;</li>
+        <li>recognise from price alone that a view is already "in the price".</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>21.1 Who is already in</h2>
+      <p>Chapter 20 explains <i>why</i> a currency should move. This chapter asks a different question: <b>who still has to buy?</b> If everyone who likes the dollar has already bought it, good news can no longer push it much higher. But bad news can make all of them sell at once.</p>
+      <p>Think of a cinema with one exit. While the film is good, nobody moves. The fuller the cinema, the worse the rush when someone shouts "fire". In Appendix E almost every big move had the same fuel: crowded positioning.</p>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>If most people are long, the price must go up.</p></div>
+        <div><span class="label">Reality</span><p>A price goes up when new buyers arrive. If most people are already long, the pool of new buyers is small and the pool of potential sellers is large.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Positioning · позициониране</b>How market participants are already placed: long, short, how much.</div>
+      <div class="term"><b>Sentiment · настроение</b>How participants feel about a market, measured by surveys, positions or prices.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: intermediate">●●</span>21.2 The COT report, step by step</h2>
+      <p>Every Friday at 15:30 New York time (22:30 Sofia) the US regulator CFTC publishes the <b>Commitments of Traders</b> report. It shows positions in US futures as of the previous Tuesday. Currency futures on the CME are quoted against the dollar: a long position in the euro contract is a bet on a higher EURUSD, a long position in the yen contract is a bet on a lower USDJPY.</p>
+      <div class="tablewrap" data-name="cot-kategorii">
+        <table class="data">
+          <thead><tr><th>Category (TFF report)</th><th>Who it is</th><th>How to read it</th></tr></thead>
+          <tbody>
+            <tr><td>Leveraged funds</td><td>Hedge funds, CTAs, fast money</td><td>Trend followers. Extremes here are the classic "crowded trade".</td></tr>
+            <tr><td>Asset managers</td><td>Pension and investment funds</td><td>Slow money. Their shifts are bigger but take months.</td></tr>
+            <tr><td>Dealers</td><td>Banks that make markets</td><td>Usually the other side of clients. Rarely a signal by themselves.</td></tr>
+            <tr><td>Non-commercial (legacy report)</td><td>All large speculators together</td><td>The number most often quoted in the news.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>From a number to an index</h3>
+      <p>A net long of 80,000 contracts says nothing by itself. Is that a lot for this currency? The <b>COT index</b> puts the current net position inside its range over the last three years (156 weeks): 0 means the most short, 100 the most long in that period.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Current net position<input type="number" id="ci1" value="-120000" step="1000"></label>
+            <label>3-year minimum<input type="number" id="ci2" value="-140000" step="1000"></label>
+            <label>3-year maximum<input type="number" id="ci3" value="60000" step="1000"></label>
+          </div>
+          <div class="out" id="ciOut" aria-live="polite"></div>
+        </div>
+        <figcaption>COT index = (current − min) ÷ (max − min) × 100. The example is close to the record yen short of July 2024 in shape, not in exact numbers.</figcaption>
+      </figure>
+      <div class="box warn">
+        <span class="label">Four limits of COT</span>
+        <p>1) Futures are a small part of FX: most trading is over the counter, between banks. 2) The data is three days old when it comes out. 3) An extreme can last for months while the trend continues: an extreme is a condition, not a trigger. 4) Changes week to week are noisy. The level and the direction over several weeks matter more.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>CFTC</b>Commodity Futures Trading Commission: the US regulator of futures markets.</div>
+      <div class="term"><b>TFF · Traders in Financial Futures</b>The COT version that splits positions into dealers, asset managers, leveraged funds and others.</div>
+      <div class="term"><b>Net position · нетна позиция</b>Longs minus shorts.</div>
+      <div class="term"><b>COT index · COT индекс</b>Where the net position sits in its range over the last three years, from 0 to 100.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>21.3 Retail sentiment: the crowd at the broker</h2>
+      <p>Many brokers publish the share of their clients who are long and short each pair. It is the only positioning data that comes out in real time, and it has one well-known habit: <b>the retail crowd tends to be on the wrong side of trends.</b></p>
+      <ol class="steps">
+        <li><b>It buys falling prices</b> because they look "cheap", and sells rising ones because they look "expensive".</li>
+        <li><b>It takes profits fast and holds losses long</b>, so in a trend it ends up holding the losing side.</li>
+        <li><b>Its stops sit at obvious places</b>, which is exactly the liquidity from Chapter 7.</li>
+      </ol>
+      <div class="tablewrap" data-name="retail-sentiment">
+        <table class="data">
+          <thead><tr><th>Reading</th><th>What it suggests</th><th>Caveat</th></tr></thead>
+          <tbody>
+            <tr><td>70%+ long and price falling</td><td>The trend down has fuel: these longs are future sellers</td><td>Not a timing tool</td></tr>
+            <tr><td>70%+ short and price rising</td><td>A squeeze is possible as shorts cover</td><td>Can stay extreme for weeks</td></tr>
+            <tr><td>Around 50/50</td><td>No information</td><td>Do not read meaning into noise</td></tr>
+            <tr><td>The crowd flips side after a big move</td><td>Often near a turning point</td><td>Needs confirmation from price</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">From the notes · CPI, 14 October 2026</span>
+        <p>Before the data retail traders were long the pound (about 71%), the euro (about 66%) and gold (about 68%). The hot number caught all three crowds at once (Chapter 28.5).</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Contrarian · контрариански</b>Taking or favouring the side opposite to the crowd.</div>
+      <div class="term"><b>Squeeze · скуийз</b>A fast move caused by traders forced to close losing positions.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: advanced">●●●</span>21.4 What options tell you</h2>
+      <p>You do not need to trade options to read them. Option prices show what professionals are willing to <b>pay</b> for protection, which is more honest than what they say.</p>
+      <h3>Implied volatility and the expected move</h3>
+      <p>Implied volatility (IV) is the yearly move the option price "expects", in percent. From it you can estimate a one-standard-deviation move for any period: <b>price × IV × √(days ÷ 365)</b>. Before big events overnight IV jumps: the market prices the event in advance.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Price<input type="number" id="iv1" value="1.1000" step="0.0001"></label>
+            <label>Implied vol (% per year)<input type="number" id="iv2" value="7" step="0.5" min="0"></label>
+            <label>Days<input type="number" id="iv3" value="1" step="1" min="1"></label>
+            <label>Pip size<select id="iv4"><option value="0.0001">0.0001 (EURUSD etc.)</option><option value="0.01">0.01 (JPY pairs)</option></select></label>
+          </div>
+          <div class="out" id="ivOut" aria-live="polite"></div>
+        </div>
+        <figcaption>About two times in three, the move should stay inside ±1 standard deviation. The other time it does not, and that is normal, not a surprise.</figcaption>
+      </figure>
+      <h3>Risk reversals: which way is fear?</h3>
+      <p>A 25-delta <b>risk reversal</b> compares the price of protection on the upside (calls) with protection on the downside (puts). Negative EURUSD risk reversals mean people pay more to protect against a fall in the euro. When risk reversals hit an extreme, the fear is crowded too.</p>
+      <h3>Large expiries</h3>
+      <p>Options expire at fixed times, most often at the "New York cut", 10:00 New York (17:00 Sofia). A very large expiry near the current price can act like a magnet in the hours before the cut, as banks hedge their options. After 17:00 that pull disappears. Many news sites list the day's large expiries in the morning.</p>
+      <div class="box warn">
+        <span class="label">For a scalper</span>
+        <p>If price keeps returning to a round number like 1.1000 all morning and a large expiry sits there, do not expect a clean breakout before 17:00. After the cut the range often breaks.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Implied volatility · подразбираща се волатилност</b>The volatility built into option prices: what the market expects.</div>
+      <div class="term"><b>Risk reversal · риск реверсал</b>The difference between the volatility of calls and puts with the same delta: shows which way the fear is.</div>
+      <div class="term"><b>NY cut · нюйоркски срок</b>The usual expiry time of FX options: 10:00 New York, 17:00 Sofia.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: intermediate">●●</span>21.5 Price as a sentiment gauge</h2>
+      <p>The most up-to-date positioning data is price itself. Two questions after every important piece of news:</p>
+      <div class="four">
+        <div><span class="label">Good news, no rise</span><p>The news was already in the price. Buyers are tired. The risk is on the downside.</p></div>
+        <div><span class="label">Bad news, no fall</span><p>Sellers are exhausted. Shorts may soon have to cover.</p></div>
+        <div><span class="label">A break that fails fast</span><p>Stops above or below were taken, but no new money followed. Chapter 7's sweep.</p></div>
+        <div><span class="label">The pain trade</span><p>The move that hurts most people at that moment. It is often the one that happens next.</p></div>
+      </div>
+      <div class="dialog">
+        <p><span>Student</span>So I should always trade against the crowd?</p>
+        <p><span>Mentor</span>No. In a trend the crowd is wrong for a long time and you would lose for a long time with it. Positioning tells you where the fuel is. Price and your setup tell you when it catches fire.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Pain trade · болезнената сделка</b>The move that would hurt the largest number of positioned traders.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="main">
+      <h2 id="s6"><span class="dots" title="Level: intermediate">●●</span>21.6 The positioning check before the week</h2>
+      <p>Add one block to the weekly bias file from Chapter 28. It takes five minutes on Sunday.</p>
+      <div class="tablewrap" data-name="pozicionirane-proverka">
+        <table class="data">
+          <thead><tr><th>Question</th><th>Where to look</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Where is the COT index for my currency?</td><td>CFTC site or a COT chart site</td><td>Below 10 or above 90 = extreme</td></tr>
+            <tr><td>What is the retail crowd doing?</td><td>Your broker's sentiment page</td><td>Above 70% one way = worth noting</td></tr>
+            <tr><td>Is a binary event priced?</td><td>Overnight implied vol in the news</td><td>High vol = a big move is expected</td></tr>
+            <tr><td>Where is the pain trade?</td><td>All of the above</td><td>One sentence</td></tr>
+            <tr><td>Does price agree with my macro view?</td><td>The daily chart</td><td>If not, why not?</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 21</h2>
+    <ul>
+      <li>Positioning is the fuel. The news is the match.</li>
+      <li>COT index: where the net position sits in its 3-year range. An extreme is a condition, not a trigger.</li>
+      <li>The retail crowd is usually wrong in trends. Use it at extremes, never alone.</li>
+      <li>Expected move = price × IV × √(days ÷ 365).</li>
+      <li>Good news with no rise means the news is in the price.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I calculated the COT index for EUR and JPY.</label></li>
+      <li><label><input type="checkbox"> I found my broker's sentiment page.</label></li>
+      <li><label><input type="checkbox"> I added the positioning block to my weekly bias file.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>Your macro view on EURUSD is bearish: the Fed is more hawkish than the ECB. The COT index for EUR is 8. Retail traders are 74% short EURUSD. Overnight implied volatility is unusually high because US CPI comes out tomorrow. Price fell for three weeks but did not make a new low on yesterday's bad euro data.</p>
+      <p><b>Task:</b> what does positioning say about your bearish view? Which piece of evidence matters most? How would you describe the risk around tomorrow's CPI?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Positioning… The key evidence… The risk…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>The bearish view is right on macro but crowded: speculators are near their most short in three years and the retail crowd is short as well. Few sellers are left.</li>
+          <li>The strongest evidence is price: bad euro news and no new low. Sellers are tired.</li>
+          <li>The pain trade is up. A soft CPI could trigger a squeeze. A hot CPI may give only a small fall, because it is expected. The risk is asymmetric against new shorts. Whether to trade it is my decision; the reading favours caution.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"When does the COT report come out, Sofia time?",o:["Monday 09:00","Friday 22:30","Every day at 15:30"],a:1,e:"Friday afternoon in New York, with Tuesday's data."},
+  {q:"What does a COT index of 95 mean?",o:["Speculators are near their most long in 3 years","The price will rise 95%","Nothing"],a:0,e:"The net position sits at the top of its 3-year range."},
+  {q:"Retail traders are 80% long and price keeps falling. The usual reading?",o:["Price must rise soon","The trend has fuel: these longs are future sellers","No information"],a:1,e:"Losing longs eventually sell."},
+  {q:"What does implied volatility measure?",o:["Past moves","The move expected by option prices","The spread"],a:1,e:"It is forward-looking, built into the price of options."},
+  {q:"Good news comes out and price does not rise. The likely reading?",o:["The news was already in the price","A data error","Buy more"],a:0,e:"No new buyers are left."}
+],mid:[
+  {q:"EURUSD 1.1000, IV 8%, 1 day. Approximate one-standard-deviation move?",o:["About 15 pips","About 46 pips","About 150 pips"],a:1,e:"1.1 × 0.08 × √(1/365) ≈ 0.0046, about 46 pips."},
+  {q:"EURUSD risk reversals are strongly negative. What does this say?",o:["People pay more for protection against a fall in EUR","EUR will rise","Volatility is low"],a:0,e:"Puts are more expensive than calls: the fear is on the downside."},
+  {q:"A large EURUSD expiry sits at 1.1000. Price circles it all morning. When does the pull usually end?",o:["At 10:00 Sofia","At 17:00 Sofia, after the New York cut","Never"],a:1,e:"After expiry, the hedging that pinned price stops."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  function g(i){return document.getElementById(i)}
+  var c=[g("ci1"),g("ci2"),g("ci3")],co=g("ciOut");
+  function ci(){var v=+c[0].value,mn=+c[1].value,mx=+c[2].value;if(mx<=mn){co.innerHTML="<span>The maximum must be above the minimum.</span>";return}
+    var x=Math.max(0,Math.min(100,(v-mn)/(mx-mn)*100)),col=x<=10||x>=90?"var(--bear)":x<=25||x>=75?"var(--news)":"var(--bull)";
+    co.innerHTML="<span>COT index: <b style='color:"+col+"'>"+x.toFixed(0)+"</b> of 100.</span><span>"+(x<=10?"Extreme short: the crowd is one-sided, a squeeze risk if the story turns.":x>=90?"Extreme long: the crowd is one-sided, a fast exit risk on any surprise.":x<=25||x>=75?"Stretched, but not extreme. Worth watching.":"Neutral: positioning adds little information.")+"</span>"}
+  c.forEach(function(e){e.addEventListener("input",ci)});ci();
+  var v=[g("iv1"),g("iv2"),g("iv3"),g("iv4")],vo=g("ivOut");
+  function iv(){var p=+v[0].value,s=+v[1].value/100,d=Math.max(1,+v[2].value),pip=+v[3].value,m=p*s*Math.sqrt(d/365),pips=m/pip,dec=pip<0.001?4:2;
+    vo.innerHTML="<span>Expected move (1 standard deviation): <b>±"+pips.toFixed(0)+" pips</b>.</span><span>Range: "+(p-m).toFixed(dec)+" – "+(p+m).toFixed(dec)+" in about two cases out of three.</span><span>Two standard deviations: ±"+(2*pips).toFixed(0)+" pips, about 19 cases out of 20.</span>"}
+  v.forEach(function(e){e.addEventListener("input",iv);e.addEventListener("change",iv)});iv();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

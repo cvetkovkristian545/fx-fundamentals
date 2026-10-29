@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Managing a Position · FX Fundamentals</title>
+<meta name="description" content="Managing a Position · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch12.html">
+<link rel="alternate" hreflang="bg" href="bg/ch12.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="12">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">12</div>
+    <h1>Managing an Open Position</h1>
+    <blockquote class="quote">
+      Cut your losses short and let your profits run.
+      <cite>Old stock-market maxim, linked to David Ricardo</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>plan a target of at least 3R with a partial close and a stop moved to breakeven;</li>
+        <li>explain why the realised result is often under 3R and why that is normal;</li>
+        <li>name the three things you never do with an open position.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>12.1 The plan: TP1, breakeven, final target</h2>
+      <p>Position management is decided <b>before</b> entry, not during it. Otherwise every twitch of price becomes a reason for a new emotion. The standard plan in this book's framework has three parts:</p>
+      <ol class="steps">
+        <li><b>TP1</b>: the first logical liquidity in the direction (the previous high, the Asian low, PDH). Half the position is closed there.</li>
+        <li><b>Breakeven</b>: after TP1 the stop goes to the entry price. From that moment the trade can't end in a loss (except through slippage).</li>
+        <li><b>TP2</b>: the next structural zone or the big liquidity. The plan aims for at least 3R in total.</li>
+      </ol>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>TP1 (in R)<input type="number" id="t1" value="2" step="0.5"></label>
+            <label>TP1 share (%)<input type="number" id="tp" value="50" step="10"></label>
+            <label>TP2 (in R)<input type="number" id="t2" value="4" step="0.5"></label>
+          </div>
+          <div class="tabs" data-group="path">
+            <button class="chip" data-tab="stop">Stop before TP1</button>
+            <button class="chip" data-tab="be">TP1, then breakeven</button>
+            <button class="chip" data-tab="full">TP1 and TP2</button>
+          </div>
+          <svg id="path" viewBox="0 0 520 210" role="img" aria-label="Price path relative to entry, stop and targets"></svg>
+          <div class="out" id="pOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Three possible paths for the same trade. The result is in R.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>TP1 / TP2</b>The first and second profit targets.</div>
+      <div class="term"><b>Partial close · частично затваряне</b>You close part of the position; the rest carries on.</div>
+      <div class="term"><b>Breakeven (BE) · нула</b>The stop is at the entry price: the trade can no longer lose.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>12.2 Why the realised result is under 3R</h2>
+      <p>You plan 3R, but in the journal you will see many +1Rs and zeros. That isn't the plan failing. That is the plan working. The partial close and breakeven turn some future losses into small wins or zeros. The price is that sometimes you exit early from a trade that later goes a long way.</p>
+      <p>The book's rule: <b>a trade is planned for at least 3R; closing below 3R is allowed</b> when the plan calls for it (TP1 + breakeven) or a new circumstance does (see 12.4). Shifting the plan out of emotion is not allowed.</p>
+      <div class="tablewrap" data-name="realizirano-r">
+        <table class="data">
+          <thead><tr><th>Path</th><th>How often (example)</th><th class="num">Result</th></tr></thead>
+          <tbody>
+            <tr><td>Stop before TP1</td><td>45%</td><td class="num">−1R</td></tr>
+            <tr><td>TP1, then breakeven</td><td>25%</td><td class="num">+1R</td></tr>
+            <tr><td>TP1 and TP2</td><td>30%</td><td class="num">+3R</td></tr>
+            <tr><td><b>Expected value</b></td><td></td><td class="num"><b>+0.70R</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fb">The percentages are illustrative. Yours will come out of the journal after 30–50 trades (Chapter 36).</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Realised R · реализиран R</b>The actual result of the closed trade.</div>
+      <div class="term"><b>Planned R · планиран R</b>The distance to the final target divided by the risk.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>12.3 The three “nevers”</h2>
+      <div class="four">
+        <div><span class="label" style="color:var(--bear)">Never 1</span><p><b>Don't widen the stop.</b> The stop is where the scenario is wrong. If you move it further away, you are simply refusing to accept you were wrong, and paying more for it.</p></div>
+        <div><span class="label" style="color:var(--bear)">Never 2</span><p><b>Don't chase the target.</b> You don't move the TP further because “it's going nicely”. The target was liquidity; that is where someone closes their positions against you.</p></div>
+        <div><span class="label" style="color:var(--bear)">Never 3</span><p><b>Don't add to a losing position.</b> If the scenario isn't working, a bigger size won't fix it.</p></div>
+      </div>
+      <div class="dialog">
+        <p><span>Student</span>But if I remove the stop for a bit, price might come back.</p>
+        <p><span>Mentor</span>It might. Most accounts that vanished in a single day vanished right after that sentence.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Averaging down · усредняване</b>Adding to a losing position. Forbidden in this framework.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>12.4 An open position and news</h2>
+      <p>Sometimes a position is open and a red folder is approaching on the calendar. The protocol in this book's framework:</p>
+      <ol class="steps">
+        <li><b>In profit:</b> consider a partial close (50%) before the news.</li>
+        <li><b>The stop can be tightened</b> to the last significant low or high if that is sensible, or to breakeven if the position allows.</li>
+        <li><b>Never widen the stop</b> before news.</li>
+        <li><b>Don't add</b> to the position in the post-news spike, even if it is in your favour. Wait 15–30 minutes and assess.</li>
+      </ol>
+      <div class="box ff">
+        <span class="label">Watch on Forex Factory</span>
+        <p>Before opening a position, check not just the next hour but the next 4 hours. If there is a red folder there, the management plan must include it from the start.</p>
+      </div>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>Breakeven is perfect protection; I move the stop to breakeven as soon as I can.</p></div>
+        <div><span class="label">Reality</span><p>A breakeven set too early turns many good trades into zeros, because a normal pullback touches it. In the framework it comes after TP1, not after the first 5 pips.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Trailing stop · пълзящ стоп</b>A stop that follows price at a set distance or behind the structure.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5r">
+    <div class="main">
+      <h2 id="s5r"><span class="dots" title="Level: intermediate">●●</span>12.5 Frame-by-frame replay</h2>
+      <p>The whole plan from 12.1 in motion: entry, TP1, breakeven, pullback, TP2. Notice how little you do after the entry.</p>
+      <div class="replay" data-rp="mgmt"></div>
+      <h3>Drill</h3>
+      <p>Press the line on the chart or the button. You get one try per question.</p>
+      <div class="drills" data-dr="ch12"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Replay · повторение</b>Stepping through the chart candle by candle without seeing the future. The cheapest way to practise reading.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 12</h2>
+    <ul>
+      <li>A plan before entry: TP1 (partial), breakeven, TP2. At least 3R in total.</li>
+      <li>Realised R is often under 3R. That is allowed when the plan says so.</li>
+      <li>Never: a wider stop, a more distant target, adding to a loser.</li>
+      <li>Before news: a partial close or a tightened stop; never a widened one.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> For 5 past situations I set TP1, TP2 and where breakeven goes.</label></li>
+      <li><label><input type="checkbox"> I calculated the expected value of my plan with TP1 and breakeven.</label></li>
+      <li><label><input type="checkbox"> I wrote the three “nevers” somewhere I can see them.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>Long EURUSD from 1.0815, stop 1.0803 (12 pips), TP1 1.0839 (2R) at the Asian high, TP2 1.0863 (4R) at PDH. Price reached 1.0839, half was closed and the stop is at 1.0815. It is now 15:10, NFP is at 15:30, price is 1.0846.</p>
+      <p><b>Task:</b> what do you do with the remaining half before NFP? Describe two sensible actions and one unacceptable one. What is the result in R for each exit?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Option 1… Option 2… Unacceptable…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>+1R is already locked in (half at 2R). The rest is at breakeven.</li>
+          <li>Option 1: you close the rest at 1.0846 before NFP. The rest gives 31 ÷ 12 ≈ 2.6R; in total 0.5 × 2 + 0.5 × 2.6 ≈ +2.3R. Under 3R and fully allowed: the news is a new circumstance.</li>
+          <li>Option 2: you leave the rest with the stop at breakeven (or tightened below 1.0839). Worst case: about +1R in total. Best case: TP2 and +3R in total. You risk slippage in the spike.</li>
+          <li>Unacceptable: removing the stop “so the spike doesn't knock you out”, or adding to the position in the spike.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"When do you decide how you will manage the position?",o:["When price moves","Before entry","After closing"],a:1,e:"Management is part of the plan, not a reaction."},
+  {q:"What happens after TP1 in the framework?",o:["The stop goes to breakeven","The stop is widened","You add to the position"],a:0,e:"TP1 → stop at entry."},
+  {q:"The minimum planned target is…",o:["1R","3R","10R"],a:1,e:"The plan aims for at least 3R."},
+  {q:"Can the realised result be under 3R?",o:["No, never","Yes, when the plan or a new circumstance says so","Only on a loss"],a:1,e:"The partial close and breakeven make it normal."},
+  {q:"What do you never do?",o:["A partial close","Widen the stop","A stop at breakeven after TP1"],a:1,e:"The stop is where you're wrong. You don't move it further away."}
+],mid:[
+  {q:"TP1 = 2R (50%), then a stop at breakeven. What is the result if price then comes back to breakeven?",o:["0R","+1R","+2R"],a:1,e:"Half at +2R = +1R; the other half at 0."},
+  {q:"TP1 = 1.5R (50%), TP2 = 4R. What is the result if both are hit?",o:["+2.75R","+4R","+5.5R"],a:0,e:"0.5 × 1.5 + 0.5 × 4 = 2.75R."},
+  {q:"Position at +1.5R, CPI in 10 minutes. Which is within the framework?",o:["Widen the stop to survive the spike","A partial close and/or a stop at breakeven","Add, because you're right"],a:1,e:"You protect the profit; you never widen."}
+]};
+</script>
+<script>window.REPLAYS={"mgmt": {"title": "One trade from entry to 3R: TP1, breakeven, TP2", "candles": [[97, 98.5, 96, 98], [98, 100.5, 97.5, 100], [100, 103, 99.2, 102.5], [102.5, 105, 101.5, 104.5], [104.5, 108.2, 104, 107], [107, 107.5, 103, 103.5], [103.5, 104, 100.8, 102], [102, 106, 101.5, 105.5], [105.5, 111, 105, 110.5], [110.5, 115, 110, 114.5], [114.5, 118, 113, 117.5], [117.5, 123, 117, 121], [121, 121.5, 118, 118.5]], "y": [93, 125], "caption": "Teaching scenario. 1R = 5 points. Half is closed at TP1, half at TP2.", "steps": [{"at": 2, "h": "The plan.", "text": "Entry 100, stop 95 (1R). TP1 at 107.5 (1.5R) for half, TP2 at 122.5 (4.5R) for the other half. 3R on average. Everything is decided before entry.", "draw": [{"t": "level", "p": 100, "from": 1, "label": "entry 100", "c": "ink", "solid": 1}, {"t": "level", "p": 95, "from": 1, "label": "stop 95", "c": "bear", "solid": 1, "until": 1}, {"t": "level", "p": 107.5, "from": 1, "label": "TP1 1.5R", "c": "bull"}, {"t": "level", "p": 122.5, "from": 1, "label": "TP2 4.5R", "c": "bull"}]}, {"at": 5, "h": "TP1.", "text": "Price reaches 107.5. You close half: +0.75R is in the bag.", "draw": [{"t": "mark", "i": 4, "p": 108.2, "label": "TP1", "c": "bull"}]}, {"at": 5, "h": "Breakeven.", "text": "The stop goes to the entry, 100. From now on the trade can't end in a loss, except through slippage.", "draw": [{"t": "level", "p": 100, "from": 4, "label": "breakeven", "c": "news", "solid": 1, "dy": 12}]}, {"at": 7, "h": "The pullback.", "text": "Price drops to 100.8, a hair from breakeven. You do nothing: you don't move the stop, you don't close out of fear. The three “nevers” apply.", "draw": [{"t": "mark", "i": 6, "p": 100.8, "label": "test", "c": "news", "pos": "down"}]}, {"at": 12, "h": "TP2.", "text": "Price reaches 122.5. You close the second half: +2.25R.", "draw": [{"t": "mark", "i": 11, "p": 123, "label": "TP2", "c": "bull", "anchor": "end"}]}, {"at": 13, "h": "The result.", "text": "0.5 × 1.5R + 0.5 × 4.5R = 3R. If price had hit breakeven after TP1, the result would have been +0.75R, not a loss.", "draw": []}]}};window.DRILLS={"ch12": [{"src": "mgmt", "n": 5, "q": "TP1 is taken. Where does the stop go?", "o": [{"p": 95, "from": 1, "t": "stays at 95"}, {"p": 100, "from": 1, "t": "to 100, breakeven"}, {"p": 105, "from": 1, "t": "to 105"}], "a": 1, "e": "By the plan the stop goes to the entry. 105 is too close to price and a normal pullback would knock you out."}, {"src": "mgmt", "n": 7, "q": "Price came back to 100.8. What do you do?", "o": [{"t": "Close everything"}, {"t": "Nothing, the plan stands"}, {"t": "Move the stop lower"}], "a": 1, "e": "The breakeven stop is the point of being wrong. Widening it is the first “never”."}, {"src": "mgmt", "n": 9, "q": "After the pullback price makes a new high at 111. The stop is at breakeven. What does the plan say?", "o": [{"t": "Move the stop up to 110 to protect it"}, {"t": "Nothing: TP2 stays at 122.5, the stop stays at 100"}, {"t": "Close everything now"}], "a": 1, "e": "The plan was decided before entry. Changing it because of a feeling turns a system into an improvisation."}, {"src": "mgmt", "n": 13, "q": "What was the final result of the trade?", "o": [{"t": "+1.5R"}, {"t": "+3R"}, {"t": "+4.5R"}], "a": 1, "e": "0.5 × 1.5R + 0.5 × 4.5R = 3R."}]};</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg,t1=document.getElementById("t1"),tp=document.getElementById("tp"),t2=document.getElementById("t2"),sv=document.getElementById("path"),out=document.getElementById("pOut"),cur="stop";
+  function draw(){var a=+t1.value,p=+tp.value/100,b=+t2.value,top=Math.max(b,a)+0.5;
+    function Y(r){return 190-(r+1.5)/(top+1.5)*175}function X(t){return 30+t*4.8}
+    sv.innerHTML="";
+    [[0,"entry","var(--fg)"],[-1,"stop −1R","var(--bear)"],[a,"TP1 "+a+"R","var(--bull)"],[b,"TP2 "+b+"R","var(--bull)"]].forEach(function(l){el("line",{x1:30,x2:510,y1:Y(l[0]),y2:Y(l[0]),stroke:l[2],"stroke-dasharray":"5 4"},sv);el("text",{x:430,y:Y(l[0])-4,"font-size":10,fill:l[2]},sv).textContent=l[1]});
+    var path,res,txt;
+    if(cur==="stop"){path=[[0,0],[10,0.4],[20,-0.3],[30,0.2],[45,-1]];res=-1;txt="Price doesn't reach TP1 and hits the stop. Result: −1R. That is the cost of doing business."}
+    else if(cur==="be"){path=[[0,0],[12,0.6],[25,a],[40,a*0.4],[55,0]];res=p*a;txt="TP1 is taken, the stop goes to breakeven and price comes back there. Result: "+p*100+"% × "+a+"R = +"+(p*a).toFixed(2)+"R."}
+    else{path=[[0,0],[12,0.6],[25,a],[38,a*0.6],[60,b*0.8],[75,b]];res=p*a+(1-p)*b;txt="TP1 and TP2 are taken. Result: "+p*100+"% × "+a+"R + "+(100-p*100)+"% × "+b+"R = +"+res.toFixed(2)+"R."}
+    el("polyline",{points:path.map(function(q){return X(q[0])+","+Y(q[1])}).join(" "),fill:"none",stroke:"var(--ink)","stroke-width":3},sv);
+    if(cur!=="stop")el("circle",{cx:X(25),cy:Y(a),r:6,fill:"var(--bull)"},sv);
+    if(cur==="be"){el("line",{x1:X(25),x2:510,y1:Y(0),y2:Y(0),stroke:"var(--liq)","stroke-width":2.5},sv);el("text",{x:X(25)+6,y:Y(0)+14,"font-size":10,fill:"var(--liq)"},sv).textContent="stop at breakeven"}
+    var planned=p*a+(1-p)*b;
+    out.innerHTML="<span>"+txt+"</span><span>Planned maximum: +"+planned.toFixed(2)+"R"+(planned<3?" <b style=\"color:var(--bear)\">(under 3R: the plan doesn't cover the minimum)</b>":" ✓")+".</span>"}
+  Book.each('[data-group="path"] button',function(b){b.addEventListener("click",function(){cur=b.dataset.tab;draw()})});
+  [t1,tp,t2].forEach(function(x){x.addEventListener("input",draw)});draw();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

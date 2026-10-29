@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Top-Down Analysis · FX Fundamentals</title>
+<meta name="description" content="Top-Down Analysis · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch8.html">
+<link rel="alternate" hreflang="bg" href="bg/ch8.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="8">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">8</div>
+    <h1>Top-Down Analysis</h1>
+    <blockquote class="quote">
+      It never was my thinking that made the big money for me. It always was my sitting.
+      <cite>Jesse Livermore, in “Reminiscences of a Stock Operator” (Edwin Lefèvre, 1923)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>move from D1 to M5 in the right order and say what question you ask each timeframe;</li>
+        <li>score the day's direction with points and record it in a template;</li>
+        <li>decide GO, WAIT or SKIP when the timeframes contradict each other.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>8.1 The four questions</h2>
+      <p>Top-down analysis is like navigation: first you look at the map of the country, then the city, then the street and finally the building number. If you start with the number, you will reach the right building in the wrong city.</p>
+      <figure class="diagram">
+        <svg id="nest" viewBox="0 0 520 250" role="img" aria-label="Nested timeframes from D1 to M5"></svg>
+        <div class="parts" id="tfChips"></div>
+        <p class="verdict" id="tfText" aria-live="polite"></p>
+        <figcaption>Each timeframe is a “window” into the bigger one. Press to see the question you ask it.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="top-down">
+        <table class="data">
+          <thead><tr><th>Timeframe</th><th>Role</th><th>Question</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">D1 (and W1)</td><td>Direction</td><td>Bullish or bearish? Are we in premium or discount? Where is the next big liquidity?</td></tr>
+            <tr><td class="mono">H4</td><td>Swing</td><td>Does it confirm D1? Which way was the last BOS?</td></tr>
+            <tr><td class="mono">H1</td><td>Setup</td><td>Is there a POI in the right half? Is there liquidity before it?</td></tr>
+            <tr><td class="mono">M15 / M5</td><td>Detail</td><td>Has liquidity been taken? Is there an MSS? Is price returning into the zone?</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>The rule is simple: the smaller timeframe serves the bigger one, never the other way round. M5 can't convince you that D1 is wrong.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>HTF · по-висок таймфрейм</b>Higher timeframe: D1, H4. The direction.</div>
+      <div class="term"><b>LTF · по-нисък таймфрейм</b>Lower timeframe: M15, M5. The detail.</div>
+      <div class="term"><b>Bias · пристрастие, посока</b>The expected direction for the day or the week.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>8.2 When the timeframes agree and when they argue</h2>
+      <p>The best picture is when <b>D1 and H4 point the same way</b> and H1 has just finished a pullback against them. Then the H1 pullback is an opportunity, not a threat. When D1 and H4 argue, the rule is: <b>you wait</b> until H4 lines up (a new HL and a BOS in the D1 direction). A trade against D1 and H4 is skipped.</p>
+      <div class="tablewrap" data-name="soglasie-tf">
+        <table class="data">
+          <thead><tr><th>D1</th><th>H4</th><th>H1</th><th>Decision</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--bull)">Bullish</td><td style="color:var(--bull)">Bullish</td><td>Pullback down to a POI</td><td><b style="color:var(--bull)">GO</b>: look for a reaction in the zone</td></tr>
+            <tr><td style="color:var(--bull)">Bullish</td><td style="color:var(--bear)">Bearish</td><td>Any</td><td><b style="color:var(--news)">WAIT</b>: wait for H4 to make an HL and a BOS up</td></tr>
+            <tr><td style="color:var(--bull)">Bullish</td><td style="color:var(--bull)">Bullish</td><td>Strongly up, in premium</td><td><b style="color:var(--news)">WAIT</b>: don't chase, wait for a pullback</td></tr>
+            <tr><td style="color:var(--bull)">Bullish</td><td>—</td><td style="color:var(--bear)">Setup down</td><td><b style="color:var(--bear)">SKIP</b>: H1 against D1</td></tr>
+            <tr><td>Range</td><td>Range</td><td>In the middle</td><td><b style="color:var(--bear)">SKIP</b>: no edge</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>Opening levels.</b> Besides highs and lows, many analysts mark the opening price of the week, the month and the quarter. When price is above the weekly open, buyers hold the week; below it, sellers. It is a quick, honest thermometer.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Alignment · съгласуваност</b>When several timeframes point the same way.</div>
+      <div class="term"><b>Weekly open · седмично отваряне</b>The price at the start of the week. A reference point for the weekly direction.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>8.3 Scoring the direction and the daily template</h2>
+      <p>So that the direction isn't a “feeling”, you score it with points. Tick what applies to EURUSD D1 today. Then fill in the template: it is the same one you will use every morning (Chapter 37).</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Date<input type="date" id="bDate"></label>
+            <label>Pair<input type="text" id="bPair" value="EURUSD"></label>
+            <label>Direction you are scoring<select id="bDir"><option value="long">Up (long)</option><option value="short">Down (short)</option></select></label>
+          </div>
+          <div style="display:grid;gap:6px" id="bChecks">
+            <label><input type="checkbox" data-w="2"> <span data-l="HH + HL sequence" data-s="LH + LL sequence"></span> on D1 (+2)</label>
+            <label><input type="checkbox" data-w="2"> Price is in the <span data-l="discount" data-s="premium"></span> of the range (+2)</label>
+            <label><input type="checkbox" data-w="2"> There is a D1 zone (OB) supporting the direction (+2)</label>
+            <label><input type="checkbox" data-w="1"> An unfilled D1 FVG <span data-l="below" data-s="above"></span> as support (+1)</label>
+            <label><input type="checkbox" data-w="1"> The macro picture (central banks) supports the direction (+1)</label>
+          </div>
+          <div class="fields">
+            <label>Does H4 confirm D1?<select id="bH4"><option value="yes">Yes</option><option value="no">No</option><option value="mixed">Unclear</option></select></label>
+            <label>H1 POI (zone)<input type="text" id="bPoi" placeholder="e.g. 1.0809–1.0815"></label>
+            <label>Liquidity before the POI?<select id="bLiq"><option value="yes">Yes</option><option value="no">No</option></select></label>
+            <label>Red folder today?<select id="bNews"><option value="no">No</option><option value="yes">Yes</option></select></label>
+          </div>
+          <div class="out" id="bOut" aria-live="polite"></div>
+          <button class="toggle" id="bCopy">Copy the template as text</button>
+        </div>
+        <figcaption>The maximum is 8 points. The template is saved in this browser. Copy it into your notebook or journal.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>GO</b>The conditions line up; it makes sense to watch for a decision.</div>
+      <div class="term"><b>WAIT</b>The picture isn't ready; you wait for a specific event.</div>
+      <div class="term"><b>SKIP</b>No edge in this market today.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>8.4 The morning scan: the dollar first</h2>
+      <p>Almost all majors include the dollar. That is why the morning review starts with <b>DXY</b>, the dollar index. If DXY is bearish on D1 and making a pullback up, EURUSD and GBPUSD are probably making a pullback down, and so is gold. You look at DXY first and then find the pair with the cleanest picture.</p>
+      <ol class="steps">
+        <li><b>DXY on D1 and H4.</b> What direction is the dollar going?</li>
+        <li><b>Currency strength.</b> Compare EURUSD, GBPUSD, USDJPY, AUDUSD: which currency is strongest and which weakest this week? The cleanest moves are between the strongest and the weakest.</li>
+        <li><b>Multi-asset view.</b> Gold, the S&amp;P 500, the Nasdaq, bitcoin: a mood for risk or for flight (Chapter 22)?</li>
+        <li><b>Choice.</b> One, at most two pairs for the day. You only watch the rest.</li>
+      </ol>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>The more pairs I follow, the more opportunities I have.</p></div>
+        <div><span class="label">Reality</span><p>The more pairs you follow, the more mediocre setups you will find. Two pairs you know well give better decisions than ten.</p></div>
+      </div>
+      <p><b>One more patience rule.</b> When price has broken out strongly without a pullback, there are only two sensible ways to take part: wait for a return to the zone or wait for a second break that confirms the first. Chasing in the middle of the move is the beginner's most expensive habit.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Currency strength · сила на валутата</b>A comparison of which currency is gaining and which losing against all the others.</div>
+      <div class="term"><b>Watchlist · списък за наблюдение</b>The small set of markets you follow every day.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 08</h2>
+    <ul>
+      <li>D1 direction → H4 swing → H1 setup → M15/M5 detail. The small serves the big.</li>
+      <li>D1 + H4 in one direction and an H1 pullback = the best picture. Conflict = you wait.</li>
+      <li>The direction score runs from 0 to 8 and is recorded in a template with GO / WAIT / SKIP.</li>
+      <li>The scan starts with DXY and picks one or two pairs.</li>
+      <li>Don't chase: wait for a pullback or a second break.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I filled in the template for EURUSD on at least three days in a row.</label></li>
+      <li><label><input type="checkbox"> I marked the weekly and monthly opens in TradingView.</label></li>
+      <li><label><input type="checkbox"> I compared DXY and EURUSD on D1 and saw the inverse relationship.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>Monday morning. DXY on D1: bearish, but for the last two days it has been rising towards a supply zone. EURUSD on D1: bullish, in discount. EURUSD H4: the last BOS is down (the pullback). H1: price is above the weekly open, Asia is a tight range. FOMC is on Wednesday.</p>
+      <p><b>Task:</b> fill in the daily template in your head: score, H4, POI, decision. What has to happen for the decision to move from WAIT to GO?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="D1… H4… Decision… Condition for GO…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>D1 bullish (+2), in discount (+2). If there is a D1 OB below price, +2. About 4–6 out of 8.</li>
+          <li>H4 doesn't confirm: the last BOS is down. By the rule that is WAIT, not GO.</li>
+          <li>DXY is rising into a supply zone: if it reacts down there, EURUSD will probably finish its pullback.</li>
+          <li>Condition for GO: H4 forms an HL and price closes above the last LH (a BOS up), ideally after a sweep of the Asian or London low liquidity.</li>
+          <li>FOMC on Wednesday: whatever lines up, new positions stop before the Fed decision (Chapter 13).</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Which timeframe does the analysis start from?",o:["M5","H1","D1 (or W1)"],a:2,e:"The direction comes from the big timeframe."},
+  {q:"What is H1's role?",o:["Direction","Setup and POI","News only"],a:1,e:"H1 finds the zone where you look for a reaction."},
+  {q:"D1 bullish, H4 bearish. The decision is…",o:["GO","WAIT","Buy immediately"],a:1,e:"You wait for H4 to line up."},
+  {q:"What does price above the weekly open show?",o:["Buyers hold the week for now","Sellers hold the week","Nothing"],a:0,e:"A quick thermometer for the weekly direction."},
+  {q:"Where does the morning scan start?",o:["With bitcoin","With DXY","With a random pair"],a:1,e:"Almost all majors include the dollar."}
+],mid:[
+  {q:"D1, H4 and H1 are bullish, and price has just shot into premium without a pullback. What do you do?",o:["Buy immediately","Wait for a return to a zone or a second break","Sell, because it's expensive"],a:1,e:"The direction is clear, but the location is bad. Patience."},
+  {q:"Direction score 2 out of 8, H4 unclear. Decision?",o:["GO","WAIT or SKIP","GO with double size"],a:1,e:"A weak score and an unclear H4: no picture."},
+  {q:"The euro is strong, the pound is weak, the dollar is neutral. Which pair will probably give the cleanest move up?",o:["GBPUSD","EURGBP","USDJPY"],a:1,e:"The strongest currency (EUR) against the weakest (GBP)."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* nested timeframes */
+  var N=[["D1",10,10,500,230,"The direction: who has been in control for weeks? Where is the big liquidity?"],["H4",120,40,360,170,"The swing: does it confirm D1? Which way was the last BOS?"],["H1",210,70,220,110,"The setup: is there a POI in the right half with liquidity before it?"],["M5",280,98,90,54,"The detail: has liquidity been taken, is there an MSS, is price returning into the zone?"]];
+  var sv=document.getElementById("nest"),chips=document.getElementById("tfChips"),rects=[];
+  N.forEach(function(n,i){var r=el("rect",{x:n[1],y:n[2],width:n[3],height:n[4],fill:"var(--ink)","fill-opacity":0.06+i*0.06,stroke:"var(--ink)","stroke-width":1.5,rx:4},sv);rects.push(r);
+    el("text",{x:n[1]+8,y:n[2]+18,"font-size":13,fill:"var(--ink)"},sv).textContent=n[0];
+    var b=document.createElement("button");b.className="chip";b.textContent=n[0];b.addEventListener("click",function(){show(i)});chips.appendChild(b)});
+  function show(i){rects.forEach(function(r,k){r.setAttribute("stroke-width",k===i?4:1.5);r.setAttribute("stroke",k===i?"var(--liq)":"var(--ink)")});Book.each(".chip",function(c,k){c.setAttribute("aria-pressed",k===i)},chips);document.getElementById("tfText").innerHTML="<b>"+N[i][0]+".</b> "+N[i][5]}
+  show(0);
+
+  /* bias template */
+  var ids=["bDate","bPair","bDir","bH4","bPoi","bLiq","bNews"],out=document.getElementById("bOut");
+  var dt=document.getElementById("bDate");dt.value=new Date().toISOString().slice(0,10);
+  ids.forEach(function(i){var s=Book.store("b8-"+i);if(s!=null)document.getElementById(i).value=s});
+  Book.each("#bChecks input",function(c,k){if(Book.store("b8-c"+k)==="1")c.checked=true});
+  function txt(){var d=document.getElementById("bDir").value;Book.each("#bChecks span[data-l]",function(s){s.textContent=d==="long"?s.dataset.l:s.dataset.s})}
+  var last="";
+  function calc(){txt();var sc=0;Book.each("#bChecks input",function(c,k){if(c.checked)sc+=+c.dataset.w;Book.store("b8-c"+k,c.checked?"1":"0")});
+    ids.forEach(function(i){Book.store("b8-"+i,document.getElementById(i).value)});
+    var h4=document.getElementById("bH4").value,liq=document.getElementById("bLiq").value,news=document.getElementById("bNews").value,poi=document.getElementById("bPoi").value.trim(),dir=document.getElementById("bDir").value;
+    var v,why;
+    if(sc<4){v="SKIP";why="the D1 score is below 4 out of 8"}
+    else if(h4!=="yes"){v="WAIT";why="H4 doesn't confirm D1"}
+    else if(!poi){v="WAIT";why="no POI marked on H1"}
+    else if(liq!=="yes"){v="WAIT";why="no liquidity taken or available before the zone"}
+    else{v="GO";why="D1 and H4 line up, there is a POI and liquidity"}
+    var col=v==="GO"?"var(--bull)":v==="WAIT"?"var(--news)":"var(--bear)";
+    out.innerHTML="<span>D1 score: <b>"+sc+" / 8</b> ("+(dir==="long"?"up":"down")+")</span><span>Decision: <b style=\"color:"+col+"\">"+v+"</b>, because "+why+".</span>"+(news==="yes"?"<span style=\"color:var(--news)\">There is a red folder: no new decisions in the buffer around it (Chapter 13).</span>":"");
+    last="Date: "+dt.value+"\nPair: "+document.getElementById("bPair").value+"\nDirection: "+(dir==="long"?"up":"down")+"\nD1 score: "+sc+"/8\nH4 confirms: "+({yes:"yes",no:"no",mixed:"unclear"})[h4]+"\nH1 POI: "+(poi||"—")+"\nLiquidity before POI: "+(liq==="yes"?"yes":"no")+"\nRed folder: "+(news==="yes"?"yes":"no")+"\nDECISION: "+v;
+  }
+  Book.each("#bChecks input",function(c){c.addEventListener("change",calc)});ids.forEach(function(i){document.getElementById(i).addEventListener("input",calc);document.getElementById(i).addEventListener("change",calc)});
+  document.getElementById("bCopy").addEventListener("click",function(){var b=this;try{navigator.clipboard.writeText(last).then(function(){b.textContent="Copied ✓"},function(){b.textContent="Copying is blocked"})}catch(e){b.textContent="Copying is blocked"}});
+  calc();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

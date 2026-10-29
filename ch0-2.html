@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Absolute Zero · FX Fundamentals</title>
+<meta name="description" content="Absolute Zero · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch0-2.html">
+<link rel="alternate" hreflang="bg" href="bg/ch0-2.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="0.2">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">0.2</div>
+    <h1>Absolute Zero: Markets, Buyers, Sellers</h1>
+    <blockquote class="quote">
+      The first lesson of economics is scarcity: there is never enough of anything to fully satisfy all those who want it.
+      <cite>Thomas Sowell, “Is Reality Optional?” (1993)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>explain to someone what a market, bid, ask and spread are, using a market stall as the example;</li>
+        <li>show why price rises when demand exceeds supply;</li>
+        <li>say in plain words what liquidity is and why price “goes” where the orders are.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>0.2.1 What a market is</h2>
+      <p>A market is a place where buyers and sellers agree on a price. It can be a tomato stall in an old-town square, an exchange in New York or a server in London matching millions of orders a second. The logic is the same everywhere.</p>
+      <p>The buyer wants to pay as little as possible. The seller wants to get as much as possible. A trade happens only when both agree on one price. That price is the <b>last agreement</b> between them. It is the price you see on the chart.</p>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>Price is not the market's opinion of what something is worth. Price is the point where the last buyer and the last seller stopped arguing.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Market · пазар</b>Any place, physical or electronic, where buyers and sellers meet.</div>
+      <div class="term"><b>Buyer · купувач</b>The side that wants to acquire something. In trading: <i>long</i>.</div>
+      <div class="term"><b>Seller · продавач</b>The side that wants to get rid of something. In trading: <i>short</i>.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>0.2.2 Bid, ask and spread: the euro stall</h2>
+      <p>Imagine a stall on the corner that exchanges dollars for euros. The sign shows two prices:</p>
+      <figure class="diagram">
+        <svg viewBox="0 0 520 170" role="img" aria-label="Exchange office sign with a buy price of 1.0850 and a sell price of 1.0852">
+          <rect x="60" y="20" width="400" height="120" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="2"/>
+          <text x="260" y="48" text-anchor="middle" font-size="13" fill="var(--muted)">EUR / USD</text>
+          <text x="160" y="80" text-anchor="middle" font-size="12" fill="var(--muted)">WE BUY FROM YOU</text>
+          <text x="160" y="112" text-anchor="middle" font-size="28" fill="var(--bear)">1.0850</text>
+          <text x="360" y="80" text-anchor="middle" font-size="12" fill="var(--muted)">WE SELL TO YOU</text>
+          <text x="360" y="112" text-anchor="middle" font-size="28" fill="var(--bull)">1.0852</text>
+          <line x1="260" y1="64" x2="260" y2="128" stroke="var(--line)"/>
+          <text x="160" y="160" text-anchor="middle" font-size="12" fill="var(--fg)">BID</text>
+          <text x="360" y="160" text-anchor="middle" font-size="12" fill="var(--fg)">ASK</text>
+          <text x="260" y="160" text-anchor="middle" font-size="12" fill="var(--liq)">spread 2 pips</text>
+        </svg>
+        <figcaption>You sell at the lower price (bid) and buy at the higher one (ask). The difference is the spread: the stall's profit.</figcaption>
+      </figure>
+      <p><b>Bid</b> is the highest price someone is willing to <i>pay</i> right now. <b>Ask</b> (or offer) is the lowest price at which someone is willing to <i>sell</i> right now. If you want to buy immediately, you pay the ask. If you want to sell immediately, you get the bid. The difference is the <b>spread</b>.</p>
+      <p>On EURUSD the spread is often under one pip in active hours. On an exotic pair or in the middle of the night it can be ten times wider. The spread is the first price you pay, before the market has even moved. We will calculate it in Chapter 2.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Bid · цена купува</b>The highest price a buyer is offering right now.</div>
+      <div class="term"><b>Ask · цена продава</b>The lowest price at which a seller is offering right now.</div>
+      <div class="term"><b>Spread · спред</b>Ask minus bid. The cost of getting in and out instantly.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>0.2.3 Supply and demand: why prices move</h2>
+      <p>Bread gets more expensive when there is less wheat (supply falls) or when more people want bread (demand rises). Petrol gets more expensive when OPEC cuts output or when everyone heads to the seaside in summer. The euro gets more expensive when more people around the world want euros, for example because the European Central Bank pays a higher interest rate than others.</p>
+      <p>That is all of economics in one line: <b>when demand exceeds supply, price rises; when supply exceeds demand, price falls.</b> Price moves until it finds the point where the quantity people want to buy equals the quantity others want to sell. That point is called equilibrium.</p>
+      <figure>
+        <svg id="sdSvg" viewBox="0 0 520 300" role="img" aria-label="Supply and demand chart with movable curves"></svg>
+        <div class="sliders">
+          <label>Demand<input type="range" id="dShift" min="-60" max="60" value="0"><span class="mono" id="dOut">0</span></label>
+          <label>Supply<input type="range" id="sShift" min="-60" max="60" value="0"><span class="mono" id="sOut">0</span></label>
+        </div>
+        <div class="parts">
+          <button class="chip" data-sd="0,0">Start</button>
+          <button class="chip" data-sd="40,0">Hot summer (petrol)</button>
+          <button class="chip" data-sd="0,-45">OPEC cuts output</button>
+          <button class="chip" data-sd="35,-20">ECB raises rates (euro)</button>
+          <button class="chip" data-sd="-40,0">Recession</button>
+        </div>
+        <p class="verdict" id="sdText" aria-live="polite"></p>
+        <figcaption>Drag demand (green) or supply (red). The dashed line shows the equilibrium price. The numbers are illustrative.</figcaption>
+      </figure>
+      <div class="dialog">
+        <p><span>Student</span>So if I know whether demand will rise, I know where price will go?</p>
+        <p><span>Mentor</span>If you knew that for certain, you would. But nobody knows it for certain. That is why this book talks about probabilities, not predictions. All analysis is an attempt to judge which side is more likely to win.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Demand · търсене</b>How much of something people want and are able to buy at a given price.</div>
+      <div class="term"><b>Supply · предлагане</b>How much of something people want and are able to sell at a given price.</div>
+      <div class="term"><b>Equilibrium · равновесие</b>The price at which the quantity demanded equals the quantity supplied.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: basic">●</span>0.2.4 The same idea on the chart</h2>
+      <p>On the chart you don't see the supply and demand curves. You see their footprints. When price falls to a level and bounces sharply, there were more buyers than sellers there. Traders call such a place a <b>demand zone</b>. When price rises to a level and turns down sharply, there were more sellers there: a <b>supply zone</b>.</p>
+      <p>When one side is so much stronger that price skips levels with almost no trades, an <b>imbalance</b> is left behind. On the chart it looks like a big candle followed by a “gap” between the wicks of the neighbouring candles. The market often comes back to fill these gaps. In Chapter 7 we will call them FVGs.</p>
+      <figure class="diagram">
+        <div class="before-after">
+          <svg id="zoneSvg" viewBox="0 0 520 240" role="img" aria-label="Chart with price bouncing from a demand zone and turning from a supply zone"></svg>
+        </div>
+        <button class="toggle" id="zoneBtn" aria-pressed="false">Show the zones</button>
+        <figcaption>Before and after: the same chart unmarked and with the demand (green), supply (red) and imbalance (blue) zones.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Demand zone · зона на търсене</b>A price area from which buyers pushed price higher.</div>
+      <div class="term"><b>Supply zone · зона на предлагане</b>A price area from which sellers pushed price lower.</div>
+      <div class="term"><b>Imbalance · дисбаланс</b>A fast move in which one side found almost no opposing orders.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: intermediate">●●</span>0.2.5 Liquidity in plain words</h2>
+      <p>Liquidity means: <b>how easily you can buy or sell without moving the price.</b> At a stall with one seller and three crates of tomatoes, liquidity is low. If you buy all three crates, the next buyer has to wait or pay more. In a market with a thousand sellers, liquidity is high.</p>
+      <p>Try it. Below is the euro “order book”: who wants to sell how much and at what price. Press “Buy 1 million” a few times and watch what happens to the price.</p>
+      <figure>
+        <div class="tablewrap" data-name="kniga-na-porachkite">
+          <table class="data" id="bookTable" aria-live="polite">
+            <thead><tr><th>Side</th><th class="num">Price</th><th class="num">Size (€ m)</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="parts">
+          <button class="chip" id="buyBtn">Buy 1 million</button>
+          <button class="chip" id="sellBtn">Sell 1 million</button>
+          <button class="chip" id="resetBtn">Start</button>
+        </div>
+        <p class="verdict" id="bookText"></p>
+        <figcaption>An illustrative order book. Each market order of yours “eats” the best price on the other side.</figcaption>
+      </figure>
+      <p>See? When buyers eat all the sell orders at one price, the next trade happens at a higher price. <b>Price moves because the liquidity at one level runs out.</b></p>
+      <p>Now the most important idea in the whole book, which you will meet again and again. Big players (banks, funds) need a lot of liquidity to get in with huge sums. It is stacked where many people have left orders: above obvious highs and below obvious lows, where other traders' stops sit. That is why price often <b>goes there first</b>, takes those orders and only then sets off in its real direction. In Chapter 7 this will be called a sweep.</p>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>Price moves because it is “cheap” or “expensive”.</p></div>
+        <div><span class="label">Reality</span><p>Price moves because one side is more aggressive and eats the other side's orders. “Cheap” and “expensive” are opinions. Orders are facts.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Liquidity · ликвидност</b>The presence of orders you can trade against without moving the price much.</div>
+      <div class="term"><b>Order book · книга на поръчките</b>A list of resting buy and sell orders by price.</div>
+      <div class="term"><b>Stop loss · стоп</b>An order that closes a trade at a loss at a set price. Piles of stops in one place are liquidity.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 0.2</h2>
+    <ul>
+      <li>Price is the last agreement between a buyer and a seller.</li>
+      <li>You buy at the ask and sell at the bid. The spread is the difference and it is your cost.</li>
+      <li>More demand than supply raises price. More supply than demand lowers it.</li>
+      <li>On the chart, supply and demand leave zones and imbalances.</li>
+      <li>Liquidity is the presence of orders. Price moves when the liquidity at a level runs out, and it often goes first to where the stops are.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I can explain bid, ask and spread to someone who has never heard of trading.</label></li>
+      <li><label><input type="checkbox"> I can give a real-life example of a price rise driven by demand and one driven by supply.</label></li>
+      <li><label><input type="checkbox"> I understand why price rises when buyers eat the sell orders.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>EURUSD has traded around 1.0850 for three days. Two highs at almost the same price, 1.0890, and one low at 1.0820 are clearly visible. The news is that the ECB will speak tomorrow.</p>
+      <p><b>Task:</b> where do you think liquidity has built up? What might price do before it picks a direction? How does the ECB news affect demand for euros?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Liquidity… What price might do… ECB…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>Above the two highs at 1.0890 there are probably many sellers' stops and buyers' orders waiting for a breakout. Below 1.0820 sit the buyers' stops.</li>
+          <li>Price may go above 1.0890, take those orders and come back, or do the same below 1.0820. That is a sweep (Chapter 7).</li>
+          <li>If the ECB sounds more hawkish (higher rates for longer), demand for euros will probably rise. If it sounds softer, the opposite.</li>
+          <li>Before the speech: watch, don't act. I expect a move towards one of the two pools of liquidity and I watch where price fails to stay.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What is the bid?",o:["The lowest price at which someone is selling","The highest price someone is offering to pay","The day's average price"],a:1,e:"The bid is the best buying price buyers are offering right now."},
+  {q:"You want to buy immediately. At which price do you buy?",o:["Bid","Ask","Close"],a:1,e:"You buy from the sellers at their lowest offered price: the ask."},
+  {q:"Demand for petrol rises while output stays the same. What happens to the price?",o:["It rises","It falls","It doesn't change"],a:0,e:"More demand with the same supply raises the price."},
+  {q:"What is liquidity?",o:["How much money a bank has","How easily you can trade without moving the price","How fast price falls"],a:1,e:"Liquidity is the presence of orders you can trade against."},
+  {q:"Where does liquidity often build up?",o:["Above obvious highs and below obvious lows","In the middle of the range","Only around round hours"],a:0,e:"That is where many traders' stops and resting orders sit."}
+],mid:[
+  {q:"Bid 1.0850, ask 1.0853. You buy and sell immediately. What is the result without commission?",o:["0 pips","−3 pips","+3 pips"],a:1,e:"You buy at 1.0853 and sell at 1.0850. You lose the spread, 3 pips."},
+  {q:"On the chart, price falls to 1.0800, then bounces sharply with three big green candles. What do you call the area around 1.0800?",o:["Supply zone","Demand zone","Equilibrium"],a:1,e:"The sharp bounce shows there were more buyers there: a demand zone."},
+  {q:"Only €0.5 m is offered at 1.0855, and another €4 m at 1.0856. A big buyer wants €3 m immediately. What happens?",o:["Buys it all at 1.0855","Eats 1.0855 and continues at 1.0856; price rises","Price falls"],a:1,e:"The liquidity at the first level isn't enough, so the trade continues at the next price, which becomes the new price."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* supply and demand */
+  var sv=document.getElementById("sdSvg"),ds=document.getElementById("dShift"),ss=document.getElementById("sShift"),txt=document.getElementById("sdText");
+  var X0=60,X1=500,Y0=20,Y1=260;
+  var ax=el("g",{},sv);
+  el("line",{x1:X0,y1:Y1,x2:X1,y2:Y1,stroke:"var(--muted)"},ax);el("line",{x1:X0,y1:Y0,x2:X0,y2:Y1,stroke:"var(--muted)"},ax);
+  el("text",{x:X1-90,y:Y1+24,"font-size":11,fill:"var(--muted)"},ax).textContent="quantity →";
+  el("text",{x:4,y:Y0+6,"font-size":11,fill:"var(--muted)"},ax).textContent="price ↑";
+  var dl=el("line",{stroke:"var(--bull)","stroke-width":3},sv),sl=el("line",{stroke:"var(--bear)","stroke-width":3},sv);
+  var hz=el("line",{stroke:"var(--liq)","stroke-dasharray":"5 4","stroke-width":1.5},sv),vt=el("line",{stroke:"var(--liq)","stroke-dasharray":"5 4","stroke-width":1.5},sv);
+  var dot=el("circle",{r:6,fill:"var(--liq)"},sv),pl=el("text",{"font-size":12,fill:"var(--liq)"},sv);
+  var dlab=el("text",{"font-size":12,fill:"var(--bull)"},sv),slab=el("text",{"font-size":12,fill:"var(--bear)"},sv);
+  var base=null;
+  function draw(){
+    var d=+ds.value,s=+ss.value;document.getElementById("dOut").textContent=(d>0?"+":"")+d;document.getElementById("sOut").textContent=(s>0?"+":"")+s;
+    /* demand: y = 40 + (x-X0)*0.5 shifted right by d ; supply: y = 240 - (x-X0)*0.5 shifted right by s */
+    var dax=X0+d*2,sax=X0+s*2;
+    function dy(x){return 40+(x-dax)*0.45} function sy(x){return 240-(x-sax)*0.45}
+    dl.setAttribute("x1",X0);dl.setAttribute("y1",dy(X0));dl.setAttribute("x2",X1);dl.setAttribute("y2",dy(X1));
+    sl.setAttribute("x1",X0);sl.setAttribute("y1",sy(X0));sl.setAttribute("x2",X1);sl.setAttribute("y2",sy(X1));
+    var x=(240-40+0.45*dax+0.45*sax)/0.9,y=dy(x);
+    hz.setAttribute("x1",X0);hz.setAttribute("x2",x);hz.setAttribute("y1",y);hz.setAttribute("y2",y);
+    vt.setAttribute("x1",x);vt.setAttribute("x2",x);vt.setAttribute("y1",y);vt.setAttribute("y2",Y1);
+    dot.setAttribute("cx",x);dot.setAttribute("cy",y);
+    var price=Math.round((Y1-y)/2),qty=Math.round((x-X0)/4);
+    pl.setAttribute("x",X0+6);pl.setAttribute("y",y-6);pl.textContent="price "+price;
+    dlab.setAttribute("x",X1-70);dlab.setAttribute("y",Math.min(Y1-4,dy(X1)-8));dlab.textContent="demand";
+    slab.setAttribute("x",X1-80);slab.setAttribute("y",Math.max(Y0+12,sy(X1)-8));slab.textContent="supply";
+    if(base===null)base={p:price,q:qty};
+    var dp=price-base.p,msg;
+    if(d===0&&s===0)msg="Equilibrium: price "+price+", quantity "+qty+".";
+    else msg="Price is "+price+" ("+(dp>0?"+":"")+dp+" vs the start), quantity is "+qty+". "+(dp>0?"Higher demand or lower supply raises the price.":dp<0?"Weaker demand or more supply lowers the price.":"The two changes cancel out.");
+    txt.textContent=msg;
+  }
+  ds.addEventListener("input",draw);ss.addEventListener("input",draw);
+  Book.each("[data-sd]",function(b){b.addEventListener("click",function(){var v=b.getAttribute("data-sd").split(",");ds.value=v[0];ss.value=v[1];draw()})});
+  draw();
+
+  /* demand / supply zones on a chart */
+  var z=document.getElementById("zoneSvg"),C=[[150,130],[130,140],[140,118],[118,124],[124,170],[170,176],[176,205],[205,198],[198,160],[160,112],[112,90],[90,96],[96,70],[70,62],[62,80],[80,74],[74,104],[104,128],[128,120],[120,150]];
+  var marks=el("g",{},z);
+  el("rect",{x:150,y:190,width:340,height:24,fill:"var(--bull)","fill-opacity":.16},marks);
+  el("text",{x:410,y:206,"font-size":11,fill:"var(--bull)"},marks).textContent="demand";
+  el("rect",{x:330,y:52,width:160,height:22,fill:"var(--bear)","fill-opacity":.16},marks);
+  el("text",{x:420,y:66,"font-size":11,fill:"var(--bear)"},marks).textContent="supply";
+  el("rect",{x:230,y:118,width:260,height:42,fill:"var(--liq)","fill-opacity":.14},marks);
+  el("text",{x:380,y:143,"font-size":11,fill:"var(--liq)"},marks).textContent="imbalance";
+  marks.style.display="none";
+  C.forEach(function(c,i){var o=c[0],cl=c[1],x=20+i*24,col=cl<o?"var(--bull)":"var(--bear)",hi=Math.min(o,cl)-6,lo=Math.max(o,cl)+6;
+    if(i===9){hi=Math.min(o,cl)-2;lo=Math.max(o,cl)+2}
+    el("line",{x1:x+7,x2:x+7,y1:hi,y2:lo,stroke:col,"stroke-width":2},z);
+    el("rect",{x:x,width:14,y:Math.min(o,cl),height:Math.max(2,Math.abs(o-cl)),fill:col},z)});
+  var zb=document.getElementById("zoneBtn");
+  zb.addEventListener("click",function(){var on=zb.getAttribute("aria-pressed")!=="true";zb.setAttribute("aria-pressed",on);marks.style.display=on?"":"none";zb.textContent=on?"Hide the zones":"Show the zones"});
+
+  /* order book */
+  var START={asks:[[1.0855,0.5],[1.0856,1.5],[1.0857,2],[1.0858,3]],bids:[[1.0854,0.8],[1.0853,1.5],[1.0852,2],[1.0851,3]]};
+  var bk,last=1.0854,tb=document.querySelector("#bookTable tbody"),bt=document.getElementById("bookText");
+  function reset(){bk=JSON.parse(JSON.stringify(START));last=1.0854;render("Buyers wait on the bid, sellers on the ask. The spread is 1 pip.")}
+  function render(m){
+    tb.innerHTML="";
+    bk.asks.slice().reverse().forEach(function(a){var tr=document.createElement("tr");tr.innerHTML='<td style="color:var(--bear)">ask (selling)</td><td class="num">'+a[0].toFixed(4)+'</td><td class="num">'+a[1].toFixed(1)+"</td>";tb.appendChild(tr)});
+    bk.bids.forEach(function(b){var tr=document.createElement("tr");tr.innerHTML='<td style="color:var(--bull)">bid (buying)</td><td class="num">'+b[0].toFixed(4)+'</td><td class="num">'+b[1].toFixed(1)+"</td>";tb.appendChild(tr)});
+    bt.innerHTML=m+" <span class=\"mono\">Last trade: "+last.toFixed(4)+"</span>";
+  }
+  function hit(side){
+    var lvls=side==="buy"?bk.asks:bk.bids,need=1,fills=[];
+    while(need>1e-9&&lvls.length){var l=lvls[0],q=Math.min(need,l[1]);l[1]-=q;need-=q;last=l[0];fills.push(q.toFixed(1)+" at "+l[0].toFixed(4));if(l[1]<1e-9)lvls.shift()}
+    if(!lvls.length){var p=side==="buy"?last+0.0001:last-0.0001;lvls.push([+p.toFixed(4),2])}
+    render((side==="buy"?"Buy":"Sell")+" 1 m: "+fills.join(", ")+". "+(fills.length>1?"One level wasn't enough, so price moved to the next one.":""));
+  }
+  document.getElementById("buyBtn").addEventListener("click",function(){hit("buy")});
+  document.getElementById("sellBtn").addEventListener("click",function(){hit("sell")});
+  document.getElementById("resetBtn").addEventListener("click",reset);
+  reset();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Money, Banks, Inflation · FX Fundamentals</title>
+<meta name="description" content="Money, Banks, Inflation · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch17.html">
+<link rel="alternate" hreflang="bg" href="bg/ch17.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="17">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">17</div>
+    <h1>Money, Banks, Inflation</h1>
+    <blockquote class="quote">
+      Inflation is always and everywhere a monetary phenomenon.
+      <cite>Milton Friedman</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>trace the path from barter to fiat and digital money;</li>
+        <li>show how banks create money when they lend;</li>
+        <li>tell CPI, core CPI, PCE and PPI apart and why the market watches exactly these;</li>
+        <li>explain why inflation data move a currency.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>17.1 From barter to gold to fiat</h2>
+      <p>Without money, trade is <b>barter</b>: the shoemaker who wants bread has to find a baker who needs shoes, today. Money solves this. It has three jobs: <b>medium of exchange</b>, <b>unit of account</b> and <b>store of value</b>.</p>
+      <div class="timeline">
+        <div class="tick"><span class="t">Antiquity</span><b>Commodity money</b><span>Salt, cattle, shells, then metal coins. The value is in the object itself.</span></div>
+        <div class="tick"><span class="t">17th–19th c.</span><b>Goldsmiths' receipts</b><span>Goldsmiths keep other people's gold and issue receipts that start being used as money. That is how banking is born.</span></div>
+        <div class="tick"><span class="t">19th c. – 1971</span><b>The gold standard and Bretton Woods</b><span>Paper money can be exchanged for gold. Gold does not "give value"; it <i>limits</i> the amount of money (Chapter 24).</span></div>
+        <div class="tick news"><span class="t">1971</span><b>Fiat money</b><span>The US stops exchanging dollars for gold. Since then money is accepted by law and by trust, with nothing behind it but the institutions.</span></div>
+        <div class="tick"><span class="t">Today</span><b>Digital money</b><span>Most money is entries in bank accounts. Add stablecoins, cryptocurrencies and central bank digital currencies (CBDC, Chapter 40).</span></div>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>A fiat currency is only as strong as the institutions behind it. When trust in a central bank falls, people flee to gold, dollars or crypto. That is why gold sometimes rises together with the dollar: that is fear, not rate logic.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Barter · бартер</b>Exchanging goods for goods without money.</div>
+      <div class="term"><b>Fiat money · фиатни пари</b>Money with no intrinsic value, accepted by law and trust.</div>
+      <div class="term"><b>Store of value · съхранение на стойност</b>Something that keeps its purchasing power over time.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: intermediate">●●</span>17.2 How banks create money</h2>
+      <p>A bank does not keep all deposits in the vault. It holds a <b>reserve</b> and lends out the rest. The borrower pays someone, who deposits it in their own bank, which also lends out part of it. That way one deposit turns into several. This is <b>fractional reserve banking</b>.</p>
+      <p>Textbooks describe this with a multiplier: with a 10% reserve the theoretical maximum is 10 times the original deposit. In reality the number is smaller, because it depends on how many people want loans and how much they hold in cash. Central banks today also describe it the other way round: <b>the loan creates the deposit</b>, not the deposit the loan.</p>
+      <figure>
+        <div class="calc">
+          <div class="sliders">
+            <label>Initial deposit (€)<input type="range" id="m1" min="100" max="10000" step="100" value="1000"><span class="mono" id="m1o"></span></label>
+            <label>Reserve ratio (%)<input type="range" id="m2" min="2" max="50" value="10"><span class="mono" id="m2o"></span></label>
+          </div>
+          <svg id="mSvg" viewBox="0 0 520 200" role="img" aria-label="A chain of deposits and loans"></svg>
+          <div class="out" id="mOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Each column is a new deposit in the next bank. Blue is the reserve, green is the new loan. A simplified model with no cash and no refused loans.</figcaption>
+      </figure>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>A bank only lends the money people have deposited.</p></div>
+        <div><span class="label">Reality</span><p>When a bank makes a loan, it creates a new deposit in the borrower's account. What limits it are capital rules, loan demand and the central bank's rate, not the exact amount of deposits.</p></div>
+      </div>
+      <p>This system works until people want their money back all at once. Then comes a <b>bank run</b>: the bank may be solvent, but its assets (mortgages, buildings) are not <b>liquid</b>. Between 1930 and 1933 more than 9,000 US banks failed. Today deposits are guaranteed up to a threshold (in the EU €100,000), and the central bank is the <b>lender of last resort</b>.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Fractional reserve · частичен резерв</b>The bank keeps only part of its deposits as a reserve.</div>
+      <div class="term"><b>Bank run · банкова паника</b>Many depositors withdraw at once.</div>
+      <div class="term"><b>Liquidity · ликвидност</b>How fast something becomes cash without losing value.</div>
+      <div class="term"><b>Lender of last resort</b>The central bank that lends to banks in a crisis.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>17.3 What inflation is</h2>
+      <p><b>Inflation</b> is a general rise in prices. Not one thing getting more expensive, but almost everything. The flip side: every euro buys less. At 3% inflation a year prices double in about 23 years. At 10%, in about 7.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Savings (€)<input type="number" id="i1" value="10000" min="0" step="500"></label>
+            <label>Inflation (% per year)<input type="number" id="i2" value="3" step="0.5" min="0" max="100"></label>
+            <label>Years<input type="number" id="i3" value="10" min="1" max="50"></label>
+          </div>
+          <div class="out" id="iOut" aria-live="polite"></div>
+        </div>
+        <figcaption>What the same money can buy after some years if it sits without interest.</figcaption>
+      </figure>
+      <p>Where does inflation come from? Economists split the causes into two groups:</p>
+      <div class="tablewrap" data-name="vidove-inflaciya">
+        <table class="data">
+          <thead><tr><th></th><th>Demand-pull inflation</th><th>Cost-push inflation</th></tr></thead>
+          <tbody>
+            <tr><td>What it is called</td><td>Demand-pull</td><td>Cost-push</td></tr>
+            <tr><td>Cause</td><td>Too much money and credit relative to goods</td><td>A jump in costs: energy, raw materials, wages</td></tr>
+            <tr><td>Growth</td><td>Strong, above capacity</td><td>Weak or falling</td></tr>
+            <tr><td>Example</td><td>2021: stimulus and low rates after COVID</td><td>1973: the oil embargo</td></tr>
+            <tr><td>Difficulty for the central bank</td><td>Easier: it raises rates</td><td>Harder: hiking hits growth that is already weak</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>When both mix with high unemployment, you get <b>stagflation</b>: prices rise while the economy stands still. It is the hardest regime for a central bank and for most assets (Chapter 22).</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Inflation · инфлация</b>A general rise in prices; money loses purchasing power.</div>
+      <div class="term"><b>Deflation · дефлация</b>A general fall in prices. Dangerous because debts become heavier.</div>
+      <div class="term"><b>Stagflation · стагфлация</b>High inflation plus weak growth and high unemployment.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>17.4 How it is measured: CPI, core, PCE, PPI</h2>
+      <p>Every month government statisticians "shop" for the same basket of goods and services and calculate how much more it costs. There are several measures and the market watches them all, but with different weight.</p>
+      <div class="tablewrap" data-name="merki-inflaciya">
+        <table class="data">
+          <thead><tr><th>Measure</th><th>What it measures</th><th>Why it matters</th><th>When it comes out (US)</th></tr></thead>
+          <tbody>
+            <tr><td><b>CPI</b></td><td>Consumer prices, the whole basket</td><td>The most-watched number; moves everything with USD</td><td>Around mid-month, 15:30 Sofia</td></tr>
+            <tr><td><b>Core CPI</b></td><td>CPI excluding food and energy</td><td>Less noise; shows the trend. The market often reacts more to it</td><td>Together with CPI</td></tr>
+            <tr><td><b>PCE / Core PCE</b></td><td>A broader measure of household spending</td><td>The Fed's 2% target is on PCE. Usually 0.2–0.5 pp below CPI</td><td>Towards the end of the month</td></tr>
+            <tr><td><b>PPI</b></td><td>The prices producers receive</td><td>Often leads CPI: pressure shows up at producers first</td><td>Around CPI, often a day before or after</td></tr>
+            <tr><td><b>HICP</b></td><td>The euro area's harmonised index</td><td>The ECB's 2% target; has an early (flash) estimate at the end of the month</td><td>Eurostat, 12:00 Sofia</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Each measure has two versions: <b>m/m</b> (versus last month) and <b>y/y</b> (versus the same month last year). Traders watch both. A y/y number can fall just because last year's month was very high (base effect), while m/m shows the pressure is still there.</p>
+      <div class="box ff">
+        <span class="label">Watch on Forex Factory</span>
+        <p>On CPI day the calendar has several rows at the same time: "CPI m/m", "Core CPI m/m", "CPI y/y". Usually all three have a red folder, and the market most often watches Core CPI m/m. If the two point in different directions (hot headline, cold core), the first move often reverses. Chapter 19 shows how to read them.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>CPI · индекс на потребителските цени</b>The price of a basket of consumer goods and services.</div>
+      <div class="term"><b>Core · базисна</b>Excluding food and energy.</div>
+      <div class="term"><b>m/m, y/y</b>Month on month, year on year.</div>
+      <div class="term"><b>Base effect · базов ефект</b>A change in y/y that comes from last year's base.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: intermediate">●●</span>17.5 Why inflation moves the currency</h2>
+      <p>The chain is short and you should know it by heart:</p>
+      <ol class="steps">
+        <li><b>Inflation comes in higher than expected.</b></li>
+        <li><b>The market expects the central bank to raise rates</b> or keep them high for longer.</li>
+        <li><b>The higher rate makes the currency pay more</b> than the others (opportunity cost, Chapter 16).</li>
+        <li><b>Capital flows to it. The currency strengthens</b>, while gold and stocks often get cheaper.</li>
+      </ol>
+      <div class="tabs" data-group="cpi">
+        <button class="chip" data-tab="hot">US CPI above forecast</button>
+        <button class="chip" data-tab="cold">US CPI below forecast</button>
+      </div>
+      <div class="pane" data-group="cpi" data-pane="hot">
+        <div class="four">
+          <div><span class="label">Fed expectations</span><p>More hawkish: fewer or later rate cuts.</p></div>
+          <div><span class="label">USD</span><p style="color:var(--bull)">Stronger. EURUSD down, USDJPY up.</p></div>
+          <div><span class="label">Gold</span><p style="color:var(--bear)">Usually down: real yields rise.</p></div>
+          <div><span class="label">Stocks</span><p style="color:var(--bear)">Under pressure: more expensive money.</p></div>
+        </div>
+      </div>
+      <div class="pane" data-group="cpi" data-pane="cold">
+        <div class="four">
+          <div><span class="label">Fed expectations</span><p>More dovish: earlier rate cuts.</p></div>
+          <div><span class="label">USD</span><p style="color:var(--bear)">Weaker. EURUSD up, USDJPY down.</p></div>
+          <div><span class="label">Gold</span><p style="color:var(--bull)">Usually up.</p></div>
+          <div><span class="label">Stocks</span><p style="color:var(--bull)">Usually up.</p></div>
+        </div>
+      </div>
+      <p>These are <b>typical</b> reactions, not laws. If the central bank has already signalled it will "look through" a temporary spike (for example from energy), the reaction is weaker. If inflation is so high that people lose trust in the central bank, the currency can <i>fall</i> despite high rates. That happens in countries like Turkey and Argentina.</p>
+      <div class="dialog">
+        <p><span>Student</span>So higher inflation is good for the currency?</p>
+        <p><span>Mentor</span>For a week, if the bank is credible. For ten years, never. In the short run the market trades rates. In the long run a currency with higher inflation loses purchasing power and weakens. Chapter 20 brings the two horizons together.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Hawkish · ястребов</b>Leaning towards higher rates.</div>
+      <div class="term"><b>Dovish · гълъбов</b>Leaning towards lower rates.</div>
+      <div class="term"><b>Real yield · реална доходност</b>The nominal yield minus expected inflation.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="main">
+      <h2 id="s6"><span class="dots" title="Level: advanced">●●●</span>17.6 MV = PQ and hyperinflation</h2>
+      <p>The quantity theory of money says: <b>money × velocity = prices × output</b>. If money grows faster than goods and people spend at the same speed, prices rise. If people lose trust and start spending money as soon as they get it, velocity (V) jumps and prices rise even faster than money.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Money growth M (%)<input type="number" id="q1" value="10" step="1"></label>
+            <label>Change in velocity V (%)<input type="number" id="q2" value="0" step="1"></label>
+            <label>Output growth Q (%)<input type="number" id="q3" value="2" step="0.5"></label>
+          </div>
+          <div class="out" id="qOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Exact calculation: (1+M)(1+V)/(1+Q) − 1. The model is simplified; the velocity of money is unstable in reality.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="hiperinflacii">
+        <table class="data">
+          <thead><tr><th>Case</th><th>What happens</th><th>How it ends</th></tr></thead>
+          <tbody>
+            <tr><td>Germany 1920–1923</td><td>From about 40 marks per dollar to over 4 trillion</td><td>A new currency (the Rentenmark), a hard cap on issuance</td></tr>
+            <tr><td>Zimbabwe 2007–2008</td><td>An attempt to cut prices by decree; shops empty out</td><td>Switching to foreign currencies (dollar, rand)</td></tr>
+            <tr><td>Bulgaria 1996–1997</td><td>A banking crisis, then hyperinflation; in early 1997 monthly inflation exceeds 200% and the dollar briefly passes about 3,000 leva</td><td>A currency board from July 1997: the lev pegged to the mark, later to the euro (Chapter 18)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box warn">
+        <span class="label">Warning</span>
+        <p>Hyperinflation does not start with one bad year. It starts when a government finances its deficit with new money and people stop believing it will stop. The signals: a black market in currency, melting reserves, "temporary" limits on withdrawals.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Velocity · скорост на парите</b>How many times a unit of money changes hands in a year.</div>
+      <div class="term"><b>Hyperinflation · хиперинфлация</b>Price rises above 50% a month, by convention.</div>
+      <div class="term"><b>Currency board · валутен борд</b>A regime in which local money is fully backed by a reserve currency at a fixed rate.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 17</h2>
+    <ul>
+      <li>Money is a medium of exchange, a unit of account and a store of value. Fiat money rests on trust.</li>
+      <li>Banks create money when they lend. The system is vulnerable to panic.</li>
+      <li>Inflation comes from demand or from costs; stagflation is the hardest combination.</li>
+      <li>CPI, Core CPI, PCE, PPI, HICP: know which one is which central bank's target.</li>
+      <li>Hotter inflation than expected → higher rates → a stronger currency, in the short run and with a credible bank.</li>
+      <li>Hyperinflation is a crisis of trust; Bulgaria 1997 is a lesson close to home.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I can explain in four steps why a hot CPI lifts the dollar.</label></li>
+      <li><label><input type="checkbox"> I know the difference between headline and core, m/m and y/y.</label></li>
+      <li><label><input type="checkbox"> I tried the bank money calculator with a 10% and a 50% reserve.</label></li>
+      <li><label><input type="checkbox"> I found the next US CPI date on Forex Factory.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>US CPI day. Forecast: CPI m/m 0.3%, Core CPI m/m 0.3%. Actual: CPI m/m 0.5% (petrol has jumped), Core CPI m/m 0.2%. Before the number EURUSD is in the middle of the Asian range, and the D1 bias is bullish. A week ago the Fed said it mainly looks at core inflation.</p>
+      <p><b>Task:</b> how would you read these numbers? What is the likely first move and what the second? Which number would weigh more and why? What would you wait for before even thinking about an entry?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Headline… Core… Fed… First move… Second… What I wait for…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>The headline is hot (0.5 versus 0.3), but from energy. Core is cold (0.2 versus 0.3). The two pull in opposite directions.</li>
+          <li>The first move may be towards a stronger dollar on the headline number, especially if algorithms react to the first row. The second move is likely towards a weaker dollar, because the Fed said it watches core.</li>
+          <li>Core weighs more: less "sticky" inflation means a more dovish Fed. That matches the bullish D1 bias for EURUSD.</li>
+          <li>You wait for: the Chapter 13 protocol (±30 min), the first sweep to finish, an M5 MSS in the direction of the bias, a clear zone and a target of at least 3R. If the moves get chopped up on both sides without structure, you skip.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What are the three functions of money?",o:["Exchange, unit of account, store of value","Gold, silver, paper","Credit, debt, interest"],a:0,e:"Medium of exchange, unit of account, store of value."},
+  {q:"What does \"fiat money\" mean?",o:["Backed by gold","Accepted by law and trust, with no intrinsic value","Coins only"],a:1,e:"Since 1971 the dollar has not been convertible into gold."},
+  {q:"Core CPI excludes…",o:["Rents","Food and energy","Taxes"],a:1,e:"They are the most volatile components."},
+  {q:"Which measure is the Fed's target?",o:["CPI","PCE","PPI"],a:1,e:"The 2% target is on PCE."},
+  {q:"US CPI comes out well above forecast. The typical first reaction in EURUSD is…",o:["Up","Down","None"],a:1,e:"Stronger dollar → EURUSD down."}
+],mid:[
+  {q:"Reserve ratio 20%, deposit €1,000. The theoretical maximum of money in the system is…",o:["1 200 €","5 000 €","20 000 €"],a:1,e:"1 / 0.20 = 5 times."},
+  {q:"CPI y/y falls from 4% to 3%, but CPI m/m has stayed at 0.4% for months. What is likely?",o:["Inflation is beaten","The fall comes from a base effect; the pressure continues","Deflation"],a:1,e:"0.4% a month is about 5% a year; y/y falls from a high base."},
+  {q:"Why can the currency of a country with 60% inflation fall despite a 50% rate?",o:["The rate is too high","The real rate is negative and trust is low","Because CPI is wrong"],a:1,e:"50% − 60% = −10% real; capital flees."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* money multiplier */
+  var m1=document.getElementById("m1"),m2=document.getElementById("m2"),sv=document.getElementById("mSvg"),mo=document.getElementById("mOut");
+  function mm(){var d=+m1.value,r=+m2.value/100;document.getElementById("m1o").textContent=d+" €";document.getElementById("m2o").textContent=m2.value+"%";
+    sv.innerHTML="";var n=10,bw=40,gap=8,x0=20,H=170,dep=d,tot=0,loans=0;
+    for(var i=0;i<n;i++){var h=dep/d*H,res=dep*r,hr=res/d*H,x=x0+i*(bw+gap);
+      el("rect",{x:x,y:180-h,width:bw,height:h-hr,fill:"var(--bull)",opacity:.8},sv);
+      el("rect",{x:x,y:180-hr,width:bw,height:hr,fill:"var(--liq)"},sv);
+      el("text",{x:x+2,y:195,"font-size":9,fill:"var(--muted)"},sv).textContent="bank "+(i+1);
+      tot+=dep;loans+=dep-res;dep=dep-res}
+    var max=d/r;
+    mo.innerHTML="<span>After 10 rounds the banks hold <b>"+tot.toFixed(0)+" €</b> in deposits.</span><span>Theoretical maximum: <b>"+max.toFixed(0)+" €</b> (1 ÷ "+m2.value+"%).</span><span>New loans so far: <b>"+loans.toFixed(0)+" €</b>.</span>"}
+  [m1,m2].forEach(function(x){x.addEventListener("input",mm)});mm();
+  /* inflation erosion */
+  var i1=document.getElementById("i1"),i2=document.getElementById("i2"),i3=document.getElementById("i3"),io=document.getElementById("iOut");
+  function inf(){var s=+i1.value||0,p=(+i2.value||0)/100,n=Math.max(1,+i3.value|0),real=s/Math.pow(1+p,n),dbl=p>0?Math.log(2)/Math.log(1+p):Infinity;
+    io.innerHTML="<span>After "+n+" years, "+s.toFixed(0)+" € buy as much as <b>"+real.toFixed(0)+" €</b> buys today.</span><span>Loss of purchasing power: <b>"+((1-real/s)*100).toFixed(1)+"%</b>.</span><span>Prices double in about <b>"+(isFinite(dbl)?dbl.toFixed(1)+" years":"never")+"</b>.</span>"}
+  [i1,i2,i3].forEach(function(x){x.addEventListener("input",inf)});inf();
+  /* MV=PQ */
+  var q1=document.getElementById("q1"),q2=document.getElementById("q2"),q3=document.getElementById("q3"),qo=document.getElementById("qOut");
+  function qt(){var M=(+q1.value||0)/100,V=(+q2.value||0)/100,Q=(+q3.value||0)/100,P=(1+M)*(1+V)/(1+Q)-1;
+    var c=P>0.5?"var(--bear)":P>0.04?"var(--news)":"var(--bull)";
+    qo.innerHTML="<span>Price level: <b style='color:"+c+"'>"+(P*100).toFixed(1)+"%</b> over the period.</span><span>"+(P>0.5?"This is very high inflation territory.":P>0.04?"Above the typical 2% target.":"Near or below the 2% target.")+"</span>"}
+  [q1,q2,q3].forEach(function(x){x.addEventListener("input",qt)});qt();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

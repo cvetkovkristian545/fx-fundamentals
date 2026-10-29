@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Mechanics of a Trade · FX Fundamentals</title>
+<meta name="description" content="The Mechanics of a Trade · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch2.html">
+<link rel="alternate" hreflang="bg" href="bg/ch2.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="2">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">2</div>
+    <h1>The Mechanics of a Trade</h1>
+    <blockquote class="quote">
+      Rule number one: never lose money. Rule number two: never forget rule number one.
+      <cite>Warren Buffett</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>work out what one pip is worth at different position sizes;</li>
+        <li>say what a trade really costs: spread, commission, swap;</li>
+        <li>calculate a position size at which you risk exactly 1% of the account.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>2.1 Pip, pipette and lot</h2>
+      <p>Currency prices move in very small steps. The standard unit of measure is the <b>pip</b>. On most pairs the pip is the fourth decimal place: from 1.0850 to 1.0851 is one pip. On yen pairs the pip is the second decimal: from 150.20 to 150.21 is one pip. The fifth decimal (or the third on yen) is a <b>pipette</b>, one tenth of a pip. Platforms show it, but in analysis we count pips.</p>
+      <p>The quantity you trade is measured in <b>lots</b>:</p>
+      <div class="tablewrap" data-name="lotove">
+        <table class="data">
+          <thead><tr><th>Size</th><th class="num">Lots</th><th class="num">Units of base currency</th><th class="num">Value of 1 pip on EURUSD</th></tr></thead>
+          <tbody>
+            <tr><td>Standard</td><td class="num">1.00</td><td class="num">100 000</td><td class="num">10.00 $</td></tr>
+            <tr><td>Mini</td><td class="num">0.10</td><td class="num">10 000</td><td class="num">1.00 $</td></tr>
+            <tr><td>Micro</td><td class="num">0.01</td><td class="num">1 000</td><td class="num">0.10 $</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>On pairs where the dollar is the quote currency (EURUSD, GBPUSD, AUDUSD), the pip value is constant: 10 dollars per standard lot. On other pairs it depends on the current rate. The calculator below works it out for you.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Instrument<select id="pvSym">
+              <option value="EURUSD">EURUSD</option><option value="GBPUSD">GBPUSD</option><option value="USDJPY">USDJPY</option><option value="USDCHF">USDCHF</option><option value="XAUUSD">XAUUSD</option>
+            </select></label>
+            <label>Rate<input type="number" id="pvRate" step="any" value="1.0850"></label>
+            <label>Lots<input type="number" id="pvLots" step="0.01" value="0.10"></label>
+          </div>
+          <div class="out" id="pvOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Pip value in dollars. On gold a standard lot is usually 100 troy ounces and moves are counted in dollars; check your broker's contract specification.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Pip · пип</b>The smallest standard change in the rate: 0.0001 (or 0.01 on JPY).</div>
+      <div class="term"><b>Pipette · пипет</b>One tenth of a pip. The fifth digit in the quote.</div>
+      <div class="term"><b>Lot · лот</b>The standard unit of quantity. 1 lot = 100,000 units of the base currency.</div>
+      <div class="term"><b>Contract size · размер на договора</b>How many units are in one lot. For gold usually 100 oz.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>2.2 What a trade costs</h2>
+      <p>Every trade has costs before the market has even moved. There are three kinds:</p>
+      <ol class="steps">
+        <li><b>Spread.</b> The difference between bid and ask (Chapter 0.2). You pay it on every entry. On EURUSD in active hours it is usually under one pip, but around news and in the quiet night hours it widens.</li>
+        <li><b>Commission.</b> Some accounts (often called RAW or ECN) have a near-zero spread but charge a fixed commission, for example 3 to 3.5 dollars per lot per side. Other accounts (Standard) have no commission but a wider spread.</li>
+        <li><b>Swap.</b> If you hold a position past the end of the trading day (around midnight Sofia time), you pay or receive the interest-rate difference between the two currencies. On the night into Thursday a triple swap is usually charged to cover the weekend.</li>
+      </ol>
+      <div class="calc">
+        <div class="fields">
+          <label>Lots<input type="number" id="cLots" step="0.01" value="0.50"></label>
+          <label>Spread (pips)<input type="number" id="cSpread" step="0.1" value="0.8"></label>
+          <label>Commission ($/lot, both sides)<input type="number" id="cComm" step="0.5" value="0"></label>
+          <label>Swap ($/lot/night, minus = you pay)<input type="number" id="cSwap" step="0.1" value="-6"></label>
+          <label>Nights<input type="number" id="cNights" value="0"></label>
+        </div>
+        <div class="out" id="cOut" aria-live="polite"></div>
+      </div>
+      <p class="fb">The default numbers are examples for EURUSD. Real ones depend on the broker and on current rates.</p>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>A scalper who makes 20 trades a day pays the spread 20 times. So more trades don't mean more profit. Often they mean a bigger bill for the broker.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Commission · комисионна</b>A fixed fee per lot that the broker charges separately from the spread.</div>
+      <div class="term"><b>Swap · суап</b>The overnight interest difference on an open position. It can be plus or minus.</div>
+      <div class="term"><b>Round turn · пълен цикъл</b>Entry plus exit. Commissions are often quoted “per side”, and a round turn is double that.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>2.3 Leverage and margin</h2>
+      <p>One standard lot of EURUSD is 100,000 euros, i.e. over a hundred thousand dollars. Most people don't have that much. <b>Leverage</b> lets you open a position much bigger than your account. The broker locks only a small part of the value as collateral. That collateral is called <b>margin</b>.</p>
+      <p>In the EU the regulator ESMA caps leverage for retail clients: up to 30:1 on major currency pairs, up to 20:1 on other currency pairs, gold and major indices, up to 2:1 on cryptocurrencies. Leverage of 30:1 means a 30,000-dollar position needs 1,000 dollars of margin.</p>
+      <div class="box warn">
+        <span class="label">Important</span>
+        <p>Leverage does not increase your chance of winning. It only increases how fast you win or lose. A position 30 times bigger than the account loses 1% of the account on a move of 1/30 of a percent, i.e. about 3–4 pips on EURUSD.</p>
+      </div>
+      <p>What happens if the position loses? The broker watches the <b>margin level</b>: equity divided by the margin in use. If it falls below a set threshold you get a <b>margin call</b>, a warning. In the EU, if it falls to 50% the broker must start closing your positions. That is a <b>stop out</b>. Drag the move and see when it happens.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Account ($)<input type="number" id="mBal" value="1000"></label>
+            <label>EURUSD lots<input type="number" id="mLots" step="0.01" value="0.30"></label>
+            <label>Leverage<select id="mLev"><option value="30" selected>30:1 (EU, majors)</option><option value="20">20:1</option><option value="100">100:1</option><option value="500">500:1</option></select></label>
+          </div>
+          <div class="sliders"><label>Move<input type="range" id="mMove" min="-150" max="50" value="0"><span class="mono" id="mMoveOut">0 p</span></label></div>
+          <svg id="mBar" viewBox="0 0 520 60" role="img" aria-label="Margin level"></svg>
+          <div class="out" id="mOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Rate 1.0850. Move against the position in pips. The red line is the stop out at 50%.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Leverage · ливъридж</b>The ratio between position size and the collateral locked.</div>
+      <div class="term"><b>Margin · маржин</b>The amount the broker locks as collateral for an open position.</div>
+      <div class="term"><b>Equity · собствен капитал</b>Balance plus or minus unrealised profit or loss.</div>
+      <div class="term"><b>Stop out</b>Forced closing by the broker when margin falls below the threshold. In the EU: 50%.</div>
+      <div class="term"><b>ESMA</b>The European Securities and Markets Authority. It sets the CFD rules in the EU.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: basic">●</span>2.4 Order types</h2>
+      <p>An order is an instruction to the broker. There are a few basic types. Press one to see where it sits relative to the current price.</p>
+      <figure>
+        <div class="anat">
+          <svg id="ordSvg" viewBox="0 0 220 300" role="img" aria-label="Price scale showing where different orders sit"></svg>
+          <div style="display:grid;gap:12px">
+            <div class="parts" id="ordChips" role="group" aria-label="Order types"></div>
+            <p class="explain" id="ordText" aria-live="polite"></p>
+          </div>
+        </div>
+        <figcaption>The current price is 1.0850. Green: buy orders. Red: sell orders. Blue: stop and target.</figcaption>
+      </figure>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>My stop loss is guaranteed: I'll exit exactly at that price.</p></div>
+        <div><span class="label">Reality</span><p>A stop becomes a market order once price reaches it. In a fast move or at the open after a weekend the fill can be worse. This is called slippage. Some brokers offer a guaranteed stop for an extra fee.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Market order · пазарна поръчка</b>Buy or sell immediately at the best available price.</div>
+      <div class="term"><b>Limit order · лимитна поръчка</b>Buy lower or sell higher than the current price.</div>
+      <div class="term"><b>Stop order · стоп поръчка</b>Buy higher or sell lower when price reaches a level.</div>
+      <div class="term"><b>SL / TP</b>Stop loss: exit at a loss. Take profit: exit at a profit.</div>
+      <div class="term"><b>Slippage · приплъзване</b>The difference between the requested and the actual fill price.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: intermediate">●●</span>2.5 Exercise: a position with 1% risk</h2>
+      <p>Here is the most important calculation in the book. You will see it again in Chapter 11. The idea is simple: <b>first you decide how much you can lose, then where the stop is, and only at the end how big the position is.</b> Position size is a result, not a choice.</p>
+      <p class="mono" style="background:var(--paper);padding:10px 12px;border:1px solid var(--line)">Lots = (Account × Risk %) ÷ (Stop in pips × Pip value for 1 lot)</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Account ($)<input type="number" id="rBal" value="10000"></label>
+            <label>Risk %<input type="number" id="rPct" step="0.1" value="1"></label>
+            <label>Instrument<select id="rSym"><option value="EURUSD">EURUSD</option><option value="XAUUSD">XAUUSD</option><option value="USDJPY">USDJPY</option></select></label>
+            <label id="rSlLab">Stop (pips)<input type="number" id="rSl" step="0.1" value="15"></label>
+            <label>Rate<input type="number" id="rRate" step="any" value="1.0850"></label>
+          </div>
+          <div class="out" id="rOut" aria-live="polite"></div>
+        </div>
+        <figcaption>For gold, enter the stop as a dollar distance (for example 6.00 = from 2400.00 to 2394.00). Brokers round lots to 0.01.</figcaption>
+      </figure>
+      <div class="dialog">
+        <p><span>Student</span>Why not just 1 lot? It looks like a nice round number.</p>
+        <p><span>Mentor</span>Because 1 lot with a 15-pip stop risks 150 dollars. On a 1,000-dollar account that is 15%. Seven such losses in a row, and they happen, and the account is cut in half. The market doesn't care about your round numbers.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Risk per trade · риск на сделка</b>What percentage of the account you lose if the stop is hit.</div>
+      <div class="term"><b>Position sizing · размер на позицията</b>Working out the lots from the risk and the stop.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-label="Go deeper">
+    <div class="main">
+      <details class="deeper">
+        <summary><span class="dots" aria-hidden="true">●●●</span><span class="dp-t"><small>Go deeper</small><b>Where your order really goes</b></span><span class="drop-caret" aria-hidden="true">▾</span></summary>
+        <div class="dp-body">
+          <p>When you press Buy, your broker does one of two things. In the <b>B-book</b> model it takes the other side itself: your loss is its profit. In the <b>A-book</b> (STP/ECN) model it passes the order on to banks and liquidity providers and earns from the spread or a commission. Most retail brokers mix the two: small or losing accounts stay in-house, consistently profitable ones are passed on.</p>
+          <p>Liquidity providers may use <b>last look</b>: a few milliseconds to reject a quote if the price has moved. That is one source of requotes and slippage in fast markets.</p>
+          <p><b>Rollover</b> happens at 17:00 New York time (00:00 Sofia). In the minutes around it, banks reset their books and spreads often widen sharply. A tight stop or a limit order near price can be filled on that spike alone. On Wednesday night the swap is charged three times, because spot trades settle two days later and the weekend is added.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 02</h2>
+    <ul>
+      <li>A pip is 0.0001 (0.01 on JPY). 1 lot = 100,000 units; on EURUSD 1 pip per lot = 10 dollars.</li>
+      <li>Costs are spread, commission and swap. More trades = more costs.</li>
+      <li>Leverage increases speed, not probability. In the EU up to 30:1 on majors; stop out at 50%.</li>
+      <li>Limit orders: a better price than now. Stop orders: a worse price, on confirmation.</li>
+      <li>Position size is calculated from risk and stop, never the other way round.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I can give the pip value for 0.25 lots of EURUSD without a calculator.</label></li>
+      <li><label><input type="checkbox"> I calculated a 1%-risk position size for EURUSD and for XAUUSD.</label></li>
+      <li><label><input type="checkbox"> I know the difference between a buy limit and a buy stop.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>Account of 5,000 dollars. You want to buy EURUSD at 1.0850. The logical place for the stop is below the last low at 1.0828. The target is at 1.0916. On Monday morning you see that the position will be open for at least two nights and that the swap for long EURUSD is negative.</p>
+      <p><b>Task:</b> calculate the position size at 1% risk, the reward-to-risk ratio and the approximate cost of spread (0.8 pips) and swap (−6 dollars per lot per night). Is the trade worth it on costs?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Stop… Lots… R:R… Costs…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>Stop: 1.0850 − 1.0828 = 22 pips. Risk: 1% of 5,000 = 50 dollars.</li>
+          <li>Lots = 50 ÷ (22 × 10) = 0.227, rounded down to 0.22 lots. Actual risk: 22 × 0.22 × 10 = 48.40 dollars.</li>
+          <li>Target: 1.0916 − 1.0850 = 66 pips. Reward to risk: 66 ÷ 22 = 3R.</li>
+          <li>Spread: 0.8 × 0.22 × 10 = 1.76 dollars. Swap: 2 nights × 0.22 × −6 = −2.64 dollars. About 4.40 dollars in total, under 0.1R.</li>
+          <li>The costs are small relative to the risk and the target. The decision depends on the analysis, not on the costs. If the nights include Wednesday, the swap is triple.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"EURUSD rises from 1.0850 to 1.0865. How many pips is that?",o:["1.5","15","150"],a:1,e:"The fourth decimal is the pip: 0.0015 = 15 pips."},
+  {q:"How many units of base currency are in 1 standard lot?",o:["1 000","10 000","100 000"],a:2,e:"A standard lot is 100,000 units."},
+  {q:"What is swap?",o:["A fee for opening an account","The overnight interest difference on an open position","The commission for closing"],a:1,e:"Swap is charged when you hold a position overnight."},
+  {q:"You want to buy if price comes back down to 1.0820. Which order do you place?",o:["Buy stop","Buy limit","Sell limit"],a:1,e:"You buy below the current price: a buy limit."},
+  {q:"What does leverage do?",o:["Increases the chance of profit","Allows a position larger than the account","Reduces risk"],a:1,e:"Leverage increases size, and with it both profits and losses."}
+],mid:[
+  {q:"0.20 lots of EURUSD. Price moves 25 pips against you. How much do you lose?",o:["5 $","50 $","500 $"],a:1,e:"0.20 lots × $10 = $2 per pip; 25 × 2 = $50."},
+  {q:"Account $2,000, risk 1%, stop 10 pips on EURUSD. How many lots?",o:["0.02","0.20","2.00"],a:1,e:"$20 ÷ (10 × $10) = 0.20 lots."},
+  {q:"Price is 1.0850. You want to sell only if it breaks below 1.0830. Which order?",o:["Sell limit 1.0830","Sell stop 1.0830","Buy stop 1.0830"],a:1,e:"You sell below the current price on confirmation: a sell stop."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  function f(x,d){return Number(x).toLocaleString("en-GB",{minimumFractionDigits:d,maximumFractionDigits:d})}
+  /* pip value per 1 lot in USD */
+  function pipValue(sym,rate){
+    if(sym==="EURUSD"||sym==="GBPUSD")return 10;
+    if(sym==="USDJPY")return 1000/rate;
+    if(sym==="USDCHF")return 10/rate;
+    if(sym==="XAUUSD")return 100; /* per $1 move, 100 oz contract */
+    return 10;
+  }
+  var DEF={EURUSD:1.0850,GBPUSD:1.2700,USDJPY:150.20,USDCHF:0.8820,XAUUSD:2400};
+  var pvS=document.getElementById("pvSym"),pvR=document.getElementById("pvRate"),pvL=document.getElementById("pvLots"),pvO=document.getElementById("pvOut");
+  function pv(){var s=pvS.value,r=+pvR.value,l=+pvL.value,v=pipValue(s,r)*l;
+    pvO.innerHTML=s==="XAUUSD"?"<span>"+f(l,2)+" lots of gold = "+f(l*100,0)+" oz.</span><span>A move of $1.00 = <b>"+f(v,2)+" $</b>. A move of $0.10 = "+f(v/10,2)+" $.</span>"
+      :"<span>"+f(l,2)+" lots = "+f(l*100000,0)+" units of "+s.slice(0,3)+".</span><span>1 pip = <b>"+f(v,2)+" $</b>. 10 pips = "+f(v*10,2)+" $. 100 pips = "+f(v*100,2)+" $.</span>"}
+  pvS.addEventListener("change",function(){pvR.value=DEF[pvS.value];pv()});pvR.addEventListener("input",pv);pvL.addEventListener("input",pv);pv();
+
+  /* costs */
+  var ids=["cLots","cSpread","cComm","cSwap","cNights"];
+  function cost(){var v={};ids.forEach(function(i){v[i]=+document.getElementById(i).value||0});
+    var sp=v.cSpread*10*v.cLots,cm=v.cComm*v.cLots,sw=v.cSwap*v.cLots*v.cNights,tot=sp+cm-sw;
+    document.getElementById("cOut").innerHTML="<span>Spread: "+f(sp,2)+" $</span><span>Commission: "+f(cm,2)+" $</span><span>Swap: "+(sw>=0?"+":"")+f(sw,2)+" $</span><span><b>Total cost: "+f(tot,2)+" $</b> = "+f(tot/(10*v.cLots||1),1)+" pips that price has to travel just for you to break even.</span>"}
+  ids.forEach(function(i){document.getElementById(i).addEventListener("input",cost)});cost();
+
+  /* margin */
+  var mB=document.getElementById("mBal"),mL=document.getElementById("mLots"),mV=document.getElementById("mLev"),mM=document.getElementById("mMove"),bar=document.getElementById("mBar");
+  function mar(){
+    var bal=+mB.value,lots=+mL.value,lev=+mV.value,mv=+mM.value,rate=1.0850;
+    var notional=lots*100000*rate,margin=notional/lev,pl=mv*10*lots,eq=bal+pl,lvl=margin?eq/margin*100:0;
+    document.getElementById("mMoveOut").textContent=(mv>0?"+":"")+mv+" p";
+    bar.innerHTML="";var w=500,x0=10,mx=Math.max(400,lvl);
+    el("rect",{x:x0,y:20,width:w,height:18,fill:"var(--line)"},bar);
+    el("rect",{x:x0,y:20,width:Math.max(0,Math.min(w,w*lvl/mx)),height:18,fill:lvl<=50?"var(--bear)":(lvl<100?"var(--news)":"var(--bull)")},bar);
+    var sx=x0+w*50/mx;el("line",{x1:sx,x2:sx,y1:12,y2:46,stroke:"var(--bear)","stroke-width":2},bar);
+    el("text",{x:sx+4,y:56,"font-size":10,fill:"var(--bear)"},bar).textContent="stop out 50%";
+    var so=bal-0.5*margin,soPips=so/(10*lots);
+    document.getElementById("mOut").innerHTML="<span>Position: "+f(notional,0)+" $. Margin in use: <b>"+f(margin,2)+" $</b>.</span><span>Profit/loss: "+(pl>=0?"+":"")+f(pl,2)+" $. Equity: "+f(eq,2)+" $. Margin level: <b>"+f(lvl,0)+"%</b>.</span>"+
+      "<span>"+(lvl<=50?"<b style=\"color:var(--bear)\">Stop out. The broker closes the position.</b>":"Stop out happens at about "+f(soPips,0)+" pips against you, which is "+f(soPips*10*lots/bal*100,0)+"% of the account.")+"</span>";
+  }
+  [mB,mL,mV].forEach(function(x){x.addEventListener("input",mar)});mM.addEventListener("input",mar);mar();
+
+  /* order ladder */
+  var O={
+    market:["Market",[[150,"var(--fg)","now 1.0850"]],"You buy at the ask or sell at the bid immediately. Fast, but the price is whatever it is."],
+    blimit:["Buy limit",[[210,"var(--bull)","buy limit 1.0820"]],"Buy if price falls to 1.0820. You wait for a better price. Risk: price may never get there and leave without you."],
+    bstop:["Buy stop",[[90,"var(--bull)","buy stop 1.0880"]],"Buy if price rises to 1.0880. You enter on confirmation of strength. You pay more."],
+    slimit:["Sell limit",[[90,"var(--bear)","sell limit 1.0880"]],"Sell if price rises to 1.0880. You wait for a higher price to sell."],
+    sstop:["Sell stop",[[210,"var(--bear)","sell stop 1.0820"]],"Sell if price falls to 1.0820. You enter on confirmation of weakness."],
+    sltp:["SL and TP",[[150,"var(--bull)","long 1.0850"],[200,"var(--liq)","SL 1.0825"],[60,"var(--liq)","TP 1.0895"]],"For a long: the stop is below the entry and the target above it. Here: 25 pips of risk, a 45-pip target. You set both the moment you enter."]
+  };
+  var sv=document.getElementById("ordSvg"),grid=el("g",{},sv),mk=el("g",{},sv),chips=document.getElementById("ordChips"),ot=document.getElementById("ordText");
+  for(var i=0;i<=10;i++){var y=30+i*24,p=1.0900-i*0.0010;el("line",{x1:60,x2:210,y1:y,y2:y,stroke:"var(--line)"},grid);el("text",{x:0,y:y+4,"font-size":10,fill:"var(--muted)"},grid).textContent=p.toFixed(4)}
+  el("line",{x1:60,x2:210,y1:150,y2:150,stroke:"var(--fg)","stroke-width":1.5,"stroke-dasharray":"2 3"},grid);
+  function show(k){mk.innerHTML="";Book.each(".chip",function(c){c.setAttribute("aria-pressed",c.dataset.k===k)},chips);
+    O[k][1].forEach(function(m){el("line",{x1:60,x2:210,y1:m[0],y2:m[0],stroke:m[1],"stroke-width":3},mk);el("text",{x:64,y:m[0]-5,"font-size":10,fill:m[1]},mk).textContent=m[2]});
+    ot.innerHTML="<b>"+O[k][0]+".</b> "+O[k][2]}
+  Object.keys(O).forEach(function(k){var b=document.createElement("button");b.className="chip";b.dataset.k=k;b.textContent=O[k][0];b.addEventListener("click",function(){show(k)});chips.appendChild(b)});
+  show("sltp");
+
+  /* position size */
+  var rB=document.getElementById("rBal"),rP=document.getElementById("rPct"),rS=document.getElementById("rSym"),rSl=document.getElementById("rSl"),rR=document.getElementById("rRate"),rO=document.getElementById("rOut"),lab=document.getElementById("rSlLab");
+  var SLDEF={EURUSD:15,XAUUSD:6,USDJPY:20};
+  function size(){
+    var s=rS.value,risk=+rB.value*(+rP.value)/100,sl=+rSl.value,pv1=pipValue(s,+rR.value);
+    lab.firstChild.textContent=s==="XAUUSD"?"Stop ($ distance)":"Stop (pips)";
+    if(!sl){rO.textContent="Enter a stop.";return}
+    var lots=risk/(sl*pv1),r=Math.floor(lots*100)/100,real=r*sl*pv1;
+    rO.innerHTML="<span>Risk: <b>"+f(risk,2)+" $</b>.</span><span>Calculated: "+f(lots,3)+" lots → rounded down <b>"+f(r,2)+" lots</b>.</span><span>Actual risk at the stop: "+f(real,2)+" $ ("+f(real/(+rB.value)*100,2)+"%).</span><span>3R target = "+f(sl*3,s==="XAUUSD"?2:1)+(s==="XAUUSD"?" $":" pips")+" → profit about "+f(real*3,2)+" $.</span>"+(r<0.01?"<span style=\"color:var(--bear)\">Below the minimum lot of 0.01: the stop is too wide for this account. Tighten the stop (if the analysis allows) or skip the trade.</span>":"")}
+  rS.addEventListener("change",function(){rR.value=DEF[rS.value];rSl.value=SLDEF[rS.value];size()});
+  [rB,rP,rSl,rR].forEach(function(x){x.addEventListener("input",size)});size();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

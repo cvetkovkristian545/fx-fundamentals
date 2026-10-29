@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>What Moves a Currency · FX Fundamentals</title>
+<meta name="description" content="What Moves a Currency · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch20.html">
+<link rel="alternate" hreflang="bg" href="bg/ch20.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="20">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">20</div>
+    <h1>What Moves a Currency</h1>
+    <blockquote class="quote">
+      In economics, things take longer to happen than you think they will, and then they happen faster than you thought they could.
+      <cite>Rudi Dornbusch, economist, author of the exchange rate overshooting model</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>rank a currency's drivers by horizon: days, months, years;</li>
+        <li>explain the rate differential, the carry trade and why carry unwinds suddenly;</li>
+        <li>say why USD, JPY and CHF are safe havens, while AUD, CAD, NZD and NOK are commodity currencies;</li>
+        <li>score a pair with a simple strength table for its two currencies.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>20.1 The exchange rate is a price, and the price has three horizons</h2>
+      <p>An exchange rate is the price of one currency in another. Like any price, it moves with supply and demand. Who wants euros? Exporters who receive dollars and convert them. Investors buying European bonds. Tourists. Speculators. Central banks building reserves. The question is which of them dominates in a given period.</p>
+      <div class="tablewrap" data-name="hrizonti">
+        <table class="data">
+          <thead><tr><th>Horizon</th><th>What moves the rate</th><th>Chapter</th></tr></thead>
+          <tbody>
+            <tr><td><b>Days</b></td><td>Data surprises, news, positioning, risk-on/risk-off, liquidity, interventions</td><td>13, 19, 21</td></tr>
+            <tr><td><b>Months</b></td><td>Rate differentials, central bank divergence, the growth cycle, capital flows</td><td>18, 20</td></tr>
+            <tr><td><b>Years</b></td><td>Inflation differentials (PPP), productivity, terms of trade, debt, institutions</td><td>17, 22, 25</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>An intraday trader lives in the first row, but the wind comes from the second. The third row is the climate. You cannot change it, but it is good to know whether it is summer or winter.</p>
+      </div>
+      <p>An important note from Sowell: <b>a "strong" currency does not mean a "better" economy.</b> A strong currency makes exports dearer and hurts exporters. A weak one helps exports but makes imports and energy dearer. That is why governments sometimes want a weaker currency, and central banks intervene in both directions.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Exchange rate · валутен курс</b>The price of one currency expressed in another.</div>
+      <div class="term"><b>Capital flows · капиталови потоци</b>Money moving between countries for investment.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: intermediate">●●</span>20.2 Rate differential and divergence</h2>
+      <p>The most important medium-term driver is the <b>rate gap</b> between the two currencies in a pair. If US 2-year bonds pay significantly more than German ones, capital has an incentive to be in dollars. When the gap widens in the dollar's favour, EURUSD usually falls. When it narrows, EURUSD usually rises.</p>
+      <p>Traders watch <b>2-year</b> yields because they best reflect expectations for the central bank over the next few years. Even better is to watch the <b>real</b> gap, after inflation.</p>
+      <div class="tablewrap" data-name="diferencial-dvoiki">
+        <table class="data">
+          <thead><tr><th>Pair</th><th>Spread to watch</th><th>If the spread widens in favour of the first currency</th></tr></thead>
+          <tbody>
+            <tr><td>EURUSD</td><td>Germany 2y − US 2y</td><td>EURUSD up</td></tr>
+            <tr><td>USDJPY</td><td>US 10y − Japan 10y</td><td>USDJPY up</td></tr>
+            <tr><td>GBPUSD</td><td>UK 2y − US 2y</td><td>GBPUSD up</td></tr>
+            <tr><td>AUDUSD</td><td>Australia 2y − US 2y</td><td>AUDUSD up (but China and risk too)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Beyond today's rate gap, what matters is <b>who starts the cycle first</b>. If the Fed is already hiking while the ECB is still thinking, the divergence favours the dollar, even if rates are still close. The market trades the <i>path</i>, not the point.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Rate differential · лихвен диференциал</b>The gap in rates or yields between two countries.</div>
+      <div class="term"><b>Policy divergence · разминаване</b>Two central banks going in different directions.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>20.3 The carry trade and how it unwinds</h2>
+      <p><b>Carry trade</b>: you borrow in a low-rate currency (historically the Japanese yen and the Swiss franc) and hold a high-rate currency. You earn the difference every day as long as the exchange rate stays put. The problem: the profit takes the stairs up, and the loss takes the lift down.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Amount (USD)<input type="number" id="c1" value="100000" step="10000"></label>
+            <label>Rate on the long currency (%)<input type="number" id="c2" value="5" step="0.25"></label>
+            <label>Rate on the funding currency (%)<input type="number" id="c3" value="0.5" step="0.25"></label>
+            <label>Days<input type="number" id="c4" value="180" min="1"></label>
+            <label>Exchange rate move (%)<input type="number" id="c5" value="-3" step="0.5"></label>
+          </div>
+          <div class="out" id="cOut" aria-live="polite"></div>
+        </div>
+        <figcaption>No leverage, no broker costs. Try a −3% move, then −8%. How many days of carry does one exchange rate move eat?</figcaption>
+      </figure>
+      <p>In <b>August 2024</b> the world saw the yen carry trade unwind. The Bank of Japan raised rates, US jobs data came out weak, and everyone who had borrowed in yen rushed to close at once. USDJPY fell from about 162 in early July to about 142 on 5 August, and Japan's Nikkei index had its worst day since 1987. Chapter 29 looks at the case in detail.</p>
+      <div class="box warn">
+        <span class="label">Unwind signals</span>
+        <p>A jump in volatility (VIX), the funding currency's central bank turning more hawkish, crowded positioning (COT data), a sharp risk-off. When two of these signals light up together, carry pairs become dangerous.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Carry trade</b>Borrowing at a low rate, investing at a high one.</div>
+      <div class="term"><b>Funding currency · финансираща валута</b>The currency the loan is taken in (JPY, CHF).</div>
+      <div class="term"><b>Unwind · разпадане</b>Mass closing of positions.</div>
+      <div class="term"><b>Swap · суап</b>The interest the broker pays or charges for holding overnight.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: basic">●</span>20.4 Safe havens and commodity currencies</h2>
+      <div class="four">
+        <div><span class="label">USD</span><p>The world's reserve currency, the most liquid market. Under global stress everyone looks for dollars. The exception: when the stress comes from the US itself.</p></div>
+        <div><span class="label">JPY</span><p>Japan is a net creditor. Under stress Japanese investors bring money home and the carry trade unwinds. Both mean buying yen.</p></div>
+        <div><span class="label">CHF</span><p>Political stability, net creditor, a strong bank. The SNB sometimes intervenes against a franc that is too strong.</p></div>
+        <div><span class="label">Gold</span><p>A safe haven with no political risk. It sometimes rises together with the dollar when the fear is about the system, not about one asset.</p></div>
+      </div>
+      <p>On the other side are the <b>commodity currencies</b>, whose strength follows the price of what the country exports:</p>
+      <div class="tablewrap" data-name="stokovi-valuti">
+        <table class="data">
+          <thead><tr><th>Currency</th><th>Main commodities</th><th>What else you watch</th></tr></thead>
+          <tbody>
+            <tr><td><b>AUD</b></td><td>Iron ore, coal, gas, copper</td><td>China, RBA</td></tr>
+            <tr><td><b>CAD</b></td><td>Oil</td><td>Trade with the US, BoC</td></tr>
+            <tr><td><b>NZD</b></td><td>Dairy</td><td>Global Dairy Trade auctions, China, RBNZ</td></tr>
+            <tr><td><b>NOK</b></td><td>Oil and gas</td><td>Brent, Norges Bank</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>In risk-off, commodity currencies usually fall and safe havens rise. Chapter 22 shows what this looks like across all markets at once.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Safe haven · убежище</b>An asset sought in times of fear.</div>
+      <div class="term"><b>Commodity currency · стокова валута</b>The currency of a large raw materials exporter.</div>
+      <div class="term"><b>Net creditor · нетен кредитор</b>A country that has more assets abroad than it owes.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: intermediate">●●</span>20.5 The long-term anchors: PPP and the balance of payments</h2>
+      <p><b>Purchasing power parity (PPP)</b>: in the long run the exchange rate should equalise the price of the same basket in both countries. The best-known illustration is The Economist's "Big Mac index": if the burger costs 5 dollars in the US and 5.50 euros in the euro area, the "fair" rate would be 0.91 dollars per euro. If the actual rate is 1.10, the euro is overvalued by about 21% on this measure.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Price in the US ($)<input type="number" id="p1" value="5" step="0.05"></label>
+            <label>Price in the euro area (€)<input type="number" id="p2" value="5.5" step="0.05"></label>
+            <label>Actual EURUSD<input type="number" id="p3" value="1.10" step="0.01"></label>
+          </div>
+          <div class="out" id="pOut" aria-live="polite"></div>
+        </div>
+        <figcaption>A tongue-in-cheek but instructive model. Do not use it for entries: PPP can be 20% off for years.</figcaption>
+      </figure>
+      <p>The <b>balance of payments</b> records everything that crosses the border: goods, services, income (the current account) and investment (the financial account). A country with a large current account deficit depends on foreign capital to cover it. As long as the capital keeps coming, all is well. When it suddenly stops (a sudden stop), the currency can collapse. That is how the 1997 Asian crisis began (Chapter 27).</p>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>A trade deficit means the country is losing.</p></div>
+        <div><span class="label">Reality</span><p>The US has run a trade deficit for decades and is still the richest country. A current account deficit means foreigners are investing in the country. The problem arises when the capital stops coming, not the deficit itself.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>PPP · паритет на покупателната способност</b>The exchange rate at which a basket costs the same in both countries.</div>
+      <div class="term"><b>Current account · текуща сметка</b>Goods, services, income and transfers with the rest of the world.</div>
+      <div class="term"><b>Sudden stop · внезапно спиране</b>Capital stops flowing into the country.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="main">
+      <h2 id="s6"><span class="dots" title="Level: basic">●</span>20.6 DXY and correlations</h2>
+      <p><b>DXY</b> measures the dollar against a basket of six currencies with fixed weights: <b>EUR 57.6%</b>, JPY 13.6%, GBP 11.9%, CAD 9.1%, SEK 4.2%, CHF 3.6%. That is why DXY is almost a mirror of EURUSD. Many traders start the day with DXY: first they ask what the dollar is doing, then they pick the pair.</p>
+      <div class="tablewrap" data-name="korelacii">
+        <table class="data">
+          <thead><tr><th>Pair 1</th><th>Pair 2</th><th>Typical correlation</th><th>What it means for you</th></tr></thead>
+          <tbody>
+            <tr><td>EURUSD</td><td>GBPUSD</td><td style="color:var(--bull)">Strong positive</td><td>Long both = double short USD</td></tr>
+            <tr><td>EURUSD</td><td>USDCHF</td><td style="color:var(--bear)">Strong negative</td><td>Long EURUSD + long USDCHF almost cancel out</td></tr>
+            <tr><td>AUDUSD</td><td>NZDUSD</td><td style="color:var(--bull)">Strong positive</td><td>Pick one</td></tr>
+            <tr><td>USDCAD</td><td>Oil</td><td style="color:var(--bear)">Negative</td><td>Oil up → USDCAD usually down</td></tr>
+            <tr><td>USDJPY</td><td>US 10y yield</td><td style="color:var(--bull)">Positive</td><td>Yields lead</td></tr>
+            <tr><td>EURUSD</td><td>DXY</td><td style="color:var(--bear)">Very strong negative</td><td>DXY is almost an inverted EURUSD</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Correlations are not permanent. They shift with the regime, and in a crisis they all move towards 1: everything falls together, except safe havens.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>DXY · доларов индекс</b>The dollar against six currencies, dominated by the euro.</div>
+      <div class="term"><b>Correlation · корелация</b>How much pairs move together, from −1 to +1.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s7">
+    <div class="main">
+      <h2 id="s7"><span class="dots" title="Level: intermediate">●●</span>20.7 The strength table: score the pair</h2>
+      <p>Gather the chapter into one tool. For each of the two currencies, score the five drivers: +1 (in favour), 0 (neutral), −1 (against). The table does not tell you to enter. It tells you which way the wind blows and how hard.</p>
+      <div class="calc">
+        <div class="fields">
+          <label>Base currency<select id="sA"><option>EUR</option><option>GBP</option><option>AUD</option><option>USD</option><option>JPY</option><option>CHF</option><option>CAD</option><option>NZD</option></select></label>
+          <label>Quote currency<select id="sB"><option>USD</option><option>EUR</option><option>GBP</option><option>JPY</option><option>CHF</option><option>CAD</option><option>AUD</option><option>NZD</option></select></label>
+        </div>
+        <div class="tablewrap" data-name="tablica-sila">
+          <table class="data" id="sTab">
+            <thead><tr><th>Driver</th><th id="hA">A</th><th id="hB">B</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="verdict" id="sOut" aria-live="polite"></p>
+      </div>
+      <h3>The dollar live</h3>
+      <p>Put DXY and EURUSD side by side on a daily chart. You can see the mirror from 20.6.</p>
+      <div class="tv" data-sym="TVC:DXY,FX:EURUSD" data-int="D"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Currency strength · сила на валутата</b>A relative score of one currency against the others.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-label="Go deeper">
+    <div class="main">
+      <details class="deeper">
+        <summary><span class="dots" aria-hidden="true">●●●</span><span class="dp-t"><small>Go deeper</small><b>Covered interest parity and forward points</b></span><span class="drop-caret" aria-hidden="true">▾</span></summary>
+        <div class="dp-body">
+          <p>Why can't you borrow in yen at 0.5%, buy dollars at 4% and lock in the exchange rate for a risk-free profit? Because the forward rate already removes the gap. <b>Covered interest parity</b>: forward = spot × (1 + quote rate) ÷ (1 + base rate). With EURUSD at 1.1000, the dollar rate at 4% and the euro rate at 2%, the one-year forward is about 1.1216: 216 <b>forward points</b> above spot.</p>
+          <p>That is also where your swap comes from: holding a position overnight is like rolling a one-day forward. The higher-yielding side earns, the lower-yielding side pays, minus the broker's markup.</p>
+          <p>In calm markets the parity holds almost exactly. In 2008 and March 2020 it broke: borrowing dollars through the FX market became far more expensive than the rates implied. That gap, the <b>cross-currency basis</b>, is one of the clearest signs of dollar funding stress (Appendix E).</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 20</h2>
+    <ul>
+      <li>The exchange rate is a price with three horizons: days (news), months (rates), years (inflation and balances).</li>
+      <li>The rate differential and which bank leads the cycle are the main medium-term wind.</li>
+      <li>Carry earns slowly and loses fast; it unwinds when volatility jumps.</li>
+      <li>USD, JPY, CHF and gold are safe havens; AUD, CAD, NZD, NOK follow commodities.</li>
+      <li>PPP and the balance of payments are long-term anchors, not entry signals.</li>
+      <li>DXY is almost an inverted EURUSD; check your total USD exposure.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I filled in the strength table for EURUSD with today's news.</label></li>
+      <li><label><input type="checkbox"> I calculated how many days of carry a 3% move eats.</label></li>
+      <li><label><input type="checkbox"> I know the euro's weight in DXY.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>Tuesday morning. The spread between German and US 2-year bonds has narrowed by 15 bp in the euro's favour over the week. The ECB sounds more hawkish than expected. Oil has jumped 8% on geopolitics. VIX is at 28 and rising. You have been long EURUSD since yesterday and are thinking of adding a long AUDUSD.</p>
+      <p><b>Task:</b> which drivers favour EURUSD and which are against it? What does the risk environment say for AUDUSD? What is your total exposure if you add? What would the strength table look like?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="For EURUSD… Against… Risk… Exposure… Decision…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>In favour of EURUSD: the spread is narrowing towards the euro, the ECB is more hawkish. Against: risk-off (VIX 28 and rising) usually helps the dollar; oil hits Europe as an energy importer.</li>
+          <li>AUDUSD: risk-off is a bad environment for a commodity currency, even if raw material prices are rising. Oil is not Australia's main commodity.</li>
+          <li>If you add, you hold two short-USD bets in an environment where the dollar is a safe haven. The risk is doubled, and correlation strengthens under stress.</li>
+          <li>Table: EUR about +1 (rates +1, CB +1, energy −1), USD about +1 (risk +1). The wind is mixed, verdict YELLOW. Sensible: do not add AUDUSD; manage EURUSD by the rules of Chapter 12.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What is the main medium-term driver of a pair?",o:["Today's news","The rate differential","The price of burgers"],a:1,e:"The rate gap and the central banks' path."},
+  {q:"Which currency is a classic funding currency for the carry trade?",o:["AUD","JPY","NZD"],a:1,e:"Near-zero rates for a long time."},
+  {q:"Which currency follows the oil price most closely?",o:["CAD","JPY","CHF"],a:0,e:"Canada is a large oil exporter."},
+  {q:"What is EUR's weight in DXY?",o:["About 25%","About 58%","About 90%"],a:1,e:"57.6%."},
+  {q:"In risk-off, commodity currencies usually…",o:["Rise","Fall","Are unaffected"],a:1,e:"Safe havens rise, risk currencies fall."}
+],mid:[
+  {q:"Carry of 4.5% a year. The rate falls 9% in a month. How long does carry need to \"buy back\" the loss?",o:["About 2 months","About 2 years","About 2 weeks"],a:1,e:"9% ÷ 4.5% a year = 2 years."},
+  {q:"Long EURUSD and long GBPUSD. What is your real position?",o:["Neutral","Double short USD","Long EURGBP"],a:1,e:"Both win if the dollar weakens."},
+  {q:"Stress in US banks. Which safe haven is more likely to work?",o:["USD","JPY or CHF and gold","AUD"],a:1,e:"When the stress comes from the US, the dollar is less of a safe haven."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  /* carry */
+  var c=["c1","c2","c3","c4","c5"].map(function(i){return document.getElementById(i)}),co=document.getElementById("cOut");
+  function cr(){var n=+c[0].value,i1=+c[1].value/100,i2=+c[2].value/100,d=Math.max(1,+c[3].value|0),fx=+c[4].value/100;
+    var carry=n*(i1-i2)*d/365,spot=n*fx,tot=carry+spot,daily=n*(i1-i2)/365,days=daily>0?Math.abs(spot)/daily:Infinity;
+    co.innerHTML="<span>Carry: <b style='color:var(--bull)'>+"+carry.toFixed(0)+" $</b> ("+daily.toFixed(1)+" $ per day).</span><span>Exchange rate: <b style='color:"+(spot<0?"var(--bear)":"var(--bull)")+"'>"+(spot>=0?"+":"")+spot.toFixed(0)+" $</b>.</span><span>Total: <b>"+(tot>=0?"+":"")+tot.toFixed(0)+" $</b>.</span>"+(spot<0&&isFinite(days)?"<span>The move eats <b>"+days.toFixed(0)+" days</b> of carry.</span>":"")}
+  c.forEach(function(x){x.addEventListener("input",cr)});cr();
+  /* PPP */
+  var p=["p1","p2","p3"].map(function(i){return document.getElementById(i)}),po=document.getElementById("pOut");
+  function pp(){var us=+p[0].value,eu=+p[1].value,act=+p[2].value;if(!us||!eu||!act){po.textContent="";return}
+    var fair=us/eu,mis=(act/fair-1)*100;
+    po.innerHTML="<span>PPP rate: <b>"+fair.toFixed(3)+"</b> $ per €.</span><span>The euro is <b style='color:"+(mis>0?"var(--bear)":"var(--bull)")+"'>"+(mis>0?"overvalued":"undervalued")+" by "+Math.abs(mis).toFixed(1)+"%</b> on this measure.</span>"}
+  p.forEach(function(x){x.addEventListener("input",pp)});pp();
+  /* strength table */
+  var D=["Central bank tone","Inflation versus target","Growth and data","Risk environment in favour","Commodities and trade"];
+  var tb=document.querySelector("#sTab tbody"),sA=document.getElementById("sA"),sB=document.getElementById("sB"),so=document.getElementById("sOut");
+  function sel(){var s=document.createElement("select");[["+1","1"],["0","0"],["−1","-1"]].forEach(function(o){var op=document.createElement("option");op.textContent=o[0];op.value=o[1];if(o[1]==="0")op.selected=true;s.appendChild(op)});s.addEventListener("change",sc);return s}
+  D.forEach(function(d){var tr=document.createElement("tr"),t=document.createElement("td");t.textContent=d;tr.appendChild(t);
+    for(var k=0;k<2;k++){var td=document.createElement("td");td.appendChild(sel());tr.appendChild(td)}tb.appendChild(tr)});
+  function sc(){var a=0,b=0;Book.each("#sTab tbody tr",function(tr){var s=tr.querySelectorAll("select");a+=+s[0].value;b+=+s[1].value});
+    document.getElementById("hA").textContent=sA.value;document.getElementById("hB").textContent=sB.value;
+    if(sA.value===sB.value){so.innerHTML="Pick two different currencies.";return}
+    var n=a-b,pair=sA.value+sB.value,c=n>=3?"var(--bull)":n<=-3?"var(--bear)":"var(--news)";
+    var v=n>=3?"The wind favours <b>"+pair+" up</b>. Look for long setups using the framework from Chapter 10.":n<=-3?"The wind favours <b>"+pair+" down</b>. Look for short setups using the framework from Chapter 10.":"Mixed. The verdict is YELLOW: smaller size or skip.";
+    so.innerHTML="<span style='color:"+c+"'>"+sA.value+" "+(a>=0?"+":"")+a+" vs "+sB.value+" "+(b>=0?"+":"")+b+" · net "+(n>=0?"+":"")+n+".</span> "+v}
+  [sA,sB].forEach(function(x){x.addEventListener("change",sc)});sc();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

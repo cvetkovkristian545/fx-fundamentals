@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Journal and Measurement · FX Fundamentals</title>
+<meta name="description" content="Journal and Measurement · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch33.html">
+<link rel="alternate" hreflang="bg" href="bg/ch33.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="33">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">36</div>
+    <h1>Journal and Measurement</h1>
+    <blockquote class="quote">
+      What gets measured gets improved.
+      <cite>Attributed to Peter Drucker</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>keep a journal that also records missed setups;</li>
+        <li>score the setup and the execution separately, without mixing them;</li>
+        <li>tag your mistakes so you can count them;</li>
+        <li>calculate your statistics and know when the sample is too small for conclusions.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>36.1 What gets recorded</h2>
+      <p>The journal is not a diary of feelings and not a list of profits. It is a <b>database</b> from which, months from now, you will find out what works. That is why every entry has the same fields. They are filled in right after closing, not at the end of the week: memory is the worst archive.</p>
+      <div class="tablewrap" data-name="dnevnik-poleta">
+        <table class="data">
+          <thead><tr><th>Field</th><th>Example</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Date, session, pair, direction</td><td>14.10, London, EURUSD, short</td><td>Which sessions and pairs are yours</td></tr>
+            <tr><td>Status</td><td>win / loss / breakeven / not taken</td><td>The missed ones are half the lessons</td></tr>
+            <tr><td>Timeframe for bias and for entry</td><td>H4 / M5</td><td>Whether you are mixing horizons</td></tr>
+            <tr><td>Entry, stop, target</td><td>1.1200 / 1.1206 / 1.1182</td><td>Without them R is just talk</td></tr>
+            <tr><td>Planned R and actual R</td><td>3.0 / 2.4</td><td>The difference shows your management</td></tr>
+            <tr><td>Risk in %</td><td>1%</td><td>Whether the rule was followed</td></tr>
+            <tr><td>Entry delay (pips)</td><td>1.5</td><td>Measures hesitation (Chapter 35)</td></tr>
+            <tr><td>MAE / MFE</td><td>−4 / +21 pips</td><td>How close the stop came, how far the target got</td></tr>
+            <tr><td>Setup score (/10)</td><td>8</td><td>How good the opportunity was</td></tr>
+            <tr><td>Execution score (/10)</td><td>5</td><td>How well you executed the plan</td></tr>
+            <tr><td>Conviction (1–5)</td><td>4</td><td>Later you check whether conviction predicts anything</td></tr>
+            <tr><td>Macro alignment</td><td>supports / neutral / against</td><td>Whether the bias file helps</td></tr>
+            <tr><td>Thesis in one sentence</td><td>"Short after liquidity taken above Asia, bias down"</td><td>If you can't write it, there was no setup</td></tr>
+            <tr><td>Tags</td><td>early-entry, news-near</td><td>To count mistakes (36.3)</td></tr>
+            <tr><td>Screenshot before and after</td><td>two pictures</td><td>The eye learns from pictures</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>MAE · Maximum adverse excursion</b>The largest move against you while the position is open.</div>
+      <div class="term"><b>MFE · Maximum favourable excursion</b>The largest move in your favour.</div>
+      <div class="term"><b>Not-taken · пропусната</b>A setup that meets the rules but was not traded.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: intermediate">●●</span>36.2 Two scores, never mixed</h2>
+      <p>In Chapter 10 you scored the <b>analysis</b> out of 25 before the session. The journal has two more scores, each out of 10: how good the <b>setup</b> was and how well you <b>executed</b>. They are never added into one number. If you mix them, a good trade with poor execution and a poor trade with good execution look the same, while their lessons are opposite. Click in the quadrants.</p>
+      <figure class="diagram">
+        <svg id="qSvg" viewBox="0 0 520 300" role="img" aria-label="Setup versus execution"></svg>
+        <p class="verdict" id="qText" aria-live="polite"></p>
+        <figcaption>The trade's result (win or loss) is on neither axis. On purpose.</figcaption>
+      </figure>
+      <div class="box ff">
+        <span class="label">How to score execution</span>
+        <p>Start from 10 and subtract: −2 for an entry outside the plan (early or late), −2 for a stop moved on emotion, −2 for a size outside the rule, −2 for an exit outside the plan, −2 for a trade near news without a plan for it. If you followed everything, execution is 10, even if the trade lost.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Setup score · оценка на сетъпа</b>The quality of the opportunity, regardless of the result.</div>
+      <div class="term"><b>Execution score · оценка на изпълнението</b>How precisely the plan was followed.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>36.3 Tags: counting mistakes</h2>
+      <p>Free text is nice to read, but it can't be counted. Tags can. After 30 trades you can say "early entries cost me 4R this month" instead of "sometimes I go in early".</p>
+      <div class="tablewrap" data-name="etiketi">
+        <table class="data">
+          <thead><tr><th>Mistake tag</th><th>Meaning</th><th>Alignment tag</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td>early-entry</td><td>Entry before confirmation</td><td>htf-aligned</td><td>The H4/D1 structure points the same way</td></tr>
+            <tr><td>hesitation</td><td>A late entry or a missed setup</td><td>liquidity-taken</td><td>The entry comes after liquidity is taken</td></tr>
+            <tr><td>stop-moved</td><td>The stop was touched on emotion</td><td>kill-zone</td><td>The entry is in an active window</td></tr>
+            <tr><td>below-3R</td><td>Planned R below the rule</td><td>macro-supports</td><td>The bias file points the same way</td></tr>
+            <tr><td>horizon-drift</td><td>A scalp that became a trade lasting days</td><td>clean-zone</td><td>The zone has not been tested before</td></tr>
+            <tr><td>correlation</td><td>Two positions, one bet</td><td>news-clear</td><td>No big news in the window</td></tr>
+            <tr><td>data-missing</td><td>Fields left empty</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>The "data-missing" tag sounds bureaucratic, but it is the most useful one. A trade with no entry, stop and target cannot be scored, and a score built on missing data is fiction with percentages.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Tag · етикет</b>A short word that lets you count identical cases.</div>
+      <div class="term"><b>Horizon drift · изместване на хоризонта</b>A position opened as short-term that is held much longer than planned.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>36.4 Statistics and the threshold of 20</h2>
+      <p>Enter your results in R, separated by commas. For example: 3, −1, −1, 2.5, −1, 3.2, 0.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label style="grid-column:1/-1">Results in R<input type="text" id="jR" value="3, -1, -1, 2.5, -1, 3.2, 0, -1, -1, 3, -1, 2, -1, -1, 3.1"></label>
+          </div>
+          <div class="out" id="jOut" aria-live="polite"></div>
+        </div>
+        <figcaption>0 counts as a breakeven trade. Missed setups don't go here; they have their own statistics.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="praguve">
+        <table class="data">
+          <thead><tr><th>Entries</th><th>What you can say</th></tr></thead>
+          <tbody>
+            <tr><td>10</td><td>Whether you fill in the fields. Nothing about the strategy.</td></tr>
+            <tr><td>20</td><td>A first rough look. All conclusions are provisional.</td></tr>
+            <tr><td>30</td><td>The minimum for deciding on the next step (Chapter 34).</td></tr>
+            <tr><td>50</td><td>You can compare sessions, pairs, tags. Still with caution.</td></tr>
+            <tr><td>100+</td><td>The statistics start to mean something stable.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>"At conviction 5 out of 5 I win 93% of trades, so I should risk more on the fives."</p></div>
+        <div><span class="label">Reality</span><p>If that number rests on 15 trades (14 wins), it is <i>provisional</i>, not a rule. Two new losses bring it down to 82%. The conclusion is drawn after 20, and size is changed after many more.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Win rate · процент печеливши</b>How many of the trades are winners.</div>
+      <div class="term"><b>Expectancy · очакване</b>The average result per trade in R.</div>
+      <div class="term"><b>Losing streak · губеща серия</b>Consecutive losses. It decides how much limit you need.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: intermediate">●●</span>36.5 Sample entries</h2>
+      <p>Three anonymous entries built from real journals. Names and numbers are cleaned up; the lessons are original.</p>
+      <div class="tabs" data-group="ex">
+        <button class="chip" data-tab="a">The cluster</button>
+        <button class="chip" data-tab="b">The contradictory row</button>
+        <button class="chip" data-tab="c">The good loss</button>
+      </div>
+      <div class="pane" data-group="ex" data-pane="a"><div class="case"><dl>
+        <dt>Trade</dt><dd>EURGBP short and four more trades in cross pairs over 48 hours around two important news events.</dd>
+        <dt>Result</dt><dd>Mostly winners, between 1.5R and 2.2R.</dd>
+        <dt>Tags</dt><dd>below-3R, correlation, horizon-drift, data-missing</dd>
+        <dt>What the journal says</dt><dd>The profits hide a problem: five trades in two days is overtrading, some of them are the same bet against one currency, and the targets are below the 3R rule.</dd>
+        <dt>Lesson</dt><dd>A winning week with violations is more dangerous than a losing one without, because it teaches the wrong lesson.</dd>
+      </dl></div></div>
+      <div class="pane" data-group="ex" data-pane="b"><div class="case"><dl>
+        <dt>Trade</dt><dd>AUDCAD long, held for a day.</dd>
+        <dt>Result</dt><dd>Marked as a loss, but with P/L 0 and an actual R of 1.6. No entry, stop, target or thesis.</dd>
+        <dt>Tags</dt><dd>data-missing, horizon-drift, below-3R</dd>
+        <dt>What the journal says</dt><dd>The entry contradicts itself. You can't tell whether it is a loss or a breakeven. Neither the setup nor the execution can be scored.</dd>
+        <dt>Lesson</dt><dd>No data, no score. Fill in the fields right after closing, otherwise the trade is lost twice.</dd>
+      </dl></div></div>
+      <div class="pane" data-group="ex" data-pane="c"><div class="case"><dl>
+        <dt>Trade</dt><dd>EURUSD short in London on a bearish bias, after liquidity was taken above the Asian high.</dd>
+        <dt>Result</dt><dd>−1R. Price hit the stop and then reached the target.</dd>
+        <dt>Scores</dt><dd>Setup 8/10, execution 10/10.</dd>
+        <dt>Tags</dt><dd>htf-aligned, liquidity-taken, kill-zone, macro-supports</dd>
+        <dt>What the journal says</dt><dd>Everything was done right. The MAE shows the stop was just below the zone where many people put their stops.</dd>
+        <dt>Lesson</dt><dd>This is a business cost, not a mistake. The only question to check after 30 trades: are my stops systematically in the obvious place?</dd>
+      </dl></div></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Overtrading · свръхтърговия</b>More trades than the setups justify.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="main">
+      <h2 id="s6"><span class="dots" title="Level: intermediate">●●</span>36.6 Spot the mistake</h2>
+      <p>Five real-looking journal entries. Find the main mistake in each before you read the explanation.</p>
+      <div class="drills" data-dr="ch33"></div>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 36</h2>
+    <ul>
+      <li>The journal is a database: the same fields, filled in immediately.</li>
+      <li>Missed setups get recorded.</li>
+      <li>Analysis /25, setup /10, execution /10: never mixed.</li>
+      <li>Tags turn mistakes into numbers.</li>
+      <li>Under 20 entries, no conclusions; decisions after 30; stability after 100.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I have a journal template with the fields from 36.1.</label></li>
+      <li><label><input type="checkbox"> I scored my last trades separately for setup and execution.</label></li>
+      <li><label><input type="checkbox"> I know which mistake tag I use most.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>A journal with 23 trades: 13 wins, 10 losses, average win 2.1R. The "early-entry" tag is on 7 trades, 6 of them losses. The "below-3R" tag is on 9 trades. At conviction 5/5 there are 6 trades, all winners. The trader wants to raise the risk on the fives to 2%.</p>
+      <p><b>Task:</b> what is the expectancy? What is the biggest fix in the journal? What do you say about the 2% risk idea? What will you check at 50 entries?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Expectancy… The biggest fix… 2%… At 50…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>13 × 2.1 = 27.3R of wins, 10 × 1 = 10R of losses. Net 17.3R over 23 trades, about +0.75R per trade. Good, but provisional.</li>
+          <li>Early entries: 6 losses out of 7. Had those trades not been taken, the net result would be about +5R better. That is an execution problem, cured with an "if–then" rule, not with a new strategy. The second theme: 9 trades below 3R, meaning targets are being cut.</li>
+          <li>6 trades are far below the threshold of 20. Six out of six can be chance. Risk stays at 1%. Increasing size is discussed if, after 20+ trades at conviction 5, the difference holds.</li>
+          <li>At 50: whether expectancy improves without the early entries, whether the fives still stand out, which session and pair hold the edge, and how long the longest losing streak is relative to the prop account limit. The conclusions remain theirs, but the numbers will be more serious.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"When is the journal filled in?",o:["Right after closing","On Sunday","When there is time"],a:0,e:"Memory is a poor archive."},
+  {q:"Are missed setups recorded?",o:["No","Yes","Only the winning ones"],a:1,e:"Half the lessons are there."},
+  {q:"A trade by the rules, at a loss. The execution is…",o:["0/10","Can be 10/10","Not scored"],a:1,e:"The result is not the execution."},
+  {q:"Why use tags?",o:["For looks","To count mistakes","For the broker"],a:1,e:"Free text can't be counted."},
+  {q:"At how many entries do the first provisional conclusions begin?",o:["5","20","1000"],a:1,e:"Under 20 means almost nothing."}
+],mid:[
+  {q:"Results: 3, −1, −1, 3, −1. Expectancy?",o:["+0.6R","+1R","−0.2R"],a:0,e:"(6 − 3) ÷ 5 = 0.6R."},
+  {q:"MAE 1 pip from the stop on almost all losses. What does it suggest?",o:["The stop is in the obvious place","Everything is fine","The stop is too far"],a:0,e:"Price takes the liquidity exactly there."},
+  {q:"Why not add setup and execution into one score?",o:["The number gets too big","Different lessons get mixed","The broker doesn't allow it"],a:1,e:"Bad setup with good execution ≠ good setup with bad execution."}
+]};
+</script>
+<script>window.REPLAYS=window.REPLAYS||{};window.DRILLS={"ch33": [{"q": "<i>Journal:</i> EURUSD short, 1% risk, stop 12 pips above the sweep. \"Price came within 3 pips of my stop, so I moved it 10 pips higher. Closed at −1.8R.\" What is the main mistake?", "o": [{"t": "The pair"}, {"t": "Moving the stop away, which increased the risk"}, {"t": "Entering too early"}], "a": 1, "e": "Widening a stop is the first \"never\" of Chapter 12. The planned 1R became 1.8R."}, {"q": "<i>Journal:</i> GBPUSD long at 15:28. \"The setup was perfect. CPI at 15:30 spiked against me, filled at −2.6R.\" What is the main mistake?", "o": [{"t": "Ignoring the news buffer"}, {"t": "A stop that was too wide"}, {"t": "The wrong session"}], "a": 0, "e": "The setup may have been good. The timing broke the Chapter 13 protocol, and the gap did the rest."}, {"q": "<i>Journal:</i> three longs at once, EURUSD, GBPUSD and AUDUSD, 1% each. \"The dollar rallied on NFP, I lost 3%.\" What is the main mistake?", "o": [{"t": "Bad entries"}, {"t": "Three correlated positions: one 3% bet on the dollar"}, {"t": "Too few pairs"}], "a": 1, "e": "Correlated positions add up. Count them as one trade (Chapter 23)."}, {"q": "<i>Journal:</i> two losses in the morning. \"I took a third trade with 2% to get back to zero. Not in my plan, but the chart looked good.\" What is the main mistake?", "o": [{"t": "Revenge sizing outside the plan"}, {"t": "The chart"}, {"t": "Too few trades"}], "a": 0, "e": "Doubling the risk to recover is tilt (Chapter 35). The rule is the same 1% after a loss."}, {"q": "<i>Journal:</i> a long that reached +3R an hour later. \"Closed at +1R because I was nervous.\" Setup 9/10, execution 4/10. What is the main problem?", "o": [{"t": "The setup"}, {"t": "Execution: leaving the plan out of fear"}, {"t": "Nothing, a profit is a profit"}], "a": 1, "e": "Cutting winners early destroys the 3R maths that makes a 40% win rate profitable."}]};</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* quadrant */
+  var sv=document.getElementById("qSvg"),qt=document.getElementById("qText");
+  var Q=[["Good setup, good execution",270,20,"var(--bull)","This is the goal. Whatever the result, repeat it."],
+         ["Good setup, bad execution",270,155,"var(--news)","The most expensive quadrant: the opportunity was there, the execution spoiled it. Cured with if–then rules."],
+         ["Bad setup, good execution",20,20,"var(--liq)","You followed the process, but the setup wasn't good. Review the selection criteria, not the discipline."],
+         ["Bad setup, bad execution",20,155,"var(--bear)","A trade that should not have happened. Usually FOMO or boredom."]];
+  function pick(i){var q=Q[i];qt.innerHTML="<b style='color:"+q[3]+"'>"+q[0]+"</b>: "+q[4];Book.each("#qSvg rect.q",function(r,k){r.setAttribute("stroke-width",k===i?4:1.5)})}
+  Q.forEach(function(q,i){var g=el("g",{style:"cursor:pointer",tabindex:0,role:"button","aria-label":q[0]},sv);
+    el("rect",{class:"q",x:q[1]+10,y:q[2],width:230,height:125,fill:"var(--paper)",stroke:q[3],"stroke-width":1.5},g);
+    var w=q[0].split(", ");el("text",{x:q[1]+125,y:q[2]+58,"font-size":13,"text-anchor":"middle",fill:"var(--fg)"},g).textContent=w[0]+",";
+    el("text",{x:q[1]+125,y:q[2]+78,"font-size":13,"text-anchor":"middle",fill:"var(--fg)"},g).textContent=w[1];
+    g.addEventListener("click",function(){pick(i)});g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(i)}})});
+  el("text",{x:270,y:296,"font-size":11,"text-anchor":"middle",fill:"var(--muted)"},sv).textContent="setup →";
+  el("text",{x:14,y:150,"font-size":11,"text-anchor":"middle",fill:"var(--muted)",transform:"rotate(-90 14 150)"},sv).textContent="execution →";
+  pick(1);
+  /* stats */
+  var inp=document.getElementById("jR"),out=document.getElementById("jOut");
+  function st(){var R=inp.value.split(/[,;\s]+/).map(function(s){return parseFloat(s.replace("−","-"))}).filter(function(v){return !isNaN(v)});
+    if(!R.length){out.innerHTML="<span>No numbers.</span>";return}
+    var n=R.length,w=R.filter(function(v){return v>0}),l=R.filter(function(v){return v<0}),sum=R.reduce(function(a,b){return a+b},0),eq=0,pk=0,dd=0,run=0,mrun=0;
+    R.forEach(function(v){eq+=v;pk=Math.max(pk,eq);dd=Math.max(dd,pk-eq);if(v<0){run++;mrun=Math.max(mrun,run)}else run=0});
+    var avgW=w.length?w.reduce(function(a,b){return a+b},0)/w.length:0;
+    out.innerHTML="<span>Trades: <b>"+n+"</b>"+(n<20?" <b style='color:var(--news)'>(under 20: conclusions are provisional)</b>":"")+".</span><span>Winners: <b>"+(w.length/n*100).toFixed(0)+"%</b>, average win <b>"+avgW.toFixed(2)+"R</b>.</span><span>Expectancy: <b style='color:"+(sum>0?"var(--bull)":"var(--bear)")+"'>"+(sum/n>=0?"+":"")+(sum/n).toFixed(2)+"R</b> per trade, total "+(sum>=0?"+":"")+sum.toFixed(1)+"R.</span><span>Longest losing streak: <b>"+mrun+"</b>. Largest drawdown: <b>"+dd.toFixed(1)+"R</b> (at 1% risk ≈ "+dd.toFixed(1)+"% of the account).</span>"}
+  inp.addEventListener("input",st);st();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

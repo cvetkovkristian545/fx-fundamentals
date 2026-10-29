@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Crypto Basics · FX Fundamentals</title>
+<meta name="description" content="Crypto Basics · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch37.html">
+<link rel="alternate" hreflang="bg" href="bg/ch37.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="37">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">40</div>
+    <h1>Crypto Basics</h1>
+    <blockquote class="quote">
+      Not your keys, not your coins.
+      <cite>A saying in the crypto community</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>explain what bitcoin, altcoins and stablecoins are;</li>
+        <li>keep crypto safe: wallets, the seed phrase, exchanges;</li>
+        <li>understand what MiCA and DAC8 change in the EU;</li>
+        <li>read the crypto market with the macro signals from Part III and with liquidation maps.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>40.1 Bitcoin, altcoins, stablecoins</h2>
+      <div class="tablewrap" data-name="kripto-vidove">
+        <table class="data">
+          <thead><tr><th>Type</th><th>Example</th><th>What it is</th><th>The main risk</th></tr></thead>
+          <tbody>
+            <tr><td>Bitcoin</td><td>BTC</td><td>The first cryptocurrency (2009). A maximum of 21 million coins. The reward for a new block halves roughly every 4 years (the halving).</td><td>Volatility: drops of 50–80% in bear markets</td></tr>
+            <tr><td>Smart-contract platforms</td><td>ETH, SOL</td><td>Blockchains that run applications: swaps, loans, tokens</td><td>Competition, technical bugs, more volatility than BTC</td></tr>
+            <tr><td>Altcoins</td><td>Thousands</td><td>Everything except BTC. Few survive several cycles.</td><td>Many projects disappear; liquidity dries up fast</td></tr>
+            <tr><td>Stablecoins</td><td>USDT, USDC, EURC</td><td>Tokens pegged to a currency (usually 1:1 to the dollar), backed by reserves</td><td>The quality of the reserves, regulation, losing the peg</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Chapter 24 showed an interesting idea: stablecoins backed by US bonds may become a new channel of demand for dollars and government debt. Whether this is the "petrodollar of the internet" or an exaggeration, stablecoins are already the bridge between crypto and the traditional financial system.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Blockchain · блокчейн</b>A shared, public ledger of transactions that no single participant can change alone.</div>
+      <div class="term"><b>Halving · халвинг</b>The halving of the reward for a new block in bitcoin.</div>
+      <div class="term"><b>Altcoin · алткойн</b>Any cryptocurrency other than bitcoin.</div>
+      <div class="term"><b>Stablecoin · стейбълкойн</b>A token with a stable price, pegged to a currency.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>40.2 Security: wallets and the seed phrase</h2>
+      <p>In crypto there is no bank to call if you make a mistake. That is why security is your responsibility from day one.</p>
+      <div class="tablewrap" data-name="portfeyli">
+        <table class="data">
+          <thead><tr><th>Where you hold it</th><th>Who holds the keys</th><th>Plus</th><th>Minus</th></tr></thead>
+          <tbody>
+            <tr><td>Centralised exchange (CEX)</td><td>The exchange</td><td>Easy buying and selling in euros</td><td>If the exchange goes bust or is hacked, your money may disappear (FTX, 2022)</td></tr>
+            <tr><td>Software wallet</td><td>You</td><td>Full control, free</td><td>The phone or computer can be infected</td></tr>
+            <tr><td>Hardware wallet</td><td>You, offline</td><td>The safest option for larger sums</td><td>Costs money; needs care during setup</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ol class="steps">
+        <li><b>The seed phrase</b> (12 or 24 words) is the wallet itself. Whoever has it has the money.</li>
+        <li>Write it on paper or metal. Never a photo, never in the cloud, never in an email or chat.</li>
+        <li><b>No legitimate person will ever ask you for your seed phrase.</b> Not "support", not "the admin".</li>
+        <li>Test with a small amount before moving a large one. Check the address character by character.</li>
+        <li>Two-factor protection with an app, not SMS, on every exchange.</li>
+      </ol>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>"A big exchange is like a bank, my money is guaranteed there."</p></div>
+        <div><span class="label">Reality</span><p>Crypto on an exchange is not a bank deposit and is not covered by the 100,000 euro guarantee. MiCA improves the rules for safeguarding client assets, but does not turn them into a deposit.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Seed phrase · seed фраза</b>12 or 24 words from which the wallet is restored.</div>
+      <div class="term"><b>CEX / DEX</b>A centralised exchange (a company) versus a decentralised one (a smart contract, no intermediary).</div>
+      <div class="term"><b>Self-custody · самопопечителство</b>You hold the keys, not a third party.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>40.3 DeFi, CEX and DEX</h2>
+      <p>DeFi (decentralised finance) are blockchain applications that do what banks and exchanges do, but with no company in the middle: swaps, loans, yield. The plus is freedom. The minus is that a bug in the code, a scam project or a wrongly pressed button has nobody to fix it.</p>
+      <div class="four">
+        <div><span class="label">CEX</span><p>A company, registration with documents, support, euros by bank transfer. Risk from the company itself.</p></div>
+        <div><span class="label">DEX</span><p>A smart contract, you connect your wallet, no registration. Risk from the code and from scam tokens.</p></div>
+        <div><span class="label">Yield</span><p>If something promises 20% a year in stablecoins, ask where it comes from. If you can't answer, the yield is you.</p></div>
+        <div><span class="label">Beginner</span><p>A regulated CEX for buying, a hardware wallet for holding, DeFi later and with small sums.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Smart contract · смарт договор</b>A program on the blockchain that executes itself when conditions are met.</div>
+      <div class="term"><b>Rug pull</b>A scam in which a project's creators withdraw the money and vanish.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>40.4 Regulation in the EU: MiCA and DAC8</h2>
+      <div class="tablewrap" data-name="mica-dac8">
+        <table class="data">
+          <thead><tr><th>Rule</th><th>Since when</th><th>What it means for you</th></tr></thead>
+          <tbody>
+            <tr><td>MiCA</td><td>Fully applicable from 30 December 2024, with a transition period for providers until mid-2026</td><td>Crypto exchanges in the EU must be licensed, keep assets segregated and follow rules for stablecoins.</td></tr>
+            <tr><td>DAC8</td><td>From 1 January 2026</td><td>Exchanges collect data on the trades of EU clients and report it to the tax authorities. The data for 2026 is exchanged between countries by 30 September 2027.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The practical takeaway: choose an exchange licensed under MiCA and keep your own records. Taxes are in Chapter 41.</p>
+      <div class="box ff">
+        <span class="label">Beyond the EU</span>
+        <p>It is worth following the US crypto market structure law (the Clarity Act) too. In September 2026 it failed a procedural vote in the Senate, and the market reacted weakly because the failure was expected. The lesson is familiar from Chapter 29: an expected event rarely moves price much.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>MiCA</b>Markets in Crypto-Assets: the EU regulation on crypto-assets.</div>
+      <div class="term"><b>CASP</b>Crypto-asset service provider: the licensed exchange or wallet.</div>
+      <div class="term"><b>DAC8</b>The EU directive on exchanging tax information about crypto-assets.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: advanced">●●●</span>40.5 Crypto through macro glasses</h2>
+      <p>Bitcoin is often advertised as "digital gold", but most of the time it behaves like a risk asset, highly sensitive to liquidity. That is why everything from Part III applies.</p>
+      <div class="tablewrap" data-name="kripto-makro">
+        <table class="data">
+          <thead><tr><th>Signal</th><th>Usually for crypto</th><th>Where you see it</th></tr></thead>
+          <tbody>
+            <tr><td>Real yields up</td><td>Downward pressure</td><td>US 10y, TIPS (ch. 22)</td></tr>
+            <tr><td>Strong dollar (DXY up)</td><td>Downward pressure</td><td>DXY (ch. 20)</td></tr>
+            <tr><td>More liquidity (QE, lower rates)</td><td>Support</td><td>Central bank balance sheets</td></tr>
+            <tr><td>Inflows into bitcoin ETFs</td><td>Support</td><td>Daily inflow data</td></tr>
+            <tr><td>Fear and greed index</td><td>Extremes are contrarian signals</td><td>CoinMarketCap</td></tr>
+            <tr><td>BTC dominance</td><td>Above 60%: money stays in BTC. A drop toward 50–55%: rotation into altcoins.</td><td>TradingView: BTC.D</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>What is specific to crypto is <b>leverage</b>. Crypto exchanges trade perpetual futures with high leverage. When many leveraged positions are stacked at one level, a move to it triggers forced closures (liquidations), which push price further. The liquidation map in CoinGlass shows where these clusters are. It is the same logic as liquidity and stops from Chapter 7, only more visible.</p>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>On the morning of 21 October 2026 bitcoin is around 82,600 dollars, and below ether (ETH) there are about 1 billion dollars of long positions that would be liquidated below 2,333. The numbers will be stale when you read this. The idea is not: a liquidation cluster is a magnet and fuel at the same time.</p>
+      </div>
+      <p>Crypto YouTube channels also follow longer signals: the <b>50-week moving average</b> as the border between a bullish and a bearish regime (a weekly close above it after a long stay below often confirms the bottom is in) and the idea that a real "altseason" comes after a new bitcoin high and a drop in its dominance. Both are useful as context, not as an entry signal.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Perpetual futures · перпетюъл фючърси</b>Futures with no expiry, the main leverage instrument in crypto.</div>
+      <div class="term"><b>Liquidation · ликвидация</b>The forced closure of a leveraged position when the margin runs out.</div>
+      <div class="term"><b>Funding rate</b>A periodic payment between longs and shorts in futures. A high positive funding means crowded longs.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 40</h2>
+    <ul>
+      <li>BTC: 21 million, a halving about every 4 years. Altcoins are riskier. Stablecoins are the bridge to the dollar.</li>
+      <li>The seed phrase is the wallet. Never a photo, never to anyone.</li>
+      <li>Crypto on an exchange is not a bank deposit.</li>
+      <li>MiCA licenses exchanges; DAC8 reports your data to the tax authorities from 2026.</li>
+      <li>Real yields, the dollar, liquidity and ETF flows move crypto. Liquidation maps show the fuel.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I know where my seed phrase would be kept and where never.</label></li>
+      <li><label><input type="checkbox"> I checked whether a crypto exchange is licensed under MiCA.</label></li>
+      <li><label><input type="checkbox"> I opened a liquidation map and found the biggest cluster for BTC.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>The US 10y yield is rising for a third day, DXY is above a key level, and bitcoin ETF flows have been negative two days in a row. Bitcoin is 1.5% above a big cluster of long liquidations, and the funding rate is high and positive. A friend messages you: "Exchange support wrote to me that I have to verify my wallet with my seed phrase. Should I do it?"</p>
+      <p><b>Task:</b> what do the macro signals say about bitcoin? What do the liquidation cluster and funding mean? What do you reply to your friend?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Macro… Liquidations and funding… The friend…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>Rising yields, a strong dollar and ETF outflows are three headwinds against bitcoin. The picture is mostly bearish for the short horizon, without being certain.</li>
+          <li>A high positive funding means crowded long positions. The liquidation cluster 1.5% below is a magnet: a move to it can trigger a cascade of forced selling. A bounce often follows such a cascade, because the fuel has burned. This is a scenario, not a forecast.</li>
+          <li>To the friend: "No. It's a scam. No real support asks for a seed phrase. Don't reply, don't click links, change your passwords and move the funds if you shared anything." There are no probabilities here.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What is the maximum number of bitcoins?",o:["21 million","100 million","There is no limit"],a:0,e:"Built into the protocol."},
+  {q:"Who can legitimately ask you for your seed phrase?",o:["Exchange support","Nobody","The bank"],a:1,e:"Whoever has it has the money."},
+  {q:"What is a stablecoin?",o:["A token pegged to a currency","Stock","Hardware wallet"],a:0,e:"For example USDC to the dollar."},
+  {q:"Is crypto on an exchange covered by the deposit guarantee?",o:["Yes","No"],a:1,e:"It is not a bank deposit."},
+  {q:"Since when does DAC8 apply?",o:["1 January 2026","2030","There is no such rule"],a:0,e:"Exchanges report data to the tax authorities."}
+],mid:[
+  {q:"Real yields and DXY are rising. For bitcoin this is usually…",o:["Support","Downward pressure","It doesn't matter"],a:1,e:"A risk asset, sensitive to liquidity."},
+  {q:"BTC dominance falls from 62% toward 52%. What does it suggest?",o:["Rotation into altcoins","The end of crypto","Nothing"],a:0,e:"Money flows from BTC to alts."},
+  {q:"Why is a liquidation cluster a \"magnet and fuel\"?",o:["It attracts the move and speeds it up with forced orders","Because it is pretty","Because it is the broker's stop"],a:0,e:"The same logic as liquidity in Chapter 7."}
+]};
+</script>
+<script src="book.js"></script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The First 90 Days · FX Fundamentals</title>
+<meta name="description" content="The First 90 Days · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch31.html">
+<link rel="alternate" hreflang="bg" href="bg/ch31.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="31">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">34</div>
+    <h1>The First 90 Days</h1>
+    <blockquote class="quote">
+      Amateurs practise until they get it right. Professionals practise until they can't get it wrong.
+      <cite>A saying from sport</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>plan the first 12 weeks: reading and backtesting, demo with a journal, a decision;</li>
+        <li>track your progress week by week;</li>
+        <li>judge with numbers, not with feelings, whether you are ready for the next step;</li>
+        <li>choose between more demo, a free trial, a small live account or a paid challenge.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>34.1 Three stages of four weeks</h2>
+      <p>Ninety days sounds like a lot when you want to make money from tomorrow. It sounds like little when you see how much there is in this book. The plan is simple: first you learn and practise without pressure, then you trade on demo as if the money were real, and finally you decide with data.</p>
+      <div class="timeline">
+        <div class="tick"><span class="t">Weeks 1–4</span><b>Reading and backtesting</b><span>Parts I and II, one setup, 50 examples from chart history. No trades, not even on demo. The aim is for your eye to recognise the setup without hesitation.</span></div>
+        <div class="tick"><span class="t">Weeks 5–8</span><b>Demo with a full journal</b><span>A realistic balance, 1% risk, every trade and every missed setup in the journal. A Sunday bias file. An evening review.</span></div>
+        <div class="tick news"><span class="t">Weeks 9–12</span><b>More demo and a decision</b><span>You continue the demo, collect at least 30 trades and at the end of week 12 decide by the criteria in 34.3.</span></div>
+      </div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>Weeks 1–4 are the most boring and the most important. Whoever skips them later pays the market for the same lessons, with interest. The temptation to "try just one trade" is exactly the muscle you are training.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Backtest · бектест</b>Testing a setup on past charts, trade by trade, as if it were live.</div>
+      <div class="term"><b>Forward test · тест напред</b>Trading on demo in real time by the same rules.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>34.2 The weekly tracker</h2>
+      <p>Tick each week when you finish it. The ticks are saved in your browser.</p>
+      <div class="tablewrap" data-name="90-dni-plan">
+        <table class="data" id="wkTab">
+          <thead><tr><th>✓</th><th>Week</th><th>Focus</th><th>Done when…</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="verdict" id="wkSum" aria-live="polite"></p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Rep · повторение</b>One exercise played through: a setup marked in a backtest or on demo.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>34.3 Are you ready: the criteria</h2>
+      <p>At the end of week 12 fill in the numbers from the journal. Don't round in your own favour.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Demo trades<input type="number" id="r1" value="32" min="0"></label>
+            <label>Rules followed (% of trades)<input type="number" id="r2" value="88" min="0" max="100"></label>
+            <label>Expectancy (R per trade)<input type="number" id="r3" value="0.3" step="0.05"></label>
+            <label>Maximum demo drawdown (%)<input type="number" id="r4" value="5" step="0.5" min="0"></label>
+            <label>Average execution score (/10)<input type="number" id="r5" value="7" step="0.5" min="0" max="10"></label>
+            <label>Weeks in a row without a violation<input type="number" id="r6" value="2" min="0"></label>
+          </div>
+          <div class="out" id="rOut" aria-live="polite"></div>
+        </div>
+        <figcaption>The thresholds are the book's: at least 30 trades, at least 90% rules followed, positive expectancy, drawdown below 6%, execution at least 7/10, at least 3 weeks without a violation. They are for learning, not a guarantee.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="sledvashta-stapka">
+        <table class="data">
+          <thead><tr><th>Outcome</th><th>When</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Another 4 weeks of demo</td><td>One of the process criteria is missing (rules, execution, violations)</td><td>The problem is in the process. Money won't fix it.</td></tr>
+            <tr><td>Free trial</td><td>The process is stable, but there are under 30 trades or the expectancy is close to zero</td><td>A test of the rules at no cost.</td></tr>
+            <tr><td>Small live account or paid challenge</td><td>All criteria are met and at least one trial has been passed with the process respected</td><td>The next lesson is psychological: real money. That is something a demo cannot give.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>"Demo isn't the same, so the results don't count."</p></div>
+        <div><span class="label">Reality</span><p>Half true. The emotion is different, which is why live results are usually <i>worse</i>, not better. If the process doesn't work on demo, it won't suddenly work live.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Sample size · размер на извадката</b>How many trades stand behind a conclusion. Under 20 means almost nothing.</div>
+      <div class="term"><b>Drawdown · спад</b>The fall from the account's highest point to the lowest point after it.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 34</h2>
+    <ul>
+      <li>Weeks 1–4: reading and backtesting, no trades.</li>
+      <li>Weeks 5–12: demo with a realistic balance, 1% risk and a full journal.</li>
+      <li>The decision is made by numbers: trades, rules followed, expectancy, drawdown, execution, weeks without a violation.</li>
+      <li>A process problem is cured with more demo, not with more money.</li>
+      <li>The free trial is the bridge between demo and the paid challenge.</li>
+    </ul>
+    <p class="label">Checklist before the next part</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I marked the start of week 1 in my calendar.</label></li>
+      <li><label><input type="checkbox"> I picked one setup to backtest.</label></li>
+      <li><label><input type="checkbox"> I know which numbers I will decide by at the end of week 12.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>The end of week 12. 34 demo trades, expectancy +0.45R, drawdown 4%, execution score 6.5/10, rules followed 85%. Most violations are the same: entering before confirmation because "price is leaving without me", and a stop placed closer than the rule so the position is bigger. The last two weeks have had no violations.</p>
+      <p><b>Task:</b> what do the criteria say? What is the real problem behind the numbers? What would you do over the next four weeks, and how will you know it is fixed?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Criteria… The real problem… The next 4 weeks… Measuring…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>Trades, expectancy and drawdown are fine. Rules followed (85%), execution (6.5) and weeks without a violation (2) are not. The outcome is another four weeks of demo: the problem is in the process.</li>
+          <li>The two violations are the same thing: fear of missing the move. The early entry and the tightened stop are attempts to "catch up" with price. It is an execution problem, not a strategy problem, because the expectancy is positive despite them.</li>
+          <li>One rule for each violation, written as "if–then": "If there is no closed confirmation candle, I don't enter, even if price takes off. A missed trade is logged as missed, not as a loss." And: "The stop goes in first, the size is calculated from it, never the other way round."</li>
+          <li>Measuring: rules followed above 90%, execution 7 or more, and the number of missed setups logged calmly. If after four weeks the criteria are met, the next step is a free trial. The decision remains theirs, but the numbers will tell them when.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What do you do in weeks 1–4?",o:["Live trading","Reading and backtesting with no trades","A prop challenge"],a:1,e:"The eye is trained before the hand."},
+  {q:"What balance is the demo?",o:["The bigger the better","Realistic","It doesn't matter"],a:1,e:"Otherwise you learn the wrong habits."},
+  {q:"What is the book's minimum number of trades for a decision?",o:["5","30","500"],a:1,e:"Under 20 means almost nothing."},
+  {q:"The process is not stable, but expectancy is positive. Next step?",o:["A paid challenge","More demo","A big live account"],a:1,e:"Money doesn't fix the process."},
+  {q:"What usually happens to results when moving from demo to real money?",o:["They get better","They get worse","The same"],a:1,e:"Emotion adds mistakes."}
+],mid:[
+  {q:"32 trades, 95% rules followed, expectancy −0.1R. Outcome?",o:["A paid challenge","More demo and a review of the setup","Free trial"],a:1,e:"The process is good, but the setup carries no edge in this sample."},
+  {q:"Which is the more serious signal: 3 losing weeks in a row with the rules followed, or 1 winning week with 4 violations?",o:["The losing weeks","The winning week with violations","Equal"],a:1,e:"Profit from violations teaches the wrong lesson."},
+  {q:"Demo drawdown 9% at 1% risk. What does that mean for a prop challenge with a 10% limit?",o:["Nothing","You almost hit the limit: the process is not ready for such rules","It's fine"],a:1,e:"The buffer is 1%."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  /* weeks */
+  var W=[["Parts 0 and I","I can explain pip, lot, 1% risk and the sessions"],["Part II: structure and liquidity","I mark structure and liquidity on 10 charts"],["Backtest: 25 examples","25 setups logged with a screenshot"],["Backtest: 25 more and rules","Clear rules for entry, stop and target are written down"],["Demo, week 1","Every trade and every missed setup in the journal"],["Demo + first bias file","The Sunday file is written before Monday"],["Demo, review","An evening review every trading day"],["Demo, the month's scores","Scores /10 for setup and execution, separately"],["Demo + Part III","The bias file uses macro, not just the chart"],["Demo, if–then rules","One rule for each recurring violation"],["Demo, trades 25–30","At least 30 trades in total"],["Decision","The criteria from 34.3 are filled in honestly"]];
+  var tb=document.querySelector("#wkTab tbody"),sum=document.getElementById("wkSum"),cb=[];
+  W.forEach(function(w,i){var tr=document.createElement("tr"),td=document.createElement("td"),c=document.createElement("input");c.type="checkbox";c.setAttribute("aria-label","Week "+(i+1)+" done");
+    try{c.checked=Book.store("b31-w"+i)==="1"}catch(e){}
+    c.addEventListener("change",function(){Book.store("b31-w"+i,c.checked?"1":"0");up()});td.appendChild(c);tr.appendChild(td);
+    [String(i+1),w[0],w[1]].forEach(function(t){var d=document.createElement("td");d.textContent=t;tr.appendChild(d)});tb.appendChild(tr);cb.push(c)});
+  function up(){var n=cb.filter(function(c){return c.checked}).length;sum.textContent=n+" of 12 weeks done"+(n===12?". Time for the criteria.":n>=4&&n<8?". Demo stage.":n>=8?". The decision stage is coming.":".")}
+  up();
+  /* readiness */
+  var r=["r1","r2","r3","r4","r5","r6"].map(function(i){return document.getElementById(i)}),ro=document.getElementById("rOut");
+  function rd(){var n=+r[0].value,a=+r[1].value,e=+r[2].value,dd=+r[3].value,x=+r[4].value,w=+r[5].value;
+    var C=[["Trades ≥ 30",n>=30,0],["Rules followed ≥ 90%",a>=90,1],["Expectancy > 0",e>0,0],["Drawdown < 6%",dd<6,1],["Execution ≥ 7/10",x>=7,1],["≥ 3 weeks without a violation",w>=3,1]];
+    var proc=C.filter(function(c){return c[2]&&!c[1]}).length,res=C.filter(function(c){return !c[2]&&!c[1]}).length,v;
+    if(proc)v="<b style='color:var(--bear)'>Another 4 weeks of demo.</b> The process is not stable yet.";
+    else if(res)v="<b style='color:var(--news)'>Free trial.</b> The process is stable, the results are still uncertain.";
+    else v="<b style='color:var(--bull)'>Ready for the next step:</b> a small live account or a paid challenge, after at least one passed trial.";
+    ro.innerHTML=C.map(function(c){return "<span>"+(c[1]?"<b style='color:var(--bull)'>✓</b> ":"<b style='color:var(--bear)'>✗</b> ")+c[0]+"</span>"}).join("")+"<span>"+v+"</span>"}
+  r.forEach(function(x){x.addEventListener("input",rd)});rd();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

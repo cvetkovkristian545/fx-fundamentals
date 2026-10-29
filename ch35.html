@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Personal Finance First · FX Fundamentals</title>
+<meta name="description" content="Personal Finance First · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch35.html">
+<link rel="alternate" hreflang="bg" href="bg/ch35.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="35">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">38</div>
+    <h1>Personal Finance First</h1>
+    <blockquote class="quote">
+      Do not save what is left after spending, but spend what is left after saving.
+      <cite>Attributed to Warren Buffett</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>split your income using the 50/30/20 rule;</li>
+        <li>calculate your emergency fund;</li>
+        <li>decide whether to pay off debt or invest first;</li>
+        <li>define your risk capital: money you can lose without it changing your life.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>38.1 Why this chapter is in a trading book</h2>
+      <p>The worst trader is the one who <b>needs</b> the trade to win. Needing the rent, the instalment, the electricity bill turns every stop into a catastrophe and every wobble into panic. That is why personal finance comes before trading, not after it. Your trading account must be money that can disappear without you changing anything in your life.</p>
+      <p>The order is simple:</p>
+      <ol class="steps">
+        <li><b>Budget.</b> You know where the money goes.</li>
+        <li><b>A small emergency buffer.</b> One month of expenses.</li>
+        <li><b>Expensive debt.</b> Credit cards, payday loans.</li>
+        <li><b>A full emergency fund.</b> 3–6 months of expenses.</li>
+        <li><b>Long-term investments.</b> Chapter 39.</li>
+        <li><b>Risk capital.</b> Only here does trading come in.</li>
+      </ol>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Risk capital · рисков капитал</b>Money whose loss does not affect your bills, savings or plans.</div>
+      <div class="term"><b>Emergency fund · авариен фонд</b>Money for unexpected expenses: illness, repairs, losing your job.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>38.2 The 50/30/20 budget</h2>
+      <p>The rule is a starting point, not a law: 50% of net income for needs (housing, food, transport, bills), 30% for wants, 20% for savings and paying off debt. If your needs are above 50%, don't blame yourself; just know that the trading account will grow more slowly.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Net income (€/month)<input type="number" id="b1" value="1200" step="50" min="0"></label>
+            <label>Actual needs (€/month)<input type="number" id="b2" value="700" step="10" min="0"></label>
+            <label>Actual wants (€/month)<input type="number" id="b3" value="300" step="10" min="0"></label>
+          </div>
+          <div class="out" id="bOut" aria-live="polite"></div>
+        </div>
+        <figcaption>The amounts are examples. The minimum gross wage in Bulgaria for 2026 is 620 euros.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Net income · нетен доход</b>Pay after taxes and social contributions.</div>
+      <div class="term"><b>Pay yourself first · плати първо на себе си</b>Savings are transferred on payday, not at the end of the month.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>38.3 The emergency fund and debt</h2>
+      <p>The emergency fund is boring. That is exactly why it works. It sits in a savings account or a deposit, easy to reach, not in stocks and not in crypto. In Bulgaria deposits of up to <b>100,000 euros</b> per person per bank are guaranteed by the Bank Deposit Guarantee Fund.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Monthly needs (€)<input type="number" id="e1" value="700" step="10" min="0"></label>
+            <label>Months of buffer<input type="number" id="e2" value="4" min="1" max="12"></label>
+            <label>Already saved (€)<input type="number" id="e3" value="900" step="50" min="0"></label>
+            <label>I save per month (€)<input type="number" id="e4" value="200" step="10" min="0"></label>
+          </div>
+          <div class="out" id="eOut" aria-live="polite"></div>
+        </div>
+        <figcaption>3 months with a stable job, 6 with unstable income or dependants.</figcaption>
+      </figure>
+      <p>Debt is the flip side of investment. A credit card at 20% a year is a guaranteed 20% loss. No strategy guarantees you a 20% profit. That is why <b>paying off expensive debt is the best safe "investment"</b> you have.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Interest on the debt (%/yr)<input type="number" id="d1" value="19" step="0.5" min="0"></label>
+            <label>Expected return on the investment (%/yr)<input type="number" id="d2" value="7" step="0.5"></label>
+            <label>Is the return certain?<select id="d3"><option value="0" selected>No</option><option value="1">Yes (deposit, government bonds)</option></select></label>
+          </div>
+          <div class="out" id="dOut" aria-live="polite"></div>
+        </div>
+      </figure>
+      <div class="dialog">
+        <p><span>Student</span>But if I pass a prop challenge, I'll pay off the debt in a month.</p>
+        <p><span>Mentor</span>If. The debt charges interest every day, and the challenge doesn't know you. People who trade to pay off debt trade under pressure, and pressure is the most expensive indicator. Debt first, then the market.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>APR / ГПР</b>The annual percentage rate of a loan: its real cost, including fees.</div>
+      <div class="term"><b>ФГВБ</b>The Bulgarian Bank Deposit Guarantee Fund.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>38.4 Compound interest and risk capital</h2>
+      <p>Einstein probably never said compound interest is the eighth wonder of the world. But the maths is right: small regular contributions and time do more than big bets.</p>
+      <figure class="diagram">
+        <svg id="cSvg" viewBox="0 0 520 220" role="img" aria-label="Growth of regular monthly contributions"></svg>
+        <div class="sliders">
+          <label>Contribution per month: <b id="cmV"></b><input type="range" id="cm" min="25" max="500" step="25" value="100"></label>
+          <label>Annual return: <b id="crV"></b><input type="range" id="cr" min="0" max="12" step="0.5" value="7"></label>
+        </div>
+        <p class="verdict" id="cText" aria-live="polite"></p>
+        <figcaption>Nominal, before taxes and inflation. 7% is a rough historical average for a broad stock market over long periods, not a promise.</figcaption>
+      </figure>
+      <p>Risk capital is defined last: <b>what is left once the budget, the buffer, the debt and the long-term contributions are covered</b>. If 50 euros a month is left, your trading account is 50 euros a month. That is normal. That is why prop firms (Chapter 33) are interesting for people with little capital: the fee is the risk capital, not the whole account.</p>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>A prop challenge paid for from the emergency fund is not an investment in yourself. It is a bet with the money for a flat tyre. Markets and tyres have a bad habit of blowing out in the same month.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Compound interest · сложна лихва</b>Interest on interest: the profit starts earning by itself.</div>
+      <div class="term"><b>DCA · усредняване</b>Dollar-cost averaging: investing the same amount regularly, whatever the price.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 38</h2>
+    <ul>
+      <li>A trader who needs the profit trades under pressure.</li>
+      <li>Order: budget, buffer, expensive debt, full fund, long-term investments, risk capital.</li>
+      <li>50/30/20 is a starting point.</li>
+      <li>The emergency fund is 3–6 months of needs, somewhere safe.</li>
+      <li>Expensive debt is paid off before any investment.</li>
+      <li>Risk capital is what is left at the end.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I know my net income and my real needs for a month.</label></li>
+      <li><label><input type="checkbox"> I know how much I need for an emergency fund and when I will have it.</label></li>
+      <li><label><input type="checkbox"> I wrote down my risk capital amount for a month.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>Your net income is 1,300 euros. Needs are 750, wants 350. You have 1,800 euros of credit card debt at 21% a year and 500 euros saved. This month you want to pay for a 10K prop challenge for about 90 euros and put 100 euros a month into an ETF.</p>
+      <p><b>Task:</b> order the priorities. How long will each step take? When is it sensible to pay for the first challenge?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Priorities… Timelines… The challenge…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>200 euros a month are left. If wants shrink to 250, 300 are left.</li>
+          <li>First a buffer of about 750 (one month of needs): another 250, about a month. Then the card: 1,800 at 300 a month is about 6–7 months with the interest. Then the emergency fund up to 3–4 months of needs.</li>
+          <li>The ETF contributions start after the card. Until then a guaranteed 21% loss beats any expected return.</li>
+          <li>The challenge: during these months, free trials and demo (Chapter 34). The first paid challenge is sensible when the card is paid off and the criteria from Chapter 34 are met. The decision is yours, but the buffer money is not risk capital.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What is risk capital?",o:["All your savings","Money whose loss doesn't change your life","A loan for trading"],a:1,e:"Only this money goes into trading."},
+  {q:"How big is the emergency fund usually?",o:["1 week","3–6 months of expenses","5 years"],a:1,e:"Depending on how stable your income is."},
+  {q:"What comes before investing?",o:["Paying off expensive debt","Buying crypto","A prop challenge"],a:0,e:"A guaranteed loss versus an unguaranteed profit."},
+  {q:"50/30/20 means…",o:["50% needs, 30% wants, 20% savings","50% trading","50% taxes"],a:0,e:"A starting point for a budget."},
+  {q:"Up to what amount are deposits at one bank guaranteed in Bulgaria?",o:["10 000 €","100 000 €","They are not guaranteed"],a:1,e:"The Bank Deposit Guarantee Fund."}
+],mid:[
+  {q:"Debt at 18%, an investment with an expected 8%. Which first?",o:["The investment","The debt","It doesn't matter"],a:1,e:"18% for sure is more than 8% expected."},
+  {q:"Needs €800/month, a 4-month buffer, €1,200 saved, €200/month. How many months to a full fund?",o:["10","4","16"],a:0,e:"3 200 − 1 200 = 2 000 ÷ 200 = 10."},
+  {q:"Why doesn't the emergency fund sit in stocks?",o:["Stocks are illegal","You may need it exactly when the market has fallen","Stocks have no return"],a:1,e:"Crises and job losses often come together."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  function g(i){return document.getElementById(i)}
+  /* 50/30/20 */
+  var b=["b1","b2","b3"].map(g),bo=g("bOut");
+  function bd(){var n=+b[0].value,nd=+b[1].value,w=+b[2].value,s=n-nd-w;if(!n){bo.innerHTML="<span>Enter an income.</span>";return}
+    bo.innerHTML="<span>Target: needs ≤ <b>€"+(n*.5).toFixed(0)+"</b>, wants ≤ <b>€"+(n*.3).toFixed(0)+"</b>, savings ≥ <b>€"+(n*.2).toFixed(0)+"</b>.</span><span>Actual: needs "+(nd/n*100).toFixed(0)+"%, wants "+(w/n*100).toFixed(0)+"%, left over <b style='color:"+(s/n>=.2?"var(--bull)":s>0?"var(--news)":"var(--bear)")+"'>€"+s.toFixed(0)+" ("+(s/n*100).toFixed(0)+"%)</b>.</span><span>"+(s<=0?"You spend more than you earn. Trading is not the solution to that.":s/n<.2?"Below 20%. See which of the wants is easiest to cut.":"Good. This money goes into the buffer, debt and investments, in that order.")+"</span>"}
+  b.forEach(function(x){x.addEventListener("input",bd)});bd();
+  /* emergency */
+  var e=["e1","e2","e3","e4"].map(g),eo=g("eOut");
+  function ef(){var need=+e[0].value*+e[1].value,have=+e[2].value,m=+e[3].value,left=Math.max(0,need-have),mo=m>0?Math.ceil(left/m):Infinity;
+    eo.innerHTML="<span>Target: <b>€"+need.toFixed(0)+"</b>. Missing: <b>€"+left.toFixed(0)+"</b>.</span><span>"+(left===0?"The fund is full.":isFinite(mo)?"At this pace: <b>"+mo+" months</b>.":"Without monthly saving the fund will not fill up.")+"</span>"}
+  e.forEach(function(x){x.addEventListener("input",ef)});ef();
+  /* debt vs invest */
+  var d=["d1","d2","d3"].map(g),dout=g("dOut");
+  function dv(){var r=+d[0].value,i=+d[1].value,sure=+d[2].value;var v=r>=i?"<b style='color:var(--bear)'>Debt first.</b> The interest is a certain loss of "+r+"%, bigger than the expected "+i+"%.":sure?"<b style='color:var(--bull)'>The investment wins</b>, but only because the return is certain. Check that it is.":"<b style='color:var(--news)'>It depends.</b> The expected return is above the interest, but it is not certain. With a gap below 3–4 pp, paying off the debt usually wins.";
+    dout.innerHTML="<span>"+v+"</span>"}
+  d.forEach(function(x){x.addEventListener("input",dv);x.addEventListener("change",dv)});dv();
+  /* compound */
+  var sv=g("cSvg"),cm=g("cm"),cr=g("cr"),ct=g("cText");
+  function cp(){var m=+cm.value,r=+cr.value/100,Y=30,V=[0],C=[0],v=0;g("cmV").textContent="€"+m;g("crV").textContent=(r*100).toFixed(1)+"%";
+    for(var y=1;y<=Y;y++){for(var k=0;k<12;k++)v=v*(1+r/12)+m;V.push(v);C.push(m*12*y)}
+    var mx=Math.max.apply(null,V)*1.05||1;function x(i){return 50+i*460/Y}function yy(z){return 195-z/mx*180}
+    sv.innerHTML="";[0,.5,1].forEach(function(f){var z=mx*f;el("line",{x1:50,x2:510,y1:yy(z),y2:yy(z),stroke:"var(--line)","stroke-dasharray":"2 4"},sv);el("text",{x:4,y:yy(z)+4,"font-size":10,fill:"var(--muted)"},sv).textContent="€"+(z>=1000?(z/1000).toFixed(0)+"k":z.toFixed(0))});
+    el("path",{d:C.map(function(z,i){return(i?"L":"M")+x(i).toFixed(1)+","+yy(z).toFixed(1)}).join(""),fill:"none",stroke:"var(--muted)","stroke-width":2,"stroke-dasharray":"5 4"},sv);
+    el("path",{d:V.map(function(z,i){return(i?"L":"M")+x(i).toFixed(1)+","+yy(z).toFixed(1)}).join(""),fill:"none",stroke:"var(--bull)","stroke-width":3},sv);
+    [0,10,20,30].forEach(function(i){el("text",{x:x(i),y:214,"font-size":10,"text-anchor":i?(i==30?"end":"middle"):"start",fill:"var(--muted)"},sv).textContent=i+" years"});
+    ct.innerHTML="After 10 years: <b>€"+V[10].toFixed(0)+"</b> (invested €"+C[10].toFixed(0)+"). After 30 years: <b>€"+V[30].toFixed(0)+"</b> (invested €"+C[30].toFixed(0)+"). The dashed line is only what you put in."}
+  cm.addEventListener("input",cp);cr.addEventListener("input",cp);cp();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

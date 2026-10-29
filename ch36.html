@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Other Markets · FX Fundamentals</title>
+<meta name="description" content="Other Markets · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch36.html">
+<link rel="alternate" hreflang="bg" href="bg/ch36.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="36">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">39</div>
+    <h1>Other Markets</h1>
+    <blockquote class="quote">
+      Don't look for the needle in the haystack. Just buy the haystack.
+      <cite>Jack Bogle</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>explain the difference between a stock, a bond, an ETF and property;</li>
+        <li>tell trading from investing by horizon, goal and risk;</li>
+        <li>name the steps of two stock-picking methods: CANSLIM and MISARM;</li>
+        <li>connect these markets with the currencies from the earlier parts.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>39.1 The four main asset classes</h2>
+      <div class="tablewrap" data-name="klasove-aktivi">
+        <table class="data">
+          <thead><tr><th>Asset</th><th>What you own</th><th>Where the income comes from</th><th>The main risk</th></tr></thead>
+          <tbody>
+            <tr><td>Stock</td><td>A small part of a company</td><td>Earnings growth, dividends</td><td>The company fails; drops of 30–50% in crises</td></tr>
+            <tr><td>Bond</td><td>A loan to a state or a company</td><td>Interest (coupon)</td><td>Rising rates (the price falls), default, inflation</td></tr>
+            <tr><td>ETF</td><td>A basket of many stocks or bonds</td><td>Whatever the basket earns</td><td>The market as a whole; the fund's fee</td></tr>
+            <tr><td>Property</td><td>A building or land</td><td>Rent, appreciation</td><td>Low liquidity, concentration, leverage through a mortgage</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="four">
+        <div><span class="label">Trader</span><p>A horizon of minutes to days. Profits from the move. Many fast decisions.</p></div>
+        <div><span class="label">Investor</span><p>A horizon of years to decades. Profits from the growth of the business and compound interest. Few slow decisions.</p></div>
+        <div><span class="label">In common</span><p>Risk that is managed. Position size. Discipline. Records.</p></div>
+        <div><span class="label">The mistake</span><p>Turning a losing trade into a "long-term investment" because you don't want to close it.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>ETF · борсово търгуван фонд</b>A fund bought and sold on the exchange like a stock.</div>
+      <div class="term"><b>Index fund · индексен фонд</b>A fund that copies an index, for example the S&amp;P 500, at a low fee.</div>
+      <div class="term"><b>TER · такса</b>The fund's annual fee as a percentage of what is invested.</div>
+      <div class="term"><b>SOFIX</b>The main index of the Bulgarian Stock Exchange.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>39.2 ETFs: the simplest path</h2>
+      <p>Most professional funds fail to beat their index over a long period after fees. That is why for most people the most sensible long-term investment is also the most boring: a broad, cheap index ETF, bought regularly, for years. The fee looks small, but it compounds.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Contribution per month (€)<input type="number" id="f1" value="100" step="10" min="0"></label>
+            <label>Years<input type="number" id="f2" value="25" min="1" max="50"></label>
+            <label>Return before fees (%)<input type="number" id="f3" value="7" step="0.5"></label>
+            <label>Fund A fee (%)<input type="number" id="f4" value="0.2" step="0.05" min="0"></label>
+            <label>Fund B fee (%)<input type="number" id="f5" value="2" step="0.1" min="0"></label>
+          </div>
+          <div class="out" id="fOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Actively managed mutual funds often have fees of 1.5–2.5%; broad index ETFs are often below 0.3%.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Accumulating · натрупващ</b>An ETF that reinvests dividends automatically.</div>
+      <div class="term"><b>Distributing · разпределящ</b>An ETF that pays out dividends.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>39.3 Two stock-picking methods</h2>
+      <p>If you want to pick individual stocks, there are two approaches worth knowing. The first is American and looks for growth and momentum. The second is Bulgarian and looks for quality at a reasonable price.</p>
+      <div class="tabs" data-group="m">
+        <button class="chip" data-tab="c">CANSLIM</button>
+        <button class="chip" data-tab="m">MISARM</button>
+      </div>
+      <div class="pane" data-group="m" data-pane="c">
+        <p>Created by William O'Neil, founder of Investor's Business Daily, after studying the strongest stocks in American history. Each letter is a filter. In Bulgaria the method is taught in Simeon Petkov's trading courses.</p>
+        <div class="tablewrap" data-name="canslim">
+          <table class="data">
+            <thead><tr><th>Letter</th><th>What it means</th><th>How it is checked (roughly)</th></tr></thead>
+            <tbody>
+              <tr><td>C</td><td>Current earnings: current quarterly earnings</td><td>Growth in earnings per share versus a year earlier, often 20–25%+ is sought</td></tr>
+              <tr><td>A</td><td>Annual earnings: annual growth</td><td>Steady earnings growth over several years</td></tr>
+              <tr><td>N</td><td>New: something new</td><td>A new product, new management, a new price high</td></tr>
+              <tr><td>S</td><td>Supply and demand</td><td>A price rise on high volume</td></tr>
+              <tr><td>L</td><td>Leader or laggard</td><td>Among the strongest in its sector</td></tr>
+              <tr><td>I</td><td>Institutional sponsorship</td><td>Funds are buying</td></tr>
+              <tr><td>M</td><td>Market direction</td><td>The whole market is in an uptrend</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Note the M: even the best stock suffers when the market falls. It is the same idea as the macro bias in currencies: first the wind, then the boat.</p>
+      </div>
+      <div class="pane" data-group="m" data-pane="m">
+        <p>MISARM is InvestClub's quick analysis method (Bozhidar Balevski), inspired by Warren Buffett and Benjamin Graham. The full course content is paid; here is only the public description: a quick analysis across <b>four pillars</b>.</p>
+        <div class="tablewrap" data-name="chetiri-stulba">
+          <table class="data">
+            <thead><tr><th>Pillar</th><th>The question</th><th>Example measure</th></tr></thead>
+            <tbody>
+              <tr><td>Price</td><td>Is the company expensive relative to its earnings and sales?</td><td>Price to earnings (P/E), price to sales</td></tr>
+              <tr><td>Debt</td><td>Can it survive bad times?</td><td>Debt to equity, interest coverage</td></tr>
+              <tr><td>Efficiency</td><td>How well does it use its money?</td><td>Return on equity, margins</td></tr>
+              <tr><td>Economic moat</td><td>What stops competitors from taking its profit?</td><td>Brand, network effect, switching costs, patents</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The motto repeated in the courses: "Rule number one: never lose money. Rule number two: never forget rule number one." The same as 1% risk, only on a different horizon.</p>
+      </div>
+      <div class="box warn">
+        <span class="label">Not a recommendation</span>
+        <p>The two methods are given so you know they exist and how they think. Picking individual stocks takes separate study and, as with currencies, testing with data before real money.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>P/E · цена към печалба</b>How many years of earnings you pay for with the share price.</div>
+      <div class="term"><b>Moat · ров</b>Buffett's term for a lasting competitive advantage.</div>
+      <div class="term"><b>EPS · печалба на акция</b>Net profit divided by the number of shares.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>39.4 The links with currencies</h2>
+      <p>Nothing in this book is lost if one day you decide to invest. Currency knowledge carries over directly.</p>
+      <div class="tablewrap" data-name="vruzki-fx">
+        <table class="data">
+          <thead><tr><th>If you know…</th><th>…you will understand that</th></tr></thead>
+          <tbody>
+            <tr><td>The bond seesaw (ch. 22)</td><td>Rising rates push down the price of bonds and of expensive growth stocks.</td></tr>
+            <tr><td>The growth × inflation regimes (ch. 22)</td><td>Which sectors win in which regime.</td></tr>
+            <tr><td>The dollar's strength (ch. 20, 24)</td><td>A US ETF bought in euros carries currency risk too: a strong dollar is a bonus, a weak dollar a loss.</td></tr>
+            <tr><td>The crises (ch. 27)</td><td>Drops of 30–50% happen; the plan must be able to bear them.</td></tr>
+            <tr><td>Thinking in probabilities (ch. 5)</td><td>No stock is "safe".</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="dialog">
+        <p><span>Student</span>Then why trade currencies at all if an ETF is so simple?</p>
+        <p><span>Mentor</span>A good question, and not a rhetorical one. For most people an ETF is the better choice for most of their money. Trading is a skill, work, sometimes a passion. One does not rule out the other: long-term money in the ETF, risk capital in the skills. Just don't mix them.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Currency risk · валутен риск</b>Gain or loss from the change in the exchange rate between your currency and the asset's currency.</div>
+      <div class="term"><b>Hedged ETF · хеджиран ETF</b>A fund that neutralises currency risk for a fee.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 39</h2>
+    <ul>
+      <li>Stocks, bonds, ETFs, property: different income, different risk.</li>
+      <li>Traders and investors work on different horizons. Don't turn a losing trade into an investment.</li>
+      <li>A broad, cheap ETF bought regularly is the sensible start for long-term money. Fees compound.</li>
+      <li>CANSLIM looks for growth and momentum; MISARM (the four pillars) looks for quality at a reasonable price.</li>
+      <li>Macro knowledge from currencies carries over directly.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I can explain the difference between a stock, a bond and an ETF.</label></li>
+      <li><label><input type="checkbox"> I calculated the difference between a 0.2% and a 2% fee over 25 years.</label></li>
+      <li><label><input type="checkbox"> I know which part of my money is long-term and which is risk capital.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>You bought shares in a tech company for 500 euros as a swing trade with a mental stop 8% below entry, which you did not place in the platform. After weak earnings the stock gaps open 12% lower. You are thinking of holding it "long-term, because it's a good company". Rates are rising. You are in euros, and the stock is in dollars.</p>
+      <p><b>Task:</b> what happened to the stop? Is this still a trade, or an investment? Which of the four pillars would you check if you really think long-term? What does the currency add?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="The stop… Trade or investment… Pillars… Currency…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>A mental stop closes nothing. Earnings come out outside exchange hours and the stock opens with a gap; even a placed stop would have filled at the first price, about −12% instead of −8% (Chapter 29).</li>
+          <li>The trade had a swing plan and a stop. The decision to hold after price passed the stop is anchoring and loss aversion dressed up as an investment thesis. If you want an investment, open it separately, with a separate analysis and size.</li>
+          <li>If you really analyse long-term: debt (rising rates make refinancing dearer), price (tech P/E is sensitive to rates), efficiency and moat. The weak report may be a signal about the moat.</li>
+          <li>The result in euros also depends on EURUSD. If the dollar weakens, you lose on the currency too. The decision is yours, but the first rule is not to change horizon when a trade is losing.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What do you own when you buy a stock?",o:["A loan to the company","Part of the company","Currency"],a:1,e:"The bond is the loan."},
+  {q:"An ETF is…",o:["A basket of assets traded on the exchange","A bank deposit","A cryptocurrency"],a:0,e:"It is bought like a stock."},
+  {q:"What does the M in CANSLIM mean?",o:["Money","Market direction","Momentum"],a:1,e:"The direction of the whole market."},
+  {q:"Which MISARM pillar asks what protects the company from competitors?",o:["Price","Debt","Economic moat"],a:2,e:"Buffett's term."},
+  {q:"Rates are rising. What usually happens to bond prices?",o:["Rises","It falls","Does not change"],a:1,e:"The seesaw from Chapter 22."}
+],mid:[
+  {q:"A losing trade \"becomes\" a long-term investment. Which trap?",o:["Anchoring and loss aversion","Compound interest","Diversification"],a:0,e:"You don't change the horizon when losing."},
+  {q:"You buy a US ETF in euros. The dollar rises 5%, the ETF is unchanged. Your result in euros?",o:["0%","About +5%","About −5%"],a:1,e:"The currency effect works in your favour."},
+  {q:"Why does a 2% fee matter so much over a long period?",o:["It doesn't","It is deducted every year and compounds against you","It is paid once"],a:1,e:"Compound interest works for fees too."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  function g(i){return document.getElementById(i)}
+  var f=["f1","f2","f3","f4","f5"].map(g),fo=g("fOut");
+  function fv(m,y,r){var v=0;for(var k=0;k<y*12;k++)v=v*(1+r/12)+m;return v}
+  function fe(){var m=+f[0].value,y=+f[1].value,r=+f[2].value/100,a=fv(m,y,r-+f[3].value/100),b=fv(m,y,r-+f[4].value/100);
+    fo.innerHTML="<span>Invested: <b>€"+(m*12*y).toFixed(0)+"</b>.</span><span>Fund A: <b style='color:var(--bull)'>€"+a.toFixed(0)+"</b>. Fund B: <b style='color:var(--bear)'>€"+b.toFixed(0)+"</b>.</span><span>The difference from fees: <b>€"+(a-b).toFixed(0)+"</b> ("+(a?((a-b)/a*100).toFixed(0):0)+"% of A's result).</span>"}
+  f.forEach(function(x){x.addEventListener("input",fe)});fe();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Your Analysis Workspace · FX Fundamentals</title>
+<meta name="description" content="Your Analysis Workspace · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch28.html">
+<link rel="alternate" hreflang="bg" href="bg/ch28.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="28">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">31</div>
+    <h1>Your Analysis Workspace</h1>
+    <blockquote class="quote">
+      Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
+      <cite>Attributed to Abraham Lincoln</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>pick a TradingView plan based on your real needs, not the advertising;</li>
+        <li>set up the chart, sessions, a pair list and alerts in 30 minutes;</li>
+        <li>set up Forex Factory with your currencies and the Sofia time zone;</li>
+        <li>work out how many hours a week you really have for the market and how to split them.</li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="box warn">
+    <span class="label">Prices with a date</span>
+    <p>All prices and limits in Part IV were checked on <b>21 October 2026</b>. Companies change them often. Before you pay for anything, check the official site.</p>
+  </div>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>31.1 TradingView: free or paid</h2>
+      <p>TradingView is where you will look at charts. It works in the browser and on the phone, has data for almost every market, and lets you draw, add indicators and set alerts. You sign up with an email. The question is whether to pay.</p>
+      <div class="tablewrap" data-name="tradingview-planove-2026-10-21">
+        <table class="data">
+          <thead><tr><th>Plan</th><th>$/month billed annually</th><th>Charts per tab</th><th>Indicators per chart</th><th>Active alerts</th><th>Ads</th></tr></thead>
+          <tbody>
+            <tr><td>Basic</td><td>0</td><td>1</td><td>2</td><td>3</td><td>Yes</td></tr>
+            <tr><td>Essential</td><td>12.95</td><td>2</td><td>5</td><td>20</td><td>No</td></tr>
+            <tr><td>Plus</td><td>29.95</td><td>4</td><td>10</td><td>100</td><td>No</td></tr>
+            <tr><td>Premium</td><td>59.95</td><td>8</td><td>25</td><td>400</td><td>No</td></tr>
+            <tr><td>Ultimate</td><td>199.95</td><td>16</td><td>50</td><td>1 000</td><td>No</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>With monthly billing prices are about 15–17% higher. TradingView often runs discounts, especially at the end of November.</p>
+      <div class="dialog">
+        <p><span>Student</span>Isn't the free plan too limited?</p>
+        <p><span>Mentor</span>For the method in this book you need one chart, hand-drawn zones, one session indicator and a few alerts. The free plan is enough for the first months. Pay when a limit genuinely gets in the way of your work, not when you feel like looking like a trader. Indicators don't make money; discipline does.</p>
+      </div>
+      <p>Help yourself decide.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>How many charts you want at once<input type="number" id="t1" value="1" min="1" max="16"></label>
+            <label>How many indicators per chart<input type="number" id="t2" value="2" min="0" max="50"></label>
+            <label>How many alerts at once<input type="number" id="t3" value="5" min="0" max="1000"></label>
+          </div>
+          <div class="out" id="tOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Shows the cheapest plan that covers the needs. Does not include live exchange data, which is paid for separately.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Layout · подредба</b>A saved combination of charts, timeframes and tools.</div>
+      <div class="term"><b>Alert · аларма</b>A notification when price reaches a level or a condition is met.</div>
+      <div class="term"><b>Watchlist · списък за наблюдение</b>The pairs you follow.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>31.2 The 30-minute setup</h2>
+      <ol class="steps">
+        <li><b>Time zone.</b> In the bottom right corner of the chart choose "(UTC+2/+3) Athens" or another zone with the same time as Sofia. All times in the book are Sofia time.</li>
+        <li><b>A clean chart.</b> Japanese candles, green and red, no grid. Remove everything you don't use.</li>
+        <li><b>Sessions.</b> Add a session indicator (search for "Sessions") and colour Asia, London and New York. Chapter 9 explained why.</li>
+        <li><b>The list.</b> Start small: DXY, EURUSD, GBPUSD, USDJPY, XAUUSD and US 10Y. More pairs means less attention for each.</li>
+        <li><b>Drawing tools.</b> Horizontal line, rectangle for zones, the "Long/Short position" tool for risk. Save your favourites to the toolbar.</li>
+        <li><b>Timeframes.</b> Save quick buttons for D1, H4, H1, M15, M5.</li>
+        <li><b>Alerts.</b> Put an alert on every zone you are waiting for. That way you don't watch the chart all day.</li>
+        <li><b>Save the layout.</b> One name for analysis (D1/H4), one for execution (M15/M5).</li>
+      </ol>
+      <div class="box ff">
+        <span class="label">The alert is your assistant</span>
+        <p>The most common beginner mistake is sitting in front of the chart and waiting. Sitting leads to boredom, boredom leads to trades without a setup. Draw the zones in the morning, set alerts and walk away. If price comes, your phone will call you.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Paper trading · хартиена търговия</b>Trades with play money in TradingView. Useful for practice, but it does not replace a demo with a broker.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: basic">●</span>31.3 Forex Factory: the calendar</h2>
+      <p>Chapter 19 showed how to read the calendar. Here is the setup. Signing up at forexfactory.com is free and saves your settings.</p>
+      <ol class="steps">
+        <li>At the top right of the calendar choose a time zone that matches Sofia. Check: US data should come out at 15:30.</li>
+        <li>Press the filter. Keep only red (high impact) and orange (medium impact) events.</li>
+        <li>Keep only the currencies you trade. For most beginners: USD, EUR, GBP, JPY.</li>
+        <li>Save the filter. On Sunday look at the week, in the morning look at the day.</li>
+      </ol>
+      <p>Besides Forex Factory you will need a few more places. The table of news sources is in Chapter 28. For crypto add CoinMarketCap (prices, market cap, the fear and greed index) and CoinGlass (liquidations and leveraged positions).</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Impact · ефект</b>How strongly the event usually moves the market. On Forex Factory: yellow, orange, red.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>31.4 Equipment and time</h2>
+      <p>You don't need six monitors. You need a stable internet connection, one screen bigger than your phone, and <b>predictable time</b>. Time matters more than equipment.</p>
+      <div class="tablewrap" data-name="tehnika">
+        <table class="data">
+          <thead><tr><th>Item</th><th>Minimum</th><th>Comfortable</th><th>Not needed at first</th></tr></thead>
+          <tbody>
+            <tr><td>Screen</td><td>Laptop</td><td>One external monitor</td><td>A wall of monitors</td></tr>
+            <tr><td>Internet</td><td>A stable connection</td><td>A backup mobile connection</td><td>A VPS server</td></tr>
+            <tr><td>Phone</td><td>TradingView alerts</td><td>The broker's app</td><td>Signal groups</td></tr>
+            <tr><td>Software</td><td>TradingView Basic, Forex Factory</td><td>TradingView Essential</td><td>Paid indicators and bots</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>How much time do you really have? Fill it in honestly.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Free London mornings (days/week)<input type="number" id="w1" value="3" min="0" max="5"></label>
+            <label>Minutes per session<input type="number" id="w2" value="90" step="15" min="0"></label>
+            <label>Sunday preparation (min)<input type="number" id="w3" value="60" step="15" min="0"></label>
+            <label>Evening review (min/day)<input type="number" id="w4" value="15" step="5" min="0"></label>
+          </div>
+          <div class="out" id="wOut" aria-live="polite"></div>
+        </div>
+        <figcaption>The sessions here are only the windows when you are at the screen with a plan. The rest of the time is for learning and backtesting.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>Three focused mornings a week are more than five distracted ones. The market will be there tomorrow. Your work schedule will not change for it, so build your trading around your life, not the other way round.</p>
+      </div>
+      <h3>Try the workspace</h3>
+      <p>This is TradingView's embedded chart. The tools on the left work: draw a level, change the timeframe. To keep your drawings, open the chart in TradingView with your own account.</p>
+      <div class="tv" data-sym="FX:EURUSD,TVC:DXY,OANDA:XAUUSD,FX:GBPUSD" data-int="60"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>VPS</b>A virtual server that keeps the platform running 24 hours. Needed mainly for robots.</div>
+      <div class="term"><b>Kill zone · активен прозорец</b>The hours with the most liquidity: the London and New York opens.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 31</h2>
+    <ul>
+      <li>TradingView Basic is enough to start. Pay when a limit stops you working.</li>
+      <li>Sofia time zone everywhere: TradingView, Forex Factory, notes.</li>
+      <li>A small list, a clean chart, alerts instead of sitting.</li>
+      <li>Forex Factory: only high and medium impact, only your currencies.</li>
+      <li>Predictable time matters more than equipment.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I have a TradingView account with the Sofia time zone and a saved layout.</label></li>
+      <li><label><input type="checkbox"> I have a Forex Factory account with a saved filter.</label></li>
+      <li><label><input type="checkbox"> I know which days and hours of the week are mine for the market.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>A beginner has a budget of about 75 euros a month for everything trading-related. They want TradingView Premium "to see more", a paid indicator for 40 dollars a month and a signal group subscription. They work from 9 to 18 and have free mornings only on Saturday and Sunday.</p>
+      <p><b>Task:</b> which of these do they need now? When can they trade London at all? How would they split the budget and the time over the first three months?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Is it needed… When they trade… Budget… Time…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>None of the three. Premium solves a problem they do not have yet. The paid indicator and the signals replace their own thinking, and that is exactly the skill they need to build.</li>
+          <li>London opens at 10:00 Sofia time, when they are at work. After 18:00 New York fades and, by the rule from Chapter 9, no new positions are opened. The realistic path is swing with analysis in the evening (Chapter 30), and the weekends are for preparation, learning and backtesting. The market is closed on Saturday, but the charts are not.</li>
+          <li>Budget: free TradingView and Forex Factory. The money is saved for a later prop attempt or for a small live account once the criteria from Chapter 34 are met.</li>
+          <li>Time: Sunday for the bias file and backtesting, weekday evenings of 30–45 minutes for review and demo practice. Scalping London becomes realistic if the work schedule changes. The decision is theirs, but the plan has to match their clock.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Which TradingView plan is enough to start with the book's method?",o:["Basic (free)","Ultimate","Premium is a must"],a:0,e:"One chart, zones, sessions, a few alerts."},
+  {q:"Why does the time zone need to be Sofia?",o:["For looks","So the news and session times match your notes","It doesn't matter"],a:1,e:"Otherwise 15:30 becomes 8:30 and you miss the data."},
+  {q:"What solves the \"I sit in front of the chart all day\" problem?",o:["Alerts on the zones","More indicators","More pairs"],a:0,e:"Your phone calls you when price comes."},
+  {q:"Which events should you keep in the Forex Factory filter?",o:["All","High and medium impact for your currencies","Only the yellow ones"],a:1,e:"Noise eats attention."},
+  {q:"What matters more at the start?",o:["Six monitors","Predictable time","VPS"],a:1,e:"Time is the resource, equipment is secondary."}
+],mid:[
+  {q:"You want 2 charts, 4 indicators and 15 alerts. The cheapest plan?",o:["Basic","Essential","Plus"],a:1,e:"Essential: 2 charts, 5 indicators, 20 alerts."},
+  {q:"US data in your calendar comes out at 8:30. What is wrong?",o:["Nothing","The time zone is New York, not Sofia","The broker"],a:1,e:"The difference is 7 hours."},
+  {q:"What does paper trading in TradingView not replace?",o:["Drawing","A demo with a broker with real spreads and execution","The alerts"],a:1,e:"Spread and execution are part of the result."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  /* TV plan */
+  var P=[["Basic",0,1,2,3],["Essential",12.95,2,5,20],["Plus",29.95,4,10,100],["Premium",59.95,8,25,400],["Ultimate",199.95,16,50,1000]];
+  var t=["t1","t2","t3"].map(function(i){return document.getElementById(i)}),to=document.getElementById("tOut");
+  function tv(){var c=+t[0].value,i=+t[1].value,a=+t[2].value,p=null;for(var k=0;k<P.length;k++){if(P[k][2]>=c&&P[k][3]>=i&&P[k][4]>=a){p=P[k];break}}
+    if(!p){to.innerHTML="<span>No plan covers this. Are you sure you need it?</span>";return}
+    to.innerHTML="<span>The cheapest suitable plan: <b>"+p[0]+"</b>"+(p[1]?" (~$"+p[1]+"/mo billed annually, ~$"+(p[1]*12).toFixed(0)+" a year)":" (free)")+".</span><span>"+(p[1]>30?"A large sum for a start. Which of the three numbers is really needed?":"Reasonable.")+"</span>"}
+  t.forEach(function(x){x.addEventListener("input",tv)});tv();
+  /* week */
+  var w=["w1","w2","w3","w4"].map(function(i){return document.getElementById(i)}),wo=document.getElementById("wOut");
+  function wk(){var d=+w[0].value,m=+w[1].value,s=+w[2].value,e=+w[3].value,live=d*m,tot=live+s+e*d;
+    wo.innerHTML="<span>At the market with a plan: <b>"+(live/60).toFixed(1)+" h</b> a week.</span><span>Total with preparation and review: <b>"+(tot/60).toFixed(1)+" h</b>.</span><span>"+(d===0?"No live sessions: focus on backtesting and preparation.":live/60<3?"Little, but enough for 2–4 quality opportunities a week.":live/60>10?"Lots of screen time raises the risk of overtrading. Shorten the windows.":"A good balance.")+"</span>"}
+  w.forEach(function(x){x.addEventListener("input",wk)});wk();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

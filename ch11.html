@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Risk and Position Size · FX Fundamentals</title>
+<meta name="description" content="Risk and Position Size · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch11.html">
+<link rel="alternate" hreflang="bg" href="bg/ch11.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="11">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">11</div>
+    <h1>Risk and Position Size</h1>
+    <blockquote class="quote">
+      To succeed, you must first survive.
+      <cite>Market saying, often linked to Warren Buffett</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>explain why 1% risk per trade is the foundation of survival;</li>
+        <li>calculate how much you need to gain to recover from a 10%, 20% or 50% drawdown;</li>
+        <li>set a daily loss limit and reduce size when the market is stormy.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: basic">●</span>11.1 Why exactly 1%</h2>
+      <p>In Chapter 2 you calculated a position size at 1% risk. Now, why that number. The answer is in the arithmetic of losses. If you risk 1% per trade, ten losses in a row (which will happen, Chapter 5) take the account down about 9.6%. If you risk 5%, the same ten losses take it down 40%. If you risk 10%, 65%.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Risk per trade (%)<input type="number" id="r1" value="1" step="0.25" min="0.25" max="20"></label>
+            <label>Losses in a row<input type="number" id="r2" value="10" min="1" max="30"></label>
+          </div>
+          <svg id="streak" viewBox="0 0 520 170" role="img" aria-label="The account after a run of losses at different risk levels"></svg>
+          <div class="out" id="rOut" aria-live="polite"></div>
+        </div>
+        <figcaption>The account after a losing streak. Each loss is a percentage of what is left.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>The market doesn't punish a wrong analysis. It punishes the wrong size. At 1% you can be wrong for a long time and still learn. At 10% you learn only once.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Risk per trade · риск на сделка</b>The percentage of the account you lose if the stop is hit.</div>
+      <div class="term"><b>Risk of ruin · риск от фалит</b>The probability of losing so much that you can't continue.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: basic">●</span>11.2 The arithmetic of drawdown</h2>
+      <p>Drawdown and recovery are not symmetrical. If you lose 50%, you don't need to gain 50% to get back. You need to gain 100%. The deeper the hole, the harder it is to climb out.</p>
+      <div class="tablewrap" data-name="spad-vazstanovyavane">
+        <table class="data" id="ddTable">
+          <thead><tr><th class="num">Drawdown</th><th class="num">Gain needed to recover</th><th class="num">Trades at +3R with 1% risk</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <figure class="diagram">
+        <svg id="ddSvg" viewBox="0 0 520 200" role="img" aria-label="Curve: drawdown versus the gain needed to recover"></svg>
+        <figcaption>Red: the drawdown. Green: how much you need to gain to get back. The curves diverge faster and faster.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Drawdown · спад</b>The difference between the account's highest value and its current value, in percent.</div>
+      <div class="term"><b>Max drawdown · максимален спад</b>The deepest drawdown over a period. Prop firms cap it.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>11.3 A daily limit and constant risk in money</h2>
+      <p>Besides risk per trade, you need a <b>daily limit</b>: an amount after which the day is over, whatever you see on the chart. The reason isn't mathematical but human: after two losses in a row, decisions usually get worse. The rule in the framework this book comes from is strict: <b>if you lose and feel angry, the day is over.</b> Other experienced traders use a limit of 2–3R a day.</p>
+      <p>Second rule: <b>risk the same amount</b>, not the same number of lots. If the stop is 10 pips, the position is bigger; if it is 25 pips, smaller. The risk in money stays the same. That way no trade matters more than the others.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Account ($)<input type="number" id="d1" value="10000"></label>
+            <label>Risk per trade (%)<input type="number" id="d2" value="1" step="0.25"></label>
+            <label>Daily limit (R)<input type="number" id="d3" value="2" step="0.5"></label>
+            <label>Weekly limit (R)<input type="number" id="d4" value="5" step="0.5"></label>
+          </div>
+          <div class="out" id="dOut" aria-live="polite"></div>
+        </div>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Daily loss limit · дневен лимит</b>The maximum loss for the day, after which you stop.</div>
+      <div class="term"><b>Fixed fractional · фиксиран процент</b>You risk the same percentage of the account on every trade.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>11.4 Sizing by volatility</h2>
+      <p>When the market is stormy (around news, in a geopolitical shock, after a big gap), the usual stop is no longer enough. You have two choices: widen the stop and reduce the size so the risk in money stays the same, or stay out. What you do <b>not</b> do is keep the size and widen the stop. Then your risk quietly grows along with the stop.</p>
+      <div class="tablewrap" data-name="volatilnost-razmer">
+        <table class="data">
+          <thead><tr><th>Situation</th><th>Stop</th><th>Size</th><th>Risk in $</th></tr></thead>
+          <tbody>
+            <tr><td>Normal day, EURUSD</td><td class="num">15 pips</td><td class="num">0.66 lots</td><td class="num">≈ 100 $</td></tr>
+            <tr><td>Day after CPI, ATR ×2</td><td class="num">30 pips</td><td class="num">0.33 lots</td><td class="num">≈ 100 $</td></tr>
+            <tr style="color:var(--bear)"><td>Wrong: stop ×2, size unchanged</td><td class="num">30 pips</td><td class="num">0.66 lots</td><td class="num">≈ 200 $</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Some analysts add a second layer: with a B grade (Chapter 10) or a yellow macro verdict they risk half the usual amount. Risk becomes a function of the quality of the picture.</p>
+      <div class="myth">
+        <div><span class="label">Myth</span><p>This trade is a sure thing, so I'll risk more.</p></div>
+        <div><span class="label">Reality</span><p>There is no sure trade. The feeling of certainty is exactly when the risk rule is most often broken, and most often paid for.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Volatility-adjusted size</b>A size that is reduced when the stop has to be wider.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5r">
+    <div class="main">
+      <h2 id="s5r"><span class="dots" title="Level: intermediate">●●</span>11.5 Drill</h2>
+      <p>Three quick calculations. Do them in your head or with the position-size calculator from Chapter 2.</p>
+      <div class="drills" data-dr="ch11"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Replay · повторение</b>Stepping through the chart candle by candle without seeing the future. The cheapest way to practise reading.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-label="Go deeper">
+    <div class="main">
+      <details class="deeper">
+        <summary><span class="dots" aria-hidden="true">●●●</span><span class="dp-t"><small>Go deeper</small><b>Risk of ruin and the Kelly fraction</b></span><span class="drop-caret" aria-hidden="true">▾</span></summary>
+        <div class="dp-body">
+          <p>The <b>Kelly formula</b> gives the fraction of the account that maximises long-run growth for a known edge: <b>f = W − (1 − W) ÷ R</b>, where W is the win rate and R the average win in R-multiples. With W = 40% and R = 3: f = 0.40 − 0.60 ÷ 3 = 0.20, or 20% per trade.</p>
+          <p>Nobody sane risks 20%. Three reasons: your real W and R are estimates with large error; the formula assumes you know them exactly; and full Kelly produces drawdowns of 50% and more along the way. Professionals use a fraction of Kelly, and 1% is about one twentieth of it in this example. That margin is the price of not knowing your edge precisely.</p>
+          <p>The useful lesson: if Kelly for your stats is <i>negative</i>, there is no edge, and no position size makes it positive.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 11</h2>
+    <ul>
+      <li>1% per trade: ten losses in a row = about −9.6%. You survive to learn.</li>
+      <li>Drawdown and recovery are not symmetrical: −50% needs +100%.</li>
+      <li>A daily limit in R and the rule “angry = end of the day”.</li>
+      <li>Constant risk in money; size changes with the stop.</li>
+      <li>In high volatility: a wider stop and smaller size, or skip.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I wrote down my risk per trade and my daily and weekly limits.</label></li>
+      <li><label><input type="checkbox"> I know by heart how much is needed to recover from −10% and −20%.</label></li>
+      <li><label><input type="checkbox"> I calculated the size for 12-, 20- and 35-pip stops at the same risk in money.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>Demo account $10,000. This week: Monday −1R, Tuesday −1R and −1R, Wednesday +3R, Thursday −1R. On Friday morning you see an A+ picture, but the stop has to be 40 pips, because there was big news last night and ATR is double. You normally trade 0.6 lots at 15–17 pips.</p>
+      <p><b>Task:</b> where are you for the week in R? Are you close to the 5R weekly limit? What size would it be at a 40-pip stop and 1% risk? What is the sensible thing to do?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Week… Limit… Size… Decision…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>Week: −1 −1 −1 +3 −1 = −1R. Far from the 5R weekly limit.</li>
+          <li>Size at 40 pips: $100 ÷ (40 × $10) = 0.25 lots. Not 0.6.</li>
+          <li>If you trade 0.6 lots with a 40-pip stop, you risk $240, 2.4% of the account. That is the quiet doubling.</li>
+          <li>Sensible: 0.25 lots, or skip if the wide stop puts the target under 3R. And remember that on Friday afternoon liquidity thins before the weekend.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Account $5,000, risk 1%. How much do you risk per trade?",o:["5 $","50 $","500 $"],a:1,e:"1% of 5,000 = $50."},
+  {q:"You lose 50%. How much do you need to gain to get back?",o:["50%","75%","100%"],a:2,e:"From 5,000 back to 10,000 = +100%."},
+  {q:"What is a daily limit?",o:["How many trades you make","A loss after which you stop for the day","A minimum profit"],a:1,e:"A stop for the day, not for the trade."},
+  {q:"The stop doubles. What happens to the size if the risk in money stays the same?",o:["It doubles","It halves","It stays the same"],a:1,e:"Double the stop → half the size."},
+  {q:"What does “constant risk in money” mean?",o:["Always the same number of lots","The same amount at risk, with the size changing","No stop"],a:1,e:"The risk is constant; the lots change."}
+],mid:[
+  {q:"Risk 2% per trade, 10 losses in a row. Roughly how much of the account is left?",o:["80%","82%","90%"],a:1,e:"0.98^10 ≈ 0.817, about 82%."},
+  {q:"A 20% drawdown. At 1% risk and wins of +3R, how many winning trades (with no losses) do you need to recover?",o:["about 5","about 8","about 20"],a:1,e:"You need +25%. Each win is about +3%, compounded: about 8 wins."},
+  {q:"ATR is triple normal after a geopolitical shock. What is most sensible?",o:["Usual size, a stop three times wider","A third of the size with a stop three times wider, or skip","No stop"],a:1,e:"The risk in money stays the same, or zero."}
+]};
+</script>
+<script>window.REPLAYS={};window.DRILLS={"ch11": [{"q": "Account $5,000, risk 1%, a 25-pip stop on EURUSD ($10 per pip per lot). What size?", "o": [{"t": "0.2 lots"}, {"t": "0.5 lots"}, {"t": "2 lots"}], "a": 0, "e": "Risk $50 ÷ (25 pips × $10) = 0.2 lots."}, {"q": "Your stop needs to be 40 pips instead of 20 to sit beyond the liquidity. What do you do with the size?", "o": [{"t": "I keep it the same"}, {"t": "I halve it"}, {"t": "I double it"}], "a": 1, "e": "The risk in money stays at 1%. A wider stop means a smaller size."}, {"q": "Three 1% losses in a row. How much do you need to get back to zero?", "o": [{"t": "About 3.1%"}, {"t": "Exactly 3%"}, {"t": "About 10%"}], "a": 0, "e": "0.99³ ≈ 0.9703; 1 ÷ 0.9703 − 1 ≈ 3.06%. With small losses the recovery is almost linear; with big ones it isn't."}, {"q": "Account $10,000, risk 1%, a 30-pip stop on USDJPY at 150 (about $6.70 per pip per lot). What size?", "o": [{"t": "About 0.5 lots"}, {"t": "About 1 lot"}, {"t": "About 0.1 lots"}], "a": 0, "e": "$100 ÷ (30 × $6.70) ≈ 0.5 lots. In JPY pairs the pip value depends on the price."}, {"q": "Win rate 30%, average win 2.5R, losses 1R. Expected value per trade?", "o": [{"t": "+0.05R"}, {"t": "+0.75R"}, {"t": "−0.25R"}], "a": 0, "e": "0.30 × 2.5 − 0.70 × 1 = 0.75 − 0.70 = +0.05R. Barely positive: costs could erase it."}, {"q": "A 20% drawdown. How much do you need to make to get back to the start?", "o": [{"t": "20%"}, {"t": "25%"}, {"t": "40%"}], "a": 1, "e": "From 8,000 back to 10,000 is +25%."}]};</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* streak */
+  var r1=document.getElementById("r1"),r2=document.getElementById("r2"),sv=document.getElementById("streak"),out=document.getElementById("rOut");
+  function st(){var p=+r1.value/100,n=Math.min(30,Math.max(1,+r2.value|0));sv.innerHTML="";
+    var sets=[[0.01,"1%","var(--bull)"],[0.05,"5%","var(--news)"],[0.10,"10%","var(--bear)"],[p,"your "+r1.value+"%","var(--ink)"]];
+    function X(i){return 40+i*(470/n)}function Y(v){return 150-v*130}
+    el("line",{x1:40,x2:510,y1:Y(1),y2:Y(1),stroke:"var(--line)"},sv);el("line",{x1:40,x2:510,y1:Y(.5),y2:Y(.5),stroke:"var(--line)"},sv);
+    el("text",{x:0,y:Y(1)+4,"font-size":10,fill:"var(--muted)"},sv).textContent="100%";el("text",{x:4,y:Y(.5)+4,"font-size":10,fill:"var(--muted)"},sv).textContent="50%";
+    sets.forEach(function(s,k){var d="",v=1;for(var i=0;i<=n;i++){d+=(i?"L":"M")+X(i).toFixed(1)+","+Y(v).toFixed(1);v*=1-s[0]}
+      el("path",{d:d,fill:"none",stroke:s[2],"stroke-width":k===3?3:1.6,"stroke-dasharray":k===3?"":"0"},sv);
+      el("text",{x:X(n)-60,y:Y(Math.pow(1-s[0],n))-4,"font-size":10,fill:s[2]},sv).textContent=s[1]});
+    var left=Math.pow(1-p,n)*100,need=(100/left-1)*100;
+    out.innerHTML="<span>After "+n+" losses in a row at "+r1.value+"%, <b>"+left.toFixed(1)+"%</b> of the account is left.</span><span>To get back you need <b>+"+need.toFixed(1)+"%</b>.</span>"}
+  [r1,r2].forEach(function(x){x.addEventListener("input",st)});st();
+  /* drawdown table and curve */
+  var tb=document.querySelector("#ddTable tbody");
+  [5,10,20,30,40,50,75,90].forEach(function(d){var need=(1/(1-d/100)-1)*100,trades=Math.ceil(Math.log(1/(1-d/100))/Math.log(1.03));
+    var tr=document.createElement("tr");tr.innerHTML='<td class="num">−'+d+'%</td><td class="num">+'+need.toFixed(1)+'%</td><td class="num">'+trades+"</td>";tb.appendChild(tr)});
+  var dd=document.getElementById("ddSvg");function X(d){return 40+d*5}function Y(v){return 180-v*1.6}
+  el("line",{x1:40,x2:510,y1:180,y2:180,stroke:"var(--muted)"},dd);el("line",{x1:40,x2:40,y1:10,y2:180,stroke:"var(--muted)"},dd);
+  var a="",b="";for(var d=0;d<=90;d+=2){a+=(d?"L":"M")+X(d)+","+Y(d);var n=Math.min(105,(1/(1-d/100)-1)*100);b+=(d?"L":"M")+X(d)+","+Y(n)}
+  el("path",{d:a,fill:"none",stroke:"var(--bear)","stroke-width":2.5},dd);el("path",{d:b,fill:"none",stroke:"var(--bull)","stroke-width":2.5},dd);
+  [0,25,50,75,90].forEach(function(d){el("text",{x:X(d)-8,y:196,"font-size":10,fill:"var(--muted)"},dd).textContent="−"+d+"%"});
+  el("text",{x:X(50)+6,y:Y(100)+4,"font-size":10,fill:"var(--bull)"},dd).textContent="−50% → +100%";
+  el("circle",{cx:X(50),cy:Y(100),r:4,fill:"var(--bull)"},dd);
+  /* limits */
+  var D=["d1","d2","d3","d4"].map(function(i){return document.getElementById(i)}),dO=document.getElementById("dOut");
+  function lim(){var bal=+D[0].value,rp=+D[1].value,R=bal*rp/100;
+    dO.innerHTML="<span>1R = <b>"+R.toFixed(0)+" $</b></span><span>Daily limit: "+D[2].value+"R = <b>"+(R*D[2].value).toFixed(0)+" $</b>. Hit it and the platform gets closed.</span><span>Weekly limit: "+D[3].value+"R = <b>"+(R*D[3].value).toFixed(0)+" $</b>. Hit it and the week is for reviewing the journal, not trading.</span>"}
+  D.forEach(function(x){x.addEventListener("input",lim)});lim();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Intermarket in Depth · FX Fundamentals</title>
+<meta name="description" content="Intermarket in Depth · FX Fundamentals, a free beginner's guide to forex by Kristian Tsvetkov.">
+<link rel="alternate" hreflang="en" href="ch21b.html">
+<link rel="alternate" hreflang="bg" href="bg/ch21b.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<main class="book" data-ch="21b">
+
+  <header class="dossier">
+    <span class="label">Dossier</span>
+    <div class="no">23</div>
+    <h1>Intermarket in Depth</h1>
+    <blockquote class="quote">
+      Correlations are like umbrellas: they work until it really rains.
+      <cite>Trader's wisdom</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">After this chapter you will be able to</p>
+      <ul class="cando">
+        <li>read a correlation coefficient and know why it changes over time;</li>
+        <li>link a currency pair to the yield spread that really drives it;</li>
+        <li>use oil, metals, gold, stocks and the VIX as context for a currency;</li>
+        <li>spot a broken correlation and treat it as information;</li>
+        <li>run a five-minute intermarket check before the London open.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Level: intermediate">●●</span>23.1 Correlation is a number that moves</h2>
+      <p>Chapter 22 gave the map of links. This chapter measures them. The <b>correlation coefficient</b> goes from −1 to +1: +1 means two markets move together every day, −1 means always opposite, 0 means no linear link. It is measured over a window: the last 20, 60 or 120 days.</p>
+      <ol class="steps">
+        <li><b>It is calculated on changes</b> (daily returns), not on price levels. Two lines that both rise for a year can have a correlation of zero day to day.</li>
+        <li><b>It is not stable.</b> Even if the "true" link were constant, the measured one would wobble because of noise. In real markets the true link changes too.</li>
+        <li><b>It does not say who leads.</b> Oil and CAD may both react to a third thing, like US growth.</li>
+      </ol>
+      <h3>Try it: noise in a constant link</h3>
+      <p>The simulator generates two random series with the true correlation you choose and shows the correlation measured over a rolling window. Press "New data" several times.</p>
+      <figure class="diagram">
+        <div class="calc">
+          <div class="fields">
+            <label>True correlation<input type="number" id="rc1" value="0.6" step="0.1" min="-1" max="1"></label>
+            <label>Window (days)<input type="number" id="rc2" value="20" step="5" min="5" max="120"></label>
+          </div>
+          <button class="chip" type="button" id="rcNew">↻ New data</button>
+        </div>
+        <svg id="rcSvg" viewBox="0 0 520 200" role="img" aria-label="Rolling correlation over 250 days"></svg>
+        <figcaption id="rcCap">Dashed line: the true correlation. Blue line: what you would measure.</figcaption>
+      </figure>
+      <p>With a 20-day window a true link of 0.6 regularly shows anywhere from about 0.2 to 0.9. That is why one week of "correlation broke" is usually noise, and why longer windows are steadier but slower.</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Correlation coefficient · коефициент на корелация</b>A number from −1 to +1 for how closely two series move together.</div>
+      <div class="term"><b>Rolling window · плъзгащ се прозорец</b>A fixed number of recent days used for each calculation.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Level: intermediate">●●</span>23.2 Yield spreads: the engine under the pair</h2>
+      <p>Money flows towards the higher expected return. That is why the most useful intermarket chart for a currency pair is usually not another currency, but the <b>difference between the two countries' yields</b>.</p>
+      <div class="tablewrap" data-name="spredove">
+        <table class="data">
+          <thead><tr><th>Pair</th><th>Spread to watch</th><th>Why that maturity</th></tr></thead>
+          <tbody>
+            <tr><td>EURUSD</td><td>Germany 2y − US 2y</td><td>The 2-year yield reflects expected central bank policy over the next two years</td></tr>
+            <tr><td>USDJPY</td><td>US 10y − Japan 10y (and the US 10y alone)</td><td>Japanese investors compare long yields; JPY is very sensitive to US long rates</td></tr>
+            <tr><td>GBPUSD</td><td>UK 2y − US 2y</td><td>Policy expectations, as long as fiscal trust holds</td></tr>
+            <tr><td>AUDUSD</td><td>Australia 2y − US 2y, plus China</td><td>Rates matter, but commodities and China often dominate</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>On TradingView you can type a spread directly as a formula, for example <code>TVC:DE02Y-TVC:US02Y</code>, and put it under the EURUSD chart. When the two lines diverge for weeks, one of them is usually wrong, and it is more often the currency.</p>
+      <div class="tv" data-sym="TVC:US02Y,TVC:DE02Y,TVC:US10Y,TVC:JP10Y"></div>
+      <div class="box note">
+        <span class="label">Mentor's note</span>
+        <p>On data days the bond market often moves first. If US 2-year yields jump 10 basis points in a minute after CPI, the dollar usually follows within minutes. Watching the yield is like seeing the lightning before the thunder.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Yield spread · спред на доходностите</b>The difference between two yields, usually in basis points.</div>
+      <div class="term"><b>Basis point · базисна точка</b>One hundredth of a percentage point: 0.01%.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Level: intermediate">●●</span>23.3 Commodities and their currencies</h2>
+      <div class="tablewrap" data-name="surovini-valuti">
+        <table class="data">
+          <thead><tr><th>Commodity</th><th>Currency</th><th>The link</th><th>When it weakens</th></tr></thead>
+          <tbody>
+            <tr><td>Oil (WTI, Brent)</td><td>CAD, NOK</td><td>Energy exports raise income and the currency</td><td>When US trade or Fed news dominates USDCAD</td></tr>
+            <tr><td>Oil</td><td>JPY, EUR, INR</td><td>Importers: expensive oil hurts their trade balance</td><td>When oil rises on strong global demand that helps everyone</td></tr>
+            <tr><td>Iron ore, copper</td><td>AUD</td><td>Australia's biggest exports, mostly to China</td><td>When the RBA or the Fed surprise</td></tr>
+            <tr><td>Dairy</td><td>NZD</td><td>New Zealand's top export</td><td>Slow-moving; matters most on GDT auction days</td></tr>
+            <tr><td>Gold</td><td>AUD (weaker), CHF</td><td>Australia mines gold; gold and the franc are both havens</td><td>Often; treat as context only</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Gold and real yields</h3>
+      <p>Gold pays nothing. Its cost is the real yield you give up: the yield on inflation-protected US bonds (TIPS). For years gold moved opposite to real yields. Since 2022 that link has weakened, because central banks have bought record amounts of gold to reduce their dependence on the dollar. Rising real yields and rising gold together tell you a story about trust in the system, not about rates (Chapter 24).</p>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>TIPS</b>US Treasury bonds protected against inflation; their yield is a real yield.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Level: intermediate">●●</span>23.4 Stocks, the VIX and the yen: the risk barometer</h2>
+      <p>The VIX measures the implied volatility of S&amp;P 500 options over the next 30 days: the market's "fear gauge". It is not a forecast of direction. It is the price of insurance.</p>
+      <div class="four">
+        <div><span class="label">VIX about 12–16</span><p>Calm. Carry trades work, risk currencies are bought, JPY and CHF are sold.</p></div>
+        <div><span class="label">VIX about 20–30</span><p>Nervous. Correlations tighten, ranges widen. Cut size.</p></div>
+        <div><span class="label">VIX above 30</span><p>Stress. Havens rise, AUDJPY falls, spreads widen.</p></div>
+        <div><span class="label">VIX spike then fall</span><p>Often the end of a panic phase, as in August 2024.</p></div>
+      </div>
+      <p>For a currency trader the cleanest risk barometer is <b>AUDJPY</b>: a risk currency against a haven. When the S&amp;P 500 falls and AUDJPY falls with it, the move is risk-off. When stocks fall but AUDJPY holds, the stock move is probably local, not global.</p>
+      <div class="tv" data-sym="TVC:VIX,FX:AUDJPY,SP:SPX"></div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>VIX</b>The index of expected 30-day volatility of the S&amp;P 500, built from option prices.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Level: advanced">●●●</span>23.5 When correlations break</h2>
+      <p>A correlation breaking is not an error. It is news: a sign that the main driver has changed. Three examples from recent history:</p>
+      <div class="tablewrap" data-name="schupeni-korelacii">
+        <table class="data">
+          <thead><tr><th>Period</th><th>Normal link</th><th>What happened</th><th>What it meant</th></tr></thead>
+          <tbody>
+            <tr><td>March 2020</td><td>Gold up in a panic</td><td>Gold fell more than 10% at first</td><td>A dash for cash: everything is sold to get dollars</td></tr>
+            <tr><td>2022</td><td>Bonds rise when stocks fall</td><td>Stocks and bonds fell together</td><td>Inflation, not growth, was the main risk; the "60/40" hedge failed</td></tr>
+            <tr><td>2022–2024</td><td>Gold opposite to real yields</td><td>Gold rose despite higher real yields</td><td>Central bank buying and trust in the system took over</td></tr>
+            <tr><td>Sept 2022 (UK)</td><td>Higher yields support the currency</td><td>Gilt yields up, pound down</td><td>A loss of fiscal trust (Chapter 29)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box warn">
+        <span class="label">Two rules</span>
+        <p>1) Do not trade a correlation you have not checked in the last month. 2) If two positions are on highly correlated pairs (for example long EURUSD and long GBPUSD), you do not have two trades. You have one trade with double the risk.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Terms">
+      <div class="term"><b>Correlation breakdown · срив на корелацията</b>When a usual link stops working, often because the main driver changed.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="main">
+      <h2 id="s6"><span class="dots" title="Level: basic">●</span>23.6 The five-minute intermarket check</h2>
+      <p>Before the London open, look at six charts and write one line. The goal is not a prediction. It is to know which "weather" you are trading in.</p>
+      <div class="tablewrap" data-name="intermarket-proverka">
+        <table class="data">
+          <thead><tr><th>#</th><th>Chart</th><th>Question</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>US 2-year yield</td><td>Is the market pricing a more hawkish or more dovish Fed than yesterday?</td></tr>
+            <tr><td>2</td><td>DXY</td><td>Is the dollar broadly stronger or weaker?</td></tr>
+            <tr><td>3</td><td>S&amp;P 500 futures and VIX</td><td>Risk-on, risk-off or calm?</td></tr>
+            <tr><td>4</td><td>Oil</td><td>Any big move for CAD, inflation expectations or JPY?</td></tr>
+            <tr><td>5</td><td>Gold</td><td>Fear, rates, or trust in the system?</td></tr>
+            <tr><td>6</td><td>AUDJPY</td><td>Does the FX risk barometer agree with stocks?</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tv" data-sym="TVC:US02Y,TVC:DXY,TVC:USOIL,TVC:GOLD"></div>
+      <p>Write it as one sentence in the journal: <i>"Yields up, dollar up, stocks calm, oil flat: a rates day, not a risk day."</i> In a month you will see which "weather" your setups work best in.</p>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Debrief</span>
+    <h2 id="deb">What you take from Dossier 23</h2>
+    <ul>
+      <li>Correlation is measured on daily changes, over a window, and it moves even when nothing changes.</li>
+      <li>The 2-year spread is the engine under most pairs; for USDJPY, watch the 10-year.</li>
+      <li>Oil for CAD, metals and China for AUD, dairy for NZD, real yields and trust for gold.</li>
+      <li>VIX and AUDJPY are the risk barometer.</li>
+      <li>A broken correlation is news: the driver changed.</li>
+      <li>Two correlated positions are one position with double the risk.</li>
+    </ul>
+    <p class="label">Checklist before the next chapter</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> I put the DE02Y−US02Y spread under my EURUSD chart.</label></li>
+      <li><label><input type="checkbox"> I did the six-chart check before three London opens.</label></li>
+      <li><label><input type="checkbox"> I checked whether my open positions are on correlated pairs.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Test yourself</h2>
+    <div class="tier" id="tierEasy"><header><h3>Easy · 5 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Intermediate · 3 questions</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Experienced Trader level · 1 scenario</h3><span class="score">No single right answer</span></header>
+      <p>For two weeks EURUSD has risen while the DE02Y−US02Y spread has fallen by 25 basis points in favour of the dollar. Stocks are calm, VIX is 13, oil is flat. Retail traders are 65% short EURUSD. You hold a long EURUSD and want to add a long GBPUSD.</p>
+      <p><b>Task:</b> what does the divergence between EURUSD and the spread tell you? Which explanations are possible? What does adding GBPUSD do to your risk?</p>
+      <label for="krisAns" class="label">Your answer</label>
+      <textarea id="krisAns" placeholder="Divergence… Explanations… Risk…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Show a sample answer</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Sample answer</span>
+        <ol>
+          <li>The rate engine points down for EURUSD, but price is going up. One of the two is wrong, and more often it is the currency.</li>
+          <li>Possible explanations: flows not related to rates (for example large asset purchases into Europe), short covering (the crowd is short), or the market looking past the next two years. Without one of these, the gap is a warning.</li>
+          <li>EURUSD and GBPUSD are usually highly correlated. Adding GBPUSD roughly doubles the same dollar bet instead of adding a new idea. The decision is mine, but the risk should be counted as one larger position.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"What range does a correlation coefficient have?",o:["0 to 100","−1 to +1","−100 to 0"],a:1,e:"−1 always opposite, +1 always together."},
+  {q:"Which yield best reflects expected central bank policy?",o:["The 2-year","The 30-year","The 3-month bill only"],a:0,e:"The 2-year covers the next two years of policy."},
+  {q:"Oil rises strongly. Which currency usually benefits?",o:["JPY","CAD","EUR"],a:1,e:"Canada exports oil."},
+  {q:"What is the VIX?",o:["A volume index","The expected volatility of the S&P 500","A currency index"],a:1,e:"Built from option prices: the price of insurance."},
+  {q:"Long EURUSD and long GBPUSD at the same time is…",o:["Two independent trades","Mostly one dollar bet with more risk","A hedge"],a:1,e:"The two pairs are usually highly correlated."}
+],mid:[
+  {q:"With a 20-day window, a true correlation of 0.6 is measured at 0.25 this week. The most likely reason?",o:["The link is gone forever","Noise in a short window","A data error"],a:1,e:"Short windows wobble a lot even when the true link is stable."},
+  {q:"Stocks and bonds fall together for months. Which risk dominates?",o:["Recession","Inflation","Deflation"],a:1,e:"As in 2022: rising rates hurt both."},
+  {q:"US 2-year yields jump 12 bp a minute after CPI. What usually follows for USDJPY?",o:["It falls","It rises","No link"],a:1,e:"A higher US yield widens the gap with Japan and supports the dollar."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg,sv=document.getElementById("rcSvg"),r1=document.getElementById("rc1"),r2=document.getElementById("rc2"),cap=document.getElementById("rcCap"),N=250,X=[],Z=[];
+  function gauss(){var u=1-Math.random(),v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+  function gen(){X=[];Z=[];for(var i=0;i<N;i++){X.push(gauss());Z.push(gauss())}draw()}
+  function draw(){var rho=Math.max(-1,Math.min(1,+r1.value||0)),w=Math.max(5,Math.min(120,Math.round(+r2.value||20))),Y=X.map(function(x,i){return rho*x+Math.sqrt(1-rho*rho)*Z[i]}),R=[];
+    for(var i=w;i<=N;i++){var a=X.slice(i-w,i),b=Y.slice(i-w,i),ma=0,mb=0;a.forEach(function(v,k){ma+=v;mb+=b[k]});ma/=w;mb/=w;var c=0,va=0,vb=0;a.forEach(function(v,k){c+=(v-ma)*(b[k]-mb);va+=(v-ma)*(v-ma);vb+=(b[k]-mb)*(b[k]-mb)});R.push(c/Math.sqrt(va*vb))}
+    while(sv.firstChild)sv.removeChild(sv.firstChild);
+    function x(i){return 36+i*(474/(N-1))}function y(v){return 12+(1-v)/2*170}
+    [-1,-0.5,0,0.5,1].forEach(function(v){el("line",{x1:36,x2:510,y1:y(v),y2:y(v),stroke:"var(--line)","stroke-dasharray":v===0?"":"2 4"},sv);el("text",{x:2,y:y(v)+4,"font-size":10,fill:"var(--muted)"},sv).textContent=v});
+    el("line",{x1:36,x2:510,y1:y(rho),y2:y(rho),stroke:"var(--news)","stroke-width":2,"stroke-dasharray":"6 4"},sv);
+    el("path",{d:R.map(function(r,k){return(k?"L":"M")+x(k+w-1).toFixed(1)+","+y(r).toFixed(1)}).join(""),fill:"none",stroke:"#2563eb","stroke-width":2},sv);
+    var mn=Math.min.apply(null,R),mx=Math.max.apply(null,R);
+    cap.textContent="Dashed line: the true correlation ("+rho.toFixed(2)+"). Blue line: measured over "+w+" days, from "+mn.toFixed(2)+" to "+mx.toFixed(2)+" in this sample."}
+  r1.addEventListener("input",draw);r2.addEventListener("input",draw);document.getElementById("rcNew").addEventListener("click",gen);gen();
+})();
+</script>
+<script src="firebase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>
