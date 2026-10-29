@@ -11,7 +11,7 @@
   var T=BG?{
     acct:"Акаунт",title:"Вход / акаунт",signedAs:"Влязъл: ",yours:"Твоят акаунт",inAs:"Влязъл си като",gacc:"Google акаунт",
     saved:"✓ Напредъкът ти се пази в облака",last:" · последно ",tip:"Влез със същия акаунт на телефона или компютъра и продължи оттам, докъдето си стигнал.",
-    sync:"Синхронизирай сега",out:"Изход",fine:"Пазим само имейла ти и напредъка в книгата: отметки, куизове, маркери, дневник. Без реклами и без споделяне.",del:"Изтрий акаунта и данните",
+    sync:"Синхронизирай сега",out:"Изход",priv:"Политика за поверителност",fine:"Пазим само имейла ти и напредъка в книгата: отметки, куизове, маркери, дневник. Без реклами и без споделяне.",del:"Изтрий акаунта и данните",
     keep:"Запази напредъка си",keepP:"С акаунт отметките, куизовете, маркерите и дневникът ти се пазят и на всяко устройство.",google:"Вход с Google",orEmail:"или с имейл",
     email:"Имейл",pw:"Парола (поне 6 знака)",signin:"Вход",signup:"Нов акаунт",forgot:"Забравена парола",without:"Без акаунт книгата работи както досега, а напредъкът остава само в този браузър.",
     close:"Затвори",needEmail:"Напиши имейла си отгоре.",resetSent:"Изпратихме ти имейл за нова парола.",synced:"Синхронизирано.",
@@ -24,7 +24,7 @@
   }:{
     acct:"Account",title:"Sign in / account",signedAs:"Signed in: ",yours:"Your account",inAs:"You're signed in as",gacc:"Google account",
     saved:"✓ Your progress is saved in the cloud",last:" · last at ",tip:"Sign in with the same account on your phone or computer and carry on where you left off.",
-    sync:"Sync now",out:"Sign out",fine:"We store only your email and your progress in the book: ticks, quizzes, marks, journal. No ads, no sharing.",del:"Delete account and data",
+    sync:"Sync now",out:"Sign out",priv:"Privacy notice",fine:"We store only your email and your progress in the book: ticks, quizzes, marks, journal. No ads, no sharing.",del:"Delete account and data",
     keep:"Save your progress",keepP:"With an account, your ticks, quizzes, marks and journal are kept on every device.",google:"Sign in with Google",orEmail:"or with email",
     email:"Email",pw:"Password (at least 6 characters)",signin:"Sign in",signup:"Create account",forgot:"Forgot password",without:"Without an account the book works as before, and your progress stays in this browser only.",
     close:"Close",needEmail:"Type your email above first.",resetSent:"We've sent you an email to reset your password.",synced:"Synced.",
@@ -98,13 +98,13 @@
       dlg.innerHTML='<button class="x" type="button" aria-label="'+T.close+'">✕</button><h2>'+T.yours+'</h2><p>'+T.inAs+' <b>'+esc(user.email||T.gacc)+'</b>.</p>'+
         '<p class="ok">'+T.saved+(at?T.last+new Date(at).toLocaleTimeString(T.locale,{hour:"2-digit",minute:"2-digit"}):"")+'.</p><p>'+T.tip+'</p>'+
         '<div class="row"><button type="button" data-a="sync">'+T.sync+'</button><button type="button" data-a="out" class="pri">'+T.out+'</button></div>'+
-        '<p class="msg"></p><p class="fine">'+T.fine+' <a href="#" data-a="del">'+T.del+'</a></p>';
+        '<p class="msg"></p><p class="fine">'+T.fine+' <a href="privacy.html">'+T.priv+'</a> · <a href="#" data-a="del">'+T.del+'</a></p>';
     }else{
       dlg.innerHTML='<button class="x" type="button" aria-label="'+T.close+'">✕</button><h2>'+T.keep+'</h2><p>'+T.keepP+'</p>'+
         '<button type="button" class="g pri" data-a="google">'+T.google+'</button><p class="fine" style="text-align:center">'+T.orEmail+'</p>'+
         '<input type="email" autocomplete="email" placeholder="'+T.email+'" id="acEm"><input type="password" autocomplete="current-password" placeholder="'+T.pw+'" id="acPw">'+
         '<div class="row"><button type="button" class="pri" data-a="in">'+T.signin+'</button><button type="button" data-a="up">'+T.signup+'</button><button type="button" data-a="reset">'+T.forgot+'</button></div>'+
-        '<p class="msg"></p><p class="fine">'+T.without+'</p>';
+        '<p class="msg"></p><p class="fine">'+T.without+' <a href="privacy.html">'+T.priv+'</a></p>';
     }
   }
   function msg(t,ok){var m=dlg.querySelector(".msg");if(m){m.textContent=t;m.className="msg"+(ok?" ok":"")}}

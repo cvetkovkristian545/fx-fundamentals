@@ -674,3 +674,4 @@ mark.hl{background:#0b3aa8;color:#fff;padding:.02em .12em;border-radius:3px;-web
 #labCurve{width:100%;height:auto}
 .start-cta{display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:10px 16px;border-radius:999px;background:#2563eb;color:#fff!important;font-weight:700;text-decoration:none;box-shadow:0 0 18px rgba(37,99,235,.45)}
 .start-cta:hover{background:#1d4ed8}
+footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
