@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Пари, банки, инфлация · FX Fundamentals</title>
+<meta name="description" content="Пари, банки, инфлация · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch17.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch17.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="17">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">17</div>
+    <h1>Пари, банки, инфлация</h1>
+    <blockquote class="quote">
+      Инфлацията винаги и навсякъде е паричен феномен.
+      <cite>Милтън Фридман</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да разкажеш пътя от бартера до фиатните и цифровите пари;</li>
+        <li>да покажеш как банките създават пари, когато отпускат кредит;</li>
+        <li>да различиш CPI, core CPI, PCE и PPI и защо пазарът гледа точно тях;</li>
+        <li>да обясниш защо инфлационните данни движат една валута.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>17.1 От бартер до злато до фиат</h2>
+      <p>Без пари търговията е <b>бартер</b>: обущарят, който иска хляб, трябва да намери хлебар, на когото му трябват обувки, точно днес. Парите решават това. Те имат три работи: <b>средство за размяна</b>, <b>мерна единица</b> и <b>съхранение на стойност</b>.</p>
+      <div class="timeline">
+        <div class="tick"><span class="t">Древност</span><b>Стокови пари</b><span>Сол, добитък, раковини, после метални монети. Стойността е в самия предмет.</span></div>
+        <div class="tick"><span class="t">XVII–XIX в.</span><b>Разписки на златарите</b><span>Златарите пазят чуждо злато и издават разписки, които започват да се ползват като пари. Така се ражда банкирането.</span></div>
+        <div class="tick"><span class="t">XIX в. – 1971</span><b>Златен стандарт и Бретън Уудс</b><span>Хартиените пари могат да се обменят в злато. Златото не „дава стойност“, а <i>ограничава</i> количеството пари (Глава 24).</span></div>
+        <div class="tick news"><span class="t">1971</span><b>Фиатни пари</b><span>САЩ спират обмяната на долари в злато. Оттогава парите са приети по закон и по доверие, без нищо зад тях освен институциите.</span></div>
+        <div class="tick"><span class="t">Днес</span><b>Цифрови пари</b><span>Повечето пари са записи в банкови сметки. Добавят се стейбълкойни, криптовалути и цифрови пари на централни банки (CBDC, Глава 40).</span></div>
+      </div>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Фиатната валута е толкова силна, колкото институциите зад нея. Когато доверието в една централна банка пада, хората бягат към злато, долари или крипто. Затова златото понякога расте заедно с долара: това е страх, а не логика на лихвите.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Barter · бартер</b>Размяна на стока срещу стока без пари.</div>
+      <div class="term"><b>Fiat money · фиатни пари</b>Пари без вътрешна стойност, приети по закон и доверие.</div>
+      <div class="term"><b>Store of value · съхранение на стойност</b>Нещо, което пази покупателната си способност във времето.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: средно">●●</span>17.2 Как банките създават пари</h2>
+      <p>Банката не пази всички депозити в трезора. Тя държи <b>резерв</b> и отпуска останалото като кредит. Получателят на кредита плаща на някого, той го внася в своята банка, тя също отпуска част. Така един депозит се превръща в няколко. Това е <b>банкиране с частичен резерв</b>.</p>
+      <p>В учебниците това се описва с мултипликатор: при резерв 10% теоретичният максимум е 10 пъти първоначалния депозит. В действителност числото е по-малко, защото зависи от това колко хора искат кредит и колко държат в брой. Централните банки днес го описват и обратно: <b>кредитът създава депозита</b>, а не депозитът кредита.</p>
+      <figure>
+        <div class="calc">
+          <div class="sliders">
+            <label>Първоначален депозит (€)<input type="range" id="m1" min="100" max="10000" step="100" value="1000"><span class="mono" id="m1o"></span></label>
+            <label>Резервна норма (%)<input type="range" id="m2" min="2" max="50" value="10"><span class="mono" id="m2o"></span></label>
+          </div>
+          <svg id="mSvg" viewBox="0 0 520 200" role="img" aria-label="Верига от депозити и кредити"></svg>
+          <div class="out" id="mOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Всяка колона е нов депозит в следващата банка. Синьото е резервът, зеленото е новият кредит. Опростен модел без кеш и без отказ от кредити.</figcaption>
+      </figure>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Банката заема само парите, които хората са внесли.</p></div>
+        <div><span class="label">Реалност</span><p>Когато банка отпуска кредит, тя създава нов депозит в сметката на кредитополучателя. Ограничават я капиталовите правила, търсенето на кредит и лихвата на централната банка, не точната сума на депозитите.</p></div>
+      </div>
+      <p>Тази система работи, докато хората не поискат парите си наведнъж. Тогава идва <b>банкова паника</b> (bank run): банката може да е платежоспособна, но активите ѝ (ипотеки, сгради) не са <b>ликвидни</b>. Между 1930 и 1933 в САЩ спират над 9 000 банки. Днес депозитите са гарантирани до определен праг (в ЕС 100 000 €), а централната банка е <b>кредитор от последна инстанция</b>.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Fractional reserve · частичен резерв</b>Банката пази само част от депозитите като резерв.</div>
+      <div class="term"><b>Bank run · банкова паника</b>Много вложители теглят наведнъж.</div>
+      <div class="term"><b>Liquidity · ликвидност</b>Колко бързо нещо става пари, без да губи стойност.</div>
+      <div class="term"><b>Lender of last resort</b>Централната банка, която дава пари на банките в криза.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>17.3 Какво е инфлация</h2>
+      <p><b>Инфлацията</b> е общо повишаване на цените. Не поскъпването на едно нещо, а на почти всичко. Обратната страна: всяко евро купува по-малко. При 3% инфлация годишно цените се удвояват за около 23 години. При 10% за около 7.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Спестявания (€)<input type="number" id="i1" value="10000" min="0" step="500"></label>
+            <label>Инфлация (% год.)<input type="number" id="i2" value="3" step="0.5" min="0" max="100"></label>
+            <label>Години<input type="number" id="i3" value="10" min="1" max="50"></label>
+          </div>
+          <div class="out" id="iOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Какво могат да купят същите пари след години, ако стоят без лихва.</figcaption>
+      </figure>
+      <p>Откъде идва инфлацията? Икономистите делят причините на две групи:</p>
+      <div class="tablewrap" data-name="vidove-inflaciya">
+        <table class="data">
+          <thead><tr><th></th><th>Инфлация на търсенето</th><th>Инфлация на разходите</th></tr></thead>
+          <tbody>
+            <tr><td>Как се казва</td><td>Demand-pull</td><td>Cost-push</td></tr>
+            <tr><td>Причина</td><td>Твърде много пари и кредит спрямо стоките</td><td>Скок в разходите: енергия, суровини, заплати</td></tr>
+            <tr><td>Растеж</td><td>Силен, над капацитета</td><td>Слаб или спада</td></tr>
+            <tr><td>Пример</td><td>2021: стимули и ниски лихви след COVID</td><td>1973: нефтеното ембарго</td></tr>
+            <tr><td>Трудност за централната банка</td><td>По-лесно: вдига лихвите</td><td>По-трудно: вдигането удря и без това слабия растеж</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Когато и двете се смесят с висока безработица, получаваш <b>стагфлация</b>: цените растат, а икономиката стои. Това е най-трудният режим за централна банка и за повечето активи (Глава 22).</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Inflation · инфлация</b>Общо повишаване на цените; парите губят покупателна способност.</div>
+      <div class="term"><b>Deflation · дефлация</b>Общо понижение на цените. Опасна, защото дълговете стават по-тежки.</div>
+      <div class="term"><b>Stagflation · стагфлация</b>Висока инфлация плюс слаб растеж и висока безработица.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>17.4 Как се мери: CPI, core, PCE, PPI</h2>
+      <p>Държавните статистици всеки месец „пазаруват“ една и съща кошница стоки и услуги и смятат с колко е поскъпнала. Има няколко мерки и пазарът гледа всичките, но с различно тегло.</p>
+      <div class="tablewrap" data-name="merki-inflaciya">
+        <table class="data">
+          <thead><tr><th>Мярка</th><th>Какво мери</th><th>Защо е важна</th><th>Кога излиза (САЩ)</th></tr></thead>
+          <tbody>
+            <tr><td><b>CPI</b></td><td>Цените за потребителите, цялата кошница</td><td>Най-гледаното число; движи всичко с USD</td><td>Около средата на месеца, 15:30 София</td></tr>
+            <tr><td><b>Core CPI</b></td><td>CPI без храна и енергия</td><td>По-малко шум; показва тенденцията. Пазарът често реагира повече на него</td><td>Заедно с CPI</td></tr>
+            <tr><td><b>PCE / Core PCE</b></td><td>По-широка мярка на разходите на домакинствата</td><td>Целта от 2% на Фед е по PCE. Обикновено с 0.2–0.5 п.п. под CPI</td><td>Към края на месеца</td></tr>
+            <tr><td><b>PPI</b></td><td>Цените, които получават производителите</td><td>Често изпреварва CPI: натискът идва първо при производителите</td><td>Около CPI, често ден преди или след</td></tr>
+            <tr><td><b>HICP</b></td><td>Хармонизиран индекс на еврозоната</td><td>Целта от 2% на ЕЦБ; има ранна оценка (flash) в края на месеца</td><td>Евростат, 12:00 София</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Всяка мярка има две версии: <b>m/m</b> (спрямо миналия месец) и <b>y/y</b> (спрямо същия месец миналата година). Трейдърите гледат и двете. Едно y/y число може да падне само защото миналогодишният месец е бил много висок (базов ефект), докато m/m показва, че натискът продължава.</p>
+      <div class="box ff">
+        <span class="label">Гледай във Forex Factory</span>
+        <p>На ден на CPI в календара има няколко реда в едно и също време: „CPI m/m“, „Core CPI m/m“, „CPI y/y“. Обикновено и трите са с червена папка, а пазарът най-често гледа Core CPI m/m. Ако двете посоки се разминават (headline горещ, core студен), първото движение често се обръща. Глава 19 показва как да ги четеш.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>CPI · индекс на потребителските цени</b>Цената на кошница потребителски стоки и услуги.</div>
+      <div class="term"><b>Core · базисна</b>Без храна и енергия.</div>
+      <div class="term"><b>m/m, y/y</b>Месец към месец, година към година.</div>
+      <div class="term"><b>Base effect · базов ефект</b>Промяна в y/y, дошла от миналогодишната база.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: средно">●●</span>17.5 Защо инфлацията движи валутата</h2>
+      <p>Веригата е кратка и трябва да я знаеш наизуст:</p>
+      <ol class="steps">
+        <li><b>Инфлацията излиза по-висока от очакваното.</b></li>
+        <li><b>Пазарът очаква централната банка да вдигне лихвите</b> или да ги държи високо по-дълго.</li>
+        <li><b>По-високата лихва прави валутата по-доходна</b> спрямо другите (алтернативна цена, Глава 16).</li>
+        <li><b>Капиталът тече към нея. Валутата поскъпва</b>, а златото и акциите често поевтиняват.</li>
+      </ol>
+      <div class="tabs" data-group="cpi">
+        <button class="chip" data-tab="hot">US CPI над прогнозата</button>
+        <button class="chip" data-tab="cold">US CPI под прогнозата</button>
+      </div>
+      <div class="pane" data-group="cpi" data-pane="hot">
+        <div class="four">
+          <div><span class="label">Очаквания за Фед</span><p>По-ястребови: по-малко или по-късни понижения на лихвата.</p></div>
+          <div><span class="label">USD</span><p style="color:var(--bull)">По-силен. EURUSD надолу, USDJPY нагоре.</p></div>
+          <div><span class="label">Злато</span><p style="color:var(--bear)">Обикновено надолу: реалните доходности растат.</p></div>
+          <div><span class="label">Акции</span><p style="color:var(--bear)">Под натиск: по-скъпи пари.</p></div>
+        </div>
+      </div>
+      <div class="pane" data-group="cpi" data-pane="cold">
+        <div class="four">
+          <div><span class="label">Очаквания за Фед</span><p>По-гълъбови: по-ранни понижения на лихвата.</p></div>
+          <div><span class="label">USD</span><p style="color:var(--bear)">По-слаб. EURUSD нагоре, USDJPY надолу.</p></div>
+          <div><span class="label">Злато</span><p style="color:var(--bull)">Обикновено нагоре.</p></div>
+          <div><span class="label">Акции</span><p style="color:var(--bull)">Обикновено нагоре.</p></div>
+        </div>
+      </div>
+      <p>Това са <b>типични</b> реакции, не закони. Ако централната банка вече е дала да се разбере, че ще „гледа през“ временен скок (например от енергия), реакцията е по-слаба. Ако инфлацията е толкова висока, че хората губят доверие в централната банка, валутата може да <i>падне</i> въпреки високите лихви. Това се случва в страни като Турция и Аржентина.</p>
+      <div class="dialog">
+        <p><span>Ученик</span>Значи по-висока инфлация е хубаво за валутата?</p>
+        <p><span>Ментор</span>За седмица, ако банката е надеждна. За десет години никога. Краткосрочно пазарът търгува лихвите. Дългосрочно валута с по-висока инфлация губи покупателна способност и отслабва. Глава 20 събира двата хоризонта.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Hawkish · ястребов</b>Склонен към по-високи лихви.</div>
+      <div class="term"><b>Dovish · гълъбов</b>Склонен към по-ниски лихви.</div>
+      <div class="term"><b>Real yield · реална доходност</b>Номиналната доходност минус очакваната инфлация.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="main">
+      <h2 id="s6"><span class="dots" title="Ниво: напреднало">●●●</span>17.6 MV = PQ и хиперинфлация</h2>
+      <p>Количествената теория на парите казва: <b>пари × скорост = цени × продукция</b>. Ако парите растат по-бързо от стоките и хората харчат със същата скорост, цените растат. Ако хората изгубят доверие и започнат да харчат парите веднага щом ги получат, скоростта (V) скача и цените растат още по-бързо от парите.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Ръст на парите M (%)<input type="number" id="q1" value="10" step="1"></label>
+            <label>Промяна на скоростта V (%)<input type="number" id="q2" value="0" step="1"></label>
+            <label>Ръст на продукцията Q (%)<input type="number" id="q3" value="2" step="0.5"></label>
+          </div>
+          <div class="out" id="qOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Точна сметка: (1+M)(1+V)/(1+Q) − 1. Моделът е опростен; скоростта на парите в действителност е нестабилна.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="hiperinflacii">
+        <table class="data">
+          <thead><tr><th>Случай</th><th>Какво се случва</th><th>Как свършва</th></tr></thead>
+          <tbody>
+            <tr><td>Германия 1920–1923</td><td>От около 40 марки за долар до над 4 трилиона</td><td>Нова валута (рентенмарка), твърд таван на емисията</td></tr>
+            <tr><td>Зимбабве 2007–2008</td><td>Опит цените да се свалят по заповед; магазините се изпразват</td><td>Преминаване към чужди валути (долар, ранд)</td></tr>
+            <tr><td>България 1996–1997</td><td>Банкова криза, после хиперинфлация; в началото на 1997 месечната инфлация надхвърля 200%, а доларът за кратко минава около 3 000 лева</td><td>Валутен борд от юли 1997: левът фиксиран към марката, после към еврото (Глава 18)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box warn">
+        <span class="label">Внимание</span>
+        <p>Хиперинфлация не започва от една лоша година. Започва, когато правителство финансира дефицита си с нови пари и хората спрат да вярват, че това ще спре. Сигналите са: черен пазар на валута, топящи се резерви, „временни“ ограничения на тегленето.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Velocity · скорост на парите</b>Колко пъти една единица пари сменя собственика за година.</div>
+      <div class="term"><b>Hyperinflation · хиперинфлация</b>Поскъпване над 50% на месец по конвенция.</div>
+      <div class="term"><b>Currency board · валутен борд</b>Режим, при който местните пари са изцяло покрити с резервна валута по фиксиран курс.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 17</h2>
+    <ul>
+      <li>Парите са средство за размяна, мерна единица и съхранение на стойност. Фиатните стоят на доверие.</li>
+      <li>Банките създават пари, когато отпускат кредит. Системата е уязвима при паника.</li>
+      <li>Инфлацията идва от търсене или от разходи; стагфлацията е най-трудната комбинация.</li>
+      <li>CPI, Core CPI, PCE, PPI, HICP: знай кое е целта на коя централна банка.</li>
+      <li>По-гореща инфлация от очакваното → по-високи лихви → по-силна валута, краткосрочно и при надеждна банка.</li>
+      <li>Хиперинфлацията е криза на доверие; България 1997 е урок наблизо.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Мога да обясня с четири стъпки защо горещ CPI вдига долара.</label></li>
+      <li><label><input type="checkbox"> Знам разликата между headline и core, m/m и y/y.</label></li>
+      <li><label><input type="checkbox"> Пробвах калкулатора за банкови пари с резерв 10% и 50%.</label></li>
+      <li><label><input type="checkbox"> Намерих следващата дата на US CPI във Forex Factory.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>US CPI ден. Прогноза: CPI m/m 0.3%, Core CPI m/m 0.3%. Излиза: CPI m/m 0.5% (бензинът е скочил), Core CPI m/m 0.2%. Преди числото EURUSD е в средата на азиатския диапазон, а D1 bias е bullish (бичи). Фед е казал преди седмица, че гледа основно към core инфлацията.</p>
+      <p><b>Задача:</b> как би прочел тези числа? Какво е вероятно първото движение и какво второто? Кое число би натежало и защо? Какво би чакал, преди изобщо да мислиш за вход?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Headline… Core… Фед… Първо движение… Второ… Какво чакам…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Headline е горещ (0.5 срещу 0.3), но от енергия. Core е студен (0.2 срещу 0.3). Двете дърпат в противоположни посоки.</li>
+          <li>Първото движение може да е към по-силен долар заради заглавното число, особено ако алгоритмите реагират на първия ред. Вероятно второто движение е към по-слаб долар, защото Фед е казал, че гледа core.</li>
+          <li>Core натежава: по-малко „лепкава“ инфлация значи по-гълъбов Фед. Това съвпада с bullish D1 bias за EURUSD.</li>
+          <li>Чакаш: протоколът от Глава 13 (±30 мин), първият sweep да приключи, M5 MSS в посоката на bias-а, ясна зона и цел поне 3R. Ако движенията се режат на двете страни без структура, пропускаш.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Кои са трите функции на парите?",o:["Размяна, мерна единица, съхранение на стойност","Злато, сребро, хартия","Кредит, дълг, лихва"],a:0,e:"Средство за размяна, мерна единица, съхранение на стойност."},
+  {q:"Какво значи „фиатни пари“?",o:["Обезпечени със злато","Приети по закон и доверие, без вътрешна стойност","Само монети"],a:1,e:"От 1971 доларът не е обменим в злато."},
+  {q:"Core CPI изключва…",o:["Наемите","Храната и енергията","Данъците"],a:1,e:"Те са най-волатилните компоненти."},
+  {q:"Коя мярка е целта на Фед?",o:["CPI","PCE","PPI"],a:1,e:"Целта от 2% е по PCE."},
+  {q:"US CPI излиза доста над прогнозата. Типичната първа реакция на EURUSD е…",o:["Нагоре","Надолу","Никаква"],a:1,e:"По-силен долар → EURUSD надолу."}
+],mid:[
+  {q:"Резервна норма 20%, депозит 1 000 €. Теоретичният максимум на парите в системата е…",o:["1 200 €","5 000 €","20 000 €"],a:1,e:"1 / 0.20 = 5 пъти."},
+  {q:"CPI y/y пада от 4% на 3%, но CPI m/m остава 0.4% от месеци. Какво е вероятно?",o:["Инфлацията е победена","Падането идва от базов ефект; натискът продължава","Дефлация"],a:1,e:"0.4% месечно е около 5% годишно; y/y пада от високата база."},
+  {q:"Защо валутата на страна с 60% инфлация може да пада въпреки 50% лихва?",o:["Лихвата е твърде висока","Реалната лихва е отрицателна и доверието е ниско","Защото CPI е грешен"],a:1,e:"50% − 60% = −10% реално; капиталът бяга."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* money multiplier */
+  var m1=document.getElementById("m1"),m2=document.getElementById("m2"),sv=document.getElementById("mSvg"),mo=document.getElementById("mOut");
+  function mm(){var d=+m1.value,r=+m2.value/100;document.getElementById("m1o").textContent=d+" €";document.getElementById("m2o").textContent=m2.value+"%";
+    sv.innerHTML="";var n=10,bw=40,gap=8,x0=20,H=170,dep=d,tot=0,loans=0;
+    for(var i=0;i<n;i++){var h=dep/d*H,res=dep*r,hr=res/d*H,x=x0+i*(bw+gap);
+      el("rect",{x:x,y:180-h,width:bw,height:h-hr,fill:"var(--bull)",opacity:.8},sv);
+      el("rect",{x:x,y:180-hr,width:bw,height:hr,fill:"var(--liq)"},sv);
+      el("text",{x:x+2,y:195,"font-size":9,fill:"var(--muted)"},sv).textContent="банка "+(i+1);
+      tot+=dep;loans+=dep-res;dep=dep-res}
+    var max=d/r;
+    mo.innerHTML="<span>След 10 кръга в банките има <b>"+tot.toFixed(0)+" €</b> депозити.</span><span>Теоретичен максимум: <b>"+max.toFixed(0)+" €</b> (1 ÷ "+m2.value+"%).</span><span>Нови кредити досега: <b>"+loans.toFixed(0)+" €</b>.</span>"}
+  [m1,m2].forEach(function(x){x.addEventListener("input",mm)});mm();
+  /* inflation erosion */
+  var i1=document.getElementById("i1"),i2=document.getElementById("i2"),i3=document.getElementById("i3"),io=document.getElementById("iOut");
+  function inf(){var s=+i1.value||0,p=(+i2.value||0)/100,n=Math.max(1,+i3.value|0),real=s/Math.pow(1+p,n),dbl=p>0?Math.log(2)/Math.log(1+p):Infinity;
+    io.innerHTML="<span>След "+n+" г. "+s.toFixed(0)+" € купуват колкото днес <b>"+real.toFixed(0)+" €</b>.</span><span>Загуба на покупателна способност: <b>"+((1-real/s)*100).toFixed(1)+"%</b>.</span><span>Цените се удвояват за около <b>"+(isFinite(dbl)?dbl.toFixed(1)+" г.":"никога")+"</b>.</span>"}
+  [i1,i2,i3].forEach(function(x){x.addEventListener("input",inf)});inf();
+  /* MV=PQ */
+  var q1=document.getElementById("q1"),q2=document.getElementById("q2"),q3=document.getElementById("q3"),qo=document.getElementById("qOut");
+  function qt(){var M=(+q1.value||0)/100,V=(+q2.value||0)/100,Q=(+q3.value||0)/100,P=(1+M)*(1+V)/(1+Q)-1;
+    var c=P>0.5?"var(--bear)":P>0.04?"var(--news)":"var(--bull)";
+    qo.innerHTML="<span>Ценово равнище: <b style='color:"+c+"'>"+(P*100).toFixed(1)+"%</b> за периода.</span><span>"+(P>0.5?"Това е територия на много висока инфлация.":P>0.04?"Над типичната цел от 2%.":"Близо до или под целта от 2%.")+"</span>"}
+  [q1,q2,q3].forEach(function(x){x.addEventListener("input",qt)});qt();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

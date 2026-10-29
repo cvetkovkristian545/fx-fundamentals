@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Започни оттук · FX Fundamentals</title>
+<meta name="description" content="Започни оттук · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch0-3.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch0-3.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="0.3">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">0.3</div>
+    <h1>Започни оттук: бърз път и първи бектест</h1>
+    <blockquote class="quote">
+      Аматьорите тренират, докато го направят правилно. Професионалистите тренират, докато не могат да го направят грешно.
+      <cite>Трейдърска мъдрост</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да минеш през книгата по кратък път, вместо да четеш 41 глави подред;</li>
+        <li>да запишеш един прост сетъп като правила с отговор да/не;</li>
+        <li>да го тестваш на 100 сделки, да прочетеш числата честно и да решиш дали е заслужил истински пари;</li>
+        <li>да добавиш ликвидност, SMC и order flow по-късно, парче по парче, и да докажеш, че всяко парче помага.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>0.3.1 Тази книга е библиотека, а не списък със задачи</h2>
+      <p>FX Fundamentals има 41 глави и седем приложения. Не ти трябват всички преди първата сделка. Трябва ти малко ядро, с което да изпълняваш <b>един сетъп</b> чисто: да прочетеш графиката, да намериш нивото, да изчислиш позицията, да уважиш новините, да управляваш сделката и да я запишеш.</p>
+      <p>Всичко останало, като liquidity sweeps, order blocks, order flow и доларовата система, е <b>надграждане</b>. Надграждането има стойност само ако подобрява нещо, което вече работи. Ако го добавиш към процес, който още не съществува, получаваш просто повече начини да се объркаш.</p>
+      <p>Затова книгата има три слоя:</p>
+      <ol>
+        <li><b>Ядрото:</b> достатъчно, за да вземеш една ясно дефинирана сделка с правилен риск.</li>
+        <li><b>Доказателството:</b> бектест, който показва дали тази сделка има положително очакване.</li>
+        <li><b>Надгражданията:</b> SMC, order flow и макро, добавени едно по едно и тествани отново.</li>
+      </ol>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Повечето начинаещи го правят наобратно. Учат двайсет концепции, смесват ги в една графика и после се чудят защо нищо не се повтаря. Един прост сетъп, който си тествал, струва повече от десет хитри, които не си.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Setup · сетъп</b>Идея за сделка, записана като твърди правила: къде, кога, вход, стоп, цел.</div>
+      <div class="term"><b>Refinement · надграждане</b>Допълнителен филтър към сетъп, който вече работи, за да подобри числата му.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>0.3.2 Бързият път, етап по етап</h2>
+      <p>Всеки етап завършва с <b>праг</b>: кратък тест, който трябва да минеш, преди да продължиш. Отмятай етапите, когато ги завършиш. Отметките се пазят в този браузър.</p>
+      <ol class="track" id="track">
+        <li data-st="1">
+          <label class="tk"><input type="checkbox"> <b>Етап 1 · Основи</b> <span class="tk-time">около 1–2 седмици</span></label>
+          <p><a href="ch0-2.html">0.2 Абсолютната нула</a> · <a href="ch1.html">1 Какво е форекс</a> · <a href="ch2.html">2 Механиката на сделката</a> · <a href="ch3.html">3 Свещи и графики</a> · <a href="ch4.html">4 Класически price action</a> · <a href="ch5.html">5 Мислене във вероятности</a></p>
+          <p class="gate"><span class="label">Праг</span> Можеш да обясниш bid, ask, спред и стойност на пипа, да прочетеш всяка свещ, да отбележиш подкрепа и съпротива и да кажеш защо 35% печеливши сделки пак могат да носят пари.</p>
+        </li>
+        <li data-st="2">
+          <label class="tk"><input type="checkbox"> <b>Етап 2 · Първият ти пълен сетъп</b> <span class="tk-time">около 2 седмици</span></label>
+          <p><a href="ch6.html">6 Пазарна структура</a> · <a href="ch9.html">9 Сесии и kill zones</a> · <a href="ch11.html">11 Риск и размер на позицията</a> · <a href="ch10.html">10 Рамката от 6 стъпки</a> · <a href="ch12.html">12 Управление на отворена позиция</a> · <a href="ch13.html">13 Протокол за новинарски риск</a></p>
+          <p class="gate"><span class="label">Праг</span> Можеш да попълниш картата на сетъпа в 0.3.3, без нито едно поле да остане мъгляво.</p>
+        </li>
+        <li data-st="3">
+          <label class="tk"><input type="checkbox"> <b>Етап 3 · Записи и нагласа</b> <span class="tk-time">успоредно с етап 2</span></label>
+          <p><a href="ch32.html">35 Психология и дисциплина</a> · <a href="ch33.html">36 Дневник и измерване</a> · <a href="chJ.html">J Дневник и bias файл</a> · <a href="chC.html">C Чеклисти и шаблони</a></p>
+          <p class="gate"><span class="label">Праг</span> Имаш готов дневник с колони за дата, сесия, посока, вход, стоп, цел, резултат в R, линк към скрийншот и „спазих правилата: да/не“.</p>
+        </li>
+        <li data-st="4" class="tk-check">
+          <label class="tk"><input type="checkbox"> <b>Контролна точка · бектест, после демо</b> <span class="tk-time">около 4–6 седмици</span></label>
+          <p>Секции <a href="#s4">0.3.4</a> до <a href="#s7">0.3.7</a> от тази страница, после <a href="ch29.html">32 Брокери, демо сметки, платформи</a> и <a href="ch31.html">34 Първите 90 дни</a>.</p>
+          <p class="gate"><span class="label">Праг</span> 100 сделки в бектест, които минават числата в 0.3.7, после 30 демо сделки със същите правила.</p>
+        </li>
+        <li data-st="5">
+          <label class="tk"><input type="checkbox"> <b>Етап 4 · Надграждания, само след контролната точка</b></label>
+          <p><a href="ch7.html">7 Ликвидност и SMC зони</a> · <a href="ch8.html">8 Анализ отгоре надолу</a> · <a href="ch14.html">14 Един ден в пазара</a> · <a href="ch15.html">15 Order flow</a></p>
+          <p class="gate"><span class="label">Правило</span> Добавяй по една идея и я тествай отново на поне 50 сделки (0.3.8). Задръж я само ако числата се подобрят.</p>
+        </li>
+        <li data-st="6">
+          <label class="tk"><input type="checkbox"> <b>Етап 5 · Макро слоят</b> <span class="tk-time">по всяко време след етап 1</span></label>
+          <p>От <a href="ch16.html">16 Икономическо мислене</a> до <a href="ch27.html">29 Досиета на случаи</a>, плюс <a href="chE.html">E Библиотека със случаи</a> и <a href="chF.html">F Валутни профили</a>.</p>
+          <p class="gate"><span class="label">Правило</span> Използвай макрото за дневния bias и за новинарския риск. То е контекст, а не сигнал за вход.</p>
+        </li>
+        <li data-st="7">
+          <label class="tk"><input type="checkbox"> <b>Етап 6 · Кариера и живот</b> <span class="tk-time">когато си готов</span></label>
+          <p><a href="chS.html">30 Стилове на трейдинг</a> · <a href="ch28.html">31 Твоето работно място за анализ</a> · <a href="ch30.html">33 Prop фирми: сравнение</a> · <a href="ch34.html">37 Дневна и седмична рутина</a> · <a href="ch35.html">38–41 Пари, други пазари, крипто, данъци</a></p>
+        </li>
+      </ol>
+      <div class="out" id="trackOut" aria-live="polite"></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Gate · праг</b>Кратък тест, който казва дали си готов за следващия етап.</div>
+      <div class="term"><b>Checkpoint · контролна точка</b>Моментът, в който спираш да учиш нови идеи и доказваш тези, които имаш.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>0.3.3 Запиши сетъпа си на една карта</h2>
+      <p>Бектестът може да тества правила, не усещания. „Влизам, когато изглежда силно“ не може да се тества. „Влизам, когато M15 свещ затвори обратно над нивото, след като е взела предишното дъно“ може. Попълни всяко поле с правило, което би дал на непознат. Картата се пази в този браузър.</p>
+      <div class="calc setup-card" id="card">
+        <div class="fields">
+          <label>Двойка<input type="text" data-k="pair" placeholder="EURUSD"></label>
+          <label>Сесия и часове<input type="text" data-k="sess" placeholder="Лондонско отваряне, 09:00–12:00 местно"></label>
+          <label>Таймфрейми (bias / вход)<input type="text" data-k="tf" placeholder="H1 / M15"></label>
+          <label>Контекст: кога сетъпът е разрешен?<input type="text" data-k="ctx" placeholder="H1 структурата е bullish (higher highs и higher lows), гл. 6"></label>
+          <label>Ниво: къде?<input type="text" data-k="lvl" placeholder="Предишна подкрепа или demand zone, гл. 4"></label>
+          <label>Тригер: какво точно те вкарва?<input type="text" data-k="trg" placeholder="M15 bullish engulfing затваряне на нивото, гл. 3–4"></label>
+          <label>Стоп: къде точно?<input type="text" data-k="stp" placeholder="Няколко пипа отвъд дъното на тригера"></label>
+          <label>Цел и управление<input type="text" data-k="tgt" placeholder="Фиксирано 3R; без местене на стопа преди +1.5R, гл. 12"></label>
+          <label>Риск на сделка<input type="text" data-k="rsk" placeholder="1% от сметката, гл. 11"></label>
+          <label>Правила „без сделка“<input type="text" data-k="no" placeholder="Без вход 30 мин преди и след червена новина, гл. 13"></label>
+        </div>
+        <div class="out" id="cardOut" aria-live="polite"></div>
+      </div>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Ще го държа гъвкаво и ще преценявам всяка сделка.</p></div>
+        <div><span class="label">Реалност</span><p>Преценката идва след стотици сделки с твърди правила. Преди това „гъвкаво“ обикновено значи „сменям правилата, след като видя резултата“.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Trigger · тригер</b>Точното събитие, което превръща възможна сделка във вход.</div>
+      <div class="term"><b>Invalidation · отмяна</b>Цената, при която идеята е грешна. Стопът отива там, а не на кръгъл брой пипове.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: основно">●</span>0.3.4 Къде да правиш бектест</h2>
+      <p>Трябва ти графика, която показва миналото свещ по свещ, със скрито бъдеще. Това са основните варианти. Плановете и цените се менят, затова провери актуалните условия, преди да платиш за нещо.</p>
+      <div class="tablewrap">
+        <table class="data">
+          <thead><tr><th>Инструмент</th><th>Цена</th><th>В какво е добър</th><th>Ограничения</th></tr></thead>
+          <tbody>
+            <tr><td><b>TradingView Bar Replay</b></td><td>Безплатно на дневен и по-висок таймфрейм. Intraday replay иска платен план.</td><td>Графиката, която вече ползваш (гл. 31). Лесно чертане, replay с едно натискане.</td><td>Планът Essential преиграва около 6 месеца 1-минутни данни и повече на по-високи таймфрейми. Безплатната сметка не преиграва M15 или H1.</td></tr>
+            <tr><td><b>MetaTrader 5 Strategy Tester, визуален режим</b></td><td>Безплатно с всяка демо сметка (гл. 32)</td><td>Години данни от брокера и реални спредове; можеш да ускоряваш и забавяш.</td><td>Направен е за роботи. За ръчни сделки ти трябва малък панел за ръчна търговия, добавен към тестера.</td></tr>
+            <tr><td><b>Специализирани replay приложения</b> (Forex Tester, FX Replay и подобни)</td><td>Платено</td><td>Направени за ръчен бектест: много двойки, сесии, вградена статистика.</td><td>Разход, който трябва да се оправдае. Не ти трябва за първите 100 сделки.</td></tr>
+            <tr><td><b>Превърти назад и скрий бъдещето</b></td><td>Безплатно</td><td>Работи на всяка графика. Превърти до минала дата, покрий дясната страна, движи се напред свещ по свещ.</td><td>Бавно и лесно се наднича. Заблудата на задната дата е главната опасност.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>Добро начало за повечето читатели:</b> MT5 тестерът на безплатно демо за intraday данни или TradingView replay на H4 или дневна, за да научиш рутината. Записвай всяка сделка в дневника си (<a href="chJ.html">Приложение J</a>) или в таблица, а не в статистиката на инструмента. Искаш свои собствени записи.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Backtest · бектест</b>Тестване на твърди правила върху минали данни, все едно търгуваш на живо.</div>
+      <div class="term"><b>Bar Replay · преиграване на барове</b>Режим на графиката, който скрива бъдещето и показва миналото свещ по свещ.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: средно">●●</span>0.3.5 Как се прави бектест, стъпка по стъпка</h2>
+      <ol>
+        <li><b>Замрази картата.</b> Копирай картата на сетъпа в дневника. Нямаш право да я променяш до края на теста. Промяна значи нов тест от сделка 1.</li>
+        <li><b>Една двойка, една сесия.</b> EURUSD е примерът, който минава през цялата книга. Една двойка значи, че учиш нейния ритъм, вместо да осредняваш десет различни.</li>
+        <li><b>Избери дълъг, смесен период.</b> Започни поне 6–12 месеца назад. Трябват ти месеци с тренд и месеци в диапазон, тихи седмици и седмици с новини.</li>
+        <li><b>Първо отбележи контекста.</b> В началото на всеки ден в replay отбележи H1 структурата и ключовите нива, точно както казва картата. Чак тогава продължи напред.</li>
+        <li><b>Движи се свещ по свещ.</b> Никога не прескачай напред, „за да видиш какво става“. В момента, в който видиш бъдещето, сделките от този ден са замърсени.</li>
+        <li><b>Записвай всеки валиден сетъп.</b> Включително тези, които „не би взел“. Пропускането на сделки, които не харесваш, е най-бързият начин да подправиш добър резултат.</li>
+        <li><b>Записвай в R.</b> Ударен стоп е −1R. Достигната цел е +3R. Частични изходи и изход на breakeven (нула) се записват както са станали (+1.2R, 0R). Извади разходите: спред и комисиона са грубо 0.05–0.15R на сделка при типичен intraday стоп.</li>
+        <li><b>Скрийншот на вход и изход.</b> В 0.3.8 ще пресортираш тези скрийншоти, за да видиш какво може да поправи едно надграждане.</li>
+        <li><b>Спазвай правилата за новини.</b> Провери миналия икономически календар за всеки ден. Ако картата казва „без сделка около червени новини“, пропусни тези сетъпи, както би направил на живо.</li>
+        <li><b>Спри на 100 сделки.</b> После прочети числата в 0.3.6 и чак тогава съди.</li>
+      </ol>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Бектестът е скучен. Точно в това е смисълът. Търговията на живо е същата скучна рутина, но с пари. Ако не можеш да изседиш 100 преиграни сделки, пазарът на живо ще го разбере много по-бързо и много по-скъпо.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Hindsight bias · заблуда на задната дата</b>Виждаш „очевидната“ сделка само защото вече знаеш какво е станало после.</div>
+      <div class="term"><b>R-multiple · R-кратно</b>Резултатът от сделката, измерен в единици от първоначалния риск.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="main">
+      <h2 id="s6"><span class="dots" title="Ниво: средно">●●</span>0.3.6 Лабораторията за бектест: прочети числата си</h2>
+      <p>Постави резултатите си в R, по реда, в който са станали, разделени със запетаи или интервали. Например: <span class="mono">3, -1, -1, 2.4, -1, 0, 3</span>. Лабораторията изчислява статистиката и я сравнява с праговете в 0.3.7.</p>
+      <div class="calc" id="lab">
+        <label class="label" for="labIn">Резултати в R, по ред</label>
+        <textarea id="labIn" rows="4" placeholder="3, -1, -1, 2.4, -1, 0, 3 ..."></textarea>
+        <div class="fields">
+          <label>Разход на сделка (R)<input type="number" id="labCost" value="0.1" step="0.05" min="0" max="1"></label>
+          <label>Риск на сделка (%)<input type="number" id="labRisk" value="1" step="0.25" min="0.25" max="5"></label>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="toggle" id="labDemo">Попълни примерни 100 сделки</button>
+          <button type="button" class="toggle" id="labClear">Изчисти</button>
+        </div>
+        <div class="tablewrap"><table class="data" id="labTable"><tbody></tbody></table></div>
+        <svg id="labCurve" viewBox="0 0 520 160" role="img" aria-label="Крива на капитала от бектеста в R"></svg>
+        <div class="out" id="labOut" aria-live="polite"></div>
+      </div>
+      <p>Две числа са по-важни от останалите. <b>Очакването</b> е средният резултат на сделка след разходите. <b>Диапазонът на процента печеливши</b> ти казва колко сигурен можеш да бъдеш. При 100 сделки и 35% печеливши истинският процент може правдоподобно да е някъде между 26% и 44%. При 30 сделки диапазонът е два пъти по-широк. Затова 30 сделки не доказват почти нищо (<a href="ch5.html">глава 5</a>).</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Expectancy · очакване</b>Среден резултат на сделка: % печеливши × средна печалба − % губещи × средна загуба.</div>
+      <div class="term"><b>Profit factor · профит фактор</b>Общо спечелено ÷ общо загубено. Над 1 значи, че сетъпът е спечелил.</div>
+      <div class="term"><b>Max drawdown · максимален спад</b>Най-дълбокото падане от връх на кривата на капитала, тук в R.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s7">
+    <div class="main">
+      <h2 id="s7"><span class="dots" title="Ниво: средно">●●</span>0.3.7 Праговете: заслужил ли е истински пари?</h2>
+      <div class="tablewrap">
+        <table class="data">
+          <thead><tr><th>Праг</th><th>Минава при</th><th>Защо</th></tr></thead>
+          <tbody>
+            <tr><td>Извадка</td><td class="num">≥ 100 сделки</td><td>Под това късметът и уменията изглеждат еднакво.</td></tr>
+            <tr><td>Очакване след разходи</td><td class="num">≥ +0.25R</td><td>Тънкото предимство изчезва с реалния slippage и грешките, които ще правиш на живо.</td></tr>
+            <tr><td>Най-лошо правдоподобно очакване</td><td class="num">&gt; 0R</td><td>Дори в долния край на диапазона сетъпът пак не губи.</td></tr>
+            <tr><td>Максимален спад</td><td class="num">≤ 10R</td><td>При 1% риск това е около 10% спад, обичайният лимит на prop фирмите (гл. 33).</td></tr>
+            <tr><td>Най-дълга губеща серия</td><td>Такава, която приемаш предварително</td><td>Ако 9 загуби подред биха те накарали да се откажеш, ще се откажеш и на живо (гл. 35).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>Ако минава:</b> направи форуърд тест на демо сметка за 30 сделки със същата карта (гл. 32 и 34). Резултатите на живо обикновено са малко по-лоши от бектеста. Ако очакването на демото е пак положително и си спазил правилата в поне 90% от сделките, започни на живо с малко, при 0.5–1% риск.</p>
+      <p><b>Ако не минава:</b> това е резултат, а не поражение. Разгледай скрийншотите на губещите. Има ли модел? Може би са събрани в една сесия, срещу H1 тренда или точно след новини. Точно за такъв модел е надграждането в следващата секция.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Forward test · форуърд тест</b>Същите правила върху живи данни, на демо или с минимален риск, за да провериш бектеста.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s8">
+    <div class="main">
+      <h2 id="s8"><span class="dots" title="Ниво: напреднало">●●●</span>0.3.8 Чак сега: SMC и order flow, парче по парче</h2>
+      <p>Сега напредналите глави имат работа. Всяка идея от <a href="ch7.html">глава 7</a> или <a href="ch15.html">глава 15</a> става <b>филтър</b>, който тестваш спрямо основния си сетъп:</p>
+      <ul>
+        <li>„Вземам сделката само ако преди това е имало liquidity sweep на предишното дъно.“</li>
+        <li>„Влизам само във fair value gap или order block, не просто на нивото.“</li>
+        <li>„Вземам я само в лондонската или нюйоркската kill zone.“</li>
+        <li>„Само когато delta или обемът потвърждават на нивото“ (order flow, гл. 15).</li>
+      </ul>
+      <p>Методът е винаги един и същ. Добави <b>един</b> филтър. Пусни го върху старите си сделки и върху поне 50 нови. Сравни очакването и спада с основната версия. Задръж филтъра само ако числата се подобряват <b>и</b> пак имаш достатъчно сделки. Филтър, който превръща 100 сделки в 12, не е подобрил нищо. Просто е направил извадката твърде малка, за да се съди.</p>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Напредналите концепции дават по-висок процент печеливши, затова трябва да започна с тях.</p></div>
+        <div><span class="label">Реалност</span><p>Повече условия обикновено значат по-малко сделки и по-късен вход. Понякога това помага, понякога не. Единственият начин да разбереш е да го тестваш спрямо нещо по-просто.</p></div>
+      </div>
+      <p class="label">Чести капани при бектест</p>
+      <ul>
+        <li><b>Надничане:</b> превърташ напред и после „решаваш“ да вземеш сделката.</li>
+        <li><b>Подбиране:</b> тестваш само чистите месеци с тренд.</li>
+        <li><b>Плъзгане на правилата:</b> бавно променяш картата по средата на теста.</li>
+        <li><b>Напасване (curve fitting):</b> добавяш филтри, докато миналото изглежда перфектно. Бъдещето няма да изглежда така.</li>
+        <li><b>Забравени разходи:</b> предимство от +0.1R преди спреда е почти нула след него.</li>
+      </ul>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Filter · филтър</b>Допълнително условие, което трябва да е изпълнено, преди сетъпът да е разрешен.</div>
+      <div class="term"><b>Curve fitting · напасване</b>Нагласяне на правилата към миналото толкова плътно, че спират да работят върху нови данни.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 0.3</h2>
+    <ul>
+      <li>Първо научи ядрото: етапи 1–3. Тези глави стигат, за да изпълняваш един сетъп.</li>
+      <li>Запиши сетъпа като правила, които непознат би могъл да следва, и ги замрази по време на теста.</li>
+      <li>Направи бектест на поне 100 сделки, свещ по свещ, като записваш всеки валиден сетъп в R.</li>
+      <li>Съди по очакването след разходите, диапазона на процента печеливши и спада, а не по най-добрата седмица.</li>
+      <li>Добави SMC и order flow по-късно, по един филтър, и задръж само това, което подобрява числата.</li>
+    </ul>
+    <p class="label">Чеклист преди да продължиш</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Картата на сетъпа ми няма мъгляви полета.</label></li>
+      <li><label><input type="checkbox"> Избрах инструмент за бектест и период от поне 6 месеца.</label></li>
+      <li><label><input type="checkbox"> Знам праговете си, преди да започна теста.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Читател е тествал сетъп на 40 сделки: 18 печеливши по +3R и 22 губещи по −1R. Въодушевен е и иска да добави филтър с order block и да започне на живо следващата седмица с 2% риск.</p>
+      <p><b>Задача:</b> какво всъщност казват числата? Какво би му казал да направи и в какъв ред?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Числата… Извадката… Следващи стъпки…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Суровият резултат изглежда страхотно: 45% печеливши, очакване 0.45 × 3 − 0.55 × 1 = +0.80R преди разходи. Подозрително високо е, затова първо провери за надничане или пропуснати сделки.</li>
+          <li>40 сделки са твърде малко. Правдоподобният диапазон на процента печеливши е грубо от 30% до 60%. Сетъпът може да е добър, но тази извадка още не може да го покаже.</li>
+          <li>Следва: картата остава замразена и тестът продължава до 100 сделки. После 30 демо сделки.</li>
+          <li>Филтърът с order block идва след това, тестван спрямо основната версия на поне 50 сделки.</li>
+          <li>Рискът остава 1% или по-малко. Удвоен риск върху недоказано предимство удвоява цената на грешката.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Каква е основната работа на бързия път?",o:["Да прескочи главите за риска","Да ти даде минималното ядро за един сетъп, преди да добавяш напреднали идеи","Да замести книгата"],a:1,e:"Етапи 1–3 са ядрото. Всичко останало надгражда сетъп, който вече съществува."},
+  {q:"Кога да започнеш със SMC и order flow?",o:["Първо, защото са най-силни","След като прост сетъп е минал бектест и демо тест","Никога"],a:1,e:"Те са надграждания. Добавяш ги към нещо, което работи, и тестваш дали помагат."},
+  {q:"В бектеста виждаш сетъп, който „не би взел“. Какво правиш?",o:["Пропускаш го","Записваш го, защото отговаря на правилата","Сменяш правилата"],a:1,e:"Пропускането на валидни сетъпи, които не харесваш, е най-бързият начин да подправиш добър резултат."},
+  {q:"Ударен стоп се записва като…",o:["−1R","−1%","Броя загубени пипове"],a:0,e:"Резултатите в R правят сравними сделки с различни стопове."},
+  {q:"Каква е минималната извадка за първа присъда в тази книга?",o:["20 сделки","100 сделки","1 месец"],a:1,e:"Под около 100 сделки късметът и уменията изглеждат еднакво."}
+],mid:[
+  {q:"30% печеливши, средна печалба +3R, средна загуба −1R, разход 0.1R. Какво е очакването?",o:["+0.10R","+0.20R","−0.10R"],a:0,e:"0.30 × 3 − 0.70 × 1 = +0.20R, минус 0.1R разходи = +0.10R. Положително, но под прага от +0.25R."},
+  {q:"Добавяш филтър с liquidity sweep. Очакването се вдига от +0.30R на +0.45R, но сделките падат от 100 на 15. Какъв е изводът?",o:["Задържам го, очакването е по-високо","Още не е доказано: 15 сделки са твърде малко","Махам го веднага"],a:1,e:"Филтърът може да помага, но 15 сделки не могат да го покажат. Събери още сделки, преди да решиш."},
+  {q:"Максималният спад в бектеста е 14R и рискуваш 1% на сделка. Защо това е проблем за prop предизвикателство?",o:["Не е","14% спад чупи обичайния лимит от 10% максимална загуба","Prop фирмите не мерят спада"],a:1,e:"При 1% риск 14R са около 14%. Повечето prop фирми спират сметката при 10% (гл. 33)."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  function S(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  var tr=document.getElementById("track"),to=document.getElementById("trackOut"),st={};
+  try{st=JSON.parse(S("fx-track")||"{}")||{}}catch(e){st={}}
+  function drawT(){var n=0,all=tr.querySelectorAll("li").length;Array.prototype.forEach.call(tr.querySelectorAll("li"),function(li){var on=!!st[li.getAttribute("data-st")];li.classList.toggle("done",on);li.querySelector("input").checked=on;if(on)n++});
+    var next=Array.prototype.filter.call(tr.querySelectorAll("li"),function(li){return !st[li.getAttribute("data-st")]})[0];
+    to.textContent=n+" от "+all+" етапа завършени."+(next?" Следва: "+next.querySelector("b").textContent+".":" Измина целия път.")}
+  tr.addEventListener("change",function(e){var li=e.target.closest("li");st[li.getAttribute("data-st")]=e.target.checked;S("fx-track",JSON.stringify(st));drawT()});
+  drawT();
+  var card=document.getElementById("card"),co=document.getElementById("cardOut"),cd={};
+  try{cd=JSON.parse(S("fx-setup-card")||"{}")||{}}catch(e){cd={}}
+  var ins=card.querySelectorAll("input[data-k]");
+  function drawC(){var f=0;Array.prototype.forEach.call(ins,function(i){if(i.value.trim())f++});co.textContent=f+" от "+ins.length+" полета попълнени."+(f===ins.length?" Готово за замразяване и тест.":" Не оставяй нищо на преценка.")}
+  Array.prototype.forEach.call(ins,function(i){i.value=cd[i.getAttribute("data-k")]||"";i.addEventListener("input",function(){cd[i.getAttribute("data-k")]=i.value;S("fx-setup-card",JSON.stringify(cd));drawC()})});
+  drawC();
+  var inp=document.getElementById("labIn"),cost=document.getElementById("labCost"),risk=document.getElementById("labRisk"),tb=document.querySelector("#labTable tbody"),out=document.getElementById("labOut"),svg=document.getElementById("labCurve"),NS="http://www.w3.org/2000/svg";
+  inp.value=S("fx-bt-log")||"";
+  function f2(x){return (x>=0?"+":"")+x.toFixed(2)}
+  function calc(){S("fx-bt-log",inp.value);
+    var r=(inp.value.match(/[-+−]?\d+(?:[.,]\d+)?/g)||[]).map(function(s){return parseFloat(s.replace("−","-").replace(",","."))}).filter(function(x){return isFinite(x)});
+    var c=Math.max(0,+cost.value||0),rk=Math.max(0,+risk.value||0),n=r.length;svg.innerHTML="";tb.innerHTML="";
+    if(n<2){out.textContent="Въведи поне няколко резултата, за да видиш статистиката.";return}
+    var net=r.map(function(x){return x-c}),w=r.filter(function(x){return x>0}),l=r.filter(function(x){return x<0});
+    var wr=w.length/n,aw=w.length?w.reduce(function(a,b){return a+b},0)/w.length:0,al=l.length?-l.reduce(function(a,b){return a+b},0)/l.length:0;
+    var exp=net.reduce(function(a,b){return a+b},0)/n,gw=net.filter(function(x){return x>0}).reduce(function(a,b){return a+b},0),gl=-net.filter(function(x){return x<0}).reduce(function(a,b){return a+b},0);
+    var pf=gl?gw/gl:Infinity,se=Math.sqrt(wr*(1-wr)/n),lo=Math.max(0,wr-1.96*se),hi=Math.min(1,wr+1.96*se);
+    var nb=n-w.length-l.length;
+    var worst=lo*aw-(1-lo-(nb/n))*al-c;
+    var eq=0,pk=0,dd=0,run=0,ls=0,pts=[0];net.forEach(function(x){eq+=x;pts.push(eq);if(eq>pk)pk=eq;dd=Math.max(dd,pk-eq);if(x<0){run++;ls=Math.max(ls,run)}else run=0});
+    var rows=[["Сделки",n],["Печеливши",(wr*100).toFixed(1)+"%  (правдоподобен диапазон "+(lo*100).toFixed(0)+"–"+(hi*100).toFixed(0)+"%)"],["Средна печалба / загуба",f2(aw)+"R / −"+al.toFixed(2)+"R"],
+      ["Очакване след разходи",f2(exp)+"R на сделка"],["Най-лошо правдоподобно очакване",f2(worst)+"R"],["Профит фактор",isFinite(pf)?pf.toFixed(2):"∞"],["Общ резултат",f2(eq)+"R ≈ "+f2(eq*rk)+"% при "+rk+"% риск"],
+      ["Максимален спад",dd.toFixed(1)+"R ≈ "+(dd*rk).toFixed(1)+"%"],["Най-дълга губеща серия",ls+" сделки"]];
+    rows.forEach(function(rw){var t=document.createElement("tr");t.innerHTML="<td>"+rw[0]+'</td><td class="num">'+rw[1]+"</td>";tb.appendChild(t)});
+    var g=[[n>=100,"извадка ≥ 100"],[exp>=0.25,"очакване ≥ +0.25R"],[worst>0,"най-лошо очакване > 0"],[dd<=10,"спад ≤ 10R"]],ok=g.filter(function(x){return x[0]}).length;
+    out.innerHTML=g.map(function(x){return (x[0]?"✓ ":"✗ ")+x[1]}).join(" · ")+"<br>"+(ok===4?"<b>Всички прагове са минати.</b> Следва: 30 демо сделки със същата карта.":n<100?"<b>Още няма достатъчно сделки.</b> Дръж картата замразена и продължавай.":"<b>Не е готов за истински пари.</b> Потърси модел в губещите, преди да промениш нещо.");
+    var mn=Math.min.apply(null,pts),mx=Math.max.apply(null,pts),sp=(mx-mn)||1,W=500,H=140;
+    function y(v){return 10+H-(v-mn)/sp*H}
+    var z=document.createElementNS(NS,"line");z.setAttribute("x1",10);z.setAttribute("x2",510);z.setAttribute("y1",y(0));z.setAttribute("y2",y(0));z.setAttribute("stroke","var(--line)");z.setAttribute("stroke-dasharray","4 4");svg.appendChild(z);
+    var p=document.createElementNS(NS,"polyline");p.setAttribute("fill","none");p.setAttribute("stroke",eq>=0?"var(--bull)":"var(--bear)");p.setAttribute("stroke-width","2.5");
+    p.setAttribute("points",pts.map(function(v,i){return (10+i/(pts.length-1)*W).toFixed(1)+","+y(v).toFixed(1)}).join(" "));svg.appendChild(p)}
+  inp.addEventListener("input",calc);cost.addEventListener("input",calc);risk.addEventListener("input",calc);
+  document.getElementById("labDemo").addEventListener("click",function(){var s=7,a=[];function rnd(){s=(s*16807)%2147483647;return s/2147483647}
+    for(var i=0;i<100;i++){var u=rnd();a.push(u<0.33?3:u<0.38?1.5:u<0.42?0:-1)}inp.value=a.join(", ");calc()});
+  document.getElementById("labClear").addEventListener("click",function(){inp.value="";calc()});
+  calc();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

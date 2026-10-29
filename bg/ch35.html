@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Първо личните финанси · FX Fundamentals</title>
+<meta name="description" content="Първо личните финанси · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch35.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch35.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="35">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">38</div>
+    <h1>Първо личните финанси</h1>
+    <blockquote class="quote">
+      Не спестявай това, което остане след харченето. Харчи това, което остане след спестяването.
+      <cite>Приписва се на Уорън Бъфет</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да разпределиш дохода си по правилото 50/30/20;</li>
+        <li>да пресметнеш аварийния си фонд;</li>
+        <li>да решиш дали първо да връщаш дълг или да инвестираш;</li>
+        <li>да определиш рисковия си капитал: парите, които можеш да загубиш, без това да промени живота ти.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>38.1 Защо тази глава е в книга за трейдинг</h2>
+      <p>Най-лошият трейдър е човекът, който <b>има нужда</b> сделката да спечели. Нуждата от наема, от вноската, от сметката за ток превръща всеки стоп в катастрофа и всяко колебание в паника. Затова личните финанси идват преди трейдинга, а не след него. Сметката ти за търговия трябва да е пари, които могат да изчезнат, без да промениш нищо в живота си.</p>
+      <p>Редът е прост:</p>
+      <ol class="steps">
+        <li><b>Бюджет.</b> Знаеш къде отиват парите.</li>
+        <li><b>Малък авариен буфер.</b> Един месец разходи.</li>
+        <li><b>Скъпият дълг.</b> Кредитни карти, бързи кредити.</li>
+        <li><b>Пълен авариен фонд.</b> 3–6 месеца разходи.</li>
+        <li><b>Дългосрочни инвестиции.</b> Глава 39.</li>
+        <li><b>Рисков капитал.</b> Само тук влиза трейдингът.</li>
+      </ol>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Risk capital · рисков капитал</b>Пари, чиято загуба не засяга сметките, спестяванията и плановете ти.</div>
+      <div class="term"><b>Emergency fund · авариен фонд</b>Пари за непредвидени разходи: болест, ремонт, загуба на работа.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>38.2 Бюджетът 50/30/20</h2>
+      <p>Правилото е отправна точка, не закон: 50% от нетния доход за нужди (жилище, храна, транспорт, сметки), 30% за желания, 20% за спестявания и връщане на дълг. Ако нуждите ти са над 50%, не се самообвинявай; просто знай, че трейдинг сметката ще расте по-бавно.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Нетен доход (€/мес.)<input type="number" id="b1" value="1200" step="50" min="0"></label>
+            <label>Реални нужди (€/мес.)<input type="number" id="b2" value="700" step="10" min="0"></label>
+            <label>Реални желания (€/мес.)<input type="number" id="b3" value="300" step="10" min="0"></label>
+          </div>
+          <div class="out" id="bOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Сумите са примерни. Минималната брутна заплата в България за 2026 е 620 евро.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Net income · нетен доход</b>Заплатата след данъци и осигуровки.</div>
+      <div class="term"><b>Pay yourself first · плати първо на себе си</b>Спестяването се превежда в деня на заплатата, не в края на месеца.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>38.3 Аварийният фонд и дългът</h2>
+      <p>Аварийният фонд е скучен. Точно затова работи. Той стои в спестовна сметка или депозит, лесно достъпен, не в акции и не в крипто. В България депозитите до <b>100 000 евро</b> на човек в една банка са гарантирани от Фонда за гарантиране на влоговете.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Месечни нужди (€)<input type="number" id="e1" value="700" step="10" min="0"></label>
+            <label>Месеци буфер<input type="number" id="e2" value="4" min="1" max="12"></label>
+            <label>Вече спестени (€)<input type="number" id="e3" value="900" step="50" min="0"></label>
+            <label>Спестявам на месец (€)<input type="number" id="e4" value="200" step="10" min="0"></label>
+          </div>
+          <div class="out" id="eOut" aria-live="polite"></div>
+        </div>
+        <figcaption>3 месеца при стабилна работа, 6 при нестабилен доход или издържани хора.</figcaption>
+      </figure>
+      <p>Дългът е обратната страна на инвестицията. Кредитна карта с 20% годишна лихва е гарантирана загуба от 20%. Никоя стратегия не ти гарантира 20% печалба. Затова <b>връщането на скъп дълг е най-добрата сигурна „инвестиция“</b>, която имаш.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Лихва по дълга (%/год.)<input type="number" id="d1" value="19" step="0.5" min="0"></label>
+            <label>Очаквана доходност на инвестицията (%/год.)<input type="number" id="d2" value="7" step="0.5"></label>
+            <label>Сигурна ли е доходността?<select id="d3"><option value="0" selected>Не</option><option value="1">Да (депозит, ДЦК)</option></select></label>
+          </div>
+          <div class="out" id="dOut" aria-live="polite"></div>
+        </div>
+      </figure>
+      <div class="dialog">
+        <p><span>Ученик</span>Но ако мина prop изпит, ще изплатя дълга за месец.</p>
+        <p><span>Ментор</span>Ако. Дългът начислява лихва всеки ден, а изпитът не те познава. Хората, които търгуват, за да платят дълг, търгуват под натиск, а натискът е най-скъпият индикатор. Първо дългът, после пазарът.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>APR / ГПР</b>Годишният процент на разходите по кредит: истинската му цена, с таксите.</div>
+      <div class="term"><b>ФГВБ</b>Фонд за гарантиране на влоговете в банките.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>38.4 Сложната лихва и рисковият капитал</h2>
+      <p>Айнщайн вероятно никога не е казвал, че сложната лихва е осмото чудо на света. Но математиката е вярна: малки редовни вноски и време правят повече от големи залози.</p>
+      <figure class="diagram">
+        <svg id="cSvg" viewBox="0 0 520 220" role="img" aria-label="Растеж на редовни месечни вноски"></svg>
+        <div class="sliders">
+          <label>Вноска на месец: <b id="cmV"></b><input type="range" id="cm" min="25" max="500" step="25" value="100"></label>
+          <label>Годишна доходност: <b id="crV"></b><input type="range" id="cr" min="0" max="12" step="0.5" value="7"></label>
+        </div>
+        <p class="verdict" id="cText" aria-live="polite"></p>
+        <figcaption>Номинално, преди данъци и инфлация. 7% е грубо историческо средно за широк пазар на акции в дълги периоди, не обещание.</figcaption>
+      </figure>
+      <p>Рисковият капитал се определя накрая: <b>какво остава, след като бюджетът, буферът, дългът и дългосрочните вноски са покрити</b>. Ако остават 50 евро на месец, сметката ти за трейдинг е 50 евро на месец. Това е нормално. Затова prop фирмите (Глава 33) са интересни за хора с малък капитал: таксата е рисковият капитал, а не цялата сметка.</p>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Изпит на prop фирма, платен от аварийния фонд, не е инвестиция в себе си. Това е залог с парите за спукана гума. Пазарът и гумите имат лош навик да се спукват в един и същи месец.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Compound interest · сложна лихва</b>Лихва върху лихвата: печалбата започва да печели сама.</div>
+      <div class="term"><b>DCA · усредняване</b>Dollar-cost averaging: инвестиране на една и съща сума редовно, независимо от цената.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 38</h2>
+    <ul>
+      <li>Трейдър, който има нужда от печалбата, търгува под натиск.</li>
+      <li>Ред: бюджет, буфер, скъп дълг, пълен фонд, дългосрочни инвестиции, рисков капитал.</li>
+      <li>50/30/20 е отправна точка.</li>
+      <li>Аварийният фонд е 3–6 месеца нужди, на сигурно място.</li>
+      <li>Скъпият дълг се връща преди всяка инвестиция.</li>
+      <li>Рисковият капитал е това, което остава накрая.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Знам нетния си доход и реалните си нужди за месец.</label></li>
+      <li><label><input type="checkbox"> Знам колко ми трябва за авариен фонд и кога ще го имам.</label></li>
+      <li><label><input type="checkbox"> Написах сумата на рисковия си капитал за месец.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Нетният ти доход е 1 300 евро. Нуждите са 750, желанията 350. Имаш 1 800 евро дълг по кредитна карта при 21% годишно и 500 евро спестени. Искаш този месец да платиш 10K prop изпит за около 90 евро и да внасяш по 100 евро на месец в ETF.</p>
+      <p><b>Задача:</b> подреди приоритетите. Колко време ще отнеме всяка стъпка? Кога е разумно да платиш първия изпит?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Приоритети… Срокове… Изпитът…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Остават 200 евро на месец. Ако желанията се свият до 250, остават 300.</li>
+          <li>Първо буфер от около 750 (една месечна сума нужди): още 250, около месец. После картата: 1 800 при 300 на месец е около 6–7 месеца с лихвата. После аварийният фонд до 3–4 месеца нужди.</li>
+          <li>ETF вноските започват след картата. Дотогава 21% гарантирана загуба побеждава всяка очаквана доходност.</li>
+          <li>Изпитът: през тези месеци безплатни пробни периоди и демо (Глава 34). Първият платен изпит е разумен, когато картата е изплатена и критериите от Глава 34 са изпълнени. Решението е твое, но парите от буфера не са рисков капитал.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Какво е рисков капитал?",o:["Всички спестявания","Пари, чиято загуба не променя живота ти","Заем за търговия"],a:1,e:"Само тези пари влизат в трейдинга."},
+  {q:"Колко е аварийният фонд обикновено?",o:["1 седмица","3–6 месеца разходи","5 години"],a:1,e:"Според стабилността на дохода."},
+  {q:"Кое се прави преди инвестиране?",o:["Връщане на скъп дълг","Купуване на крипто","Prop изпит"],a:0,e:"Гарантирана загуба срещу негарантирана печалба."},
+  {q:"50/30/20 значи…",o:["50% нужди, 30% желания, 20% спестявания","50% трейдинг","50% данъци"],a:0,e:"Отправна точка за бюджет."},
+  {q:"До каква сума са гарантирани депозитите в една банка в България?",o:["10 000 €","100 000 €","Не са гарантирани"],a:1,e:"Фонд за гарантиране на влоговете."}
+],mid:[
+  {q:"Дълг при 18%, инвестиция с очаквани 8%. Кое първо?",o:["Инвестицията","Дългът","Без значение"],a:1,e:"18% сигурно е повече от 8% очаквано."},
+  {q:"Нужди 800 €/мес., буфер 4 месеца, спестени 1 200 €, по 200 €/мес. Колко месеца до пълния фонд?",o:["10","4","16"],a:0,e:"3 200 − 1 200 = 2 000 ÷ 200 = 10."},
+  {q:"Защо аварийният фонд не стои в акции?",o:["Акциите са незаконни","Може да трябва точно когато пазарът е паднал","Акциите нямат доходност"],a:1,e:"Кризите и загубата на работа често идват заедно."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  function g(i){return document.getElementById(i)}
+  /* 50/30/20 */
+  var b=["b1","b2","b3"].map(g),bo=g("bOut");
+  function bd(){var n=+b[0].value,nd=+b[1].value,w=+b[2].value,s=n-nd-w;if(!n){bo.innerHTML="<span>Въведи доход.</span>";return}
+    bo.innerHTML="<span>Цел: нужди ≤ <b>€"+(n*.5).toFixed(0)+"</b>, желания ≤ <b>€"+(n*.3).toFixed(0)+"</b>, спестявания ≥ <b>€"+(n*.2).toFixed(0)+"</b>.</span><span>Реално: нужди "+(nd/n*100).toFixed(0)+"%, желания "+(w/n*100).toFixed(0)+"%, остават <b style='color:"+(s/n>=.2?"var(--bull)":s>0?"var(--news)":"var(--bear)")+"'>€"+s.toFixed(0)+" ("+(s/n*100).toFixed(0)+"%)</b>.</span><span>"+(s<=0?"Харчиш повече, отколкото печелиш. Трейдингът не е решение на това.":s/n<.2?"Под 20%. Виж кое от желанията е най-лесно за намаляване.":"Добре. Тези пари отиват в буфер, дълг и инвестиции, в този ред.")+"</span>"}
+  b.forEach(function(x){x.addEventListener("input",bd)});bd();
+  /* emergency */
+  var e=["e1","e2","e3","e4"].map(g),eo=g("eOut");
+  function ef(){var need=+e[0].value*+e[1].value,have=+e[2].value,m=+e[3].value,left=Math.max(0,need-have),mo=m>0?Math.ceil(left/m):Infinity;
+    eo.innerHTML="<span>Цел: <b>€"+need.toFixed(0)+"</b>. Липсват: <b>€"+left.toFixed(0)+"</b>.</span><span>"+(left===0?"Фондът е пълен.":isFinite(mo)?"При това темпо: <b>"+mo+" месеца</b>.":"Без месечно спестяване фондът няма да се напълни.")+"</span>"}
+  e.forEach(function(x){x.addEventListener("input",ef)});ef();
+  /* debt vs invest */
+  var d=["d1","d2","d3"].map(g),dout=g("dOut");
+  function dv(){var r=+d[0].value,i=+d[1].value,sure=+d[2].value;var v=r>=i?"<b style='color:var(--bear)'>Първо дългът.</b> Лихвата е сигурна загуба от "+r+"%, по-голяма от очакваните "+i+"%.":sure?"<b style='color:var(--bull)'>Инвестицията печели</b>, но само защото доходността е сигурна. Провери дали е така.":"<b style='color:var(--news)'>Зависи.</b> Очакваната доходност е над лихвата, но не е сигурна. При разлика под 3–4 п.п. връщането на дълга обикновено печели.";
+    dout.innerHTML="<span>"+v+"</span>"}
+  d.forEach(function(x){x.addEventListener("input",dv);x.addEventListener("change",dv)});dv();
+  /* compound */
+  var sv=g("cSvg"),cm=g("cm"),cr=g("cr"),ct=g("cText");
+  function cp(){var m=+cm.value,r=+cr.value/100,Y=30,V=[0],C=[0],v=0;g("cmV").textContent="€"+m;g("crV").textContent=(r*100).toFixed(1)+"%";
+    for(var y=1;y<=Y;y++){for(var k=0;k<12;k++)v=v*(1+r/12)+m;V.push(v);C.push(m*12*y)}
+    var mx=Math.max.apply(null,V)*1.05||1;function x(i){return 50+i*460/Y}function yy(z){return 195-z/mx*180}
+    sv.innerHTML="";[0,.5,1].forEach(function(f){var z=mx*f;el("line",{x1:50,x2:510,y1:yy(z),y2:yy(z),stroke:"var(--line)","stroke-dasharray":"2 4"},sv);el("text",{x:4,y:yy(z)+4,"font-size":10,fill:"var(--muted)"},sv).textContent="€"+(z>=1000?(z/1000).toFixed(0)+"k":z.toFixed(0))});
+    el("path",{d:C.map(function(z,i){return(i?"L":"M")+x(i).toFixed(1)+","+yy(z).toFixed(1)}).join(""),fill:"none",stroke:"var(--muted)","stroke-width":2,"stroke-dasharray":"5 4"},sv);
+    el("path",{d:V.map(function(z,i){return(i?"L":"M")+x(i).toFixed(1)+","+yy(z).toFixed(1)}).join(""),fill:"none",stroke:"var(--bull)","stroke-width":3},sv);
+    [0,10,20,30].forEach(function(i){el("text",{x:x(i),y:214,"font-size":10,"text-anchor":i?(i==30?"end":"middle"):"start",fill:"var(--muted)"},sv).textContent=i+" г."});
+    ct.innerHTML="След 10 г.: <b>€"+V[10].toFixed(0)+"</b> (вложени €"+C[10].toFixed(0)+"). След 30 г.: <b>€"+V[30].toFixed(0)+"</b> (вложени €"+C[30].toFixed(0)+"). Пунктирът е само вложеното."}
+  cm.addEventListener("input",cp);cr.addEventListener("input",cp);cp();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

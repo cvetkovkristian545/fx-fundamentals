@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Пазарна структура · FX Fundamentals</title>
+<meta name="description" content="Пазарна структура · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch6.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch6.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="6">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">6</div>
+    <h1>Пазарна структура</h1>
+    <blockquote class="quote">
+      Трендът е твой приятел, докато не завие.
+      <cite>Стара търговска поговорка</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да определиш дали един пазар е bullish (бичи), bearish (мечи) или в диапазон, само по върховете и дъната;</li>
+        <li>да различиш BOS от CHoCH и MSS и да прилагаш правилото „затваряне, не фитил“;</li>
+        <li>да разпознаеш inducement, фалшивия пробив, който вкарва закъснелите в капан.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>6.1 Върхове и дъна: азбуката на тренда</h2>
+      <p>Цената никога не се движи по права линия. Тя върви на вълни: движение, корекция, движение. Всяка вълна оставя <b>връх</b> (swing high) и <b>дъно</b> (swing low). Как се подреждат те една спрямо друга е <b>пазарната структура</b>. Без ясна структура няма ясен анализ.</p>
+      <div class="tablewrap" data-name="struktura">
+        <table class="data">
+          <thead><tr><th>Структура</th><th>Върхове</th><th>Дъна</th><th>Обезсилване</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--bull)"><b>Bullish</b></td><td>По-високи (HH)</td><td>По-високи (HL)</td><td>Затваряне под последното HL</td></tr>
+            <tr><td style="color:var(--bear)"><b>Bearish</b></td><td>По-ниски (LH)</td><td>По-ниски (LL)</td><td>Затваряне над последния LH</td></tr>
+            <tr><td><b>Диапазон</b></td><td>Приблизително равни</td><td>Приблизително равни</td><td>Пробив и приемане извън диапазона</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="diagram">
+        <svg id="zz" viewBox="0 0 520 240" role="img" aria-label="Зигзаг на цената с отбелязани върхове и дъна"></svg>
+        <div class="tabs" data-group="zz">
+          <button class="chip" data-tab="bull">Bullish</button>
+          <button class="chip" data-tab="bear">Bearish</button>
+          <button class="chip" data-tab="range">Диапазон</button>
+        </div>
+        <button class="toggle" id="zzLab" aria-pressed="false">Покажи етикетите</button>
+        <figcaption>Първо опитай сам да назовеш всяка точка, после включи етикетите.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Ако трябва да присвиеш очи, за да видиш тренд, той не е тренд. Чистата структура се вижда от другия край на стаята.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>HH · Higher High</b>По-висок връх от предишния.</div>
+      <div class="term"><b>HL · Higher Low</b>По-високо дъно от предишното.</div>
+      <div class="term"><b>LH · Lower High</b>По-нисък връх от предишния.</div>
+      <div class="term"><b>LL · Lower Low</b>По-ниско дъно от предишното.</div>
+      <div class="term"><b>Swing · люлка</b>Връх или дъно, около които цената се е обърнала.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>6.2 BOS: затваряне, не фитил</h2>
+      <p><b>BOS</b> (Break of Structure, пробив на структурата) значи, че цената е пробила предишния връх в bullish тренд или предишното дъно в bearish. Това потвърждава, че трендът продължава.</p>
+      <p>Едно правило, без изключения: <b>пробивът се брои само ако свещта затвори отвъд нивото.</b> Фитил над върха не е пробив. Той е опит и често е взимане на ликвидност (Глава 7).</p>
+      <figure class="diagram">
+        <svg id="bos" viewBox="0 0 520 200" role="img" aria-label="Сравнение: фитил над върха срещу затваряне над върха"></svg>
+        <div class="tabs" data-group="bos">
+          <button class="chip" data-tab="wick">Само фитил</button>
+          <button class="chip" data-tab="close">Затваряне</button>
+        </div>
+        <p class="verdict" id="bosText" aria-live="polite"></p>
+      </figure>
+      <figure class="shot">
+        <img src="../img/ch6-bos-wick.jpg" alt="EURUSD H1: фитил над върха без затваряне срещу тяло, затворено над върха" width="1075" height="774" loading="lazy" decoding="async">
+        <figcaption><b>Реален пример.</b> EURUSD H1, 18–19 август 2026, софийско време. Върхът е 1.1586. В 17:00 фитилът минава над него, но свещта затваря отдолу: това не е BOS. На следващата сутрин тяло затваря над нивото и чак тогава трендът тръгва.</figcaption>
+      </figure>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Цената мина над върха с 3 пипа, значи е пробив.</p></div>
+        <div><span class="label">Реалност</span><p>Докато свещта не е затворила, няма пробив. А ако затвори обратно под върха, имаш точно обратното: отказ.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>BOS · пробив на структурата</b>Затваряне отвъд предишния връх (в бичи тренд) или дъно (в мечи). Потвърждава продължение.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: средно">●●</span>6.3 CHoCH и MSS: когато характерът се смени</h2>
+      <p><b>CHoCH</b> (Change of Character, смяна на характера) е първият пробив <i>срещу</i> тренда. В bullish тренд това е затваряне под последното HL. Не значи веднага, че трендът е обърнат. Значи, че купувачите за първи път са загубили контрол и картината трябва да се преоцени.</p>
+      <p><b>MSS</b> (Market Structure Shift) е същото нещо на малкия таймфрейм, на който се взимат решенията (M5, M15). В подхода на тази книга MSS идва след взета ликвидност и е сигналът, че реакцията от зоната е истинска. Последователността, която ще срещаш отново и отново, е:</p>
+      <p class="mono" style="background:var(--paper);padding:10px 12px;border:1px solid var(--line)">Sweep на ликвидност → MSS на M5 → връщане в зона (OB/FVG) → решение</p>
+      <figure class="diagram">
+        <svg id="choch" viewBox="0 0 520 240" role="img" aria-label="Bullish тренд, който сменя характера си"></svg>
+        <div class="parts">
+          <button class="chip" data-cs="1">1. Bullish тренд</button>
+          <button class="chip" data-cs="2">2. Sweep на върха</button>
+          <button class="chip" data-cs="3">3. CHoCH</button>
+          <button class="chip" data-cs="4">4. Нов LH и BOS надолу</button>
+        </div>
+        <p class="verdict" id="chText" aria-live="polite"></p>
+      </figure>
+      <div class="tablewrap" data-name="bos-choch-mss">
+        <table class="data">
+          <thead><tr><th>Термин</th><th>Посока</th><th>Таймфрейм</th><th>Какво казва</th></tr></thead>
+          <tbody>
+            <tr><td><b>BOS</b></td><td>С тренда</td><td>Всеки</td><td>Трендът продължава.</td></tr>
+            <tr><td><b>CHoCH</b></td><td>Срещу тренда</td><td>Обикновено H1 и нагоре</td><td>Първи знак, че трендът може да се обръща.</td></tr>
+            <tr><td><b>MSS</b></td><td>Срещу краткото движение</td><td>M5, M15</td><td>Реакцията от зоната е потвърдена; спусъкът за решение.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>CHoCH · смяна на характера</b>Първо затваряне срещу тренда, отвъд последната защитена точка.</div>
+      <div class="term"><b>MSS · смяна на структурата</b>CHoCH на малкия таймфрейм, обикновено след взета ликвидност.</div>
+      <div class="term"><b>Protected low · защитено дъно</b>HL, което трябва да оцелее, за да е жив бичият тренд.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>6.4 Inducement: капанът за закъснелите</h2>
+      <p><b>Inducement</b> (примамка) е малък, привидно ясен пробив, който кани трейдърите да влязат в грешната посока. Пример: цената в bearish тренд прави малък отскок и пробива нагоре дребен вътрешен връх. Нетърпеливите купуват „обръщането“ и слагат стоповете си под последното малко дъно. Минути по-късно цената се връща, взима тези стопове и продължава надолу.</p>
+      <p>Как го разпознаваш: пробивът е на <b>малък таймфрейм</b>, срещу посоката на <b>по-големия</b>, без взета значима ликвидност преди него, често с малко тяло и бързо върнат. Реален CHoCH обикновено идва <i>след</i> sweep на важно ниво. CHoCH без sweep преди него е подозрителен.</p>
+      <div class="dialog">
+        <p><span>Ученик</span>Как да знам дали пробивът е истински или примамка, докато се случва?</p>
+        <p><span>Ментор</span>Няма как да знаеш със сигурност. Затова питаш три неща: в посоката на D1 ли е? Взета ли е ликвидност преди него? Затворила ли е свещта? Две „не“ от три и стоиш настрана.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Inducement · примамка</b>Фалшив пробив, който вкарва трейдъри в грешната посока, за да използва стоповете им.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: основно">●</span>6.5 Най-честите грешки при четене</h2>
+      <div class="tablewrap" data-name="greshki-struktura">
+        <table class="data">
+          <thead><tr><th>Грешка</th><th>Последица</th></tr></thead>
+          <tbody>
+            <tr><td>Броиш фитил за пробив</td><td>Влизаш точно когато ликвидността се взима, обикновено на най-лошото място.</td></tr>
+            <tr><td>Влизаш веднага при BOS, без връщане</td><td>Голям стоп, лошо съотношение печалба към риск.</td></tr>
+            <tr><td>Игнорираш структурата на D1</td><td>Търгуваш срещу големия поток.</td></tr>
+            <tr><td>Бъркаш inducement с CHoCH</td><td>Бърз стоп.</td></tr>
+            <tr><td>Етикетираш всяко малко колебание</td><td>Шум. Само ясните люлки, които се виждат без увеличение, са структура.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Pullback · корекция</b>Временно движение срещу тренда, преди той да продължи.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6r">
+    <div class="main">
+      <h2 id="s6r"><span class="dots" title="Ниво: средно">●●</span>6.6 Повторение кадър по кадър</h2>
+      <p>Пусни повторението или минавай стъпка по стъпка. Гледай най-вече разликата между стъпка 2 и стъпка 3: фитилът и тялото изглеждат близо, но значат различни неща.</p>
+      <div class="replay" data-rp="bos"></div>
+      <h3>Тренировка</h3>
+      <p>Натисни линията на графиката или бутона с буквата. Имаш един опит за всеки въпрос.</p>
+      <div class="drills" data-dr="ch6"></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Replay · повторение</b>Преминаване през графиката свещ по свещ, без да виждаш бъдещето. Най-евтиният начин да тренираш четене.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 06</h2>
+    <ul>
+      <li>Bullish: HH + HL. Bearish: LH + LL. Диапазон: равни върхове и дъна.</li>
+      <li>Пробивът се брои само при затваряне. Фитилът е опит или sweep.</li>
+      <li>BOS продължава тренда. CHoCH е първият удар срещу него. MSS е CHoCH на малкия таймфрейм.</li>
+      <li>Ключовата последователност: sweep → MSS → връщане в зона.</li>
+      <li>Inducement: малък пробив срещу големия тренд, без sweep преди него.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Етикетирах HH, HL, LH, LL на D1 на EURUSD за последните 3 месеца.</label></li>
+      <li><label><input type="checkbox"> Намерих един BOS със затваряне и един опит само с фитил на H1.</label></li>
+      <li><label><input type="checkbox"> Намерих една CHoCH на H1 и проверих дали преди нея е взета ликвидност.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>EURUSD: D1 е bullish (последно HL на 1.0780). На H1 цената пада към 1.0800, пробива с фитил дъното на Азия на 1.0806 и затваря над него. На M5 след това цената затваря над последния малък LH на 1.0814.</p>
+      <p><b>Задача:</b> назови всяко събитие с термините от главата. Какво е защитеното дъно на D1 и на M5? Кога картината би се развалила?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="D1… Фитилът… M5…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>D1: bullish структура; защитено дъно 1.0780. Корекцията към 1.0800 е в рамките на тренда.</li>
+          <li>Фитилът под 1.0806 със затваряне над него е sweep на ликвидността под Азия, не пробив.</li>
+          <li>Затварянето на M5 над 1.0814 е MSS: краткото bearish движение е прекъснато след sweep, в посоката на D1.</li>
+          <li>Защитено дъно на M5: дъното на sweep-а (под 1.0806). Затваряне под него разваля краткосрочната картина. Затваряне на D1 под 1.0780 разваля голямата.</li>
+          <li>Следващата стъпка е да намериш зоната, от която е тръгнал MSS (Глава 7), и да видиш дали цената се връща там.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Какво е HL?",o:["Higher high (по-висок връх)","Higher low (по-високо дъно)","Lower low (по-ниско дъно)"],a:1,e:"Higher Low: дъно над предишното дъно."},
+  {q:"Bearish трендът се състои от…",o:["HH и HL","LH и LL","Равни върхове"],a:1,e:"По-ниски върхове и по-ниски дъна."},
+  {q:"Кога се брои BOS?",o:["Когато фитилът мине нивото","Когато свещта затвори отвъд нивото","Когато RSI е над 70"],a:1,e:"Само затварянето се брои."},
+  {q:"Какво е CHoCH?",o:["Продължение на тренда","Първи пробив срещу тренда","Индикатор"],a:1,e:"Смяната на характера е първото затваряне срещу тренда."},
+  {q:"MSS обикновено идва след…",o:["Взета ликвидност","Новина","Уикенд"],a:0,e:"Sweep → MSS е ключовата последователност."}
+],mid:[
+  {q:"Bullish тренд, последно HL 1.0820. Свещ на H1 пада до 1.0815 и затваря на 1.0825. Какво е това?",o:["CHoCH надолу","Sweep под HL без смяна на структурата","BOS нагоре"],a:1,e:"Затварянето е над HL. Фитилът е взел стоповете, структурата е запазена."},
+  {q:"D1 е bearish. На M1 има малък пробив нагоре без взета ликвидност преди него. Как го оценяваш?",o:["Обръщане на тренда","Вероятна примамка (inducement)","BOS на D1"],a:1,e:"Малък таймфрейм, срещу големия тренд, без sweep: класическа примамка."},
+  {q:"Цената прави 5 върха на почти една цена и 5 дъна на почти една цена. Какво правиш?",o:["Търгуваш в посоката на последната свещ","Определяш го като диапазон и чакаш пробив с приемане","Търсиш BOS на всеки връх"],a:1,e:"Равни върхове и дъна са диапазон. Значимите нива са краищата му."}
+]};
+</script>
+<script>window.REPLAYS={"bos":{"title": "BOS със затваряне срещу фитил, после CHoCH", "candles": [[50, 52, 49, 51.5], [51.5, 56, 51, 55.5], [55.5, 58, 55, 57.5], [57.5, 58, 53, 53.5], [53.5, 54.5, 52, 54], [54, 57, 53.5, 56.5], [56.5, 59.5, 56, 57.5], [57.5, 58, 55.5, 56], [56, 60, 55.8, 59.5], [59.5, 63, 59, 62.5], [62.5, 63, 58.5, 59], [59, 60.5, 57.5, 60], [60, 62.5, 59.5, 62], [62, 62.3, 58, 58.5], [58.5, 59, 55.5, 56], [56, 57, 54, 54.5], [54.5, 56.5, 54, 56], [56, 57.8, 55.5, 56.2], [56.2, 56.5, 52, 52.5]], "y": [50, 64.5], "caption": "Учебен сценарий. Броим само затваряния на тялото, не фитили.", "steps": [{"at": 6, "h": "Тренд нагоре.", "text": "Връх 58 (HH) и higher low 52 (HL). Структурата е bullish.", "draw": [{"t": "mark", "i": 2, "p": 58, "label": "HH 58", "c": "ink"}, {"t": "mark", "i": 4, "p": 52, "label": "HL 52", "c": "ink", "pos": "down"}, {"t": "level", "p": 58, "from": 2, "label": "58", "c": "liq", "until": 2}]}, {"at": 7, "h": "Само фитил.", "text": "Фитилът стига 59.5, но свещта затваря под 58. Това не е BOS. Взета е ликвидност над върха, нищо повече.", "draw": [{"t": "mark", "i": 6, "p": 59.5, "label": "фитил", "c": "news"}]}, {"at": 9, "h": "BOS.", "text": "Тяло затваря над 58. Това е пробив на структурата. Трендът е потвърден.", "draw": [{"t": "mark", "i": 8, "p": 55.8, "label": "BOS", "c": "bull", "pos": "down", "anchor": "start"}]}, {"at": 13, "h": "Умора.", "text": "Нов връх 63 и higher low 57.5. После lower high (по-нисък връх) 62.5: първият признак, че купувачите отслабват.", "draw": [{"t": "level", "p": 57.5, "from": 11, "label": "HL 57.5", "c": "liq"}, {"t": "mark", "i": 12, "p": 62.5, "label": "LH", "c": "bear"}]}, {"at": 15, "h": "CHoCH.", "text": "Затваряне под последното higher low 57.5. Характерът се сменя от bullish към bearish.", "draw": [{"t": "mark", "i": 14, "p": 56, "label": "CHoCH", "c": "bear", "pos": "down"}]}, {"at": 19, "h": "Какво следва.", "text": "Връщане нагоре и ново дъно. CHoCH сам по себе си не е вход. Той е сигнал да търсиш нова структура в новата посока.", "draw": []}]}};window.DRILLS={"ch6": [{"src": "bos", "n": 9, "q": "Затварянето над кое ниво е BOS?", "o": [{"p": 59.5, "t": "59.5"}, {"p": 58, "t": "58"}, {"p": 52, "t": "52"}], "a": 1, "e": "BOS се мери спрямо последния връх 58, с тяло. 59.5 е само фитилът, а 52 е higher low."}, {"src": "bos", "n": 14, "q": "Под кое ниво затваряне би било CHoCH?", "o": [{"p": 62.5, "t": "62.5"}, {"p": 57.5, "from": 11, "t": "57.5"}, {"p": 52, "t": "52"}], "a": 1, "e": "CHoCH е затваряне под последното higher low, което е довело до последния връх: 57.5. 52 е старо дъно, а 62.5 е връх."}, {"src": "bos", "n": 11, "q": "Свещ 11 пада до 58,5. Това CHoCH ли е?", "o": [{"t": "Да, цената е под 59"}, {"t": "Не: няма затваряне под последното по-високо дъно, около 55,5"}, {"t": "Само ако обемът расте"}], "a": 1, "e": "CHoCH изисква затваряне под по-високото дъно, довело до последния връх. Връщане до 58,5 е просто корекция."}, {"src": "bos", "n": 19, "q": "След CHoCH цената отскача до 57,8 (свещ 18) и после пада до 52. Какво е 57,8 сега?", "o": [{"p": 57.8, "from": 13, "t": "по-нисък връх (LH)"}, {"p": 63, "from": 9, "t": "по-висок връх"}, {"p": 52, "from": 13, "t": "BOS"}], "a": 0, "e": "В новата мечя структура 57,8 е първият по-нисък връх. Затваряне над него би отменило мечата идея."}]};</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* zigzag */
+  var Z={bull:{p:[40,90,65,130,100,170,140,205],l:["","HH","HL","HH","HL","HH","HL","HH"]},
+         bear:{p:[200,150,175,110,140,70,100,35],l:["","LL","LH","LL","LH","LL","LH","LL"]},
+         range:{p:[60,170,65,168,62,172,64,170],l:["","връх","дъно","= връх","= дъно","= връх","= дъно","= връх"]}};
+  var zz=document.getElementById("zz"),labOn=false,cur="bull";
+  function drawZ(k){cur=k;zz.innerHTML="";var d=Z[k],pts=d.p.map(function(v,i){return [30+i*66,220-v]});
+    el("polyline",{points:pts.map(function(p){return p.join(",")}).join(" "),fill:"none",stroke:k==="bull"?"var(--bull)":k==="bear"?"var(--bear)":"var(--ink)","stroke-width":3},zz);
+    pts.forEach(function(p,i){if(!i)return;var up=i%2===(k==="bear"?0:1);el("circle",{cx:p[0],cy:p[1],r:4,fill:"var(--fg)"},zz);
+      if(labOn){var t=el("text",{x:p[0]-12,y:up?p[1]-10:p[1]+18,"font-size":12,fill:"var(--fg)"},zz);t.textContent=d.l[i]}});
+    if(k==="bull"&&labOn){var hl=pts[6];el("line",{x1:hl[0],x2:510,y1:hl[1],y2:hl[1],stroke:"var(--bear)","stroke-dasharray":"4 4"},zz);el("text",{x:hl[0]+10,y:hl[1]+14,"font-size":10,fill:"var(--bear)"},zz).textContent="обезсилване: затваряне под последното HL"}
+    if(k==="bear"&&labOn){var lh=pts[6];el("line",{x1:lh[0],x2:510,y1:lh[1],y2:lh[1],stroke:"var(--bull)","stroke-dasharray":"4 4"},zz);el("text",{x:lh[0]+10,y:lh[1]-6,"font-size":10,fill:"var(--bull)"},zz).textContent="обезсилване: затваряне над последния LH"}}
+  Book.each('[data-group="zz"] button',function(b){b.addEventListener("click",function(){drawZ(b.dataset.tab)})});
+  var zl=document.getElementById("zzLab");zl.addEventListener("click",function(){labOn=!labOn;zl.setAttribute("aria-pressed",labOn);zl.textContent=labOn?"Скрий етикетите":"Покажи етикетите";drawZ(cur)});drawZ("bull");
+
+  /* BOS wick vs close */
+  var bs=document.getElementById("bos"),by=function(v){return 190-v*1.6};
+  function cand(g,c,x,w){var o=c[0],cl=c[1],hi=c[2],lo=c[3],col=cl>=o?"var(--bull)":"var(--bear)";el("line",{x1:x+w/2,x2:x+w/2,y1:by(hi),y2:by(lo),stroke:col,"stroke-width":2},g);el("rect",{x:x,width:w,y:by(Math.max(o,cl)),height:Math.max(1.5,Math.abs(by(o)-by(cl))),fill:col},g)}
+  var BASE=[[20,40,44,18],[40,70,74,38],[70,92,96,66],[92,80,94,76],[80,70,82,64],[70,78,82,68],[78,84,88,76]];
+  function drawB(k){bs.innerHTML="";el("line",{x1:20,x2:510,y1:by(96),y2:by(96),stroke:"var(--liq)","stroke-dasharray":"5 4","stroke-width":1.5},bs);
+    el("text",{x:24,y:by(96)-6,"font-size":10,fill:"var(--liq)"},bs).textContent="предишен връх";
+    var arr=BASE.concat(k==="wick"?[[84,90,102,82],[90,78,92,74],[78,66,80,62]]:[[84,104,106,82],[104,98,108,96],[98,106,110,96]]);
+    arr.forEach(function(c,i){cand(bs,c,30+i*46,20)});
+    document.getElementById("bosText").textContent=k==="wick"?"Фитилът минава над върха, но свещта затваря под него. Няма BOS. Следващите свещи падат: това е било взимане на ликвидност над върха.":"Свещта затваря над предишния връх. Това е BOS: bullish структурата продължава. Добрият анализатор сега чака връщане, не гони цената."}
+  Book.each('[data-group="bos"] button',function(b){b.addEventListener("click",function(){drawB(b.dataset.tab)})});drawB("wick");
+
+  /* CHoCH stepper */
+  var ch=document.getElementById("choch"),P=[[30,40],[85,100],[130,75],[185,140],[230,110],[290,175],[330,185],[370,95],[410,135],[450,70],[500,40]];
+  var ends=[6,7,8,11],TX=["Bullish тренд: HH, HL, HH, HL. Защитеното дъно е последното HL (около 110).","Цената прави малко higher high и бързо се връща: взета е ликвидността над върха (sweep).","Цената затваря под последното HL. Това е CHoCH: първият удар срещу bullish структурата.","Отскокът прави lower high (LH) и цената пробива надолу: BOS в новата bearish посока. Характерът е сменен."];
+  function drawC(n){ch.innerHTML="";var pts=P.slice(0,ends[n-1]).map(function(p){return [p[0],230-p[1]]});
+    el("polyline",{points:pts.map(function(p){return p.join(",")}).join(" "),fill:"none",stroke:"var(--ink)","stroke-width":3},ch);
+    el("line",{x1:230,x2:510,y1:230-110,y2:230-110,stroke:"var(--bull)","stroke-dasharray":"4 4"},ch);el("text",{x:236,y:230-110+14,"font-size":10,fill:"var(--bull)"},ch).textContent="последно HL";
+    if(n>=2){el("circle",{cx:330,cy:230-185,r:10,fill:"none",stroke:"var(--liq)","stroke-width":2},ch);el("text",{x:344,y:230-185,"font-size":10,fill:"var(--liq)"},ch).textContent="sweep"}
+    if(n>=3){el("text",{x:376,y:230-110+28,"font-size":11,fill:"var(--bear)"},ch).textContent="CHoCH"}
+    if(n>=4){el("text",{x:400,y:230-135-8,"font-size":11,fill:"var(--bear)"},ch).textContent="LH";el("text",{x:456,y:230-70+18,"font-size":11,fill:"var(--bear)"},ch).textContent="BOS"}
+    document.getElementById("chText").textContent=TX[n-1];Book.each("[data-cs]",function(b){b.setAttribute("aria-pressed",b.dataset.cs==n)})}
+  Book.each("[data-cs]",function(b){b.addEventListener("click",function(){drawC(+b.dataset.cs)})});drawC(4);
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

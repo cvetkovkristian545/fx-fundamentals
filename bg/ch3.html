@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Свещи и графики · FX Fundamentals</title>
+<meta name="description" content="Свещи и графики · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch3.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch3.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="3">
+  <!-- DOSSIER -->
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">3</div>
+    <h1>Свещи и графики</h1>
+    <blockquote class="quote">
+      Няма нищо ново на Уолстрийт. Не може да има, защото спекулацията е стара колкото хълмовете.
+      <cite>Джеси Ливърмор, по „Спомени на един борсов спекулант“ (Едуин Лефевър, 1923)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да разчетеш всяка свещ: откъде е тръгнала цената, докъде е стигнала и къде е затворила;</li>
+        <li>да кажеш кой е спечелил периода, купувачите или продавачите, и колко убедително;</li>
+        <li>да разбереш как 12 малки свещи на M5 стават една свещ на H1 и защо това е важно.</li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 3.1 -->
+  <section class="sec" aria-labelledby="s31">
+    <div class="main">
+      <h2 id="s31"><span class="dots" title="Ниво: основно">●</span>3.1 Анатомия на свещта</h2>
+      <p>Графиката не е рисунка. Тя е протокол. Всяка свещ записва четири цени за един период от време: откъде цената е започнала (<b>Open</b>), най-високата точка (<b>High</b>), най-ниската (<b>Low</b>) и къде е завършила (<b>Close</b>). Търговците ги наричат накратко <span class="mono">OHLC</span>.</p>
+      <p>Нашият пример за цялата книга е <b>EURUSD</b>, еврото срещу долара. Ще се връщаме към него глава след глава, за да виждаш как всяко ново понятие се наслагва върху познат пазар.</p>
+      <figure>
+        <div class="anat">
+          <svg id="anatSvg" viewBox="0 0 200 300" role="img" aria-label="Bullish (бичи) свещ на EURUSD с отбелязани части">
+            <line x1="100" y1="30" x2="100" y2="270" stroke="var(--bull)" stroke-width="3"/>
+            <rect x="65" y="70" width="70" height="140" fill="var(--bull)"/>
+            <g id="anatMarks"></g>
+            <rect class="hit" data-part="high" x="70" y="20" width="60" height="22" fill="transparent"/>
+            <rect class="hit" data-part="upper" x="80" y="42" width="40" height="28" fill="transparent"/>
+            <rect class="hit" data-part="close" x="60" y="62" width="80" height="16" fill="transparent"/>
+            <rect class="hit" data-part="body" x="65" y="78" width="70" height="124" fill="transparent"/>
+            <rect class="hit" data-part="open" x="60" y="202" width="80" height="16" fill="transparent"/>
+            <rect class="hit" data-part="lower" x="80" y="218" width="40" height="44" fill="transparent"/>
+            <rect class="hit" data-part="low" x="70" y="262" width="60" height="22" fill="transparent"/>
+          </svg>
+          <div style="display:grid;gap:12px">
+            <div class="parts" id="partChips" role="group" aria-label="Части на свещта"></div>
+            <p class="explain" id="partText" aria-live="polite"></p>
+          </div>
+        </div>
+        <figcaption>Натисни част от свещта или бутон. Пример: EURUSD, H1, bullish свещ. Цените са илюстративни.</figcaption>
+      </figure>
+      <p>Зелената свещ (<b>bullish</b>, бична) затваря <i>над</i> отварянето: купувачите са избутали цената нагоре. Червената (<b>bearish</b>, мечешка) затваря <i>под</i> отварянето. Цветът казва посоката. Формата казва колко трудно е била извоювана.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Candle · свещ</b>Графично изображение на четирите цени (OHLC) за един период. <i>Японски свещи, от 18 век, търговия с ориз.</i></div>
+      <div class="term"><b>Body · тяло</b>Разстоянието между Open и Close. Показва нетния резултат от периода.</div>
+      <div class="term"><b>Wick · фитил</b>Нарича се още shadow (сянка). Показва цени, до които пазарът е стигнал, но не е останал.</div>
+    </aside>
+  </section>
+
+  <!-- 3.2 -->
+  <section class="sec" aria-labelledby="s32">
+    <div class="main">
+      <h2 id="s32"><span class="dots" title="Ниво: основно">●</span>3.2 Кой спечели свещта?</h2>
+      <p>Зад всяка свещ стоят две страни. <b>Купувачите</b> искат по-висока цена и я бутат нагоре. <b>Продавачите</b> искат да продадат и я натискат надолу. Свещта е резултатът от тази битка за периода.</p>
+      <p>Дълго тяло и къси фитили значат, че едната страна е доминирала от началото до края. Дълъг фитил значи, че някой е опитал, но е бил върнат. Малко тяло между два фитила значи, че никой не е спечелил.</p>
+      <figure>
+        <div class="builder">
+          <svg id="bSvg" viewBox="0 0 220 300" role="img" aria-label="Свещ, която се променя според плъзгачите">
+            <g id="bAxis"></g>
+            <line id="bWick" class="candle-anim" x1="120" x2="120" stroke-width="3"/>
+            <rect id="bBody" class="candle-anim" x="88" width="64"/>
+          </svg>
+          <div style="display:grid;gap:14px;min-width:0">
+            <div class="sliders">
+              <label for="sO">Open <input id="sO" type="range" min="10800" max="10900" step="1"> <output id="oO"></output></label>
+              <label for="sH">High <input id="sH" type="range" min="10800" max="10900" step="1"> <output id="oH"></output></label>
+              <label for="sL">Low <input id="sL" type="range" min="10800" max="10900" step="1"> <output id="oL"></output></label>
+              <label for="sC">Close <input id="sC" type="range" min="10800" max="10900" step="1"> <output id="oC"></output></label>
+            </div>
+            <div class="verdict" id="verdict" aria-live="polite"></div>
+            <div class="parts" role="group" aria-label="Готови примери">
+              <button class="chip" data-preset="strongBull">Силни купувачи</button>
+              <button class="chip" data-preset="rejectLow">Отхвърлено дъно</button>
+              <button class="chip" data-preset="doji">Нерешителност</button>
+              <button class="chip" data-preset="strongBear">Силни продавачи</button>
+            </div>
+          </div>
+        </div>
+        <figcaption>Построй своя свещ. Плъзгай OHLC и чети присъдата. High и Low не могат да бъдат вътре в тялото; книгата ги поправя вместо теб.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Цветът на свещта е най-шумната и най-маловажната ѝ част. Гледай къде е затворила спрямо целия си диапазон. Това е истинският отговор.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Bullish · бичи</b>Възходящ. Купувачите контролират. Бикът удря с рогата нагоре.</div>
+      <div class="term"><b>Bearish · мечи</b>Низходящ. Продавачите контролират. Мечката удря с лапата надолу.</div>
+      <div class="term"><b>Range · диапазон</b>High минус Low. При EURUSD се мери в пипове: 0.0001 = 1 пип.</div>
+    </aside>
+  </section>
+
+  <!-- 3.3 -->
+  <section class="sec" aria-labelledby="s33">
+    <div class="main">
+      <h2 id="s33"><span class="dots" title="Ниво: средно">●●</span>3.3 Пет свещи, които ще срещаш всеки ден</h2>
+      <p>Имената звучат екзотично, но всяка от тези свещи описва просто съотношение между тяло и фитили. Научи какво казват, не как се казват.</p>
+      <figure>
+        <div class="families" id="families"></div>
+        <figcaption>Всички свещи тук са схематични. В Глава 10 ще видиш engulfing и pin bar като тригери в зона на интерес.</figcaption>
+      </figure>
+      <div class="box myth">
+        <div><span class="label">Мит</span><p>„Видях pin bar, значи пазарът ще се обърне.“</p></div>
+        <div><span class="label">Реалност</span><p>Свещта сама по себе си не значи почти нищо. Pin bar в средата на диапазон е шум. Pin bar след премахване на ликвидност, в зона на интерес, по посоката на по-високия таймфрейм, е информация. Мястото решава.</p></div>
+      </div>
+      <div class="dialog" aria-label="Диалог">
+        <p><span>Ученикът</span>Защо толкова държиш на фитилите?</p>
+        <p><span>Ментор</span>Защото фитилът е мястото, където пазарът е опитал и е бил отказан. Тялото казва какво се е случило. Фитилът казва какво не е било позволено да се случи.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Engulfing · поглъщане</b>Тяло, което покрива изцяло тялото на предишната свещ.</div>
+      <div class="term"><b>Doji · доджи</b>Open ≈ Close. Равенство между купувачи и продавачи.</div>
+    </aside>
+  </section>
+
+  <!-- 3.4 -->
+  <section class="sec" aria-labelledby="s34">
+    <div class="main">
+      <h2 id="s34"><span class="dots" title="Ниво: средно">●●</span>3.4 Таймфреймите: една свещ е цял филм</h2>
+      <p>Една свещ на H1 (един час) съдържа дванадесет свещи на M5 (пет минути). Свещта на H1 показва само началото, края и двете крайни точки. Всичко между тях е скрито вътре в нея.</p>
+      <p>Затова анализаторите гледат <b>отгоре надолу</b>: D1 казва посоката, H4 и H1 показват картината, а M5 показва детайла. Ще изградим тази система в Глава 8.</p>
+      <figure>
+        <div class="scroll"><svg id="tfSvg" viewBox="0 0 520 260" style="min-width:420px;width:100%" role="img" aria-label="Дванадесет свещи на M5, обобщени в една свещ на H1"></svg></div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <button class="toggle" id="tfToggle" aria-pressed="false">Покажи като 1 свещ на H1</button>
+          <button class="toggle" id="annToggle" aria-pressed="false">Покажи анотациите</button>
+        </div>
+        <figcaption>Първо разгледай свещите сам. После включи анотациите и сравни. EURUSD, 09:00–10:00 софийско време, илюстративни цени.</figcaption>
+      </figure>
+      <div class="box ff">
+        <span class="label">Гледай във Forex Factory</span>
+        <p>Свещите около новини с червена папка (NFP, CPI, решение на Фед) не се четат като обикновени. Първият петминутен прозорец след 15:30 софийско време може да има диапазон колкото цял спокоен час. Не тълкувай фитила на новинарската свещ като отказ, преди цената да е намерила нова структура. Протоколът е в Глава 13.</p>
+      </div>
+      <h3>Живата графика</h3>
+      <p>Намери на днешния EURUSD по една свещ от всеки тип в тази глава: голямо тяло, дълъг фитил, доджи. Само гледаш, не търгуваш.</p>
+      <div class="tv" data-sym="FX:EURUSD,OANDA:XAUUSD" data-int="60"></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Timeframe · таймфрейм</b>Периодът на една свещ: M1, M5, M15, H1, H4, D1, W1.</div>
+      <div class="term"><b>Top-down · отгоре надолу</b>Анализ от по-високия към по-ниския таймфрейм.</div>
+    </aside>
+  </section>
+
+  <!-- DEBRIEF -->
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 03</h2>
+    <ul>
+      <li>Всяка свещ записва четири цени: Open, High, Low, Close.</li>
+      <li>Тялото показва нетния резултат. Фитилите показват отказаните цени.</li>
+      <li>Къде е затворила свещта в своя диапазон казва повече от цвета ѝ.</li>
+      <li>Engulfing, pin bar, doji, inside bar и marubozu са съотношения, не магия. Мястото решава дали значат нещо.</li>
+      <li>По-високият таймфрейм съдържа по-ниския. Анализът върви отгоре надолу.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks" id="checks">
+      <li><label><input type="checkbox" id="ck1"> Мога да посоча OHLC на произволна свещ в TradingView.</label></li>
+      <li><label><input type="checkbox" id="ck2"> Мога да кажа кой е спечелил последните 10 свещи на H1 на EURUSD и защо.</label></li>
+      <li><label><input type="checkbox" id="ck3"> Намерих поне по един pin bar и един engulfing на D1 и записах къде се намират.</label></li>
+    </ul>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>EURUSD, H1. Последните три свещи: голяма зелена свещ с малки фитили; после свещ с малко тяло и дълъг горен фитил, който стига над предишния връх и се връща; след нея червена свещ, чието тяло покрива изцяло тялото на зелената. След 40 минути има CPI на САЩ (червена папка). Дневната графика е в низходящ тренд.</p>
+      <p><b>Задача:</b> опиши какво виждаш свещ по свещ, какво може да значи и какво ще наблюдаваш през следващите два часа. Напиши сценарий A и B и какво би обезсилило всеки.</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Свещ 1… Свещ 2… Сценарий A… Сценарий B…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Свещ 1: купувачите доминират целия час.</li>
+          <li>Свещ 2: цената пробива над върха, но затваря обратно. Горният фитил е отказ; вероятно са взети стоповете над върха (ликвидност, Глава 7).</li>
+          <li>Свещ 3: bearish engulfing. Продавачите поемат контрола и изтриват целия час на купувачите.</li>
+          <li>Контекст: D1 е низходящ, значи свещите 2–3 са в посоката на по-високия таймфрейм. Това вдига тежестта им.</li>
+          <li>Сценарий A (по-вероятен): продължение надолу след CPI, ако цената остане под тялото на свещ 3. Обезсилване: затваряне на H1 над фитила на свещ 2.</li>
+          <li>Сценарий B: CPI изненада в полза на еврото, цената връща над върха и затваря там. Тогава отказът е бил капан и картината се обръща.</li>
+          <li>Действие преди CPI: никакво. Наблюдавай реакцията 15–30 минути след числото, после виж коя страна е запазила контрола.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+    {q:"Какво означава Close?",o:["Най-високата цена за периода","Цената, на която периодът е завършил","Цената, на която периодът е започнал"],a:1,e:"Close е последната цена на периода. Там е било последното съгласие между двете страни."},
+    {q:"Зелена (bullish) свещ значи, че…",o:["Close е над Open","High е над Low","Обемът е бил голям"],a:0,e:"Цветът сравнява само Close с Open. High е винаги над Low."},
+    {q:"Дълъг долен фитил показва, че…",o:["цената е стояла дълго долу","по-ниските цени са били опитани и отказани","продавачите са спечелили периода"],a:1,e:"Фитилът е мястото, до което цената е стигнала, но не е останала."},
+    {q:"Колко свещи на M5 се съдържат в една свещ на H1?",o:["5","12","60"],a:1,e:"60 минути ÷ 5 минути = 12 свещи."},
+    {q:"Doji е свещ, при която…",o:["Open и Close са почти равни","няма фитили","тялото поглъща предишната свещ"],a:0,e:"При doji никоя страна не е спечелила периода."}
+  ],
+mid:[
+    {q:"EURUSD H1: O 1.0850, H 1.0880, L 1.0846, C 1.0852. Как ще я опишеш?",o:["Силна bullish свещ","Отказ на по-високи цени: купувачите опитват 28 пипа над затварянето и биват върнати","Bearish engulfing"],a:1,e:"Тялото е 2 пипа, горният фитил 28. Затваря близо до дъното на диапазона въпреки зеления цвят."},
+    {q:"Pin bar се появява точно в средата на дневния диапазон, без връзка с важно ниво. Колко тежи?",o:["Много, pin bar винаги обръща пазара","Малко, мястото го прави шум","Средно, ако е зелен"],a:1,e:"Свещта получава значение от мястото си. В средата на диапазона няма какво да бъде отказано."},
+    {q:"Във Forex Factory: USD CPI, червена папка, 15:30 софийско време. Свещта на M5 в 15:30 има диапазон 35 пипа и дълъг горен фитил. Какво правиш?",o:["Чета го като отказ и действам веднага","Изчаквам 15–30 минути цената да намери нова структура","Нищо не значи, новините нямат значение"],a:1,e:"Новинарската свещ е аномалия. Протоколът в Глава 13 изисква пауза и нова структура."}
+  ]};
+</script>
+<script src="book.js"></script>
+<script>
+
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  var el=Book.svg;
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+
+  /* 3.1 anatomy */
+  var PARTS={
+    high:["High","Най-високата цена за периода: 1.0882. Купувачите са стигнали дотук, но не са успели да задържат цената."],
+    upper:["Горен фитил","От Close до High. Цени над затварянето, които пазарът е отказал. Къс горен фитил значи, че купувачите са държали контрола до края."],
+    close:["Close","Затварянето: 1.0874. Най-важната цена на свещта, защото там е било последното съгласие между купувачи и продавачи."],
+    body:["Тяло","От Open до Close: 1.0838 → 1.0874 = 36 пипа. Нетната победа на купувачите за часа."],
+    open:["Open","Отварянето: 1.0838. Откъдето е започнал часът."],
+    lower:["Долен фитил","От Open до Low. Продавачите са натиснали надолу до 1.0821, но купувачите са върнали цената. Дълъг долен фитил често значи отказ на по-ниски цени."],
+    low:["Low","Най-ниската цена за периода: 1.0821."]
+  };
+  var Y={high:30,upper:52,close:70,body:140,open:210,lower:240,low:270};
+  var chips=document.getElementById("partChips"),txt=document.getElementById("partText"),marks=document.getElementById("anatMarks");
+  function showPart(p){
+    Array.prototype.forEach.call(chips.children,function(c){c.setAttribute("aria-pressed",c.dataset.part===p?"true":"false")});
+    txt.innerHTML="<b>"+PARTS[p][0]+".</b> "+PARTS[p][1];
+    marks.innerHTML="";
+    var y=Y[p];
+    el("line",{x1:14,x2:186,y1:y,y2:y,stroke:"var(--liq)","stroke-width":1.5,"stroke-dasharray":"4 3"},marks);
+    el("circle",{cx:100,cy:y,r:5,fill:"var(--liq)"},marks);
+  }
+  Object.keys(PARTS).forEach(function(p){
+    var b=document.createElement("button");b.className="chip";b.dataset.part=p;b.textContent=PARTS[p][0];b.setAttribute("aria-pressed","false");
+    b.addEventListener("click",function(){showPart(p)});chips.appendChild(b);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("#anatSvg .hit"),function(r){r.addEventListener("click",function(){showPart(r.dataset.part)})});
+  showPart("body");
+
+  /* 3.2 builder */
+  var MIN=10800,MAX=10900,top=24,bot=276;
+  function yP(v){return bot-(v-MIN)/(MAX-MIN)*(bot-top)}
+  var axis=document.getElementById("bAxis");
+  for(var v=MIN;v<=MAX;v+=20){
+    el("line",{x1:30,x2:214,y1:yP(v),y2:yP(v),stroke:"var(--line)","stroke-width":1},axis);
+    var t=el("text",{x:0,y:yP(v)+4,"font-size":10,fill:"var(--muted)"},axis);t.textContent=(v/10000).toFixed(4);
+  }
+  var s={O:document.getElementById("sO"),H:document.getElementById("sH"),L:document.getElementById("sL"),C:document.getElementById("sC")};
+  var o={O:document.getElementById("oO"),H:document.getElementById("oH"),L:document.getElementById("oL"),C:document.getElementById("oC")};
+  var wick=document.getElementById("bWick"),body=document.getElementById("bBody"),verdict=document.getElementById("verdict");
+  var PRE={strongBull:[10822,10884,10818,10880],rejectLow:[10860,10868,10812,10864],doji:[10850,10878,10822,10851],strongBear:[10878,10882,10816,10820]};
+  function set(a){s.O.value=a[0];s.H.value=a[1];s.L.value=a[2];s.C.value=a[3];draw()}
+  function draw(src){
+    var O=+s.O.value,C=+s.C.value,H=+s.H.value,L=+s.L.value;
+    var hi=Math.max(O,C),lo=Math.min(O,C);
+    if(H<hi){H=hi;s.H.value=H} if(L>lo){L=lo;s.L.value=L}
+    ["O","H","L","C"].forEach(function(k){o[k].textContent=(+s[k].value/10000).toFixed(4)});
+    var col=C>=O?"var(--bull)":"var(--bear)";
+    wick.setAttribute("y1",yP(H));wick.setAttribute("y2",yP(L));wick.setAttribute("stroke",col);
+    var bh=Math.max(2,yP(lo)-yP(hi));body.setAttribute("y",yP(hi));body.setAttribute("height",bh);body.setAttribute("fill",col);
+    var range=H-L,b=Math.abs(C-O),up=H-hi,dn=lo-L,pos=range?(C-L)/range:.5,msg;
+    if(range===0){msg="Цената не е мръднала. Пазарът спи."}
+    else if(b/range<0.12){msg="<b>Нерешителност.</b> Тялото е само "+b+" пипа от "+range+". Никоя страна не е спечелила."}
+    else if(dn>2*b&&dn>up){msg="<b>Отхвърлени ниски цени.</b> Продавачите са натиснали "+dn+" пипа надолу, но купувачите са върнали цената. Затваряне на "+Math.round(pos*100)+"% от диапазона."}
+    else if(up>2*b&&up>dn){msg="<b>Отхвърлени високи цени.</b> Купувачите са опитали "+up+" пипа нагоре, но продавачите са ги върнали. Затваряне на "+Math.round(pos*100)+"% от диапазона."}
+    else if(b/range>0.7){msg="<b>"+(C>O?"Купувачите":"Продавачите")+" доминират.</b> Тяло "+b+" пипа от "+range+" (="+Math.round(b/range*100)+"%). Контрол от началото до края."}
+    else{msg="<b>"+(C>O?"Купувачите":"Продавачите")+" печелят, но с борба.</b> Тяло "+b+" от "+range+" пипа; фитили "+up+" горе и "+dn+" долу."}
+    verdict.innerHTML=msg;
+  }
+  ["O","H","L","C"].forEach(function(k){s[k].addEventListener("input",draw)});
+  Array.prototype.forEach.call(document.querySelectorAll("[data-preset]"),function(b){b.addEventListener("click",function(){set(PRE[b.dataset.preset])})});
+  set(PRE.strongBull);
+
+  /* 3.3 families */
+  var FAM=[
+    {n:"Bullish engulfing",d:"Зелено тяло поглъща цялото червено тяло преди него. Купувачите изтриват периода на продавачите.",c:[[60,50,62,46],[46,66,44,67]]},
+    {n:"Pin bar",d:"Малко тяло, дълъг фитил в едната посока. Цената е опитала и е била отказана.",c:[[58,60,30,62]]},
+    {n:"Doji",d:"Open ≈ Close. Равенство. Важно е само на значимо ниво.",c:[[50,50.5,38,62]]},
+    {n:"Inside bar",d:"Цялата свещ е вътре в диапазона на предишната. Пазарът си поема дъх.",c:[[40,64,36,68],[52,58,48,61]]},
+    {n:"Marubozu",d:"Почти без фитили. Едната страна е командвала целия период.",c:[[36,68,35.5,68.5]]}
+  ];
+  var famBox=document.getElementById("families");
+  FAM.forEach(function(f){
+    var d=document.createElement("div");d.className="fam";
+    var sv=el("svg",{viewBox:"0 0 100 80",role:"img","aria-label":f.n});sv.style.width="100%";sv.style.maxHeight="110px";
+    var n=f.c.length,w=18,gap=10,x0=50-(n*w+(n-1)*gap)/2;
+    function fy(v){return 76-(v-30)/42*72}
+    f.c.forEach(function(c,i){var O=c[0],C=c[1],L=c[2],H=c[3],x=x0+i*(w+gap),col=C>=O?"var(--bull)":"var(--bear)";
+      el("line",{x1:x+w/2,x2:x+w/2,y1:fy(H),y2:fy(L),stroke:col,"stroke-width":2},sv);
+      el("rect",{x:x,width:w,y:fy(Math.max(O,C)),height:Math.max(1.5,fy(Math.min(O,C))-fy(Math.max(O,C))),fill:col},sv)});
+    d.appendChild(sv);
+    var b=document.createElement("b");b.textContent=f.n;d.appendChild(b);
+    var sp=document.createElement("span");sp.textContent=f.d;d.appendChild(sp);
+    famBox.appendChild(d);
+  });
+
+  /* 3.4 timeframe */
+  var M5=[[10840,10846,10836,10844],[10844,10849,10841,10842],[10842,10843,10829,10831],[10831,10835,10826,10834],[10834,10845,10833,10843],[10843,10852,10842,10850],[10850,10856,10847,10848],[10848,10858,10846,10857],[10857,10864,10855,10862],[10862,10866,10856,10858],[10858,10870,10857,10868],[10868,10872,10863,10866]];
+  var tf=document.getElementById("tfSvg"),lo2=10820,hi2=10880;
+  function ty(v){return 236-(v-lo2)/(hi2-lo2)*212}
+  var g=el("g",{},tf);
+  for(var p=lo2;p<=hi2;p+=10){el("line",{x1:52,x2:516,y1:ty(p),y2:ty(p),stroke:"var(--line)"},g);var tt=el("text",{x:0,y:ty(p)+4,"font-size":10,fill:"var(--muted)"},g);tt.textContent=(p/10000).toFixed(4)}
+  var small=el("g",{},tf),big=el("g",{},tf),ann=el("g",{},tf);
+  M5.forEach(function(c,i){var O=c[0],H=c[1],L=c[2],C=c[3],x=62+i*32,col=C>=O?"var(--bull)":"var(--bear)";
+    el("line",{x1:x+9,x2:x+9,y1:ty(H),y2:ty(L),stroke:col,"stroke-width":2},small);
+    el("rect",{x:x,width:18,y:ty(Math.max(O,C)),height:Math.max(1.5,ty(Math.min(O,C))-ty(Math.max(O,C))),fill:col},small);
+    if(i%3===0){var lt=el("text",{x:x-2,y:254,"font-size":9,fill:"var(--muted)"},small);lt.textContent="09:"+(i*5<10?"0":"")+(i*5)}
+  });
+  var hO=M5[0][0],hC=M5[11][3],hH=Math.max.apply(null,M5.map(function(c){return c[1]})),hL=Math.min.apply(null,M5.map(function(c){return c[2]}));
+  el("line",{x1:240,x2:240,y1:ty(hH),y2:ty(hL),stroke:"var(--bull)","stroke-width":4},big);
+  el("rect",{x:200,width:80,y:ty(hC),height:ty(hO)-ty(hC),fill:"var(--bull)","fill-opacity":.85},big);
+  var bt=el("text",{x:296,y:ty(hC)+4,"font-size":11,fill:"var(--fg)"},big);bt.textContent="H1: O "+(hO/1e4).toFixed(4)+" · C "+(hC/1e4).toFixed(4);
+  big.style.display="none";
+  function annLine(v,label,col){el("line",{x1:52,x2:516,y1:ty(v),y2:ty(v),stroke:col,"stroke-width":1.5,"stroke-dasharray":"5 4"},ann);var a=el("text",{x:400,y:ty(v)-5,"font-size":10,fill:col},ann);a.textContent=label}
+  annLine(hH,"High на часа "+(hH/1e4).toFixed(4),"var(--liq)");
+  annLine(hL,"Low на часа "+(hL/1e4).toFixed(4),"var(--liq)");
+  var at=el("text",{x:120,y:ty(10826)+18,"font-size":10,fill:"var(--bear)"},ann);at.textContent="продавачите пробват 09:10–09:15";
+  var at2=el("text",{x:330,y:ty(10872)-6,"font-size":10,fill:"var(--bull)"},ann);at2.textContent="купувачите затварят силно";
+  ann.style.display="none";
+  var tfT=document.getElementById("tfToggle"),anT=document.getElementById("annToggle");
+  tfT.addEventListener("click",function(){var on=tfT.getAttribute("aria-pressed")!=="true";tfT.setAttribute("aria-pressed",on);small.style.opacity=on?.2:1;big.style.display=on?"":"none";tfT.textContent=on?"Покажи 12-те свещи на M5":"Покажи като 1 свещ на H1"});
+  anT.addEventListener("click",function(){var on=anT.getAttribute("aria-pressed")!=="true";anT.setAttribute("aria-pressed",on);ann.style.display=on?"":"none";anT.textContent=on?"Скрий анотациите":"Покажи анотациите"});
+
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

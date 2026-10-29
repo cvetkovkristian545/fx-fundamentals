@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Класически price action · FX Fundamentals</title>
+<meta name="description" content="Класически price action · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch4.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch4.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="4">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">4</div>
+    <h1>Класически price action</h1>
+    <blockquote class="quote">
+      Пазарите са постоянно в състояние на несигурност и движение, а пари се правят, като пренебрегнеш очевидното и заложиш на неочакваното.
+      <cite>Джордж Сорос (приписвано)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да начертаеш нивата на подкрепа и съпротива по важност, от седмичните до часовите;</li>
+        <li>да различиш истински от фалшив пробив на трендлиния;</li>
+        <li>да разпознаеш обикновена, скрита и SMT дивергенция и да знаеш колко тежи всяка.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>4.1 Подкрепа и съпротива</h2>
+      <p><b>Подкрепа</b> (support) е ценово ниво, под което цената трудно пада, защото там купувачите са били силни. <b>Съпротива</b> (resistance) е ниво, над което цената трудно се качва, защото там продавачите са били силни. Това са зоните на търсене и предлагане от Глава 0.2, видени като линии.</p>
+      <p>Не всички нива са равни. Ето йерархията, по която ще ги чертаеш в тази книга, от най-важните към най-малките:</p>
+      <div class="tablewrap" data-name="ierarhiya-na-nivata">
+        <table class="data">
+          <thead><tr><th>Ниво</th><th>Примери</th><th>Защо е важно</th></tr></thead>
+          <tbody>
+            <tr><td><b>1 · Макро</b></td><td>Седмичен връх и дъно, месечно отваряне, миналогодишен връх и дъно, кръгли числа (1.1000)</td><td>Виждат ги всички институции. Реакциите тук са най-силни.</td></tr>
+            <tr><td><b>2 · Дневна структура</b></td><td>Връх и дъно на предния ден (PDH, PDL), дневни зони</td><td>Ежедневни цели и опорни точки.</td></tr>
+            <tr><td><b>3 · Сесии</b></td><td>Връх и дъно на Азия, на Лондон, цената на отваряне</td><td>Там се трупат стопове през деня (Глава 9).</td></tr>
+            <tr><td><b>4 · Вътре в деня</b></td><td>Върхове и дъна на H4 и H1, зони на M15</td><td>Прецизност при анализа на детайла.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>Кога едно ниво е силно?</b> Когато цената е реагирала на него няколко пъти, когато зад него има натрупани стопове (ликвидност), когато съвпада с друга зона и когато се вижда на по-висок таймфрейм. <b>Кога е слабо?</b> Когато има само едно докосване, когато е на M1 или M5, когато е в средата на диапазона и няма причина да съществува.</p>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Рисувай зони, не линии. Пазарът не уважава цената 1.08500 до петия знак. Уважава района 1.0845–1.0855.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Support · подкрепа</b>Ниво, на което купувачите са спирали спада.</div>
+      <div class="term"><b>Resistance · съпротива</b>Ниво, на което продавачите са спирали ръста.</div>
+      <div class="term"><b>PDH / PDL</b>Previous Day High / Low: върхът и дъното на предния ден.</div>
+      <div class="term"><b>Round number · кръгло число</b>Психологическо ниво като 1.1000 или 2400. Там се трупат поръчки.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>4.2 Обръщане на ролите (S/R flip)</h2>
+      <p>Когато цената пробие ниво с решителност, ролята му често се обръща. Пробитата съпротива става подкрепа. Пробитата подкрепа става съпротива. Защо? Защото продавачите, които са продали на съпротивата, сега губят. Когато цената се върне там, много от тях затварят на нула, тоест купуват, а купувачите, които са изпуснали пробива, чакат точно това ниво.</p>
+      <figure class="diagram">
+        <svg id="flipSvg" viewBox="0 0 520 240" role="img" aria-label="Цената пробива съпротива, връща се отгоре и отскача"></svg>
+        <div class="parts">
+          <button class="chip" data-step="1">1. Съпротива</button>
+          <button class="chip" data-step="2">2. Пробив със затваряне</button>
+          <button class="chip" data-step="3">3. Връщане (retest)</button>
+          <button class="chip" data-step="4">4. Отказ и продължение</button>
+        </div>
+        <p class="verdict" id="flipText" aria-live="polite"></p>
+        <figcaption>EURUSD H1, условни цени. Синята зона е нивото, което сменя ролята си.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../img/ch4-sr-flip.jpg" alt="EURUSD H1: пробита подкрепа става съпротива при ретеста" width="1075" height="774" loading="lazy" decoding="async">
+        <figcaption><b>Реален пример.</b> EURUSD H1, 29 септември – 1 октомври 2026, софийско време. Дъното от 29 септември (1.1312) е подкрепа. На 1 октомври свещ затваря под него, в 14:00 цената се връща отдолу, докосва нивото и отказва. Старата подкрепа вече е съпротива; следва спад до 1.1215.</figcaption>
+      </figure>
+      <p>Сигурният знак е на стъпка 3 и 4: цената се връща на нивото, не успява да затвори обратно под него и показва отказ (свещ с дълъг долен фитил, поглъщаща свещ или промяна на структурата на по-нисък таймфрейм, Глава 6).</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Breakout · пробив</b>Цената затваря отвъд важно ниво.</div>
+      <div class="term"><b>Retest · повторен тест</b>Връщане към пробитото ниво от другата страна.</div>
+      <div class="term"><b>S/R flip · обръщане</b>Пробитата съпротива става подкрепа или обратното.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>4.3 Трендлинии и ликвидността около тях</h2>
+      <p>Трендлинията свързва поредица от по-високи дъна (възходяща) или по-ниски върхове (низходяща). Тя е <b>подвижна подкрепа или съпротива</b>: нивото ѝ се мести с времето. Правилата:</p>
+      <ul>
+        <li>Поне две точки, за да я начертаеш. Три или повече, за да е силна.</li>
+        <li>Точките са истински върхове или дъна, не произволни места.</li>
+        <li>Линията минава през фитилите, не през телата на свещите.</li>
+        <li>По-висок таймфрейм значи по-важна линия: D1 и H4 над H1 и M15.</li>
+      </ul>
+      <p>Оцени една линия по критериите по-долу. Отметни какво важи:</p>
+      <figure>
+        <div class="calc">
+          <div style="display:grid;gap:6px" id="tlChecks">
+            <label><input type="checkbox" data-w="2"> 3 или повече допира</label>
+            <label><input type="checkbox" data-w="2"> Начертана на H4 или D1</label>
+            <label><input type="checkbox" data-w="1"> Допирите не са пробивали линията</label>
+            <label><input type="checkbox" data-w="2"> Съвпада с demand zone (зона на търсене) или supply zone (зона на предлагане)</label>
+          </div>
+          <div class="out" id="tlOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Оценка на трендлиния от 0 до 7. Линия с 2 точки на нисък таймфрейм получава 0 и сама по себе си не е причина за действие.</figcaption>
+      </figure>
+      <p><b>Ликвидност по трендлинията.</b> Колкото по-очевидна е една линия, толкова повече трейдъри купуват на нея и слагат стоповете си точно под нея. Под красивата трендлиния с четири допира стои купчина поръчки за продажба. Пазарът често я пробива с фитил, взима стоповете и се връща. Това е капан, не пробив.</p>
+      <figure class="diagram">
+        <svg id="tlSvg" viewBox="0 0 520 220" role="img" aria-label="Фалшив пробив на трендлиния с фитил и истински пробив със затваряне и ретест"></svg>
+        <div class="tabs" data-group="tl">
+          <button class="chip" data-tab="fake">Фалшив пробив</button>
+          <button class="chip" data-tab="real">Истински пробив</button>
+        </div>
+        <p class="verdict" id="tlText" aria-live="polite"></p>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Trendline · трендлиния</b>Линия през поредица по-високи дъна или по-ниски върхове.</div>
+      <div class="term"><b>Channel · канал</b>Две успоредни трендлинии около цената.</div>
+      <div class="term"><b>Trendline liquidity</b>Стоповете, натрупани точно отвъд очевидна трендлиния.</div>
+      <div class="term"><b>Fakeout · фалшив пробив</b>Пробив с фитил, след който свещта затваря обратно.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>4.4 Дивергенции</h2>
+      <p>Дивергенция има, когато цената и индикатор за инерция (например RSI) си противоречат. Цената прави нов връх, а RSI не. Това подсказва, че силата зад движението отслабва. Дивергенцията е <b>допълнително потвърждение</b>, никога самостоятелна причина.</p>
+      <figure class="diagram">
+        <div class="tabs" data-group="div">
+          <button class="chip" data-tab="bear">Обикновена bearish (мечи)</button>
+          <button class="chip" data-tab="bull">Обикновена bullish (бичи)</button>
+          <button class="chip" data-tab="hbull">Скрита bullish</button>
+          <button class="chip" data-tab="hbear">Скрита bearish</button>
+        </div>
+        <svg id="divSvg" viewBox="0 0 520 260" role="img" aria-label="Цена отгоре и RSI отдолу с отбелязана дивергенция"></svg>
+        <p class="verdict" id="divText" aria-live="polite"></p>
+        <figcaption>Горе: цена. Долу: RSI(14). Линиите свързват двата върха или двете дъна, които се сравняват.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="divergencii">
+        <table class="data">
+          <thead><tr><th>Вид</th><th>Цена</th><th>Индикатор</th><th>Подсказва</th></tr></thead>
+          <tbody>
+            <tr><td>Обикновена bullish</td><td>Lower low (по-ниско дъно)</td><td>Higher low (по-високо дъно)</td><td>Възможно обръщане нагоре</td></tr>
+            <tr><td>Обикновена bearish</td><td>Higher high (по-висок връх)</td><td>Lower high (по-нисък връх)</td><td>Възможно обръщане надолу</td></tr>
+            <tr><td>Скрита bullish</td><td>Higher low</td><td>Lower low</td><td>Продължение нагоре</td></tr>
+            <tr><td>Скрита bearish</td><td>Lower high</td><td>Higher high</td><td>Продължение надолу</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>SMT дивергенция</b> е по-различна: сравнява две корелирани двойки. EURUSD и GBPUSD обикновено вървят заедно. Ако EURUSD прави ново дъно, а GBPUSD не, значи доларът не е толкова силен, колкото изглежда в EURUSD. По-слабата двойка често е тази, в която току-що са взети стоповете. По-силната показва истинската посока.</p>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>RSI над 70 значи „прекупено“, продавай.</p></div>
+        <div><span class="label">Реалност</span><p>При силен тренд RSI може да стои над 70 седмици наред. Продажбата само заради числото е залог срещу тренда. Дивергенцията има значение само на важно ниво и в контекста на структурата.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Divergence · дивергенция</b>Разминаване между цената и индикатор за инерция.</div>
+      <div class="term"><b>RSI</b>Relative Strength Index: индикатор за инерция от 0 до 100.</div>
+      <div class="term"><b>Momentum · инерция</b>Силата и скоростта на движението.</div>
+      <div class="term"><b>SMT</b>Smart Money Technique: разминаване между две корелирани двойки.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: средно">●●</span>4.5 Защо SMC надгражда, а не заменя</h2>
+      <p>В Част II ще срещнеш Smart Money Concepts (SMC): order blocks, FVG, sweep на ликвидност. Някои ги представят като нещо съвсем ново. Не са. Те са <b>по-прецизен речник</b> за същите неща, които виждаш в тази глава:</p>
+      <div class="tablewrap" data-name="pa-vs-smc">
+        <table class="data">
+          <thead><tr><th>Класически price action</th><th>SMC (Част II)</th><th>Какво добавя SMC</th></tr></thead>
+          <tbody>
+            <tr><td>Зона на търсене / предлагане</td><td>Order block</td><td>Точна свещ, от която е тръгнало движението</td></tr>
+            <tr><td>Гап, дисбаланс</td><td>Fair Value Gap (FVG)</td><td>Точни граници от три свещи</td></tr>
+            <tr><td>Фалшив пробив</td><td>Liquidity sweep</td><td>Защо се случва: стоповете са ликвидност</td></tr>
+            <tr><td>Пробив на тренд</td><td>BOS / CHoCH / MSS</td><td>Правило за затваряне, не за фитил</td></tr>
+            <tr><td>Подкрепа и съпротива</td><td>BSL / SSL, PDH / PDL</td><td>Кои нива са магнити за цената</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Новите имена не правят пазара нов. Ако разбираш търсене, предлагане и стопове, SMC ще ти изглежда като стар приятел с нов костюм.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Price action · ценово действие</b>Анализ само на цената и свещите, без или с малко индикатори.</div>
+      <div class="term"><b>SMC</b>Smart Money Concepts: рамка за четене на стъпките на големите играчи.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6r">
+    <div class="main">
+      <h2 id="s6r"><span class="dots" title="Ниво: средно">●●</span>4.6 Повторение кадър по кадър</h2>
+      <p>S/R flip на една графика: съпротива, пробив, ретест, продължение.</p>
+      <div class="replay" data-rp="flip"></div>
+      <h3>Тренировка</h3>
+      <p>Натисни линията на графиката или бутона. Имаш един опит за всеки въпрос.</p>
+      <div class="drills" data-dr="ch4"></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Replay · повторение</b>Преминаване през графиката свещ по свещ, без да виждаш бъдещето. Най-евтиният начин да тренираш четене.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 04</h2>
+    <ul>
+      <li>Нивата имат йерархия: макро, дневни, сесийни, вътрешнодневни. Чертай отгоре надолу и в зони.</li>
+      <li>Пробитото ниво често сменя ролята си. Сигналът е в повторния тест, не в пробива.</li>
+      <li>Очевидната трендлиния привлича стопове. Пробив с фитил е капан, пробив със затваряне и ретест е по-сериозен.</li>
+      <li>Дивергенцията е потвърждение, не причина. SMT сравнява две двойки.</li>
+      <li>SMC е по-прецизен речник за същата логика.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Начертах седмичния връх и дъно, PDH и PDL на EURUSD в TradingView.</label></li>
+      <li><label><input type="checkbox"> Намерих един пример за S/R flip на H1 или H4.</label></li>
+      <li><label><input type="checkbox"> Намерих една обикновена дивергенция на H1 и проверих дали е на важно ниво.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>EURUSD H4: възходяща трендлиния с четири допира от две седмици. Под нея, на 1.0790, е миналоседмичното дъно. На H1 цената прави lower low на 1.0802, а RSI прави higher low. Пробивът под трендлинията е с фитил; свещта на H1 затваря обратно над линията.</p>
+      <p><b>Задача:</b> какво виждаш? Къде е ликвидността? Какво може да е станало с фитила? Напиши сценарий A и B и какво обезсилва всеки.</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Ниво… Трендлиния… Дивергенция… A… B…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Очевидна трендлиния с четири допира: под нея има стопове. Още по-долу, под 1.0790, има стопове под седмичното дъно (ниво 1).</li>
+          <li>Фитилът под линията и затварянето над нея подсказват, че стоповете под линията са взети. Обикновената bullish дивергенция на H1 подкрепя идеята, че натискът надолу отслабва.</li>
+          <li>Сценарий A: цената остава над линията и прави higher high на H1. Обезсилване: затваряне на H1 под 1.0802.</li>
+          <li>Сценарий B: това е само първата стъпка; цената се връща под линията и отива към 1.0790, където е по-голямата ликвидност. Обезсилване на B: силно затваряне над последния връх на H1.</li>
+          <li>Дивергенцията сама не решава нищо. Глава 6 за структурата ще ти даде правилото кога картината се е сменила.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Какво е подкрепа?",o:["Ниво, на което продавачите са спирали ръста","Ниво, на което купувачите са спирали спада","Средната цена"],a:1,e:"Подкрепата е там, където купувачите са били по-силни."},
+  {q:"Кое ниво е по-важно?",o:["Връх на M5","Седмичен връх","Произволна линия на H1"],a:1,e:"Нивата от по-висок таймфрейм се виждат от повече участници."},
+  {q:"Колко точки трябват за силна трендлиния?",o:["Една","Две","Три или повече"],a:2,e:"Две я очертават, три или повече я правят силна."},
+  {q:"Цената прави higher high, RSI прави по-нисък връх. Какво е това?",o:["Обикновена bearish дивергенция","Скрита bullish","Нищо"],a:0,e:"Инерцията отслабва при новия връх: обикновена bearish дивергенция."},
+  {q:"Какво е S/R flip?",o:["Цената обръща посоката си всеки ден","Пробитата съпротива става подкрепа или обратното","Индикатор"],a:1,e:"Ролята на нивото се обръща след решителен пробив."}
+],mid:[
+  {q:"Цената пробива съпротива с фитил, но свещта на H1 затваря под нея. Какво е най-вероятно?",o:["Истински пробив","Възможен фалшив пробив, взета ликвидност","Нищо не значи"],a:1,e:"Затварянето решава. Фитил отвъд нивото и затваряне обратно често е взимане на стопове."},
+  {q:"EURUSD прави ново дъно, GBPUSD не. Какво подсказва SMT?",o:["Доларът е много силен","Натискът срещу европейските валути не е толкова силен, колкото изглежда","Двете двойки са спрели да корелират завинаги"],a:1,e:"По-силната двойка (GBPUSD) показва, че спадът в EURUSD може да е взимане на ликвидност."},
+  {q:"Виждаш обикновена bullish дивергенция на M1 в средата на дневния диапазон. Колко тежи?",o:["Много","Почти нищо","Достатъчно за влизане"],a:1,e:"Нисък таймфрейм и лошо място. Дивергенцията тежи само на важно ниво и с потвърдена структура."}
+]};
+</script>
+<script>window.REPLAYS={"flip": {"title": "Съпротива става подкрепа", "candles": [[40, 43, 39, 42.5], [42.5, 47, 42, 46.5], [46.5, 50.2, 46, 48], [48, 48.5, 44, 44.5], [44.5, 46, 43, 45.5], [45.5, 49.9, 45, 48.5], [48.5, 49, 45.5, 46], [46, 48, 45.8, 47.5], [47.5, 53, 47.2, 52.5], [52.5, 55, 52, 54.5], [54.5, 55, 51.5, 52], [52, 52.5, 50.1, 51.5], [51.5, 54, 51, 53.8], [53.8, 58, 53.5, 57.5], [57.5, 60, 57, 59.5], [59.5, 60.5, 58, 58.5]], "y": [37, 62], "caption": "Учебен сценарий. Нивото е зона, не тънка линия.", "steps": [{"at": 7, "h": "Съпротива.", "text": "Два пъти цената стига около 50 и е отблъсната. Продавачите защитават нивото.", "draw": [{"t": "level", "p": 50, "from": 2, "label": "съпротива 50", "c": "bear", "until": 1}]}, {"at": 9, "h": "Пробив.", "text": "Свещ затваря ясно над 50. Продавачите, които са пазили нивото, са със стопове над него, и те вече горят.", "draw": [{"t": "mark", "i": 8, "p": 53, "label": "пробив", "c": "bull"}]}, {"at": 12, "h": "Ретест.", "text": "Цената се връща до 50 отгоре и нивото удържа. Старата съпротива е новата подкрепа: това е S/R flip.", "draw": [{"t": "level", "p": 50, "from": 8, "label": "подкрепа 50", "c": "bull", "solid": 1}, {"t": "mark", "i": 11, "p": 50.1, "label": "ретест", "c": "liq", "pos": "down"}]}, {"at": 16, "h": "Продължение.", "text": "Купувачите, пропуснали пробива, влизат на ретеста. Трендът продължава. Ако ретестът беше затворил под 50, пробивът щеше да е фалшив.", "draw": []}]}};window.DRILLS={"ch4": [{"src": "flip", "n": 7, "q": "Къде е съпротивата?", "o": [{"p": 50, "from": 2, "t": "около 50"}, {"p": 46, "t": "около 46"}, {"p": 43, "t": "около 43"}], "a": 0, "e": "Два пъти отблъсната около 50. 46 и 43 са просто места, през които цената е минала."}, {"src": "flip", "n": 11, "q": "Цената се връща към 50 отгоре. Каква роля има нивото сега?", "o": [{"t": "съпротива"}, {"t": "подкрепа"}, {"t": "никаква"}], "a": 1, "e": "След пробив със затваряне старата съпротива често става подкрепа: S/R flip."}, {"src": "flip", "n": 12, "q": "Свещ 12 слиза до 50,1 и затваря на 51,5. Какво ти казва това?", "o": [{"t": "Обръщането държи: старата съпротива работи като подкрепа"}, {"t": "Пробивът се провали"}, {"t": "Още нищо"}], "a": 0, "e": "Дъното се задържа точно над 50, а затварянето е доста над него. Така изглежда успешен ретест."}, {"src": "flip", "n": 13, "q": "Къде логично стои стопът за лонг при ретеста?", "o": [{"p": 49, "from": 8, "t": "под 50, около 49"}, {"p": 51.5, "from": 8, "t": "на 51,5"}, {"p": 53.8, "from": 8, "t": "над последното затваряне"}], "a": 0, "e": "Там, където идеята е грешна: затваряне обратно под 50 прекратява обръщането. 51,5 е в нормалния шум."}]};</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  function candles(g,arr,x0,step,w,yf){arr.forEach(function(c,i){var o=c[0],cl=c[1],hi=c[2],lo=c[3],x=x0+i*step,col=cl>=o?"var(--bull)":"var(--bear)";
+    el("line",{x1:x+w/2,x2:x+w/2,y1:yf(hi),y2:yf(lo),stroke:col,"stroke-width":2},g);
+    el("rect",{x:x,width:w,y:yf(Math.max(o,cl)),height:Math.max(1.5,Math.abs(yf(o)-yf(cl))),fill:col},g)})}
+
+  /* S/R flip stepper: prices 0..100 */
+  var fs=document.getElementById("flipSvg"),fy=function(v){return 220-v*2};
+  var F=[[30,40,44,26],[40,52,55,38],[52,60,64,50],[60,55,66,52],[55,62,65,53],[62,58,66,56],[58,64,66,56],[64,59,65,57],[59,74,76,58],[74,80,84,72],[80,76,82,72],[76,70,77,66],[70,68,71,63],[68,74,76,64],[74,82,84,73],[82,88,92,80]];
+  var stepEnds=[8,10,13,16],lvl=el("rect",{x:20,width:490,y:fy(66),height:fy(62)-fy(66),fill:"var(--liq)","fill-opacity":.18},fs),cg=el("g",{},fs);
+  var lab=el("text",{x:24,y:fy(66)-6,"font-size":11,fill:"var(--liq)"},fs);
+  var TXT=["Цената опитва три пъти около 1.0862–1.0866 и всеки път бива върната. Това е съпротива: продавачите са по-силни там.","Голяма зелена свещ затваря решително над зоната. Продавачите на съпротивата вече губят.","Цената се връща отгоре на старата съпротива. Фитилите стигат до зоната, но телата не затварят под нея.","Купувачите защитават нивото и цената продължава нагоре. Старата съпротива е станала подкрепа."];
+  function step(n){cg.innerHTML="";candles(cg,F.slice(0,stepEnds[n-1]),26,30,16,fy);lab.textContent=n<3?"съпротива":"подкрепа (бивша съпротива)";
+    document.getElementById("flipText").textContent=TXT[n-1];Book.each("[data-step]",function(b){b.setAttribute("aria-pressed",b.dataset.step==n)})}
+  Book.each("[data-step]",function(b){b.addEventListener("click",function(){step(+b.dataset.step)})});step(4);
+
+  /* trendline scorer */
+  function tl(){var s=0;Book.each("#tlChecks input",function(c){if(c.checked)s+=+c.dataset.w});
+    document.getElementById("tlOut").innerHTML="Оценка: <b>"+s+" / 7</b>. "+(s>=5?"Силна линия: заслужава внимание като зона за наблюдение.":s>=3?"Средна линия: ползвай я само заедно с друго ниво.":"Слаба линия: шум. Не я ползвай самостоятелно.")}
+  Book.each("#tlChecks input",function(c){c.addEventListener("change",tl)});tl();
+
+  /* trendline fake vs real */
+  var ts=document.getElementById("tlSvg"),ty=function(v){return 200-v*1.8};
+  var base=[[20,30,33,18],[30,26,32,23],[26,40,42,25],[40,34,41,31],[34,48,50,33],[48,42,49,39],[42,56,58,41],[56,50,57,47]];
+  var FAKE=base.concat([[50,52,55,36],[52,62,64,50],[62,70,72,60]]);
+  var REAL=base.concat([[50,40,52,38],[40,36,42,32],[36,44,46,35],[44,38,45,34],[38,30,40,28]]);
+  function line(x){return 18+x*0.0}
+  function drawTL(kind){ts.innerHTML="";
+    var x1=26,y1=ty(20),x2=26+7*36,y2=ty(48);var slope=(y2-y1)/(x2-x1);
+    el("line",{x1:x1,y1:y1,x2:510,y2:y1+slope*(510-x1),stroke:"var(--liq)","stroke-width":2},ts);
+    el("rect",{x:x1,width:484,y:y1+slope*(510-x1)+6,height:16,fill:"var(--liq)","fill-opacity":0},ts);
+    candles(ts,kind==="fake"?FAKE:REAL,20,36,16,ty);
+    if(kind==="fake"){el("circle",{cx:20+8*36+8,cy:ty(36),r:9,fill:"none",stroke:"var(--liq)","stroke-width":2},ts);
+      el("text",{x:20+8*36+20,y:ty(36)+4,"font-size":10,fill:"var(--liq)"},ts).textContent="фитил взима стоповете";
+      document.getElementById("tlText").textContent="Фитилът минава под линията и взима стоповете на купувачите, но свещта затваря над нея. Следват силни зелени свещи. Това е капан за продавачите, не пробив."}
+    else{el("text",{x:20+9*36,y:ty(30),"font-size":10,fill:"var(--bear)"},ts).textContent="затваряне под линията";
+      el("text",{x:20+11*36-10,y:ty(50),"font-size":10,fill:"var(--bear)"},ts).textContent="ретест отдолу";
+      document.getElementById("tlText").textContent="Свещта затваря под линията. Цената се връща да тества линията отдолу, не успява да се качи над нея и продължава надолу. Пробив, затваряне, ретест, отказ."}}
+  Book.each('[data-group="tl"] button',function(b){b.addEventListener("click",function(){drawTL(b.dataset.tab)})});drawTL("fake");
+
+  /* divergence */
+  var dsv=document.getElementById("divSvg");
+  var D={
+    bear:{p:[40,60,50,70,58],r:[45,72,55,64,50],pi:[1,3],txt:"Цената прави higher high (точка 2 над точка 1), а RSI прави lower high. Купувачите натискат с по-малко сила. Обикновена bearish дивергенция: възможно обръщане надолу, ако структурата го потвърди."},
+    bull:{p:[60,40,50,30,42],r:[55,28,45,36,48],pi:[1,3],txt:"Цената прави lower low, а RSI прави higher low. Продавачите отслабват. Обикновена bullish дивергенция: възможно обръщане нагоре."},
+    hbull:{p:[30,55,40,65,48],r:[30,60,22,64,40],pi:[0,2],txt:"Цената прави higher low (корекция във възходящ тренд), а RSI прави lower low. Корекцията е дълбока по инерция, но не и по цена. Скрита bullish дивергенция: подсказва продължение нагоре."},
+    hbear:{p:[70,45,60,35,52],r:[70,40,78,36,60],pi:[0,2],txt:"Цената прави lower high (отскок в низходящ тренд), а RSI прави higher high. Скрита bearish дивергенция: подсказва продължение надолу."}
+  };
+  function drawDiv(k){dsv.innerHTML="";var d=D[k];
+    function px(i){return 40+i*110} function py(v){return 130-v*1.4} function ry(v){return 250-v*0.9}
+    el("line",{x1:20,x2:510,y1:150,y2:150,stroke:"var(--line)"},dsv);
+    el("text",{x:20,y:14,"font-size":10,fill:"var(--muted)"},dsv).textContent="цена";el("text",{x:20,y:166,"font-size":10,fill:"var(--muted)"},dsv).textContent="RSI";
+    var pp="",rp="";d.p.forEach(function(v,i){pp+=(i?"L":"M")+px(i)+","+py(v)});d.r.forEach(function(v,i){rp+=(i?"L":"M")+px(i)+","+ry(v)});
+    el("path",{d:pp,fill:"none",stroke:"var(--fg)","stroke-width":2.5},dsv);el("path",{d:rp,fill:"none",stroke:"var(--ink)","stroke-width":2},dsv);
+    var a=d.pi[0],b=d.pi[1],up=k==="bear"||k==="hbear"?-1:1;
+    var col=k==="bear"||k==="hbear"?"var(--bear)":"var(--bull)";
+    el("line",{x1:px(a),y1:py(d.p[a]),x2:px(b),y2:py(d.p[b]),stroke:col,"stroke-width":2,"stroke-dasharray":"5 4"},dsv);
+    el("line",{x1:px(a),y1:ry(d.r[a]),x2:px(b),y2:ry(d.r[b]),stroke:col,"stroke-width":2,"stroke-dasharray":"5 4"},dsv);
+    [a,b].forEach(function(i,n){el("circle",{cx:px(i),cy:py(d.p[i]),r:5,fill:col},dsv);el("circle",{cx:px(i),cy:ry(d.r[i]),r:5,fill:col},dsv);
+      el("text",{x:px(i)+8,y:py(d.p[i])+(up<0?-8:16),"font-size":11,fill:col},dsv).textContent=String(n+1)});
+    document.getElementById("divText").textContent=d.txt}
+  Book.each('[data-group="div"] button',function(b){b.addEventListener("click",function(){drawDiv(b.dataset.tab)})});drawDiv("bear");
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

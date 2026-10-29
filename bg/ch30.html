@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Prop фирми: сравнение · FX Fundamentals</title>
+<meta name="description" content="Prop фирми: сравнение · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch30.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch30.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="30">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">33</div>
+    <h1>Prop фирми: сравнение</h1>
+    <blockquote class="quote">
+      Не мисли за това как да правиш пари. Мисли как да пазиш това, което имаш.
+      <cite>Пол Тюдор Джоунс (приписвано)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да обясниш как работи един prop изпит: фази, цел, дневна и максимална загуба, минимум дни;</li>
+        <li>да различиш статичен от плъзгащ се (trailing) лимит и да видиш кога вторият те изхвърля по-рано;</li>
+        <li>да сравниш няколко фирми по цена и правила с дата на проверката;</li>
+        <li>да пресметнеш груб шанс да минеш изпит със своите числа.</li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="box warn">
+    <span class="label">Цени с дата</span>
+    <p>Данните в тази глава са проверени на <b>21 октомври 2026</b> от официалния сайт на FTMO и от публични сравнения, обновени между 10 и 16 октомври 2026. Prop фирмите сменят цени, промоции и правила почти всеки месец. Преди покупка прочети всички правила на официалния сайт, не само таблицата.</p>
+  </div>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>33.1 Какво е prop фирма всъщност</h2>
+      <p>Prop фирма (от proprietary trading) ти дава да търгуваш сметка с големи пари, ако първо минеш изпит. Плащаш такса за изпита. Ако го минеш и после печелиш, получаваш голяма част от печалбата, обикновено 80–90%.</p>
+      <p>Честната истина, която рекламите не казват на първа страница: при повечето фирми за дребни трейдъри <b>и изпитът, и „финансираната“ сметка са симулирани</b>. Търгуваш на демо, а фирмата ти плаща дял от симулираната печалба от своите приходи, голяма част от които са таксите на хората, които не минават. Това не прави модела измама; прави го бизнес, в който повечето клиенти губят таксата.</p>
+      <div class="four">
+        <div><span class="label">Плюс</span><p>Рискуваш само таксата, не голяма сума. Учиш се да спазваш строги правила за риск.</p></div>
+        <div><span class="label">Минус</span><p>Много хора губят таксата многократно. Правилата наказват грешки, които на лична сметка биха минали.</p></div>
+        <div><span class="label">Рискът на фирмата</span><p>През 2023–2024 няколко фирми спряха работа или задържаха изплащания. Избирай фирми с дълга история и публични плащания.</p></div>
+        <div><span class="label">За кого е</span><p>На човек с доказан процес на демо (Глава 34), не на човек, който „иска да пробва“.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Challenge · изпит</b>Фазата, в която доказваш, че можеш да стигнеш целта, без да нарушиш правилата.</div>
+      <div class="term"><b>Funded account · финансирана сметка</b>Сметката след успешен изпит. Печалбата се дели.</div>
+      <div class="term"><b>Profit split · дял от печалбата</b>Процентът, който получаваш ти.</div>
+      <div class="term"><b>Payout · изплащане</b>Превод на твоя дял.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: средно">●●</span>33.2 Правилата на изпита</h2>
+      <div class="tablewrap" data-name="pravila-izpit">
+        <table class="data">
+          <thead><tr><th>Правило</th><th>Пример (FTMO 2-Step)</th><th>Какво значи</th></tr></thead>
+          <tbody>
+            <tr><td>Цел на печалбата</td><td>10% във фаза 1, 5% във фаза 2</td><td>Трябва да стигнеш до тази печалба.</td></tr>
+            <tr><td>Максимална дневна загуба</td><td>5%</td><td>За един ден не можеш да загубиш повече. Броят се и отворените позиции.</td></tr>
+            <tr><td>Максимална загуба</td><td>10%, статична</td><td>Сметката никога не може да падне под 90% от началото.</td></tr>
+            <tr><td>Минимум дни с търговия</td><td>4 на фаза</td><td>Не можеш да минеш с една голяма сделка.</td></tr>
+            <tr><td>Срок</td><td>Без срок</td><td>Няма натиск за бързане. Някои фирми имат срок.</td></tr>
+            <tr><td>Правило за последователност</td><td>Няма при 2-Step; при 1-Step най-добрият ден ≤ 50% от печалбата</td><td>Не може цялата печалба да е от един ден.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Най-важната разлика между фирмите е как се смята максималната загуба. <b>Статичната</b> стои на едно място. <b>Плъзгащата се</b> (trailing) се качва заедно с най-високия ти баланс, обикновено в края на деня. Пробвай: първо качи сметката нагоре, после я свали.</p>
+      <figure class="diagram">
+        <svg id="ddSvg" viewBox="0 0 520 230" role="img" aria-label="Статичен срещу плъзгащ се лимит на загубата"></svg>
+        <div class="sliders">
+          <label>Ръст през първите 5 дни: <b id="uV"></b><input type="range" id="dU" min="0" max="9" step="0.5" value="6"></label>
+          <label>Спад през следващите 5 дни: <b id="dV"></b><input type="range" id="dD" min="0" max="16" step="0.5" value="11"></label>
+        </div>
+        <p class="verdict" id="ddText" aria-live="polite"></p>
+        <figcaption>Лимит 10% и при двата вида. При някои фирми плъзгащият се лимит спира да се качва, когато стигне началния баланс; провери правилата на конкретната фирма.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Static drawdown · статичен лимит</b>Изчислява се от началния баланс и не се мести.</div>
+      <div class="term"><b>Trailing drawdown · плъзгащ се лимит</b>Следва най-високия баланс или капитал. Печалбата „вдига пода“.</div>
+      <div class="term"><b>EOD · край на деня</b>При EOD трейлинг лимитът се мести само по баланса в края на деня.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: средно">●●</span>33.3 Сравнение на фирми</h2>
+      <p>Подбрах пет програми на четири от най-известните фирми за валутна търговия. Това не е препоръка. Това е образец как да сравняваш.</p>
+      <div class="tablewrap" data-name="prop-firmi-2026-10-21">
+        <table class="data">
+          <thead><tr><th>Програма</th><th>Цена (примери)</th><th>Цели</th><th>Дневна / макс. загуба</th><th>Мин. дни</th><th>Дял</th></tr></thead>
+          <tbody>
+            <tr><td>FTMO 2-Step</td><td>10K €89 · 25K €250 · 50K €345 · 100K ~€540 · 200K €1 080</td><td>10% / 5%</td><td>5% / 10% статична</td><td>4 на фаза</td><td>80%, до 90% със Scaling Plan; таксата се връща с първото изплащане</td></tr>
+            <tr><td>FTMO 1-Step</td><td>от €79 · 25K €199 · 50K €319</td><td>10%</td><td>3% / 10% EOD трейлинг</td><td>—</td><td>90%; таксата не се връща</td></tr>
+            <tr><td>The5ers High Stakes</td><td>2.5K $19 · 100K $405</td><td>10% / 5%</td><td>5% / 10% (4% / 8% при 50K и 100K)</td><td>3 на фаза</td><td>от 80%</td></tr>
+            <tr><td>FundedNext Stellar 2-Step</td><td>6K $59.99 (Lite 5K $32.99)</td><td>8% / 5%</td><td>5% / 10%</td><td>5 на фаза</td><td>80%, до 95% с добавка</td></tr>
+            <tr><td>FundingPips 2-Step Standard</td><td>5K $44 · 100K $652</td><td>8% / 5%</td><td>3–5% / 10% статична</td><td>3</td><td>60–100% според честотата на изплащане</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>При FTMO първото изплащане е възможно 14 дни след първата сделка на финансираната сметка. За 100K в публичните сравнения се виждат две цени (€439 и €540), вероятно заради промоция; провери на сайта.</p>
+      <div class="box ff">
+        <span class="label">Как да четеш такава таблица</span>
+        <p>Не гледай първо цената. Гледай <b>дневната загуба спрямо твоя риск</b>. При 1% риск и 3% дневен лимит три загуби подред в един ден приключват изпита. При 5% лимит имаш пет. Скалпер с няколко сделки на ден трябва да мисли точно за това.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Scaling plan · план за растеж</b>Фирмата увеличава сметката ти, ако печелиш стабилно.</div>
+      <div class="term"><b>Refundable fee · връщаема такса</b>Таксата за изпита се връща с първото изплащане.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: напреднало">●●●</span>33.4 Математиката на изпита</h2>
+      <p>Въведи своите числа. Калкулаторът изиграва изпита 2 000 пъти с произволни поредици от печалби и загуби и брои колко пъти стигаш целта, преди да удариш лимит.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Процент печеливши (%)<input type="number" id="m1" value="40" min="1" max="99"></label>
+            <label>Средна печалба (R)<input type="number" id="m2" value="3" step="0.1" min="0.1"></label>
+            <label>Риск на сделка (%)<input type="number" id="m3" value="1" step="0.1" min="0.1"></label>
+            <label>Сделки на ден (макс.)<input type="number" id="m4" value="2" min="1" max="10"></label>
+            <label>Цел (%)<input type="number" id="m5" value="10" step="0.5" min="1"></label>
+            <label>Дневен лимит (%)<input type="number" id="m6" value="5" step="0.5" min="0.5"></label>
+            <label>Максимален лимит (%)<input type="number" id="m7" value="10" step="0.5" min="1"></label>
+          </div>
+          <div class="out" id="mOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Модел с допускания: сделките са независими, всяка печалба е точно средната, всяка загуба е точно 1R, без slippage (приплъзване) и такси, статичен лимит, срок 120 търговски дни. Реалността е по-груба.</figcaption>
+      </figure>
+      <div class="dialog">
+        <p><span>Ученик</span>Значи с 2% риск ще мина по-бързо?</p>
+        <p><span>Ментор</span>По-бързо ще стигнеш или до целта, или до лимита. Пробвай в калкулатора. Повечето хора откриват, че с двоен риск шансът пада, а не расте. Изпитът не награждава смелостта, а оцеляването.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Expectancy · очакване</b>Средната печалба на сделка в R: печалба × вероятност − загуба × вероятност.</div>
+      <div class="term"><b>Risk of ruin · риск от разорение</b>Вероятността да стигнеш лимита на загубата, преди целта.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: основно">●</span>33.5 Как се проваля изпит и безплатният пробен период</h2>
+      <div class="tablewrap" data-name="prichini-provala">
+        <table class="data">
+          <thead><tr><th>Причина</th><th>Как изглежда</th><th>Противоотрова</th></tr></thead>
+          <tbody>
+            <tr><td>Бързане</td><td>„Искам да мина за 3 дни“, голям риск</td><td>Без срок няма за къде да бързаш. Същият риск като на демо.</td></tr>
+            <tr><td>Реванш след загуба</td><td>Нова сделка 5 минути след стопа</td><td>Правило: след 2 загуби в един ден спираш.</td></tr>
+            <tr><td>Дневният лимит</td><td>Три сделки, всички на стоп, плюс отворена позиция на минус</td><td>Сметни колко загуби издържа денят, преди да започнеш.</td></tr>
+            <tr><td>Новини</td><td>Отворена позиция в 15:30 при CPI</td><td>Календарът сутринта, без позиции около червените новини.</td></tr>
+            <tr><td>Близо до целта</td><td>На 9% от 10% и голям залог „за да приключа“</td><td>Последните проценти се търгуват като първите.</td></tr>
+            <tr><td>Непрочетено правило</td><td>Не си прочел правилото за последователност</td><td>Прочети всички правила на официалния сайт.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>FTMO предлага <b>безплатен пробен период</b>: 14 дни, с половин цел (5%) и същите лимити на загубата. Можеш да правиш неограничен брой пробни периоди, един по един. Свършва, ако не търгуваш през първите 7 дни. Минаването не дава финансирана сметка, но е най-евтиният начин да видиш как реагираш на правилата.</p>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Ако бюджетът ти е около 75 евро на месец, един 10K изпит при FTMO е повече от месечен бюджет. Това не е лошо. Значи всеки опит трябва да е заслужен: минимум два поредни безплатни пробни периода, минати със спазен процес, преди да платиш. Таксата не е лотариен билет. Тя е изпитна такса.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Free trial · пробен период</b>Безплатна симулация на изпита със същите правила.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 33</h2>
+    <ul>
+      <li>Повечето prop сметки са симулирани. Фирмата плаща дял от симулираната печалба.</li>
+      <li>Цел, дневна загуба, максимална загуба, минимум дни, срок, последователност.</li>
+      <li>Плъзгащият се лимит изяжда печалбата като буфер; статичният не.</li>
+      <li>Сравнявай фирми първо по дневния лимит спрямо твоя риск, после по цена.</li>
+      <li>По-голям риск рядко увеличава шанса за минаване.</li>
+      <li>Безплатният пробен период е задължителен тест преди платен изпит.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Прочетох правилата на една prop фирма на официалния ѝ сайт.</label></li>
+      <li><label><input type="checkbox"> Пуснах калкулатора от 33.4 с моите реални числа от демото.</label></li>
+      <li><label><input type="checkbox"> Знам колко загуби подред издържа дневният лимит при моя риск.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Скалпер е на демо от два месеца: 46 сделки, 39% печеливши, средна печалба 3.1R, риск 1%, обикновено 2–3 сделки на ден. Две седмици в периода е нарушил правилото си за брой сделки. Колебае се между FTMO 2-Step 10K (5% дневен лимит, статичен 10%) и 1-Step (3% дневен, 10% EOD трейлинг), защото вторият е по-евтин.</p>
+      <p><b>Задача:</b> кой формат пасва на неговия стил и защо? Какво казва калкулаторът с неговите числа? Готов ли е изобщо и какво би проверил първо?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Формат… Калкулатор… Готовност…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>При 2–3 сделки на ден и 1% риск, 3% дневен лимит се стига с три загуби, а при 39% печеливши три загуби подред в един ден не са рядкост. 5% лимит дава повече въздух. Трейлингът на 1-Step също намалява буфера след първите печалби. По-евтиният формат вероятно е по-скъп за този стил.</li>
+          <li>С 39% и 3.1R очакването е около +0.6R на сделка, което е добро. Калкулаторът с 2-Step правилата дава висок шанс, но с 1-Step правилата (задай дневен лимит 3%) шансът пада видимо. Числото е ориентир, защото 46 сделки са малка извадка.</li>
+          <li>46 сделки са над прага от 30, но двете седмици с нарушени правила са по-важен сигнал от процента печеливши. Първо: още две до четири седмици демо без нарушение, после безплатен пробен период. Решението е негово, но данните казват, че процесът още не е стабилен.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Какво плащаш, за да участваш в prop изпит?",o:["Депозит, който рискуваш","Такса за изпита","Нищо"],a:1,e:"Рискът ти е таксата."},
+  {q:"Какво е статичен лимит на загубата?",o:["Мести се с печалбата","Стои на едно място спрямо началния баланс","Няма лимит"],a:1,e:"Например винаги 90% от началото."},
+  {q:"Риск 1%, дневен лимит 3%. Колко загуби подред в един ден приключват изпита?",o:["3","10","1"],a:0,e:"Затова дневният лимит е първото, което се гледа."},
+  {q:"Повечето „финансирани“ сметки за дребни трейдъри са…",o:["Истински пари на борсата","Симулирани","Банкови депозити"],a:1,e:"Плаща се дял от симулираната печалба."},
+  {q:"Какво дава безплатният пробен период на FTMO?",o:["Финансирана сметка","Опит с правилата без разход","Връщане на такси"],a:1,e:"Не дава сметка, дава тест."}
+],mid:[
+  {q:"Сметка 100K, плъзгащ се лимит 10% по края на деня. Баланс в края на ден 5: 106K. Къде е лимитът?",o:["90K","96K","100K"],a:1,e:"106K − 10K = 96K."},
+  {q:"40% печеливши, 3R средна печалба. Очакване на сделка?",o:["+0.6R","+1.2R","−0.2R"],a:0,e:"0.4 × 3 − 0.6 × 1 = 0.6R."},
+  {q:"Защо удвояването на риска често намалява шанса да минеш изпит?",o:["Фирмата наказва","Стигаш лимита на загубата с половината от поредните загуби","Не го намалява"],a:1,e:"10% лимит при 2% риск са 5 загуби."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* drawdown */
+  var sv=document.getElementById("ddSvg"),uI=document.getElementById("dU"),dI=document.getElementById("dD"),tx=document.getElementById("ddText");
+  function draw(){var u=+uI.value,d=+dI.value;document.getElementById("uV").textContent="+"+u+"%";document.getElementById("dV").textContent="−"+d+"%";
+    var B=[100];for(var i=1;i<=5;i++)B.push(100+u*i/5);for(i=1;i<=5;i++)B.push(100+u-d*i/5);
+    var T=[],mx=100;B.forEach(function(b){mx=Math.max(mx,b);T.push(mx-10)});
+    var lo=Math.min(85,Math.min.apply(null,B)-2),hi=Math.max(110,Math.max.apply(null,B)+2);function x(i){return 44+i*46}function y(v){return 15+(hi-v)/(hi-lo)*180}
+    sv.innerHTML="";
+    [lo,90,100,hi].forEach(function(v){v=Math.round(v);el("text",{x:4,y:y(v)+4,"font-size":10,fill:"var(--muted)"},sv).textContent=v+"K"});
+    el("line",{x1:44,x2:504,y1:y(90),y2:y(90),stroke:"var(--liq)","stroke-width":2,"stroke-dasharray":"6 4"},sv);
+    el("path",{d:T.map(function(v,i){return(i?"L":"M")+x(i)+","+y(v).toFixed(1)}).join(""),fill:"none",stroke:"var(--bear)","stroke-width":2,"stroke-dasharray":"3 3"},sv);
+    el("path",{d:B.map(function(v,i){return(i?"L":"M")+x(i)+","+y(v).toFixed(1)}).join(""),fill:"none",stroke:"var(--ink)","stroke-width":3},sv);
+    el("text",{x:504,y:y(90)+14,"font-size":11,"text-anchor":"end",fill:"var(--liq)"},sv).textContent="статичен";
+    el("text",{x:x(5),y:y(T[5])-6,"font-size":11,"text-anchor":"middle",fill:"var(--bear)"},sv).textContent="трейлинг";
+    el("text",{x:44,y:224,"font-size":10,fill:"var(--muted)"},sv).textContent="ден 0";el("text",{x:504,y:224,"font-size":10,"text-anchor":"end",fill:"var(--muted)"},sv).textContent="ден 10";
+    var bs=-1,bt=-1;B.forEach(function(b,i){if(bs<0&&b<=90)bs=i;if(bt<0&&b<=T[i])bt=i});
+    [[bs,"var(--liq)"],[bt,"var(--bear)"]].forEach(function(p){if(p[0]>=0)el("circle",{cx:x(p[0]),cy:y(B[p[0]]),r:6,fill:p[1]},sv)});
+    var end=B[10].toFixed(1);
+    tx.innerHTML="Краен баланс: <b>"+end+"K</b>. Статичен лимит: "+(bs<0?"<b style='color:var(--bull)'>оцелява</b>":"<b style='color:var(--bear)'>нарушен на ден "+bs+"</b>")+". Плъзгащ се: "+(bt<0?"<b style='color:var(--bull)'>оцелява</b>":"<b style='color:var(--bear)'>нарушен на ден "+bt+"</b>")+"."+(bt>=0&&bs<0?" Същите сделки, различна съдба: печалбата от първите дни е вдигнала пода.":"")}
+  uI.addEventListener("input",draw);dI.addEventListener("input",draw);draw();
+  /* monte carlo */
+  var m=["m1","m2","m3","m4","m5","m6","m7"].map(function(i){return document.getElementById(i)}),mo=document.getElementById("mOut"),tm;
+  function sim(){var p=+m[0].value/100,R=+m[1].value,r=+m[2].value,n=Math.max(1,+m[3].value|0),tg=+m[4].value,dl=+m[5].value,ml=+m[6].value,N=2000,pass=0,days=0,dfail=0;
+    for(var k=0;k<N;k++){var eq=0,res=0;for(var d=0;d<120&&!res;d++){var day=0;for(var t=0;t<n;t++){var w=Math.random()<p;var ch=w?R*r:-r;eq+=ch;day+=ch;
+          if(eq>=tg){res=1;break}if(eq<=-ml){res=-1;break}if(day<=-dl){res=-2;break}if(w)break}
+        if(res===1){pass++;days+=d+1}}
+      if(res===-2)dfail++}
+    var ev=p*R-(1-p);
+    mo.innerHTML="<span>Очакване: <b>"+(ev>=0?"+":"")+ev.toFixed(2)+"R</b> на сделка.</span><span>Шанс да стигнеш целта: <b style='color:"+(pass/N>0.5?"var(--bull)":pass/N>0.25?"var(--news)":"var(--bear)")+"'>~"+Math.round(pass/N*100)+"%</b>"+(pass?" (средно "+Math.round(days/pass)+" търговски дни)":"")+".</span><span>Провали от дневния лимит: <b>~"+Math.round(dfail/N*100)+"%</b> от опитите.</span><span style='color:var(--muted)'>Модел: след печеливша сделка денят спира."+(pass/N>0.8?" Високият процент е таван, не обещание: на живо печалбите не са все 3R, губещите серии са по-дълги, а емоцията добавя грешки.":"")+"</span>"}
+  m.forEach(function(x){x.addEventListener("input",function(){clearTimeout(tm);tm=setTimeout(sim,250)})});sim();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Какво е форекс · FX Fundamentals</title>
+<meta name="description" content="Какво е форекс и кой го движи · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch1.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch1.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="1">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">1</div>
+    <h1>Какво е форекс и кой го движи</h1>
+    <blockquote class="quote">
+      Пазарът никога не греши. Мненията често грешат.
+      <cite>Джеси Ливърмор (приписвано)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да прочетеш котировка като EURUSD 1.0850 и да кажеш какво точно значи;</li>
+        <li>да изброиш кой търгува на валутния пазар и кой от тях има размер и информация;</li>
+        <li>да кажеш кога е отворен Лондон и кога Ню Йорк по софийско време, лято и зима.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>1.1 Валутната двойка: една икономика срещу друга</h2>
+      <p>Форекс (<b>FX</b>, foreign exchange) е пазарът, на който една валута се разменя срещу друга. Валутите винаги се търгуват по двойки, защото не можеш да „купиш долар“ във вакуум: купуваш долар, като плащаш с нещо друго, например с евро.</p>
+      <p>В записа <b>EURUSD 1.0850</b> първата валута (EUR) е <b>базовата</b>, а втората (USD) е <b>котираната</b>. Числото казва колко единици от котираната валута струва <i>една</i> единица от базовата. Тоест: едно евро струва 1.0850 долара.</p>
+      <p>Когато EURUSD се качва, еврото поскъпва спрямо долара (или доларът поевтинява спрямо еврото, което е същото). Ако купиш EURUSD, ти на практика купуваш евро и продаваш долари. Затова всяка двойка е залог за <b>относителната сила на две икономики</b>: техните лихви, растеж, инфлация и политика. Това е мостът между графиката и Част III.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Двойка<select id="pair">
+              <option value="EURUSD|1.0850">EURUSD</option>
+              <option value="GBPUSD|1.2700">GBPUSD</option>
+              <option value="USDJPY|150.20">USDJPY</option>
+              <option value="USDCHF|0.8820">USDCHF</option>
+              <option value="XAUUSD|2400.00">XAUUSD (злато)</option>
+            </select></label>
+            <label>Котировка<input type="number" id="rate" step="any" value="1.0850"></label>
+            <label>Сума в базовата валута<input type="number" id="amt" value="1000"></label>
+          </div>
+          <div class="out" id="pairOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Котировките са примерни, не текущи. Промени числото и виж какво значи то на човешки език.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Когато чуеш „доларът е силен“, винаги питай: спрямо какво? Валута сама по себе си не е силна. Тя е по-силна от друга.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>FX / Forex · валутен пазар</b>Глобалният пазар за размяна на валути. Няма една централна борса.</div>
+      <div class="term"><b>Base currency · базова валута</b>Първата валута в двойката. Котировката е цената на една нейна единица.</div>
+      <div class="term"><b>Quote currency · котирана валута</b>Втората валута. В нея е изразена цената.</div>
+      <div class="term"><b>Long / Short</b>Long: купуваш базовата валута. Short: продаваш базовата валута.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>1.2 Колко е голям пазарът и кой го движи</h2>
+      <p>Според проучването на Банката за международни разплащания (BIS) от април 2025 г. на валутния пазар се търгуват средно около <b>9.6 трилиона долара на ден</b>. Доларът участва от едната страна на почти девет от всеки десет сделки. EURUSD е най-търгуваната двойка в света. Затова тя е нашият постоянен пример.</p>
+      <p>На този пазар не всички са равни. Пирамидата отдолу показва основните играчи. Натисни нивото, за да видиш какво правят и защо ти, като непрофесионален трейдър, трябва да знаеш за тях.</p>
+      <figure>
+        <div class="anat">
+          <svg viewBox="0 0 220 240" role="img" aria-label="Пирамида на участниците на валутния пазар">
+            <g id="pyr"></g>
+          </svg>
+          <div style="display:grid;gap:12px">
+            <div class="parts" id="pyrChips" role="group" aria-label="Участници"></div>
+            <p class="explain" id="pyrText" aria-live="polite"></p>
+          </div>
+        </div>
+        <figcaption>Отгоре надолу: повече размер и информация към по-малко. Непрофесионалните трейдъри са в основата.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="uchastnici-fx">
+        <table class="data">
+          <thead><tr><th>Участник</th><th>Защо търгува</th><th>Размер</th><th>Информация</th></tr></thead>
+          <tbody>
+            <tr><td>Централни банки</td><td>Политика, резерви, понякога интервенция</td><td>Огромен</td><td>Най-добра: сами решават лихвите</td></tr>
+            <tr><td>Големи банки (дилъри)</td><td>Котират цени на клиенти, поемат поток</td><td>Огромен</td><td>Виждат потока на клиентите си</td></tr>
+            <tr><td>Фондове</td><td>Спекулация, хеджиране на портфейли</td><td>Голям</td><td>Анализ, модели, позициониране</td></tr>
+            <tr><td>Корпорации</td><td>Плащания, хеджиране (износ, внос)</td><td>Среден до голям</td><td>Знаят своите нужди, не търсят печалба от курса</td></tr>
+            <tr><td>Непрофесионални трейдъри</td><td>Спекулация</td><td>Малък</td><td>Публична: графики и новини</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Нашето предимство не е размерът или информацията. Нашето предимство е <b>гъвкавостта</b>: можем да не търгуваме, да чакаме, да влезем малко и да излезем бързо. Фонд с милиарди не може. Голяма част от тази книга е за това как да използваш именно това предимство.</p>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Банките „ловят“ точно твоя стоп.</p></div>
+        <div><span class="label">Реалност</span><p>Никой не вижда твоята сметка. Но когато хиляди трейдъри слагат стопове на едно и също очевидно място, тази купчина поръчки е ликвидност, която големите играчи използват, за да влязат. Решението е да не си там, където са всички.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>BIS · Банка за международни разплащания</b>Банката на централните банки. На всеки три години измерва оборота на валутния пазар.</div>
+      <div class="term"><b>Interbank · междубанков пазар</b>Мрежата, в която големите банки търгуват валута помежду си.</div>
+      <div class="term"><b>Hedging · хеджиране</b>Сделка, която намалява риска от друга позиция, а не търси печалба.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>1.3 Пазар, който не спи: Азия, Лондон, Ню Йорк</h2>
+      <p>Валутният пазар работи 24 часа от понеделник сутрин в Азия до петък вечер в Ню Йорк. Денят се предава от един финансов център на друг като щафета: първо Сидни и Токио, после Лондон, после Ню Йорк. Всеки център има свое поведение, което ще разглеждаме подробно в Глава 9.</p>
+      <figure>
+        <div class="tabs" data-group="season">
+          <button class="chip" data-tab="summer">Лято (EEST, UTC+3)</button>
+          <button class="chip" data-tab="winter">Зима (EET, UTC+2)</button>
+        </div>
+        <svg id="clock" viewBox="0 0 520 170" role="img" aria-label="Времева линия на сесиите в софийско време"></svg>
+        <p class="verdict" id="nowText" aria-live="polite"></p>
+        <figcaption>Сесиите по софийско време. Цветните ленти са приблизителните работни часове на всеки център; вертикалната линия е текущото време в София.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="sesii-sofia">
+        <table class="data">
+          <thead><tr><th>Сесия</th><th>Лято, София</th><th>Зима, София</th><th>Характер</th></tr></thead>
+          <tbody>
+            <tr><td>Токио (Азия)</td><td class="mono">03:00–12:00</td><td class="mono">02:00–11:00</td><td>Спокойно, строи диапазон. Активни JPY, AUD, NZD.</td></tr>
+            <tr><td>Лондон</td><td class="mono">10:00–19:00</td><td class="mono">10:00–19:00</td><td>Най-голям оборот. Често взима върха или дъното на Азия.</td></tr>
+            <tr><td>Ню Йорк</td><td class="mono">15:00–24:00</td><td class="mono">15:00–24:00</td><td>Американски данни в 15:30. Припокриване с Лондон 15:00–19:00.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Обърни внимание: Лондон и Ню Йорк са на едни и същи часове по софийско време и лете, и зиме, защото Великобритания, САЩ и България сменят часа заедно. Изключение са няколко седмици през март и октомври–ноември, когато САЩ сменя часа на различна дата от Европа. Тогава американските данни излизат в 14:30 софийско време. Forex Factory показва правилния час, ако е настроен на твоята часова зона (Глава 19).</p>
+      <div class="box ff">
+        <span class="label">Гледай във Forex Factory</span>
+        <p>Най-важните американски данни (NFP, CPI, продажби на дребно) излизат в 15:30 софийско време. Решенията на Фед излизат в 21:00 софийско време (14:00 в Ню Йорк), лете и зиме. Решенията на ЕЦБ са в 15:15 софийско. Отбележи си тези часове още сега.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Session · сесия</b>Работните часове на голям финансов център. Определят кога пазарът е активен.</div>
+      <div class="term"><b>Overlap · припокриване</b>Времето, когато два центъра работят едновременно. Лондон и Ню Йорк: най-високата ликвидност в деня.</div>
+      <div class="term"><b>UTC</b>Световното координирано време. Повечето материали за трейдинг ползват него.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: основно">●</span>1.4 Какво ще наблюдаваш</h2>
+      <p>Не е нужно да следиш всичко. Тази книга работи с малък, постоянен списък. Повечето неща ще срещнеш многократно, затова не се опитвай да ги запомниш наведнъж.</p>
+      <div class="tablewrap" data-name="spisak-za-nablyudenie">
+        <table class="data">
+          <thead><tr><th>Група</th><th>Инструменти</th><th>Защо ги гледаме</th></tr></thead>
+          <tbody>
+            <tr><td>Мейджъри (majors)</td><td class="mono">EURUSD, GBPUSD, USDJPY, USDCHF, AUDUSD, USDCAD, NZDUSD</td><td>Всяка съдържа долар. Най-ниски спредове, най-много анализи.</td></tr>
+            <tr><td>Кросове (crosses)</td><td class="mono">EURGBP, EURJPY, GBPJPY</td><td>Без долар. Показват силата на две валути без влиянието на USD.</td></tr>
+            <tr><td>Злато</td><td class="mono">XAUUSD</td><td>Safe haven (убежище) при страх, реагира на реалните лихви и на долара.</td></tr>
+            <tr><td>Индекс на долара</td><td class="mono">DXY</td><td>Доларът срещу кошница от шест валути (около 58% евро). Термометър за USD.</td></tr>
+            <tr><td>Фондови индекси</td><td class="mono">S&amp;P 500, Nasdaq 100, DAX</td><td>Показват дали пазарът е в настроение за риск (risk-on) или за бягство (risk-off).</td></tr>
+            <tr><td>Биткойн</td><td class="mono">BTCUSD</td><td>Чувствителен на ликвидността и на апетита за риск.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Един добре познат пазар е по-ценен от двадесет полупознати. Затова книгата следва EURUSD от началото до края. Другите са за сравнение.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Major · мейджър</b>Една от седемте най-търгувани двойки срещу долара.</div>
+      <div class="term"><b>Cross · крос</b>Двойка без долар, например EURGBP.</div>
+      <div class="term"><b>DXY</b>Индекс на долара срещу EUR, JPY, GBP, CAD, SEK и CHF.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 01</h2>
+    <ul>
+      <li>EURUSD 1.0850 значи: едно евро струва 1.0850 долара. Купуваш EURUSD = купуваш евро срещу долари.</li>
+      <li>Всяка двойка е сравнение на две икономики.</li>
+      <li>Пазарът е огромен (около 9.6 трлн. долара на ден) и е воден от централни банки, големи банки и фондове.</li>
+      <li>Предимството на малкия трейдър е гъвкавостта, не размерът.</li>
+      <li>Лондон 10:00–19:00, Ню Йорк 15:00–24:00 софийско време; американските данни излизат в 15:30.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Мога да обясня какво значи котировката USDJPY 150.20.</label></li>
+      <li><label><input type="checkbox"> Знам кога се отваря Лондон и кога излизат американските данни по софийско време.</label></li>
+      <li><label><input type="checkbox"> Записах си списъка за наблюдение от 1.4.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Сряда е, 14:50 софийско време. EURUSD е бил в тесен диапазон от сутринта. Лондон е отворен, Ню Йорк отваря след 10 минути. В 15:30 излиза CPI на САЩ. Твой приятел пита: „Защо цената не мърда? Да вляза ли сега, преди да тръгне?“</p>
+      <p><b>Задача:</b> обясни му какво се случва в момента на пазара, кой липсва и какво се очаква в следващия час. Какво би наблюдавал ти?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Какво става сега… Кой липсва… Какво идва…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Големите американски играчи още не са на бюрата си, а всички чакат CPI. Никой не иска да поеме риск преди числото.</li>
+          <li>В 15:00 се отваря Ню Йорк, в 15:30 идва CPI. Оттам обикновено идва движението на деня.</li>
+          <li>Влизане сега значи залог на монета преди новина. Протоколът в Глава 13 казва: без нови позиции 30 минути преди важна новина.</li>
+          <li>Бих наблюдавал върха и дъното на сутрешния диапазон. След CPI гледам коя страна е взета и дали цената остава отвъд нея или се връща.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"В EURUSD коя е базовата валута?",o:["USD","EUR","И двете"],a:1,e:"Първата валута в записа е базовата."},
+  {q:"EURUSD се качва от 1.0800 на 1.0900. Какво се е случило?",o:["Еврото е поскъпнало спрямо долара","Доларът е поскъпнал спрямо еврото","Нищо, това е шум"],a:0,e:"Едно евро вече струва повече долари."},
+  {q:"Кое е най-голямото предимство на малкия трейдър?",o:["Информацията","Размерът","Гъвкавостта"],a:2,e:"Можеш да чакаш, да не търгуваш и да излезеш бързо."},
+  {q:"Кога излизат повечето важни американски данни по софийско време?",o:["10:00","15:30","21:00"],a:1,e:"8:30 нюйоркско време е 15:30 софийско през по-голямата част от годината."},
+  {q:"Какво е DXY?",o:["Индекс на долара срещу кошница валути","Криптовалута","Фондов индекс"],a:0,e:"DXY мери долара срещу шест валути, основно евро."}
+],mid:[
+  {q:"USDJPY е 150.00 и се качва на 152.00. Ти си купил USDJPY. Какво печелиш?",o:["Нищо, йената е поскъпнала","Печелиш, защото доларът е поскъпнал спрямо йената","Губиш"],a:1,e:"Купил си долари срещу йени. Доларът поскъпва, позицията печели."},
+  {q:"Защо Лондон и Ню Йорк имат едни и същи часове по софийско време лете и зиме?",o:["Защото не сменят часа","Защото Великобритания, САЩ и България сменят часа почти по едно и също време","Защото пазарът е на UTC"],a:1,e:"Трите сменят часа в сходни периоди. Разминаването е само няколко седмици годишно."},
+  {q:"Корпорация купува 500 млн. долара, за да плати внос. Какво я интересува?",o:["Да спечели от курса","Да плати навреме и да хеджира риска","Да пробие нивото"],a:1,e:"Корпорациите търгуват по нужда, не за спекулация. Затова потокът им може да е голям и безразличен към техническите нива."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* pair reader */
+  var pair=document.getElementById("pair"),rate=document.getElementById("rate"),amt=document.getElementById("amt"),out=document.getElementById("pairOut");
+  var NAMES={EUR:["евро","евро"],USD:["долар","долара"],GBP:["паунд","паунда"],JPY:["йена","йени"],CHF:["франк","франка"],XAU:["тройунция злато","тройунции злато"]};
+  function read(){
+    var p=pair.value.split("|")[0],b=p.slice(0,3),q=p.slice(3),r=+rate.value,a=+amt.value;
+    if(!r||!a){out.textContent="Въведи котировка и сума.";return}
+    var dec=q==="JPY"?2:(b==="XAU"?2:4);
+    out.innerHTML="<span>1 "+NAMES[b][0]+" струва <b>"+r.toFixed(dec)+"</b> "+NAMES[q][1]+".</span>"+
+      "<span>"+a.toLocaleString("bg-BG")+" "+NAMES[b][1]+" = <b>"+(a*r).toLocaleString("bg-BG",{maximumFractionDigits:2})+"</b> "+NAMES[q][1]+".</span>"+
+      "<span>1 "+NAMES[q][0]+" струва <b>"+(1/r).toFixed(b==="XAU"?6:4)+"</b> "+NAMES[b][1]+".</span>"+
+      "<span>Купуваш "+p+" = купуваш "+NAMES[b][1]+", плащаш с "+NAMES[q][1]+".</span>";
+  }
+  pair.addEventListener("change",function(){rate.value=pair.value.split("|")[1];read()});rate.addEventListener("input",read);amt.addEventListener("input",read);read();
+
+  /* pyramid */
+  var P=[
+    ["Централни банки","Фед, ЕЦБ, Банката на Япония и другите. Определят лихвите, което е най-силният двигател на валутите. Понякога купуват или продават директно (интервенция), както Япония при USDJPY около 160."],
+    ["Големи банки","JPMorgan, UBS, Deutsche Bank, Citi и други. Котират цени на всички останали и виждат потока на клиентите си. Около тях е изграден междубанковият пазар."],
+    ["Фондове","Хедж фондове, пенсионни фондове, управители на активи. Търгуват по макро теми с огромни позиции. Когато се изнесат от една и съща позиция наведнъж, се получават резки движения (Глава 29, случаят с йената)."],
+    ["Корпорации","Износители и вносители, които обменят валута по нужда. Пример: европейски производител, който получава долари от продажби в САЩ и ги обменя в евро."],
+    ["Ти","Непрофесионалният трейдър. Малък размер, публична информация. Но можеш да избираш кога да участваш, а това е много."]
+  ];
+  var g=document.getElementById("pyr"),chips=document.getElementById("pyrChips"),txt=document.getElementById("pyrText"),bands=[];
+  P.forEach(function(p,i){
+    var top=10+i*44,w1=30+i*40,w2=30+(i+1)*40;
+    var poly=el("polygon",{points:(110-w1/2)+","+top+" "+(110+w1/2)+","+top+" "+(110+w2/2)+","+(top+40)+" "+(110-w2/2)+","+(top+40),fill:"var(--ink)","fill-opacity":(0.95-i*0.17).toFixed(2),class:"hit"},g);
+    poly.addEventListener("click",function(){show(i)});bands.push(poly);
+    var b=document.createElement("button");b.className="chip";b.textContent=p[0];b.setAttribute("aria-pressed","false");b.addEventListener("click",function(){show(i)});chips.appendChild(b);
+  });
+  function show(i){Book.each(".chip",function(c,k){c.setAttribute("aria-pressed",k===i)},chips);bands.forEach(function(b,k){b.setAttribute("stroke",k===i?"var(--liq)":"none");b.setAttribute("stroke-width",3)});txt.innerHTML="<b>"+P[i][0]+".</b> "+P[i][1]}
+  show(4);
+
+  /* session timeline in Sofia time */
+  var clock=document.getElementById("clock"),nowText=document.getElementById("nowText"),season="summer";
+  var S={summer:[["Токио",3,12,"var(--liq)"],["Лондон",10,19,"var(--bull)"],["Ню Йорк",15,24,"var(--bear)"]],winter:[["Токио",2,11,"var(--liq)"],["Лондон",10,19,"var(--bull)"],["Ню Йорк",15,24,"var(--bear)"]]};
+  var L=70,R=510;function hx(hh){return L+(R-L)*hh/24}
+  function sofiaHour(){try{var f=new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Sofia",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date()).split(":");return +f[0]+(+f[1])/60}catch(e){return null}}
+  function draw(){
+    clock.innerHTML="";
+    for(var hh=0;hh<=24;hh+=3){el("line",{x1:hx(hh),x2:hx(hh),y1:14,y2:132,stroke:"var(--line)"},clock);el("text",{x:hx(hh)-8,y:150,"font-size":10,fill:"var(--muted)"},clock).textContent=(hh<10?"0":"")+hh}
+    S[season].forEach(function(s,i){var y=24+i*36;el("text",{x:0,y:y+17,"font-size":11,fill:"var(--fg)"},clock).textContent=s[0];
+      el("rect",{x:hx(s[1]),y:y,width:hx(s[2])-hx(s[1]),height:24,fill:s[3],"fill-opacity":.75,rx:3},clock)});
+    el("rect",{x:hx(15),y:14,width:hx(19)-hx(15),height:118,fill:"var(--news)","fill-opacity":.10},clock);
+    el("line",{x1:hx(15.5),x2:hx(15.5),y1:14,y2:132,stroke:"var(--news)","stroke-width":2,"stroke-dasharray":"3 3"},clock);
+    el("text",{x:hx(15.5)+4,y:166,"font-size":10,fill:"var(--news)"},clock).textContent="15:30 данни САЩ";
+    var n=sofiaHour();
+    if(n!=null){el("line",{x1:hx(n),x2:hx(n),y1:8,y2:138,stroke:"var(--fg)","stroke-width":2},clock);
+      var open=S[season].filter(function(s){return n>=s[1]&&n<s[2]}).map(function(s){return s[0]});
+      var d=new Date().getDay(),wk=(d===6)||(d===0&&n<23)||(d===5&&n>=24);
+      var hh=Math.floor(n),mm=Math.round((n-hh)*60);
+      nowText.textContent="Сега в София е "+(hh<10?"0":"")+hh+":"+(mm<10?"0":"")+mm+". "+(wk?"Уикенд: пазарът е затворен.":(open.length?"Отворени: "+open.join(", ")+".":"Тиха зона между сесиите."));}
+  }
+  Book.each('[data-group="season"] button',function(b){b.addEventListener("click",function(){season=b.getAttribute("data-tab");draw()})});
+  draw();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

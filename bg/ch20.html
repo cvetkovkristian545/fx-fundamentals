@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Какво движи една валута · FX Fundamentals</title>
+<meta name="description" content="Какво движи една валута · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch20.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch20.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="20">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">20</div>
+    <h1>Какво движи една валута</h1>
+    <blockquote class="quote">
+      В икономиката нещата стават по-бавно, отколкото очакваш, а после стават по-бързо, отколкото си смятал за възможно.
+      <cite>Руди Дорнбуш, икономист, автор на модела за overshooting (прескачане) на валутния курс</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да подредиш двигателите на валутата по хоризонт: дни, месеци, години;</li>
+        <li>да обясниш лихвения диференциал, carry trade и защо carry се разпада внезапно;</li>
+        <li>да кажеш защо USD, JPY и CHF са safe havens (убежища), а AUD, CAD, NZD и NOK стокови валути;</li>
+        <li>да оцениш двойка с проста таблица на силата на двете валути.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>20.1 Курсът е цена, а цената има три хоризонта</h2>
+      <p>Валутният курс е цената на една валута в друга. Като всяка цена, той се движи от търсене и предлагане. Кой търси евро? Износителите, които получават долари и ги обменят. Инвеститорите, които купуват европейски облигации. Туристите. Спекулантите. Централните банки, които трупат резерви. Въпросът е кой от тях натежава в даден период.</p>
+      <div class="tablewrap" data-name="hrizonti">
+        <table class="data">
+          <thead><tr><th>Хоризонт</th><th>Какво движи курса</th><th>Глава</th></tr></thead>
+          <tbody>
+            <tr><td><b>Дни</b></td><td>Изненади в данните, новини, позициониране, risk-on/risk-off, ликвидност, интервенции</td><td>13, 19, 21</td></tr>
+            <tr><td><b>Месеци</b></td><td>Лихвени диференциали, разминаване на централните банки, цикъл на растежа, потоци на капитал</td><td>18, 20</td></tr>
+            <tr><td><b>Години</b></td><td>Инфлационни разлики (PPP), производителност, условия на търговия, дълг, институции</td><td>17, 22, 25</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Интрадей трейдърът живее в първия ред, но вятърът идва от втория. Третият ред е времето. Не можеш да го смениш, но е хубаво да знаеш дали е лято или зима.</p>
+      </div>
+      <p>Една важна бележка от Соуел: <b>„силна“ валута не значи „по-добра“ икономика.</b> Силната валута поскъпява износа и вреди на износителите. Слабата помага на износа, но прави вноса и енергията по-скъпи. Затова правителствата понякога искат по-слаба валута, а централните банки интервенират в двете посоки.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Exchange rate · валутен курс</b>Цената на една валута, изразена в друга.</div>
+      <div class="term"><b>Capital flows · капиталови потоци</b>Пари, които се местят между държави за инвестиции.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: средно">●●</span>20.2 Лихвен диференциал и разминаване</h2>
+      <p>Най-важният средносрочен двигател е <b>разликата в лихвите</b> между двете валути на двойката. Ако американските 2-годишни облигации плащат значително повече от германските, капиталът има стимул да е в долари. Когато разликата расте в полза на долара, EURUSD обикновено пада. Когато се свива, EURUSD обикновено расте.</p>
+      <p>Трейдърите гледат <b>2-годишните</b> доходности, защото те най-добре отразяват очакванията за централната банка през следващите години. Още по-добре е да гледаш <b>реалната</b> разлика, след инфлацията.</p>
+      <div class="tablewrap" data-name="diferencial-dvoiki">
+        <table class="data">
+          <thead><tr><th>Двойка</th><th>Спред, който се следи</th><th>Ако спредът расте в полза на първата валута</th></tr></thead>
+          <tbody>
+            <tr><td>EURUSD</td><td>Германия 2г − САЩ 2г</td><td>EURUSD нагоре</td></tr>
+            <tr><td>USDJPY</td><td>САЩ 10г − Япония 10г</td><td>USDJPY нагоре</td></tr>
+            <tr><td>GBPUSD</td><td>UK 2г − САЩ 2г</td><td>GBPUSD нагоре</td></tr>
+            <tr><td>AUDUSD</td><td>Австралия 2г − САЩ 2г</td><td>AUDUSD нагоре (но и Китай и рискът)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Освен разликата в лихвите днес, важно е <b>кой започва цикъла първи</b>. Ако Фед вече вдига, а ЕЦБ още мисли, разминаването е в полза на долара, дори ако лихвите още са близки. Пазарът търгува <i>пътя</i>, не точката.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Rate differential · лихвен диференциал</b>Разликата в лихвите или доходностите между две държави.</div>
+      <div class="term"><b>Policy divergence · разминаване</b>Две централни банки вървят в различни посоки.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: средно">●●</span>20.3 Carry trade и как се разпада</h2>
+      <p><b>Carry trade</b>: заемаш във валута с ниска лихва (исторически японската йена и швейцарският франк) и държиш валута с висока лихва. Печелиш разликата всеки ден, докато курсът стои на място. Проблемът: печалбата се качва по стълбите, а загубата слиза с асансьора.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Сума (USD)<input type="number" id="c1" value="100000" step="10000"></label>
+            <label>Лихва на дългата валута (%)<input type="number" id="c2" value="5" step="0.25"></label>
+            <label>Лихва на финансиращата (%)<input type="number" id="c3" value="0.5" step="0.25"></label>
+            <label>Дни<input type="number" id="c4" value="180" min="1"></label>
+            <label>Движение на курса (%)<input type="number" id="c5" value="-3" step="0.5"></label>
+          </div>
+          <div class="out" id="cOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Без лост, без разходи на брокера. Пробвай движение −3%, после −8%. Колко дни carry изяжда едно движение на курса?</figcaption>
+      </figure>
+      <p>През <b>август 2024</b> светът видя разпадането на йенния carry trade. Японската централна банка вдига лихвата, американските данни за заетостта излизат слаби и всички, които са заели в йени, бързат да затварят наведнъж. USDJPY пада от около 162 в началото на юли до около 142 на 5 август, а японският индекс Nikkei има най-лошия си ден от 1987 насам. Глава 29 разглежда случая подробно.</p>
+      <div class="box warn">
+        <span class="label">Сигнали за разпадане</span>
+        <p>Скок на волатилността (VIX), централната банка на финансиращата валута става по-ястребова, позиционирането е претъпкано (COT данни), рязък risk-off. Когато два от тези сигнала светнат заедно, carry двойките стават опасни.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Carry trade</b>Заем в ниска лихва, инвестиция във висока.</div>
+      <div class="term"><b>Funding currency · финансираща валута</b>Валутата, в която се взима заемът (JPY, CHF).</div>
+      <div class="term"><b>Unwind · разпадане</b>Масово затваряне на позициите.</div>
+      <div class="term"><b>Swap · суап</b>Лихвата, която брокерът плаща или взима за задържане през нощта.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: основно">●</span>20.4 Убежища и стокови валути</h2>
+      <div class="four">
+        <div><span class="label">USD</span><p>Резервната валута на света, най-ликвидният пазар. При глобален стрес всички търсят долари. Изключение: когато стресът идва от самите САЩ.</p></div>
+        <div><span class="label">JPY</span><p>Япония е нетен кредитор. При стрес японските инвеститори връщат пари у дома, а carry trade се разпада. И двете купуват йени.</p></div>
+        <div><span class="label">CHF</span><p>Политическа стабилност, нетен кредитор, силна банка. SNB понякога интервенира срещу твърде силен франк.</p></div>
+        <div><span class="label">Злато</span><p>Safe haven (убежище) без политически риск. Понякога расте заедно с долара, когато страхът е за системата, а не за един актив.</p></div>
+      </div>
+      <p>Срещу тях стоят <b>стоковите валути</b>, чиято сила следва цената на това, което страната изнася:</p>
+      <div class="tablewrap" data-name="stokovi-valuti">
+        <table class="data">
+          <thead><tr><th>Валута</th><th>Главни стоки</th><th>Какво още гледаш</th></tr></thead>
+          <tbody>
+            <tr><td><b>AUD</b></td><td>Желязна руда, въглища, газ, мед</td><td>Китай, RBA</td></tr>
+            <tr><td><b>CAD</b></td><td>Петрол</td><td>Търговията със САЩ, BoC</td></tr>
+            <tr><td><b>NZD</b></td><td>Млечни продукти</td><td>Търговете на Global Dairy Trade, Китай, RBNZ</td></tr>
+            <tr><td><b>NOK</b></td><td>Петрол и газ</td><td>Брент, Norges Bank</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>При risk-off стоковите валути обикновено падат, а safe havens растат. Глава 22 показва как изглежда това на всички пазари едновременно.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Safe haven · убежище</b>Актив, който се търси при страх.</div>
+      <div class="term"><b>Commodity currency · стокова валута</b>Валута на голям износител на суровини.</div>
+      <div class="term"><b>Net creditor · нетен кредитор</b>Държава, която има повече активи в чужбина, отколкото дължи.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: средно">●●</span>20.5 Дългосрочните котви: PPP и платежният баланс</h2>
+      <p><b>Паритет на покупателната способност (PPP)</b>: в дългосрочен план курсът би трябвало да изравни цената на една и съща кошница в двете страни. Най-известната илюстрация е „индексът Big Mac“ на сп. The Economist: ако бургерът струва 5 долара в САЩ и 5.50 евро в еврозоната, „справедливият“ курс би бил 0.91 долара за евро. Ако реалният е 1.10, еврото е надценено с около 21% по тази мярка.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Цена в САЩ ($)<input type="number" id="p1" value="5" step="0.05"></label>
+            <label>Цена в еврозоната (€)<input type="number" id="p2" value="5.5" step="0.05"></label>
+            <label>Действителен EURUSD<input type="number" id="p3" value="1.10" step="0.01"></label>
+          </div>
+          <div class="out" id="pOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Шеговит, но поучителен модел. Не ползвай за вход: PPP може да е грешен с 20% години наред.</figcaption>
+      </figure>
+      <p><b>Платежният баланс</b> записва всичко, което минава границата: стоки, услуги, доходи (текуща сметка) и инвестиции (финансова сметка). Държава с голям дефицит по текущата сметка зависи от чужд капитал, който да го покрие. Докато капиталът идва, всичко е наред. Когато внезапно спре (sudden stop), валутата може да се срине. Така започва Азиатската криза от 1997 (Глава 27).</p>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Търговският дефицит значи, че държавата губи.</p></div>
+        <div><span class="label">Реалност</span><p>САЩ имат търговски дефицит от десетилетия и все пак са най-богатата страна. Дефицитът по текущата сметка значи, че чужденци инвестират в страната. Проблем става, когато капиталът спре да идва, не самият дефицит.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>PPP · паритет на покупателната способност</b>Курсът, при който една кошница струва еднакво в двете страни.</div>
+      <div class="term"><b>Current account · текуща сметка</b>Стоки, услуги, доходи и трансфери с чужбина.</div>
+      <div class="term"><b>Sudden stop · внезапно спиране</b>Капиталът спира да влиза в страната.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="main">
+      <h2 id="s6"><span class="dots" title="Ниво: основно">●</span>20.6 DXY и корелациите</h2>
+      <p><b>DXY</b> мери долара спрямо кошница от шест валути с фиксирани тегла: <b>EUR 57.6%</b>, JPY 13.6%, GBP 11.9%, CAD 9.1%, SEK 4.2%, CHF 3.6%. Затова DXY е почти огледало на EURUSD. Много трейдъри започват деня с DXY: първо питат какво прави доларът, после избират двойката.</p>
+      <div class="tablewrap" data-name="korelacii">
+        <table class="data">
+          <thead><tr><th>Двойка 1</th><th>Двойка 2</th><th>Типична корелация</th><th>Какво значи за теб</th></tr></thead>
+          <tbody>
+            <tr><td>EURUSD</td><td>GBPUSD</td><td style="color:var(--bull)">Силна положителна</td><td>Long и в двете = двоен short USD</td></tr>
+            <tr><td>EURUSD</td><td>USDCHF</td><td style="color:var(--bear)">Силна отрицателна</td><td>Long EURUSD + long USDCHF почти се неутрализират</td></tr>
+            <tr><td>AUDUSD</td><td>NZDUSD</td><td style="color:var(--bull)">Силна положителна</td><td>Избери едната</td></tr>
+            <tr><td>USDCAD</td><td>Петрол</td><td style="color:var(--bear)">Отрицателна</td><td>Петролът нагоре → USDCAD обикновено надолу</td></tr>
+            <tr><td>USDJPY</td><td>US 10г доходност</td><td style="color:var(--bull)">Положителна</td><td>Доходностите водят</td></tr>
+            <tr><td>EURUSD</td><td>DXY</td><td style="color:var(--bear)">Много силна отрицателна</td><td>DXY е почти обърнатият EURUSD</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Корелациите не са вечни. Те се сменят с режима и в криза всички се приближават към 1: всичко пада заедно, освен safe havens.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>DXY · доларов индекс</b>Доларът спрямо шест валути, доминиран от еврото.</div>
+      <div class="term"><b>Correlation · корелация</b>Колко двойките се движат заедно, от −1 до +1.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s7">
+    <div class="main">
+      <h2 id="s7"><span class="dots" title="Ниво: средно">●●</span>20.7 Таблица на силата: оцени двойката</h2>
+      <p>Събери главата в един инструмент. За всяка от двете валути оцени петте двигателя: +1 (в полза), 0 (неутрално), −1 (срещу). Таблицата не ти казва да влизаш. Казва ти накъде духа вятърът и колко силно.</p>
+      <div class="calc">
+        <div class="fields">
+          <label>Базова валута<select id="sA"><option>EUR</option><option>GBP</option><option>AUD</option><option>USD</option><option>JPY</option><option>CHF</option><option>CAD</option><option>NZD</option></select></label>
+          <label>Котирана валута<select id="sB"><option>USD</option><option>EUR</option><option>GBP</option><option>JPY</option><option>CHF</option><option>CAD</option><option>AUD</option><option>NZD</option></select></label>
+        </div>
+        <div class="tablewrap" data-name="tablica-sila">
+          <table class="data" id="sTab">
+            <thead><tr><th>Двигател</th><th id="hA">A</th><th id="hB">B</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="verdict" id="sOut" aria-live="polite"></p>
+      </div>
+      <h3>Доларът на живо</h3>
+      <p>Сложи DXY и EURUSD един до друг на дневна графика. Виждаш огледалото от 20.6.</p>
+      <div class="tv" data-sym="TVC:DXY,FX:EURUSD" data-int="D"></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Currency strength · сила на валутата</b>Относителна оценка на една валута спрямо другите.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-label="Задълбочи">
+    <div class="main">
+      <details class="deeper">
+        <summary><span class="dots" aria-hidden="true">●●●</span><span class="dp-t"><small>Задълбочи</small><b>Покрит лихвен паритет и форуърдни точки</b></span><span class="drop-caret" aria-hidden="true">▾</span></summary>
+        <div class="dp-body">
+          <p>Защо не можеш да вземеш заем в йени при 0,5%, да купиш долари при 4% и да заключиш курса за печалба без риск? Защото форуърдният курс вече премахва разликата. <b>Покрит лихвен паритет</b>: форуърд = спот × (1 + лихва на котираната валута) ÷ (1 + лихва на базовата). При EURUSD 1,1000, лихва по долара 4% и по еврото 2%, едногодишният форуърд е около 1,1216: 216 <b>форуърдни точки</b> над спота.</p>
+          <p>Оттам идва и суапът ти: да държиш позиция през нощта е като да преместиш еднодневен форуърд. Страната с по-висока лихва печели, тази с по-ниска плаща, минус надценката на брокера.</p>
+          <p>При спокоен пазар паритетът важи почти точно. През 2008 г. и през март 2020 г. той се счупи: заемането на долари през валутния пазар стана много по-скъпо, отколкото подсказваха лихвите. Тази разлика, <b>кръстосаният валутен базис</b>, е един от най-ясните признаци на стрес с доларовото финансиране (Приложение E).</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 20</h2>
+    <ul>
+      <li>Курсът е цена с три хоризонта: дни (новини), месеци (лихви), години (инфлация и баланси).</li>
+      <li>Лихвеният диференциал и коя банка води цикъла са главният средносрочен вятър.</li>
+      <li>Carry печели бавно и губи бързо; разпада се при скок на волатилността.</li>
+      <li>USD, JPY, CHF и златото са safe havens; AUD, CAD, NZD, NOK следват стоките.</li>
+      <li>PPP и платежният баланс са дългосрочни котви, не сигнали за вход.</li>
+      <li>DXY е почти обърнатият EURUSD; провери общата си USD експозиция.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Попълних таблицата на силата за EURUSD с днешните новини.</label></li>
+      <li><label><input type="checkbox"> Пресметнах колко дни carry изяжда движение от 3%.</label></li>
+      <li><label><input type="checkbox"> Знам теглото на еврото в DXY.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Вторник сутрин. Спредът между германските и американските 2-годишни облигации се е свил с 15 б.т. в полза на еврото за седмица. ЕЦБ звучи по-ястребово от очакваното. Петролът е скочил с 8% заради геополитика. VIX е на 28 и расте. Ти си long EURUSD от вчера и мислиш да добавиш long AUDUSD.</p>
+      <p><b>Задача:</b> кои двигатели са в полза на EURUSD и кои срещу? Какво казва риск средата за AUDUSD? Каква е общата ти експозиция, ако добавиш? Как би изглеждала таблицата на силата?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="За EURUSD… Срещу… Риск… Експозиция… Решение…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>В полза на EURUSD: спредът се свива към еврото, ЕЦБ по-ястребова. Срещу: risk-off (VIX 28 и расте) обикновено помага на долара; петролът удря Европа като вносител на енергия.</li>
+          <li>AUDUSD: risk-off е лоша среда за стокова валута, дори ако цените на суровините растат. Петролът не е главната стока на Австралия.</li>
+          <li>Ако добавиш, имаш два short USD залога в среда, в която доларът е safe haven. Рискът е двоен, а корелацията в стрес се засилва.</li>
+          <li>Таблица: EUR около +1 (лихви +1, ЦБ +1, енергия −1), USD около +1 (риск +1). Вятърът е смесен, присъда ЖЪЛТА. Разумно: да не добавяш AUDUSD; да управляваш EURUSD по правилата от Глава 12.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Кой е главният средносрочен двигател на една двойка?",o:["Новините от днес","Лихвеният диференциал","Цената на бургерите"],a:1,e:"Разликата в лихвите и пътя на централните банки."},
+  {q:"Коя валута е класическа финансираща валута за carry trade?",o:["AUD","JPY","NZD"],a:1,e:"Дълго време с почти нулева лихва."},
+  {q:"Коя валута следва най-силно цената на петрола?",o:["CAD","JPY","CHF"],a:0,e:"Канада е голям износител на петрол."},
+  {q:"Колко е теглото на EUR в DXY?",o:["Около 25%","Около 58%","Около 90%"],a:1,e:"57.6%."},
+  {q:"При risk-off стоковите валути обикновено…",o:["Растат","Падат","Не се влияят"],a:1,e:"Убежищата растат, рисковите валути падат."}
+],mid:[
+  {q:"Carry 4.5% годишно. Курсът пада с 9% за месец. Колко време carry трябва да „изкупи“ загубата?",o:["Около 2 месеца","Около 2 години","Около 2 седмици"],a:1,e:"9% ÷ 4.5% годишно = 2 години."},
+  {q:"Long EURUSD и long GBPUSD. Каква е реалната ти позиция?",o:["Неутрална","Двоен short USD","Long EURGBP"],a:1,e:"И двете печелят, ако доларът слабее."},
+  {q:"Стрес в американските банки. Кое safe haven е по-вероятно да работи?",o:["USD","JPY или CHF и злато","AUD"],a:1,e:"Когато стресът идва от САЩ, доларът е по-слабо safe haven."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  /* carry */
+  var c=["c1","c2","c3","c4","c5"].map(function(i){return document.getElementById(i)}),co=document.getElementById("cOut");
+  function cr(){var n=+c[0].value,i1=+c[1].value/100,i2=+c[2].value/100,d=Math.max(1,+c[3].value|0),fx=+c[4].value/100;
+    var carry=n*(i1-i2)*d/365,spot=n*fx,tot=carry+spot,daily=n*(i1-i2)/365,days=daily>0?Math.abs(spot)/daily:Infinity;
+    co.innerHTML="<span>Carry: <b style='color:var(--bull)'>+"+carry.toFixed(0)+" $</b> ("+daily.toFixed(1)+" $ на ден).</span><span>Курс: <b style='color:"+(spot<0?"var(--bear)":"var(--bull)")+"'>"+(spot>=0?"+":"")+spot.toFixed(0)+" $</b>.</span><span>Общо: <b>"+(tot>=0?"+":"")+tot.toFixed(0)+" $</b>.</span>"+(spot<0&&isFinite(days)?"<span>Движението изяжда <b>"+days.toFixed(0)+" дни</b> carry.</span>":"")}
+  c.forEach(function(x){x.addEventListener("input",cr)});cr();
+  /* PPP */
+  var p=["p1","p2","p3"].map(function(i){return document.getElementById(i)}),po=document.getElementById("pOut");
+  function pp(){var us=+p[0].value,eu=+p[1].value,act=+p[2].value;if(!us||!eu||!act){po.textContent="";return}
+    var fair=us/eu,mis=(act/fair-1)*100;
+    po.innerHTML="<span>Курс по PPP: <b>"+fair.toFixed(3)+"</b> $ за €.</span><span>Еврото е <b style='color:"+(mis>0?"var(--bear)":"var(--bull)")+"'>"+(mis>0?"надценено":"подценено")+" с "+Math.abs(mis).toFixed(1)+"%</b> по тази мярка.</span>"}
+  p.forEach(function(x){x.addEventListener("input",pp)});pp();
+  /* strength table */
+  var D=["Тон на централната банка","Инфлация спрямо целта","Растеж и данни","Риск среда в полза","Стоки и търговия"];
+  var tb=document.querySelector("#sTab tbody"),sA=document.getElementById("sA"),sB=document.getElementById("sB"),so=document.getElementById("sOut");
+  function sel(){var s=document.createElement("select");[["+1","1"],["0","0"],["−1","-1"]].forEach(function(o){var op=document.createElement("option");op.textContent=o[0];op.value=o[1];if(o[1]==="0")op.selected=true;s.appendChild(op)});s.addEventListener("change",sc);return s}
+  D.forEach(function(d){var tr=document.createElement("tr"),t=document.createElement("td");t.textContent=d;tr.appendChild(t);
+    for(var k=0;k<2;k++){var td=document.createElement("td");td.appendChild(sel());tr.appendChild(td)}tb.appendChild(tr)});
+  function sc(){var a=0,b=0;Book.each("#sTab tbody tr",function(tr){var s=tr.querySelectorAll("select");a+=+s[0].value;b+=+s[1].value});
+    document.getElementById("hA").textContent=sA.value;document.getElementById("hB").textContent=sB.value;
+    if(sA.value===sB.value){so.innerHTML="Избери две различни валути.";return}
+    var n=a-b,pair=sA.value+sB.value,c=n>=3?"var(--bull)":n<=-3?"var(--bear)":"var(--news)";
+    var v=n>=3?"Вятърът е за <b>"+pair+" нагоре</b>. Търси long картини по рамката от Глава 10.":n<=-3?"Вятърът е за <b>"+pair+" надолу</b>. Търси short картини по рамката от Глава 10.":"Смесено. Присъдата е ЖЪЛТА: по-малък размер или пропуск.";
+    so.innerHTML="<span style='color:"+c+"'>"+sA.value+" "+(a>=0?"+":"")+a+" срещу "+sB.value+" "+(b>=0?"+":"")+b+" · нето "+(n>=0?"+":"")+n+".</span> "+v}
+  [sA,sB].forEach(function(x){x.addEventListener("change",sc)});sc();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

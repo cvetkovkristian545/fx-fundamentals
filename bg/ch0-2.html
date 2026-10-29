@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Абсолютната нула · FX Fundamentals</title>
+<meta name="description" content="Абсолютната нула: пазари, купувачи, продавачи · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch0-2.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch0-2.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="0.2">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">0.2</div>
+    <h1>Абсолютната нула: пазари, купувачи, продавачи</h1>
+    <blockquote class="quote">
+      Първият урок на икономиката е недостигът: никога няма достатъчно от нищо, за да задоволи напълно всички, които го искат.
+      <cite>Томас Соуел, „Is Reality Optional?“ (1993)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да обясниш на някого какво е пазар, bid, ask и спред с пример от сергия;</li>
+        <li>да покажеш защо цената се качва, когато търсенето надвишава предлагането;</li>
+        <li>да кажеш с прости думи какво е ликвидност и защо цената „ходи“ натам, където има поръчки.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>0.2.1 Какво е пазар</h2>
+      <p>Пазарът е място, където купувачи и продавачи се договарят за цена. Може да е сергия с домати в Капана, борса в Ню Йорк или сървър в Лондон, който съпоставя милиони поръчки в секунда. Логиката е една и съща навсякъде.</p>
+      <p>Купувачът иска да плати възможно най-малко. Продавачът иска да получи възможно най-много. Сделка има само когато двамата се съгласят на една цена. Тази цена е <b>последното съгласие</b> между тях. Това е цената, която виждаш на графиката.</p>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Цената не е мнението на пазара за това колко струва нещо. Цената е мястото, където последният купувач и последният продавач са спрели да спорят.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Market · пазар</b>Всяко място, физическо или електронно, където се срещат купувачи и продавачи.</div>
+      <div class="term"><b>Buyer · купувач</b>Страната, която иска да придобие нещо. В трейдинга: <i>long</i>.</div>
+      <div class="term"><b>Seller · продавач</b>Страната, която иска да се освободи от нещо. В трейдинга: <i>short</i>.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>0.2.2 Bid, ask и спред: сергията за евро</h2>
+      <p>Представи си, че на ъгъла има сергия, която обменя долари срещу евро. На табелата пише две цени:</p>
+      <figure class="diagram">
+        <svg viewBox="0 0 520 170" role="img" aria-label="Табела на обменно бюро с цена купува 1.0850 и продава 1.0852">
+          <rect x="60" y="20" width="400" height="120" rx="6" fill="var(--paper)" stroke="var(--line)" stroke-width="2"/>
+          <text x="260" y="48" text-anchor="middle" font-size="13" fill="var(--muted)">EUR / USD</text>
+          <text x="160" y="80" text-anchor="middle" font-size="12" fill="var(--muted)">КУПУВАМЕ ОТ ВАС</text>
+          <text x="160" y="112" text-anchor="middle" font-size="28" fill="var(--bear)">1.0850</text>
+          <text x="360" y="80" text-anchor="middle" font-size="12" fill="var(--muted)">ПРОДАВАМЕ НА ВАС</text>
+          <text x="360" y="112" text-anchor="middle" font-size="28" fill="var(--bull)">1.0852</text>
+          <line x1="260" y1="64" x2="260" y2="128" stroke="var(--line)"/>
+          <text x="160" y="160" text-anchor="middle" font-size="12" fill="var(--fg)">BID</text>
+          <text x="360" y="160" text-anchor="middle" font-size="12" fill="var(--fg)">ASK</text>
+          <text x="260" y="160" text-anchor="middle" font-size="12" fill="var(--liq)">спред 2 пипа</text>
+        </svg>
+        <figcaption>Ти продаваш на по-ниската цена (bid) и купуваш на по-високата (ask). Разликата е спредът: печалбата на сергията.</figcaption>
+      </figure>
+      <p><b>Bid</b> е най-високата цена, която някой в момента е готов да <i>плати</i>. <b>Ask</b> (или offer) е най-ниската цена, на която някой в момента е готов да <i>продаде</i>. Ако искаш да купиш веднага, плащаш ask. Ако искаш да продадеш веднага, получаваш bid. Разликата е <b>спредът</b>.</p>
+      <p>При EURUSD спредът често е под един пип в активни часове. При екзотична двойка или посред нощ може да е десет пъти по-голям. Спредът е първата цена, която плащаш, още преди пазарът да е мръднал. Ще го пресметнем в Глава 2.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Bid · цена купува</b>Най-високата цена, която купувач предлага сега.</div>
+      <div class="term"><b>Ask · цена продава</b>Най-ниската цена, на която продавач предлага сега.</div>
+      <div class="term"><b>Spread · спред</b>Ask минус bid. Разходът за моментално влизане и излизане.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>0.2.3 Търсене и предлагане: защо цените се движат</h2>
+      <p>Хлябът поскъпва, когато има по-малко пшеница (предлагането пада) или когато повече хора искат хляб (търсенето расте). Бензинът поскъпва, когато ОПЕК намали добива или когато лятото всички тръгнат на море. Еврото поскъпва, когато повече хора по света искат евро, например защото Европейската централна банка плаща по-висока лихва от другите.</p>
+      <p>Това е цялата икономика в един ред: <b>когато търсенето е повече от предлагането, цената се качва; когато предлагането е повече от търсенето, цената пада.</b> Цената се движи, докато намери точка, в която количеството, което хората искат да купят, е равно на количеството, което другите искат да продадат. Тази точка се нарича равновесие.</p>
+      <figure>
+        <svg id="sdSvg" viewBox="0 0 520 300" role="img" aria-label="Графика на търсене и предлагане с подвижни криви"></svg>
+        <div class="sliders">
+          <label>Търсене<input type="range" id="dShift" min="-60" max="60" value="0"><span class="mono" id="dOut">0</span></label>
+          <label>Предл.<input type="range" id="sShift" min="-60" max="60" value="0"><span class="mono" id="sOut">0</span></label>
+        </div>
+        <div class="parts">
+          <button class="chip" data-sd="0,0">Начало</button>
+          <button class="chip" data-sd="40,0">Горещо лято (бензин)</button>
+          <button class="chip" data-sd="0,-45">ОПЕК намалява добива</button>
+          <button class="chip" data-sd="35,-20">ЕЦБ вдига лихвата (евро)</button>
+          <button class="chip" data-sd="-40,0">Рецесия</button>
+        </div>
+        <p class="verdict" id="sdText" aria-live="polite"></p>
+        <figcaption>Плъзни търсенето (зелено) или предлагането (червено). Пунктирът показва къде е равновесната цена. Числата са условни.</figcaption>
+      </figure>
+      <div class="dialog">
+        <p><span>Ученик</span>Значи ако знам дали търсенето ще расте, знам накъде ще иде цената?</p>
+        <p><span>Ментор</span>Ако знаеш това със сигурност, ще знаеш. Но никой не го знае със сигурност. Затова в тази книга говорим за вероятности, а не за предсказания. Целият анализ е опит да прецениш коя страна е по-вероятно да натежи.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Demand · търсене</b>Колко от нещо хората искат и могат да купят при дадена цена.</div>
+      <div class="term"><b>Supply · предлагане</b>Колко от нещо хората искат и могат да продадат при дадена цена.</div>
+      <div class="term"><b>Equilibrium · равновесие</b>Цената, при която търсеното и предлаганото количество са равни.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: основно">●</span>0.2.4 Същата идея на графиката</h2>
+      <p>На графиката не виждаш кривите на търсене и предлагане. Виждаш следите им. Когато цената падне до някакво ниво и рязко отскочи нагоре, там е имало повече купувачи, отколкото продавачи. Трейдърите наричат такова място <b>demand zone</b> (зона на търсене). Когато цената се качи до ниво и рязко се обърне надолу, там е имало повече продавачи: <b>supply zone</b> (зона на предлагане).</p>
+      <p>Когато една от страните е толкова по-силна, че цената прескача нива почти без сделки, остава <b>дисбаланс</b> (imbalance). На графиката това изглежда като голяма свещ, след която има „дупка“ между фитилите на съседните свещи. Пазарът често се връща да запълни тези дупки. В Глава 7 ще ги наречем FVG.</p>
+      <figure class="diagram">
+        <div class="before-after">
+          <svg id="zoneSvg" viewBox="0 0 520 240" role="img" aria-label="Графика с цена, която отскача от demand zone и се обръща от supply zone"></svg>
+        </div>
+        <button class="toggle" id="zoneBtn" aria-pressed="false">Покажи зоните</button>
+        <figcaption>Преди и след: същата графика без маркировка и със зоните на търсене (зелено), предлагане (червено) и дисбаланс (синьо).</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Demand zone · зона на търсене</b>Ценови район, от който купувачите са избутали цената нагоре.</div>
+      <div class="term"><b>Supply zone · зона на предлагане</b>Ценови район, от който продавачите са избутали цената надолу.</div>
+      <div class="term"><b>Imbalance · дисбаланс</b>Бързо движение, при което едната страна почти не е намерила срещуположни поръчки.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: средно">●●</span>0.2.5 Ликвидност с прости думи</h2>
+      <p>Ликвидност значи: <b>колко лесно можеш да купиш или продадеш, без да мръднеш цената.</b> На сергия с един продавач и три кашона домати ликвидността е малка. Ако купиш и трите кашона, следващият купувач ще трябва да чака или да плати повече. На пазар с хиляда продавачи ликвидността е голяма.</p>
+      <p>Опитай. Отдолу е „книгата“ на поръчките за евро: кой колко иска да продаде и на каква цена. Натисни „Купи 1 милион“ няколко пъти и гледай какво става с цената.</p>
+      <figure>
+        <div class="tablewrap" data-name="kniga-na-porachkite">
+          <table class="data" id="bookTable" aria-live="polite">
+            <thead><tr><th>Страна</th><th class="num">Цена</th><th class="num">Количество (млн. €)</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="parts">
+          <button class="chip" id="buyBtn">Купи 1 милион</button>
+          <button class="chip" id="sellBtn">Продай 1 милион</button>
+          <button class="chip" id="resetBtn">Начало</button>
+        </div>
+        <p class="verdict" id="bookText"></p>
+        <figcaption>Условна книга на поръчките. Всяка твоя пазарна поръчка „изяжда“ най-добрата цена от другата страна.</figcaption>
+      </figure>
+      <p>Видя ли? Когато купувачите изядат всички поръчки за продажба на една цена, следващата сделка става на по-висока цена. <b>Цената се движи, защото ликвидността на едно ниво свършва.</b></p>
+      <p>Сега най-важната идея на цялата книга, която ще срещаш отново и отново. Големите играчи (банки, фондове) имат нужда от много ликвидност, за да влязат с огромни суми. Тя е натрупана там, където много хора са оставили поръчки: над очевидни върхове и под очевидни дъна, където стоят стоповете на другите трейдъри. Затова цената често <b>отива първо там</b>, взима тези поръчки и чак после тръгва в истинската си посока. В Глава 7 това ще се нарича sweep.</p>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Цената се движи, защото е „евтина“ или „скъпа“.</p></div>
+        <div><span class="label">Реалност</span><p>Цената се движи, защото едната страна е по-агресивна и изяжда поръчките на другата. „Евтино“ и „скъпо“ са мнения. Поръчките са факт.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Liquidity · ликвидност</b>Наличието на поръчки, срещу които можеш да търгуваш, без да мръднеш цената много.</div>
+      <div class="term"><b>Order book · книга на поръчките</b>Списък на чакащите поръчки за покупка и продажба по цени.</div>
+      <div class="term"><b>Stop loss · стоп</b>Поръчка, която затваря сделка на загуба при определена цена. Купища стопове на едно място са ликвидност.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 0.2</h2>
+    <ul>
+      <li>Цената е последното съгласие между купувач и продавач.</li>
+      <li>Купуваш на ask, продаваш на bid. Спредът е разликата и е твой разход.</li>
+      <li>Повече търсене от предлагане вдига цената. Повече предлагане от търсене я сваля.</li>
+      <li>На графиката търсенето и предлагането оставят зони и дисбаланси.</li>
+      <li>Ликвидност е наличието на поръчки. Цената се движи, когато ликвидността на дадено ниво свърши, и често отива първо там, където са стоповете.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Мога да обясня bid, ask и спред на човек, който никога не е чувал за трейдинг.</label></li>
+      <li><label><input type="checkbox"> Мога да дам пример от живота за поскъпване заради търсене и заради предлагане.</label></li>
+      <li><label><input type="checkbox"> Разбирам защо цената се качва, когато купувачите изядат поръчките за продажба.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>EURUSD се търгува около 1.0850 от три дни. Ясно се виждат два върха на почти една и съща цена, 1.0890, и едно дъно на 1.0820. Новината е, че ЕЦБ ще говори утре.</p>
+      <p><b>Задача:</b> къде мислиш, че има натрупана ликвидност? Какво би могло да направи цената, преди да избере посока? Как новината за ЕЦБ влияе на търсенето на евро?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Ликвидност… Какво може да направи цената… ЕЦБ…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Над двата върха на 1.0890 вероятно има много стопове на продавачи и поръчки на купувачи, които чакат пробив. Под 1.0820 стоят стоповете на купувачите.</li>
+          <li>Цената може да мине над 1.0890, да вземе тези поръчки и да се върне обратно, или същото под 1.0820. Това е sweep (Глава 7).</li>
+          <li>Ако ЕЦБ звучи по-строга (по-високи лихви за по-дълго), търсенето на евро вероятно ще расте. Ако звучи по-мека, обратното.</li>
+          <li>Преди речта: наблюдение, без действие. Очаквам движение към една от двете ликвидности и гледам къде цената не успява да остане.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Какво е bid?",o:["Най-ниската цена, на която някой продава","Най-високата цена, която някой предлага да плати","Средната цена за деня"],a:1,e:"Bid е най-добрата цена за покупка, която в момента предлагат купувачите."},
+  {q:"Искаш да купиш веднага. На коя цена купуваш?",o:["Bid","Ask","Close"],a:1,e:"Купуваш от продавачите, на тяхната най-ниска предлагана цена: ask."},
+  {q:"Търсенето на бензин расте, а добивът е същият. Какво става с цената?",o:["Качва се","Пада","Не се променя"],a:0,e:"Повече търсене при същото предлагане вдига цената."},
+  {q:"Какво е ликвидност?",o:["Колко пари има една банка","Колко лесно се търгува, без да мръднеш цената","Колко бързо пада цената"],a:1,e:"Ликвидност е наличието на поръчки, срещу които можеш да търгуваш."},
+  {q:"Къде често има натрупана ликвидност?",o:["Над очевидни върхове и под очевидни дъна","В средата на диапазона","Само около кръгли часове"],a:0,e:"Там стоят стоповете и чакащите поръчки на много трейдъри."}
+],mid:[
+  {q:"Bid 1.0850, ask 1.0853. Купуваш и веднага продаваш. Какъв е резултатът без комисионна?",o:["0 пипа","−3 пипа","+3 пипа"],a:1,e:"Купуваш на 1.0853, продаваш на 1.0850. Губиш спреда, 3 пипа."},
+  {q:"На графиката цената пада до 1.0800, после рязко отскача с три големи зелени свещи. Как ще наречеш района около 1.0800?",o:["Зона на предлагане","Зона на търсене","Равновесие"],a:1,e:"Рязкото отскачане показва, че там купувачите са били повече: demand zone."},
+  {q:"На 1.0855 се продават само 0.5 млн. €, а на 1.0856 още 4 млн. Голям купувач иска 3 млн. веднага. Какво става?",o:["Купува всичко на 1.0855","Изяжда 1.0855 и продължава на 1.0856, цената се качва","Цената пада"],a:1,e:"Ликвидността на първото ниво не стига, затова сделката продължава на следващата цена и тя става новата цена."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* supply and demand */
+  var sv=document.getElementById("sdSvg"),ds=document.getElementById("dShift"),ss=document.getElementById("sShift"),txt=document.getElementById("sdText");
+  var X0=60,X1=500,Y0=20,Y1=260;
+  var ax=el("g",{},sv);
+  el("line",{x1:X0,y1:Y1,x2:X1,y2:Y1,stroke:"var(--muted)"},ax);el("line",{x1:X0,y1:Y0,x2:X0,y2:Y1,stroke:"var(--muted)"},ax);
+  el("text",{x:X1-90,y:Y1+24,"font-size":11,fill:"var(--muted)"},ax).textContent="количество →";
+  el("text",{x:4,y:Y0+6,"font-size":11,fill:"var(--muted)"},ax).textContent="цена ↑";
+  var dl=el("line",{stroke:"var(--bull)","stroke-width":3},sv),sl=el("line",{stroke:"var(--bear)","stroke-width":3},sv);
+  var hz=el("line",{stroke:"var(--liq)","stroke-dasharray":"5 4","stroke-width":1.5},sv),vt=el("line",{stroke:"var(--liq)","stroke-dasharray":"5 4","stroke-width":1.5},sv);
+  var dot=el("circle",{r:6,fill:"var(--liq)"},sv),pl=el("text",{"font-size":12,fill:"var(--liq)"},sv);
+  var dlab=el("text",{"font-size":12,fill:"var(--bull)"},sv),slab=el("text",{"font-size":12,fill:"var(--bear)"},sv);
+  var base=null;
+  function draw(){
+    var d=+ds.value,s=+ss.value;document.getElementById("dOut").textContent=(d>0?"+":"")+d;document.getElementById("sOut").textContent=(s>0?"+":"")+s;
+    /* demand: y = 40 + (x-X0)*0.5 shifted right by d ; supply: y = 240 - (x-X0)*0.5 shifted right by s */
+    var dax=X0+d*2,sax=X0+s*2;
+    function dy(x){return 40+(x-dax)*0.45} function sy(x){return 240-(x-sax)*0.45}
+    dl.setAttribute("x1",X0);dl.setAttribute("y1",dy(X0));dl.setAttribute("x2",X1);dl.setAttribute("y2",dy(X1));
+    sl.setAttribute("x1",X0);sl.setAttribute("y1",sy(X0));sl.setAttribute("x2",X1);sl.setAttribute("y2",sy(X1));
+    var x=(240-40+0.45*dax+0.45*sax)/0.9,y=dy(x);
+    hz.setAttribute("x1",X0);hz.setAttribute("x2",x);hz.setAttribute("y1",y);hz.setAttribute("y2",y);
+    vt.setAttribute("x1",x);vt.setAttribute("x2",x);vt.setAttribute("y1",y);vt.setAttribute("y2",Y1);
+    dot.setAttribute("cx",x);dot.setAttribute("cy",y);
+    var price=Math.round((Y1-y)/2),qty=Math.round((x-X0)/4);
+    pl.setAttribute("x",X0+6);pl.setAttribute("y",y-6);pl.textContent="цена "+price;
+    dlab.setAttribute("x",X1-70);dlab.setAttribute("y",Math.min(Y1-4,dy(X1)-8));dlab.textContent="търсене";
+    slab.setAttribute("x",X1-80);slab.setAttribute("y",Math.max(Y0+12,sy(X1)-8));slab.textContent="предлагане";
+    if(base===null)base={p:price,q:qty};
+    var dp=price-base.p,msg;
+    if(d===0&&s===0)msg="Равновесие: цена "+price+", количество "+qty+".";
+    else msg="Цената е "+price+" ("+(dp>0?"+":"")+dp+" спрямо началото), количеството е "+qty+". "+(dp>0?"По-високо търсене или по-малко предлагане качват цената.":dp<0?"По-слабо търсене или повече предлагане свалят цената.":"Двете промени се неутрализират.");
+    txt.textContent=msg;
+  }
+  ds.addEventListener("input",draw);ss.addEventListener("input",draw);
+  Book.each("[data-sd]",function(b){b.addEventListener("click",function(){var v=b.getAttribute("data-sd").split(",");ds.value=v[0];ss.value=v[1];draw()})});
+  draw();
+
+  /* demand / supply zones on a chart */
+  var z=document.getElementById("zoneSvg"),C=[[150,130],[130,140],[140,118],[118,124],[124,170],[170,176],[176,205],[205,198],[198,160],[160,112],[112,90],[90,96],[96,70],[70,62],[62,80],[80,74],[74,104],[104,128],[128,120],[120,150]];
+  var marks=el("g",{},z);
+  el("rect",{x:150,y:190,width:340,height:24,fill:"var(--bull)","fill-opacity":.16},marks);
+  el("text",{x:410,y:206,"font-size":11,fill:"var(--bull)"},marks).textContent="търсене";
+  el("rect",{x:330,y:52,width:160,height:22,fill:"var(--bear)","fill-opacity":.16},marks);
+  el("text",{x:420,y:66,"font-size":11,fill:"var(--bear)"},marks).textContent="предлагане";
+  el("rect",{x:230,y:118,width:260,height:42,fill:"var(--liq)","fill-opacity":.14},marks);
+  el("text",{x:380,y:143,"font-size":11,fill:"var(--liq)"},marks).textContent="дисбаланс";
+  marks.style.display="none";
+  C.forEach(function(c,i){var o=c[0],cl=c[1],x=20+i*24,col=cl<o?"var(--bull)":"var(--bear)",hi=Math.min(o,cl)-6,lo=Math.max(o,cl)+6;
+    if(i===9){hi=Math.min(o,cl)-2;lo=Math.max(o,cl)+2}
+    el("line",{x1:x+7,x2:x+7,y1:hi,y2:lo,stroke:col,"stroke-width":2},z);
+    el("rect",{x:x,width:14,y:Math.min(o,cl),height:Math.max(2,Math.abs(o-cl)),fill:col},z)});
+  var zb=document.getElementById("zoneBtn");
+  zb.addEventListener("click",function(){var on=zb.getAttribute("aria-pressed")!=="true";zb.setAttribute("aria-pressed",on);marks.style.display=on?"":"none";zb.textContent=on?"Скрий зоните":"Покажи зоните"});
+
+  /* order book */
+  var START={asks:[[1.0855,0.5],[1.0856,1.5],[1.0857,2],[1.0858,3]],bids:[[1.0854,0.8],[1.0853,1.5],[1.0852,2],[1.0851,3]]};
+  var bk,last=1.0854,tb=document.querySelector("#bookTable tbody"),bt=document.getElementById("bookText");
+  function reset(){bk=JSON.parse(JSON.stringify(START));last=1.0854;render("Купувачите чакат на bid, продавачите на ask. Спредът е 1 пип.")}
+  function render(m){
+    tb.innerHTML="";
+    bk.asks.slice().reverse().forEach(function(a){var tr=document.createElement("tr");tr.innerHTML='<td style="color:var(--bear)">ask (продават)</td><td class="num">'+a[0].toFixed(4)+'</td><td class="num">'+a[1].toFixed(1)+"</td>";tb.appendChild(tr)});
+    bk.bids.forEach(function(b){var tr=document.createElement("tr");tr.innerHTML='<td style="color:var(--bull)">bid (купуват)</td><td class="num">'+b[0].toFixed(4)+'</td><td class="num">'+b[1].toFixed(1)+"</td>";tb.appendChild(tr)});
+    bt.innerHTML=m+" <span class=\"mono\">Последна сделка: "+last.toFixed(4)+"</span>";
+  }
+  function hit(side){
+    var lvls=side==="buy"?bk.asks:bk.bids,need=1,fills=[];
+    while(need>1e-9&&lvls.length){var l=lvls[0],q=Math.min(need,l[1]);l[1]-=q;need-=q;last=l[0];fills.push(q.toFixed(1)+" на "+l[0].toFixed(4));if(l[1]<1e-9)lvls.shift()}
+    if(!lvls.length){var p=side==="buy"?last+0.0001:last-0.0001;lvls.push([+p.toFixed(4),2])}
+    render((side==="buy"?"Купи":"Продаде")+" 1 млн.: "+fills.join(", ")+". "+(fills.length>1?"Едно ниво не стигна, цената мина на следващото.":""));
+  }
+  document.getElementById("buyBtn").addEventListener("click",function(){hit("buy")});
+  document.getElementById("sellBtn").addEventListener("click",function(){hit("sell")});
+  document.getElementById("resetBtn").addEventListener("click",reset);
+  reset();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

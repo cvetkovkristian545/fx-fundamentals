@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FX Fundamentals</title>
+<meta name="description" content="FX Fundamentals: безплатно интерактивно ръководство за начинаещи във форекс: price action, SMC, ликвидност, Forex Factory, централни банки и макро, риск и дисциплина.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Orbitron:wght@700;900&family=Tektur:wght@500;700&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+<link rel="alternate" hreflang="en" href="../">
+<link rel="alternate" hreflang="bg" href="../bg/">
+</head>
+<body>
+<main class="book home">
+  <header class="cover">
+    <span class="label">Уеб книга</span>
+    <h1>FX Fundamentals</h1>
+    <p class="sub">Пълно ръководство за начинаещи: от това какво е купувач и продавач до order flow, централни банки и световния ред. Какво да гледаш, как да анализираш и как да четеш новините.</p>
+    <svg viewBox="0 0 520 120" role="img" aria-label="Редица свещи, които се изкачват отляво надясно">
+      <g id="coverCandles"></g>
+      <g id="coverPrice"></g>
+    </svg>
+    <div class="cover-icons" id="coverIcons"></div>
+    <div class="ticker" aria-hidden="true"><div class="tt-row" id="tape"></div></div>
+    <span class="authors">Кристиан Цветков</span>
+  </header>
+
+  <section class="debrief" aria-labelledby="how">
+    <span class="label">Преди да започнеш</span>
+    <h2 id="how">Как е подредена книгата</h2>
+    <p>Книгата има седем части и върви от Ниво 0 до Ниво 6. Всяка глава започва с досие, има термини в полето, интерактивни диаграми и завършва с разбор, чеклист и куиз на три нива: Лесно, Средно и Experienced Trader.</p>
+    <p><a class="start-cta" href="ch0-3.html">🏁 Нов си? Започни с бързия път</a></p>
+    <div style="display:grid;gap:6px">
+      <span class="label" id="progLabel">Напредък</span>
+      <div class="meter" aria-labelledby="progLabel"><i id="progBar"></i></div>
+      <span class="score" id="progText"></span>
+    </div>
+  </section>
+
+  <div class="drops3">
+  <section class="debrief drop" aria-labelledby="td">
+    <details id="tdd">
+      <summary>
+        <span class="drop-ic" aria-hidden="true">🔥</span>
+        <span class="drop-t"><span class="label">Днес</span><h2 id="td">Твоят ден в книгата</h2><span class="drop-sub" id="tdSum">Серия, термин на деня и задача на деня</span></span>
+        <span class="drop-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="drop-body"><div class="today" id="today"></div></div>
+    </details>
+  </section>
+
+  <section class="debrief drop" aria-labelledby="pm">
+    <details id="pmd">
+      <summary>
+        <span class="drop-ic" aria-hidden="true">🗺</span>
+        <span class="drop-t"><span class="label">Твоят път</span><h2 id="pm">Карта на напредъка</h2><span class="drop-sub" id="pmSum"></span></span>
+        <span class="drop-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="drop-body">
+        <div id="pmap" style="display:grid;gap:12px"></div>
+        <div class="listen"><button class="chip" type="button" id="printAllBtn">⎙ Всички резюмета и чеклисти (PDF)</button></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="debrief drop" aria-labelledby="bd">
+    <details id="bdd">
+      <summary>
+        <span class="drop-ic" aria-hidden="true">🏅</span>
+        <span class="drop-t"><span class="label">Постижения</span><h2 id="bd">Значки</h2><span class="drop-sub" id="bdSum"></span></span>
+        <span class="drop-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="drop-body"><div id="bdShelf"></div></div>
+    </details>
+  </section>
+  </div>
+
+  <nav class="toc" id="toc" aria-label="Съдържание"></nav>
+
+  <section class="debrief drop prize" aria-labelledby="pz">
+    <details id="pzd">
+      <summary>
+        <span class="prize-img" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="64" height="64"><defs><linearGradient id="pzg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd76a"/><stop offset="1" stop-color="#f0a020"/></linearGradient></defs>
+            <path d="M20 10h24v14a12 12 0 0 1-24 0z" fill="url(#pzg)"/><path d="M20 14h-8a8 8 0 0 0 8 10M44 14h8a8 8 0 0 1-8 10" fill="none" stroke="#f0a020" stroke-width="3"/>
+            <rect x="29" y="35" width="6" height="9" fill="#f0a020"/><rect x="21" y="44" width="22" height="7" rx="2" fill="url(#pzg)"/>
+            <path d="M32 15l2 4.2 4.6.6-3.3 3.2.8 4.5-4.1-2.2-4.1 2.2.8-4.5-3.3-3.2 4.6-.6z" fill="#fff8e1"/></svg>
+          <i class="spark s1">✳</i><i class="spark s2">✨</i><i class="spark s3">✳</i>
+        </span>
+        <span class="drop-t"><span class="label">Награда · само за първите</span><h2 id="pz">Завърши книгата и спечели Claude Pro</h2><span class="drop-sub">Натисни, за да видиш условията ✳</span></span>
+        <span class="drop-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="drop-body">
+        <p class="prize-big">🎁 <b>1 седмица Claude Pro</b> подарък от автора за <b>първите 3 читатели</b>, които завършат цялата книга. ✳🤖✨</p>
+        <ol class="steps">
+          <li>Отметни целия чеклист във всяка глава от 0.1 до 38 (и S).</li>
+          <li>Реши финалния изпит (лесно и средно), с поне 70%.</li>
+          <li>Тук ще се появи твоят личен код за награда. Изпрати го на автора в <b>Instagram</b> със скрийншот на тази карта.</li>
+        </ol>
+        <div class="prize-status" id="pzStatus" aria-live="polite"></div>
+        <p class="fb">Наградата е лично обещание на автора, не на Anthropic. Наградите са 3: печелят първите трима по време на изпращане на кода.</p>
+      </div>
+    </details>
+  </section>
+
+  <footer>
+    <span>Кристиан Цветков</span>
+    <span>Образователен материал, не инвестиционен съвет</span>
+  </footer>
+</main>
+<script>
+/* three cards stay in one row; the opened card's content shows in a full-width panel below */
+(function(){var row=document.querySelector(".drops3");if(!row)return;
+  var pan=document.createElement("div");pan.className="debrief drops3-panel";pan.hidden=true;row.parentNode.insertBefore(pan,row.nextSibling);
+  var ds=row.querySelectorAll("details"),timer=0;
+  function park(){var cur=pan.firstChild;if(cur&&cur._home)cur._home.appendChild(cur)}
+  function show(body){clearTimeout(timer);park();pan.appendChild(body);pan.hidden=false;pan.classList.remove("out","in");
+    requestAnimationFrame(function(){pan.classList.add("in")})}
+  function hide(){pan.classList.remove("in");pan.classList.add("out");clearTimeout(timer);
+    timer=setTimeout(function(){park();pan.hidden=true;pan.classList.remove("out")},170)}
+  Array.prototype.forEach.call(ds,function(d){var body=d.querySelector(".drop-body");if(!body)return;body._home=d;
+    d.addEventListener("toggle",function(){
+      if(d.open){Array.prototype.forEach.call(ds,function(o){if(o!==d&&o.open)o.open=false});show(body)}
+      else if(body.parentNode===pan&&!row.querySelector("details[open]"))hide()})})})();
+</script>
+
+
+<script src="book.js"></script>
+<script>
+(function(){
+  var B=window.Book,toc=document.getElementById("toc");
+  /* cover candles: a gentle uptrend with one pullback */
+  /* each candle: open and close as y (smaller = higher price) */
+  var g=document.getElementById("coverCandles"),c=[[100,88],[88,94],[94,76],[76,82],[82,64],[64,56],[56,62],[62,48],[48,36],[36,42],[42,30],[30,20],[20,26],[26,12]];
+  c.forEach(function(k,i){var o=k[0],cl=k[1],x=14+i*36,up=cl<o,col=up?"#ffffff":"#000000",wk=up?"#ffffff":"#000000",ol=up?"#ffffff":"#94a3b8";
+    var cg=B.svg("g",{"class":"cc"+(i===c.length-1?" live":""),style:"animation-delay:"+(0.25+i*0.07)+"s"+(i===c.length-1?","+(0.9+i*0.07)+"s":"")},g);
+    B.svg("line",{x1:x+9,x2:x+9,y1:Math.min(o,cl)-7,y2:Math.max(o,cl)+7,stroke:wk,"stroke-width":2},cg);
+    B.svg("rect",{x:x,width:18,y:Math.min(o,cl),height:Math.max(2,Math.abs(o-cl)),fill:col},cg)});
+  /* live price line on the last candle + ticker tape */
+  var lp=document.getElementById("coverPrice"),ly=12;
+  B.svg("line",{x1:38,x2:520,y1:ly,y2:ly},lp);B.svg("rect",{x:0,y:ly-7,width:34,height:14,rx:3},lp);var tx=B.svg("text",{x:17,y:ly+3,"text-anchor":"middle"},lp);tx.textContent="LIVE";
+  var words="EURUSD,GBPUSD,USDJPY,XAUUSD,DXY,BOS,CHoCH,FVG,BSL,SSL,Order block,Kill zone,London,New York,CPI,NFP,FOMC,1% риск,≥3R,Дневник".split(","),tape=document.getElementById("tape"),row="";
+  words.forEach(function(w){row+="<span>"+w+"</span>"});tape.innerHTML=row+row;
+  /* cover icons: what the book covers */
+  var ci=document.getElementById("coverIcons");
+  [["candles","Свещи"],["drop","Ликвидност"],["clock","Сесии"],["shield","Риск"],["bank","Макро"],["pulse","Психология"]].forEach(function(x){
+    var d=B.h("div","ci");var ic=B.icon(x[0],30);if(ic)d.appendChild(ic);d.appendChild(B.h("span",null,x[1]));
+    d.addEventListener("animationend",function(e){if(e.target===d&&e.animationName==="rise")d.classList.add("settled")});ci.appendChild(d)});
+  /* contents */
+  var read=0,total=0;
+  B.PARTS.forEach(function(p,pi){
+    var list=B.CHAPTERS.filter(function(c){return c.part===pi});if(!list.length)return;
+    var sec=B.h("section","part"),h2=B.h("h2",null,(pi<7?"Част "+p.n+" · ":"")+p.t+(pi<7?" <small>"+B.LEVELS[p.lv]+"</small>":""));
+    sec.appendChild(h2);var ol=B.h("ol");
+    list.forEach(function(c){
+      var li=B.h("li"),done=B.store("b"+c.id+"-done"),qe=B.store("b"+c.id+"-qe"),st="";
+      total++;
+      if(done||qe){var parts=[];if(done)parts.push("чеклист "+done);if(qe)parts.push("куиз "+qe);st=parts.join(" · ");if(done&&done.split("/")[0]===done.split("/")[1])read++}
+      if(c.ready){var a=B.h("a");a.href=c.file;a.innerHTML='<span class="n">'+c.label+'</span><span class="tt"><span class="mk">'+c.title+'</span></span><span class="st'+(st?" ok":"")+'">'+(st||"")+'</span>';var ic=B.icon(B.CHICON[c.id],18);if(ic)a.querySelector('.tt').insertBefore(ic,a.querySelector('.tt').firstChild);li.appendChild(a)}
+      else li.appendChild(B.h("span","soon",'<span class="n">'+c.label+'</span><span>'+c.title+'</span><span class="st">скоро</span>'));
+      ol.appendChild(li);
+    });
+    sec.appendChild(ol);toc.appendChild(sec);
+  });
+  /* dropdowns: progress map + prize open from the quick links or a #hash */
+  function openDrop(hash){var d={"#pm":"pmd","#pz":"pzd","#bd":"bdd","#td":"tdd"}[hash];d=d?document.getElementById(d):null;if(!d)return false;d.open=true;setTimeout(function(){d.scrollIntoView({behavior:"smooth",block:"start"})},30);return true}
+  Array.prototype.forEach.call(document.querySelectorAll('.quick a[href^="#p"],.quick a[href="#bd"]'),function(a){a.addEventListener("click",function(e){if(openDrop(a.getAttribute("href")))e.preventDefault()})});
+  if(location.hash)openDrop(location.hash);
+  /* prize: finished = every chapter checklist complete + final exam (easy and middle) at 70%+ */
+  (function(){var st=document.getElementById("pzStatus"),ch=B.CHAPTERS.filter(function(c){return c.part<7}),full=0;
+    ch.forEach(function(c){var d=B.store("b"+c.id+"-done");if(d&&d.split("/")[0]===d.split("/")[1]&&+d.split("/")[1]>0)full++});
+    var ex=[B.store("bX-qe"),B.store("bX-qm")],r=0,n=0,exOk=ex[0]&&ex[1];if(exOk)ex.forEach(function(x){var a=x.split("/");r+=+a[0];n+=+a[1]});
+    var pct=n?Math.round(r/n*100):0,won=full===ch.length&&exOk&&pct>=70;
+    if(won){var code=B.store("fx-prize-code");if(!code){var a="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",x="";for(var i=0;i<8;i++)x+=a[Math.floor(Math.random()*a.length)];code="FXF-"+x.slice(0,4)+"-"+x.slice(4);B.store("fx-prize-code",code)}
+      st.innerHTML='<span class="label">🎉 Завърши книгата!</span><p>Твоят код: <b class="prize-code">'+code+'</b></p><p>Изпрати го на автора в Instagram заедно със скрийншот на тази карта. Първите 3 печелят. ✳</p><span class="label">🎓 Твоят сертификат</span><div class="cert"><input type="text" id="certName" maxlength="60" placeholder="Име и фамилия за сертификата"><button class="chip" type="button" id="certBtn">Изтегли сертификата (PDF)</button></div>';st.classList.add("won");
+      var cb=document.getElementById("certBtn"),cn=document.getElementById("certName");cn.value=B.store("fx-cert-name")||"";
+      cb.addEventListener("click",function(){var n=cn.value.trim();if(!n){cn.focus();return}B.store("fx-cert-name",n);B.certificate(cb,n,{total:ch.length,exam:pct,code:code})})}
+    else st.innerHTML='<span class="label">Твоят път до наградата</span><div class="meter"><i style="width:'+Math.round(full/ch.length*100)+'%"></i></div><p>Чеклисти: <b>'+full+' / '+ch.length+'</b> · Финален изпит: <b>'+(exOk?pct+"%":"още не е решен")+'</b></p>';
+  })();
+  /* today + badges */
+  B.todayCard(document.getElementById("today"));
+  var sk=B.streak();document.getElementById("tdSum").textContent="🔥 "+sk.now+" "+(sk.now===1?"ден":"дни")+" подред · термин и задача на деня · натисни, за да отвориш";
+  var bc=B.badgeShelf(document.getElementById("bdShelf"));document.getElementById("bdSum").textContent="Отключени: "+bc[0]+" от "+bc[1]+" · натисни, за да ги видиш";
+  B.progressMap(document.getElementById("pmap"));B.printAll(document.getElementById("printAllBtn"));B.printAll(document.getElementById("printAllTop"));
+  var ready=B.CHAPTERS.filter(function(c){return c.ready}).length;
+  document.getElementById("progBar").style.width=Math.round(read/total*100)+"%";
+  document.getElementById("pmSum").textContent="Завършени глави: "+read+" от "+total+" · натисни, за да отвориш";
+  document.getElementById("progText").textContent="Завършени глави (целият чеклист отметнат): "+read+" от "+total+" · написани досега: "+ready;
+})();
+</script>
+
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

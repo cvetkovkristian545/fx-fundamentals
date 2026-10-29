@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Order flow · FX Fundamentals</title>
+<meta name="description" content="За напреднали: order flow · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch15.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch15.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="15">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">15</div>
+    <h1>За напреднали: order flow</h1>
+    <blockquote class="quote">
+      Пазарът е аукцион. Цената търси място, където купувачите и продавачите са съгласни да търгуват.
+      <cite>Основната идея на теорията на пазарния аукцион (Питър Стайдлмайер, CBOT)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да обясниш баланса и дисбаланса с езика на аукциона;</li>
+        <li>да разчетеш DOM, heatmap, footprint, delta и CVD на основно ниво;</li>
+        <li>да намериш POC, value area и LVN във volume profile и да разпознаеш абсорбция.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s0">
+    <div class="main">
+      <div class="box note">
+        <span class="label">Тази глава е ●●●</span>
+        <p>Можеш да я прескочиш при първо четене. Order flow е най-прецизният слой в книгата, но е безполезен без контекста от Глави 6–10. Правилото от Order Flow Mafia (cbrackn), заимствано от Кармине Розато, е CLC: <b>Context</b> (посока от високия таймфрейм), <b>Location</b> (ключово ниво), <b>Confirmation</b> (order flow). Order flow е само третото C.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: напреднало">●●●</span>15.1 Пазарът като аукцион</h2>
+      <div class="box note">
+        <span class="label">Преди тази глава</span>
+        <p>Order flow е надграждане, а не начална точка. В <a href="ch0-3.html">бързия път</a> идва след като основният ти сетъп е минал бектест и демо тест. Тогава тествай всяко order-flow условие като филтър (<a href="ch0-3.html#s8">0.3.8</a>).</p>
+      </div>
+      <p>В аукцион цената се качва, докато купувачите спрат да наддават, и пада, докато продавачите спрат да предлагат. Пазарът работи по същия начин. Има два режима:</p>
+      <div class="four">
+        <div><span class="label" style="color:var(--liq)">Баланс</span><p>Цената се люшка в диапазон. И двете страни са съгласни, че това е „справедлива“ цена. Търговията е най-много в средата.</p></div>
+        <div><span class="label" style="color:var(--news)">Дисбаланс</span><p>Едната страна е по-силна. Цената излиза от диапазона и търси нова зона на съгласие. Движението е бързо, с малко търговия.</p></div>
+      </div>
+      <p>Правилата на диапазона (balance range) в тази рамка: значимите нива са <b>върхът и дъното на диапазона</b>. На дъното очакваш купувачи, на върха продавачи. Не продаваш на дъното, освен ако продавачите не го пробият и <b>приемат</b> цени под него (търгува се обем там). Не купуваш на върха, освен ако купувачите не го пробият и приемат цени над него.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>AMT · теория на пазарния аукцион</b>Auction Market Theory: цената търси място на съгласие между купувачи и продавачи.</div>
+      <div class="term"><b>Acceptance · приемане</b>Цената остава отвъд нивото и там се търгува обем.</div>
+      <div class="term"><b>Rejection · отказ</b>Цената бързо се връща от нивото, почти без обем отвъд него.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: напреднало">●●●</span>15.2 Инструментите</h2>
+      <figure>
+        <div class="tabs" data-group="tools">
+          <button class="chip" data-tab="dom">DOM</button>
+          <button class="chip" data-tab="heat">Heatmap</button>
+          <button class="chip" data-tab="fp">Footprint</button>
+          <button class="chip" data-tab="cvd">Delta и CVD</button>
+        </div>
+        <div class="pane" data-group="tools" data-pane="dom">
+          <p><b>DOM</b> (Depth of Market) е книгата на поръчките от Глава 0.2: колко чакащи (пасивни, лимитни) поръчки има на всяка цена над и под текущата. Показва намеренията. Внимание: поръчките могат да бъдат изтеглени, преди цената да стигне до тях.</p>
+        </div>
+        <div class="pane" data-group="tools" data-pane="heat">
+          <p><b>Heatmap</b> (например в Bookmap) рисува DOM във времето: ярките хоризонтални линии са големи лимитни поръчки, които стоят там. Виждаш кога поръчката е изядена, кога е изтеглена и кога цената „се отблъсква“ от нея.</p>
+        </div>
+        <div class="pane" data-group="tools" data-pane="fp">
+          <p><b>Footprint</b> разделя всяка свещ на нива и показва колко е купено и колко продадено с пазарни (агресивни) поръчки на всяко ниво. Вижда се къде вътре в свещта е била битката.</p>
+          <div class="tablewrap" data-name="footprint-primer">
+            <table class="data"><thead><tr><th class="num">Цена</th><th class="num">Продадено (bid)</th><th class="num">Купено (ask)</th><th class="num">Delta</th></tr></thead>
+              <tbody><tr><td class="num">1.0844</td><td class="num">120</td><td class="num">310</td><td class="num" style="color:var(--bull)">+190</td></tr>
+              <tr><td class="num">1.0843</td><td class="num">260</td><td class="num">280</td><td class="num">+20</td></tr>
+              <tr><td class="num">1.0842</td><td class="num">540</td><td class="num">150</td><td class="num" style="color:var(--bear)">−390</td></tr>
+              <tr><td class="num">1.0841</td><td class="num">610</td><td class="num">90</td><td class="num" style="color:var(--bear)">−520</td></tr></tbody></table>
+          </div>
+          <p class="fb">Условна свещ: долу продавачите са агресивни, горе купувачите. Ако цената въпреки това затваря горе, долу продавачите са били поети (абсорбирани).</p>
+        </div>
+        <div class="pane" data-group="tools" data-pane="cvd">
+          <p><b>Delta</b> = купено с пазарни поръчки минус продадено с пазарни поръчки за една свещ. <b>CVD</b> (Cumulative Volume Delta) е натрупаната delta във времето. Когато цената се качва и CVD се качва, купувачите движат цената. Когато цената стои, а CVD пада силно, някой поема продавачите: това е абсорбция (15.4).</p>
+        </div>
+      </figure>
+      <div class="box warn">
+        <span class="label">Важно за форекса</span>
+        <p>Спот валутният пазар няма централна борса, затова няма общ обем. Обемът, който брокерът показва, е само неговият поток или броят на тиковете. За истински order flow анализаторите гледат <b>фючърсите</b> на CME: 6E за еврото, 6B за паунда, 6J за йената, GC за златото. Те се движат почти синхронно със спота и са добър заместител.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>DOM</b>Depth of Market: чакащите поръчки по цени.</div>
+      <div class="term"><b>Heatmap</b>DOM, нарисуван във времето.</div>
+      <div class="term"><b>Footprint</b>Свещ, разделена по цени с купено и продадено на всяка.</div>
+      <div class="term"><b>Delta / CVD</b>Агресивни покупки минус агресивни продажби; натрупаната delta.</div>
+      <div class="term"><b>Aggressive vs passive</b>Пазарна поръчка (агресивна) срещу лимитна (пасивна).</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: напреднало">●●●</span>15.3 Volume profile</h2>
+      <p>Volume profile завърта обема настрани: показва колко е търгувано на всяка цена за даден период, не за всяка свещ. Получаваш „планини“ и „долини“.</p>
+      <figure>
+        <svg id="vp" viewBox="0 0 520 280" role="img" aria-label="Volume profile с POC, value area и LVN"></svg>
+        <div class="tabs" data-group="shape">
+          <button class="chip" data-tab="D">D: баланс</button>
+          <button class="chip" data-tab="P">P: покриване на къси / купувачи</button>
+          <button class="chip" data-tab="b">b: ликвидация / продавачи</button>
+          <button class="chip" data-tab="double">Двоен</button>
+        </div>
+        <p class="verdict" id="vpText" aria-live="polite"></p>
+        <figcaption>Четири типични форми на профила. Синята ивица е value area (70% от обема); линията е POC.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="volume-profile">
+        <table class="data">
+          <thead><tr><th>Термин</th><th>Какво е</th><th>Как се ползва</th></tr></thead>
+          <tbody>
+            <tr><td><b>POC</b></td><td>Цената с най-много обем</td><td>„Справедливата“ цена; магнит в баланс.</td></tr>
+            <tr><td><b>Value area (VAH, VAL)</b></td><td>Районът с около 70% от обема</td><td>Краищата му са реакционни нива.</td></tr>
+            <tr><td><b>HVN</b></td><td>Възел с висок обем</td><td>Цената се забавя, търгува се дълго.</td></tr>
+            <tr><td><b>LVN</b></td><td>Възел с нисък обем</td><td>Цената минава бързо или се отблъсква. Често съвпада с FVG от Глава 7.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>POC</b>Point of Control: цената с най-голям обем.</div>
+      <div class="term"><b>VAH / VAL</b>Горна и долна граница на value area.</div>
+      <div class="term"><b>HVN / LVN</b>Възли с висок и с нисък обем.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: напреднало">●●●</span>15.4 Абсорбция: усилие срещу резултат</h2>
+      <p>Абсорбция има, когато едната страна натиска силно (голямо <b>усилие</b>: голяма отрицателна delta), а цената почти не мръдва (малък <b>резултат</b>). Някой голям стои с лимитни поръчки и поема всичко. Когато агресивните продавачи се изтощят, цената обикновено тръгва в обратната посока.</p>
+      <figure class="diagram">
+        <svg id="abs" viewBox="0 0 520 260" role="img" aria-label="Цената прави двойно дъно, докато CVD пада силно"></svg>
+        <button class="toggle" id="absBtn" aria-pressed="false">Покажи дивергенцията</button>
+        <figcaption>Горе: цена. Долу: CVD. Цената не прави ново дъно, въпреки че продавачите натискат още по-силно.</figcaption>
+      </figure>
+      <p>Това е дивергенция между delta и цената, роднина на SMT и RSI дивергенциите от Глава 4, но върху реалните поръчки. Най-силна е на ключово ниво (дъно на диапазон, PDL, зона след sweep).</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Absorption · абсорбция</b>Пасивни поръчки поемат агресивния натиск, без цената да мръдне.</div>
+      <div class="term"><b>Effort vs result</b>Принципът на Уайкоф: голямо усилие с малък резултат е предупреждение.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: средно">●●</span>15.5 План „ако–тогава“ и лошите условия</h2>
+      <p>Най-ценната практика от order flow света не е инструмент, а навик: <b>да пристигнеш на сесията с идея</b>. Преди отварянето пишеш изречения „ако–тогава“ около нивата:</p>
+      <ul>
+        <li><b>Ако</b> цената стигне дъното на диапазона и видя силно купуване (абсорбция, положителна delta), <b>тогава</b> очаквам движение към вчерашния връх.</li>
+        <li><b>Ако</b> дъното се пробие и има приемане под него, <b>тогава</b> очаквам движение към следващата demand zone (зона на търсене).</li>
+        <li><b>Ако</b> нито едното не се случи, <b>тогава</b> днес не правя нищо.</li>
+      </ul>
+      <p><b>Кога условията са лоши.</b> Преди голяма новина пазарът често „се мотае“ в тесен диапазон с фалшиви пробиви. В дни преди FOMC или в началото на седмица, когато пазарът чака, пробивите често не издържат. Календарът е първият филтър.</p>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>С Bookmap ще виждам какво правят банките и ще печеля всеки път.</p></div>
+        <div><span class="label">Реалност</span><p>Order flow показва какво се случва сега, не какво ще се случи. Поръчките могат да са примамка. Без контекст и локация е просто много мигащи цветове.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>If-then plan · план ако–тогава</b>Условни изречения около нивата, написани преди сесията.</div>
+      <div class="term"><b>CLC</b>Context, Location, Confirmation: трите неща на всяка добра картина.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 15</h2>
+    <ul>
+      <li>Пазарът е аукцион: баланс и дисбаланс. В диапазон значимите нива са краищата.</li>
+      <li>DOM и heatmap: пасивните поръчки. Footprint, delta, CVD: агресивните.</li>
+      <li>Volume profile: POC, value area, HVN, LVN. LVN ≈ FVG.</li>
+      <li>Абсорбция: голямо усилие, малък резултат. Най-силна на ключово ниво.</li>
+      <li>CLC: контекст, локация, потвърждение. Order flow е само потвърждението. За форекс: фючърсите на CME.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Сложих Volume Profile (Fixed Range) в TradingView върху последната седмица на EURUSD.</label></li>
+      <li><label><input type="checkbox"> Намерих POC, VAH, VAL и един LVN и сравних LVN с FVG на графиката.</label></li>
+      <li><label><input type="checkbox"> Написах три изречения „ако–тогава“ за утрешната сесия.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>6E (фючърсът на еврото) е в седмичен диапазон 1.0820–1.0870. Вчера беше балансиран ден. Днес в Лондон цената пада до 1.0818, под дъното на диапазона. На footprint се вижда голяма отрицателна delta на 1.0818–1.0820, но цената не продължава надолу. CVD прави lower low (по-ниско дъно), цената прави равно дъно. D1 на EURUSD е bullish (бичи).</p>
+      <p><b>Задача:</b> приложи CLC. Как се казва това, което виждаш? Напиши два плана „ако–тогава“.</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Context… Location… Confirmation… Ако… тогава…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Context: D1 bullish. Location: дъното на седмичния диапазон, със sweep под него. Confirmation: абсорбция (голяма отрицателна delta, без нов спад) и дивергенция CVD/цена.</li>
+          <li>Ако цената се върне над 1.0820 и има положителна delta (купувачите поемат инициативата), тогава очаквам движение към средата на диапазона и вчерашния връх.</li>
+          <li>Ако цената приеме цени под 1.0818 (обем се търгува там, CVD продължава надолу, без абсорбция), тогава абсорбцията е била само пауза и картината се обезсилва.</li>
+          <li>Ако нито едното не е ясно до края на лондонския прозорец, тогава днес не е мой ден.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Какво показва DOM?",o:["Минали сделки","Чакащите лимитни поръчки по цени","Новините"],a:1,e:"Depth of Market: книгата на поръчките."},
+  {q:"Какво е POC?",o:["Цената с най-много обем","Най-високата цена","Средната цена"],a:0,e:"Point of Control."},
+  {q:"Около какъв дял от обема включва value area?",o:["30%","50%","70%"],a:2,e:"Стандартът е около 70%."},
+  {q:"Абсорбция е…",o:["Силно движение с голяма delta","Голямо усилие, малък резултат","Липса на обем"],a:1,e:"Натиск, който някой поема, без цената да мръдне."},
+  {q:"Откъде се взима надежден обем за EURUSD?",o:["От брокера","От фючърса 6E на CME","Няма начин"],a:1,e:"Спот форексът няма централен обем."}
+],mid:[
+  {q:"Цената е на върха на диапазон. Купувачите пробиват, но веднага се връщат вътре, почти без обем отвъд. Какво е това?",o:["Приемане","Отказ (rejection)","Абсорбция на купувачи"],a:1,e:"Без обем отвъд нивото няма приемане."},
+  {q:"Цената навлиза в LVN. Какво е най-вероятно?",o:["Ще се търгува там дълго","Ще мине бързо или ще се отблъсне","Нищо"],a:1,e:"В нисък обем няма какво да задържи цената."},
+  {q:"Перфектна абсорбция в средата на диапазона, без ключово ниво. Как я оценяваш по CLC?",o:["Силна","Слаба: липсва Location","Перфектна"],a:1,e:"Потвърждение без локация е шум."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* volume profile shapes */
+  var vp=document.getElementById("vp");
+  function gauss(x,m,s){return Math.exp(-((x-m)*(x-m))/(2*s*s))}
+  var SH={D:function(i){return gauss(i,20,6)},P:function(i){return gauss(i,29,4)+0.18*gauss(i,14,6)},b:function(i){return gauss(i,10,4)+0.18*gauss(i,25,6)},double:function(i){return gauss(i,10,3.5)+0.9*gauss(i,30,3.5)+0.04}};
+  var TX={D:"D-профил: балансиран ден. Обемът е в средата, POC е близо до центъра. Правилата на диапазона важат: купувачи на VAL, продавачи на VAH.",P:"P-профил: обемът е горе, тънка опашка долу. Обикновено покупки (или затваряне на къси позиции), които са качили цената и тя е намерила съгласие по-високо.",b:"b-профил: обемът е долу, тънка опашка горе. Обикновено продажби или ликвидация, които са свалили цената.",double:"Двоен профил: две зони на съгласие и LVN между тях. Цената често минава бързо през LVN от едната зона към другата. LVN тук е реалната FVG."};
+  function draw(k){vp.innerHTML="";var N=40,vals=[];for(var i=0;i<N;i++)vals.push(SH[k](i)+0.02);
+    var tot=vals.reduce(function(a,b){return a+b},0),poc=vals.indexOf(Math.max.apply(null,vals));
+    var lo=poc,hi=poc,acc=vals[poc];while(acc<tot*0.7){var up=hi+1<N?vals[hi+1]:-1,dn=lo-1>=0?vals[lo-1]:-1;if(up>=dn){hi++;acc+=up}else{lo--;acc+=dn}}
+    var mx=Math.max.apply(null,vals);function Y(i){return 260-i*6}
+    el("rect",{x:40,y:Y(hi)-3,width:460,height:(hi-lo+1)*6,fill:"var(--liq)","fill-opacity":.10},vp);
+    vals.forEach(function(v,i){el("rect",{x:40,y:Y(i)-3,width:Math.max(1,v/mx*360),height:5,fill:i===poc?"var(--news)":(i>=lo&&i<=hi?"var(--liq)":"var(--muted)"),"fill-opacity":i===poc?1:.7},vp)});
+    el("line",{x1:40,x2:500,y1:Y(poc),y2:Y(poc),stroke:"var(--news)","stroke-width":1.5},vp);el("text",{x:410,y:Y(poc)-5,"font-size":11,fill:"var(--news)"},vp).textContent="POC";
+    el("text",{x:410,y:Y(hi)-6,"font-size":10,fill:"var(--liq)"},vp).textContent="VAH";el("text",{x:410,y:Y(lo)+14,"font-size":10,fill:"var(--liq)"},vp).textContent="VAL";
+    if(k==="double"){el("text",{x:200,y:Y(20)+4,"font-size":11,fill:"var(--bear)"},vp).textContent="← LVN (≈ FVG)"}
+    document.getElementById("vpText").textContent=TX[k]}
+  Book.each('[data-group="shape"] button',function(b){b.addEventListener("click",function(){draw(b.dataset.tab)})});draw("D");
+
+  /* absorption */
+  var ab=document.getElementById("abs"),show=false;
+  var price=[70,64,58,50,44,40,46,52,48,42,40,41,48,56,64,70],cvd=[0,-6,-14,-24,-32,-38,-34,-30,-40,-52,-62,-66,-60,-48,-36,-26];
+  function d(){ab.innerHTML="";function X(i){return 30+i*31}function P(v){return 130-v*1.4}function C(v){return 170-v*1.2}
+    el("text",{x:30,y:14,"font-size":10,fill:"var(--muted)"},ab).textContent="цена";el("text",{x:30,y:160,"font-size":10,fill:"var(--muted)"},ab).textContent="CVD";
+    el("line",{x1:20,x2:510,y1:150,y2:150,stroke:"var(--line)"},ab);
+    el("polyline",{points:price.map(function(v,i){return X(i)+","+P(v)}).join(" "),fill:"none",stroke:"var(--fg)","stroke-width":2.5},ab);
+    el("polyline",{points:cvd.map(function(v,i){return X(i)+","+C(v)}).join(" "),fill:"none",stroke:"var(--ink)","stroke-width":2},ab);
+    if(show){el("line",{x1:X(5),y1:P(40),x2:X(10),y2:P(40),stroke:"var(--bull)","stroke-width":2,"stroke-dasharray":"5 4"},ab);
+      el("line",{x1:X(5),y1:C(-38),x2:X(11),y2:C(-66),stroke:"var(--bear)","stroke-width":2,"stroke-dasharray":"5 4"},ab);
+      el("text",{x:X(6),y:P(40)+16,"font-size":10,fill:"var(--bull)"},ab).textContent="цена: равно дъно";
+      el("text",{x:X(6),y:C(-66)+14,"font-size":10,fill:"var(--bear)"},ab).textContent="CVD: lower low (повече продажби)";
+      el("rect",{x:X(9)-8,y:P(42)-10,width:X(11)-X(9)+16,height:24,fill:"none",stroke:"var(--liq)","stroke-width":2,rx:4},ab);
+      el("text",{x:X(12),y:P(46),"font-size":10,fill:"var(--liq)"},ab).textContent="абсорбция"}}
+  var b=document.getElementById("absBtn");b.addEventListener("click",function(){show=!show;b.setAttribute("aria-pressed",show);b.textContent=show?"Скрий дивергенцията":"Покажи дивергенцията";d()});d();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

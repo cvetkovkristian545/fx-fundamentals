@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Твоето работно място за анализ · FX Fundamentals</title>
+<meta name="description" content="Твоето работно място за анализ · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch28.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch28.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="28">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">31</div>
+    <h1>Твоето работно място за анализ</h1>
+    <blockquote class="quote">
+      Дай ми шест часа да отсека дърво и ще прекарам първите четири в точене на брадвата.
+      <cite>Приписва се на Ейбрахам Линкълн</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да избереш план на TradingView според реалните си нужди, не според рекламата;</li>
+        <li>да настроиш графика, сесии, списък с двойки и аларми за 30 минути;</li>
+        <li>да настроиш Forex Factory с твоите валути и часовата зона на София;</li>
+        <li>да изчислиш колко часа седмично реално имаш за пазара и как да ги разпределиш.</li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="box warn">
+    <span class="label">Цени с дата</span>
+    <p>Всички цени и ограничения в Част IV са проверени на <b>21 октомври 2026</b>. Компаниите ги променят често. Преди да платиш каквото и да е, провери на официалния сайт.</p>
+  </div>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>31.1 TradingView: безплатно или платено</h2>
+      <p>TradingView е мястото, където ще гледаш графиките. Работи в браузъра и на телефона, има данни за почти всички пазари и можеш да рисуваш, да слагаш индикатори и аларми. Регистрацията е с имейл. Въпросът е дали да плащаш.</p>
+      <div class="tablewrap" data-name="tradingview-planove-2026-10-21">
+        <table class="data">
+          <thead><tr><th>План</th><th>$/месец при годишно плащане</th><th>Графики в прозорец</th><th>Индикатори на графика</th><th>Активни аларми</th><th>Реклами</th></tr></thead>
+          <tbody>
+            <tr><td>Basic</td><td>0</td><td>1</td><td>2</td><td>3</td><td>Да</td></tr>
+            <tr><td>Essential</td><td>12.95</td><td>2</td><td>5</td><td>20</td><td>Не</td></tr>
+            <tr><td>Plus</td><td>29.95</td><td>4</td><td>10</td><td>100</td><td>Не</td></tr>
+            <tr><td>Premium</td><td>59.95</td><td>8</td><td>25</td><td>400</td><td>Не</td></tr>
+            <tr><td>Ultimate</td><td>199.95</td><td>16</td><td>50</td><td>1 000</td><td>Не</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>При месечно плащане цените са с около 15–17% по-високи. TradingView често пуска намаления, особено в края на ноември.</p>
+      <div class="dialog">
+        <p><span>Ученик</span>Безплатният план не е ли твърде ограничен?</p>
+        <p><span>Ментор</span>За метода в тази книга ти трябват една графика, ръчно рисувани зони, един индикатор за сесиите и малко аларми. Безплатният план стига за първите месеци. Плати, когато ограничението наистина те спъва в работа, а не когато ти се иска да изглеждаш като трейдър. Индикаторите не правят пари; дисциплината прави.</p>
+      </div>
+      <p>Помогни си да решиш.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Колко графики искаш едновременно<input type="number" id="t1" value="1" min="1" max="16"></label>
+            <label>Колко индикатора на графика<input type="number" id="t2" value="2" min="0" max="50"></label>
+            <label>Колко аларми наведнъж<input type="number" id="t3" value="5" min="0" max="1000"></label>
+          </div>
+          <div class="out" id="tOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Показва най-евтиния план, който покрива нуждите. Не включва данни на живо от борсите, които се плащат отделно.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Layout · подредба</b>Записана комбинация от графики, таймфреймове и инструменти.</div>
+      <div class="term"><b>Alert · аларма</b>Известие, когато цената стигне ниво или се случи условие.</div>
+      <div class="term"><b>Watchlist · списък за наблюдение</b>Двойките, които следиш.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>31.2 Настройката за 30 минути</h2>
+      <ol class="steps">
+        <li><b>Часова зона.</b> В долния десен ъгъл на графиката избери „(UTC+2/+3) Athens“ или друга зона със същото време като София. Всички часове в книгата са по София.</li>
+        <li><b>Чиста графика.</b> Японски свещи, зелено и червено, без мрежа. Махни всичко, което не използваш.</li>
+        <li><b>Сесиите.</b> Добави индикатор за сесии (търси „Sessions“) и оцвети Азия, Лондон и Ню Йорк. Глава 9 обясни защо.</li>
+        <li><b>Списък.</b> Започни малко: DXY, EURUSD, GBPUSD, USDJPY, XAUUSD и US 10Y. Повече двойки значи по-малко внимание за всяка.</li>
+        <li><b>Инструменти за рисуване.</b> Хоризонтална линия, правоъгълник за зони, инструмент „Long/Short position“ за риска. Запиши любимите в лентата.</li>
+        <li><b>Таймфреймове.</b> Запиши бързи бутони за D1, H4, H1, M15, M5.</li>
+        <li><b>Аларми.</b> Сложи аларма на всяка зона, която чакаш. Така не гледаш графиката цял ден.</li>
+        <li><b>Запиши подредбата.</b> Едно име за анализ (D1/H4), едно за изпълнение (M15/M5).</li>
+      </ol>
+      <div class="box ff">
+        <span class="label">Алармата е твоят асистент</span>
+        <p>Най-честата грешка на начинаещия е да седи пред графиката и да чака. Седенето води до скука, скуката води до сделки без сетъп. Нарисувай зоните сутринта, сложи аларми и излез. Ако цената дойде, телефонът ще те извика.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Paper trading · хартиена търговия</b>Сделки с измислени пари в TradingView. Полезно за упражнения, но не замества демо при брокер.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>31.3 Forex Factory: календарът</h2>
+      <p>Глава 19 показа как се чете календарът. Тук е настройката. Регистрацията в forexfactory.com е безплатна и запазва настройките ти.</p>
+      <ol class="steps">
+        <li>Горе вдясно на календара избери часова зона, която съвпада със София. Провери: американските данни трябва да излизат в 15:30.</li>
+        <li>Натисни филтъра. Остави само червените (висок ефект) и оранжевите (среден ефект) събития.</li>
+        <li>Остави само валутите, които търгуваш. За повечето начинаещи: USD, EUR, GBP, JPY.</li>
+        <li>Запиши филтъра. В неделя гледай седмицата, сутрин гледай деня.</li>
+      </ol>
+      <p>Освен Forex Factory ще ти трябват още няколко места. Таблицата с новинарските източници е в Глава 28. За крипто добави CoinMarketCap (цени, пазарна капитализация, индекс на страха и алчността) и CoinGlass (ликвидации и позиции с ливъридж).</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Impact · ефект</b>Колко силно събитието обикновено мести пазара. В Forex Factory: жълто, оранжево, червено.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>31.4 Техника и време</h2>
+      <p>Не ти трябват шест монитора. Трябват ти стабилен интернет, един екран, по-голям от телефона, и <b>предвидимо време</b>. Времето е по-важно от техниката.</p>
+      <div class="tablewrap" data-name="tehnika">
+        <table class="data">
+          <thead><tr><th>Нещо</th><th>Минимум</th><th>Удобно</th><th>Не ти трябва в началото</th></tr></thead>
+          <tbody>
+            <tr><td>Екран</td><td>Лаптоп</td><td>Един външен монитор</td><td>Стена от монитори</td></tr>
+            <tr><td>Интернет</td><td>Стабилна връзка</td><td>Резервна мобилна връзка</td><td>VPS сървър</td></tr>
+            <tr><td>Телефон</td><td>Аларми от TradingView</td><td>Приложение на брокера</td><td>Сигнални групи</td></tr>
+            <tr><td>Софтуер</td><td>TradingView Basic, Forex Factory</td><td>TradingView Essential</td><td>Платени индикатори и ботове</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Колко време реално имаш? Попълни честно.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Свободни сутрини в Лондон (дни/седмица)<input type="number" id="w1" value="3" min="0" max="5"></label>
+            <label>Минути на сесия<input type="number" id="w2" value="90" step="15" min="0"></label>
+            <label>Неделна подготовка (мин)<input type="number" id="w3" value="60" step="15" min="0"></label>
+            <label>Вечерен преглед (мин/ден)<input type="number" id="w4" value="15" step="5" min="0"></label>
+          </div>
+          <div class="out" id="wOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Сесиите тук са само прозорците, в които си пред екрана с план. Останалото време е за учене и бектест.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Три фокусирани сутрини седмично са повече от пет разсеяни. Пазарът ще е там и утре. Работният ти график няма да се промени заради него, затова построй търговията около живота, не обратното.</p>
+      </div>
+      <h3>Пробвай работното място</h3>
+      <p>Това е вградената графика на TradingView. Инструментите вляво работят: начертай ниво, смени таймфрейма. За да пазиш чертежите, отвори графиката в TradingView със собствен акаунт.</p>
+      <div class="tv" data-sym="FX:EURUSD,TVC:DXY,OANDA:XAUUSD,FX:GBPUSD" data-int="60"></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>VPS</b>Виртуален сървър, който държи платформата включена 24 часа. Нужен е основно за роботи.</div>
+      <div class="term"><b>Kill zone · активен прозорец</b>Часовете с най-голяма ликвидност: отварянето на Лондон и на Ню Йорк.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 31</h2>
+    <ul>
+      <li>TradingView Basic стига за началото. Плащай, когато ограничението те спира в работата.</li>
+      <li>Часова зона на София навсякъде: TradingView, Forex Factory, бележки.</li>
+      <li>Малък списък, чиста графика, аларми вместо седене.</li>
+      <li>Forex Factory: само висок и среден ефект, само твоите валути.</li>
+      <li>Предвидимото време е по-важно от техниката.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Имам акаунт в TradingView с часова зона на София и записана подредба.</label></li>
+      <li><label><input type="checkbox"> Имам акаунт в Forex Factory със записан филтър.</label></li>
+      <li><label><input type="checkbox"> Знам кои дни и часове от седмицата са моите за пазара.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Начинаещ има бюджет около 75 евро на месец за всичко, свързано с трейдинга. Иска TradingView Premium „за да вижда повече“, платен индикатор за 40 долара на месец и абонамент за сигнална група. Работи от 9 до 18 и има свободни сутрини само в събота и неделя.</p>
+      <p><b>Задача:</b> какво от това му трябва сега? Кога изобщо може да търгува Лондон? Как би разпределил бюджета и времето през първите три месеца?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Нужно ли е… Кога търгува… Бюджет… Време…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Нищо от трите. Premium решава проблем, който още няма. Платеният индикатор и сигналите заместват собственото мислене, а то е точно умението, което трябва да изгради.</li>
+          <li>Лондон отваря в 10:00 по София, когато той е на работа. След 18:00 Ню Йорк затихва и по правилото от Глава 9 нови позиции не се отварят. Реалистичният път е swing с анализ вечер (Глава 30), а уикендите са за подготовка, учене и бектест. Пазарът в събота е затворен, но графиките не са.</li>
+          <li>Бюджет: безплатни TradingView и Forex Factory. Парите се спестяват за по-късен prop опит или за малка реална сметка, когато критериите от Глава 34 са изпълнени.</li>
+          <li>Време: неделя за bias файл и бектест, делнични вечери по 30–45 минути за преглед и упражнения с демо. Скалпирането в Лондон става реалистично, ако работният график се промени. Решението е негово, но планът трябва да съвпада с часовника му.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Кой план на TradingView стига за началото по метода на книгата?",o:["Basic (безплатен)","Ultimate","Задължително Premium"],a:0,e:"Една графика, зони, сесии, малко аларми."},
+  {q:"Защо е важно часовата зона да е на София?",o:["Заради красотата","За да съвпадат часовете на новините и сесиите с бележките ти","Не е важно"],a:1,e:"Иначе 15:30 става 8:30 и пропускаш данните."},
+  {q:"Какво решава проблема „седя пред графиката цял ден“?",o:["Аларми на зоните","Още индикатори","Още двойки"],a:0,e:"Телефонът те вика, когато цената дойде."},
+  {q:"Кои събития да оставиш във филтъра на Forex Factory?",o:["Всички","Висок и среден ефект за твоите валути","Само жълтите"],a:1,e:"Шумът изяжда вниманието."},
+  {q:"Кое е по-важно в началото?",o:["Шест монитора","Предвидимо време","VPS"],a:1,e:"Времето е ресурсът, техниката е вторична."}
+],mid:[
+  {q:"Искаш 2 графики, 4 индикатора и 15 аларми. Най-евтиният план?",o:["Basic","Essential","Plus"],a:1,e:"Essential: 2 графики, 5 индикатора, 20 аларми."},
+  {q:"Американските данни в календара ти излизат в 8:30. Какво е грешно?",o:["Нищо","Часовата зона е на Ню Йорк, не на София","Брокерът"],a:1,e:"Разликата е 7 часа."},
+  {q:"Какво не замества хартиената търговия в TradingView?",o:["Рисуването","Демо при брокер с реални спредове и изпълнение","Алармите"],a:1,e:"Спредът и изпълнението са част от резултата."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  /* TV plan */
+  var P=[["Basic",0,1,2,3],["Essential",12.95,2,5,20],["Plus",29.95,4,10,100],["Premium",59.95,8,25,400],["Ultimate",199.95,16,50,1000]];
+  var t=["t1","t2","t3"].map(function(i){return document.getElementById(i)}),to=document.getElementById("tOut");
+  function tv(){var c=+t[0].value,i=+t[1].value,a=+t[2].value,p=null;for(var k=0;k<P.length;k++){if(P[k][2]>=c&&P[k][3]>=i&&P[k][4]>=a){p=P[k];break}}
+    if(!p){to.innerHTML="<span>Нито един план не покрива това. Сигурен ли си, че ти трябва?</span>";return}
+    to.innerHTML="<span>Най-евтиният подходящ план: <b>"+p[0]+"</b>"+(p[1]?" (~$"+p[1]+"/мес. при годишно плащане, ~$"+(p[1]*12).toFixed(0)+" годишно)":" (безплатно)")+".</span><span>"+(p[1]>30?"Голяма сума за начало. Кое от трите числа е наистина нужно?":"Разумно.")+"</span>"}
+  t.forEach(function(x){x.addEventListener("input",tv)});tv();
+  /* week */
+  var w=["w1","w2","w3","w4"].map(function(i){return document.getElementById(i)}),wo=document.getElementById("wOut");
+  function wk(){var d=+w[0].value,m=+w[1].value,s=+w[2].value,e=+w[3].value,live=d*m,tot=live+s+e*d;
+    wo.innerHTML="<span>Пред пазара с план: <b>"+(live/60).toFixed(1)+" ч</b> седмично.</span><span>Общо с подготовка и преглед: <b>"+(tot/60).toFixed(1)+" ч</b>.</span><span>"+(d===0?"Без сесии на живо: фокус върху бектест и подготовка.":live/60<3?"Малко, но достатъчно за 2–4 качествени възможности седмично.":live/60>10?"Много време пред екрана увеличава риска от свръхтърговия. Съкрати прозорците.":"Добър баланс.")+"</span>"}
+  w.forEach(function(x){x.addEventListener("input",wk)});wk();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

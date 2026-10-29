@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Стилове на трейдинг · FX Fundamentals</title>
+<meta name="description" content="Стилове на трейдинг: scalping, day trading, swing, position, SMC, ICT, order flow и макро. FX Fundamentals, безплатно ръководство от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../chS.html">
+<link rel="alternate" hreflang="bg" href="../bg/chS.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="S">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">30</div>
+    <h1>Стилове на трейдинг: кой е твоят</h1>
+    <blockquote class="quote">
+      Няма най-добър стил. Има стил, който пасва на часовете ти, на нервите ти и на сметката ти.
+      <cite>Трейдърска мъдрост</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да различиш scalping, day trading, swing и position trading по таймфрейм, задържане и време пред екрана;</li>
+        <li>да пресметнеш каква част от риска ти изяждат спредът и комисионната при всеки стил;</li>
+        <li>да обясниш какво четат price action, SMC, ICT, order flow, макро и алгоритмичните трейдъри;</li>
+        <li>да избереш един стил, един пазар и една сесия за първите 90 дни.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>30.1 Четирите хоризонта</h2>
+      <p>Стилът първо е въпрос на <b>време</b>: колко дълго държиш сделката и колко часа можеш да седиш пред графиката. Същият сетъп, например sweep и MSS от Глава 7, работи на M1 и на дневна графика. Разликата е колко пипа е стопът, колко пъти на ден се появява и колко силно те засягат разходите.</p>
+      <div class="tablewrap" data-name="stilove-horizont">
+        <table class="data">
+          <thead><tr><th>Стил</th><th>Вход на</th><th>Задържане</th><th>Сделки</th><th>Пред екрана</th><th>Типичен стоп EURUSD</th></tr></thead>
+          <tbody>
+            <tr><td><b>Scalping</b> (скалпиране)</td><td>M1–M5</td><td>секунди до 30 мин</td><td>много на ден</td><td>2–4 ч непрекъснато</td><td>3–8 пипа</td></tr>
+            <tr><td><b>Day trading</b> (дневна търговия)</td><td>M5–M15, контекст H1</td><td>до края на деня</td><td>0–3 на ден</td><td>2–5 ч в една сесия</td><td>10–25 пипа</td></tr>
+            <tr><td><b>Swing trading</b></td><td>H1–H4, контекст D1</td><td>2 до 10 дни</td><td>1–4 на седмица</td><td>30–60 мин на ден</td><td>30–100 пипа</td></tr>
+            <tr><td><b>Position trading</b></td><td>D1–W1</td><td>седмици до месеци</td><td>няколко на месец</td><td>няколко часа седмично</td><td>100–400 пипа</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Цифрите са ориентир, не правило. Добрата новина: с риск 1% размерът на позицията се смята от стопа (Глава 11), така че пиповете не променят колко губиш при грешка. Променят обаче колко от риска отива за <b>разходи</b>.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Стоп (пипа)<input type="number" id="cStop" value="15" min="1" step="1"></label>
+            <label>Спред (пипа)<input type="number" id="cSpr" value="0.8" min="0" step="0.1"></label>
+            <label>Комисионна (пипа за отиване и връщане)<input type="number" id="cCom" value="0.7" min="0" step="0.1"></label>
+          </div>
+          <div class="chips" role="group" aria-label="Пример по стил" style="display:flex;flex-wrap:wrap;gap:6px;margin:10px 0">
+            <button class="chip" type="button" data-s="5">Scalp 5</button><button class="chip" type="button" data-s="15">Day 15</button><button class="chip" type="button" data-s="50">Swing 50</button><button class="chip" type="button" data-s="150">Position 150</button>
+          </div>
+          <div class="out" id="cOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Разходът като част от риска. При 5 пипа стоп и 1.5 пипа разход всяка сделка започва с −0.3R, преди цената да мръдне. Спредът и комисионната са примерни за ECN сметка; провери своите при брокера (Глава 32).</figcaption>
+      </figure>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>„Scalping е най-бързият път към големи пари, защото правиш много сделки.“</p></div>
+        <div><span class="label">Реалност</span><p>Повече сделки значи повече разходи, повече решения под натиск и повече шанс за грешка в изпълнението. Scalping прощава най-малко. За начинаещ обикновено е най-трудният стил, не най-лесният.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Scalping · скалпиране</b>Много кратки сделки за няколко пипа, обикновено на M1–M5.</div>
+      <div class="term"><b>Day trading · дневна търговия</b>Всички сделки се затварят в рамките на деня, без позиции през нощта.</div>
+      <div class="term"><b>Swing trading</b>Сделки от няколко дни, които хващат едно „люлеене“ на цената.</div>
+      <div class="term"><b>Position trading</b>Дълги позиции от седмици до месеци, водени главно от макрото.</div>
+      <div class="term"><b>Swap · суап</b>Лихвата, която плащаш или получаваш за позиция, държана през нощта.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>30.2 Школите: какво чете всеки</h2>
+      <p>Хоризонтът казва <i>колко дълго</i>. Школата казва <i>какво гледаш</i>, за да решиш. Повечето трейдъри смесват две школи, например SMC за входа и макро за посоката.</p>
+      <div class="four">
+        <div><span class="label">Класически price action</span><b>Свещи, нива, тренд</b><span>Подкрепа и съпротива, модели на свещи, пробив и ретест (Глави 3–4). Прост и прозрачен. Слабост: много субективни нива.</span></div>
+        <div><span class="label">SMC</span><b>Ликвидност и структура</b><span>BOS, CHoCH, sweep, order block, FVG, premium/discount (Глави 6–7). Обяснява защо цената обира стопове. Слабост: лесно е да видиш зона навсякъде.</span></div>
+        <div><span class="label">ICT</span><b>Време + ликвидност</b><span>Kill zones, OTE, PD arrays, Silver Bullet, Power of 3. Голяма част от речника на SMC идва оттук. Слабост: много правила, някои непроверими.</span></div>
+        <div><span class="label">Order flow</span><b>Реални поръчки и обем</b><span>Footprint, DOM, delta, volume profile на фючърси като ES и NQ (Глава 15). Виждаш кой натиска. Слабост: нужни са борсови данни и платформа.</span></div>
+        <div><span class="label">Макро FX</span><b>Лихви и икономика</b><span>Разлики в лихвите, инфлация, централни банки, risk-on/off (Част III). Дава посоката за седмици. Слабост: слаб е за точен вход.</span></div>
+        <div><span class="label">Алгоритмичен</span><b>Правила в код</b><span>Стратегия, тествана статистически и изпълнявана от програма. Без емоции при входа. Слабост: изисква програмиране, а капанът е „нагласяването“ към миналото.</span></div>
+      </div>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Школите не са религии. Те са различни очила за една и съща графика. Опасното е да носиш шест чифта едновременно: тогава винаги ще намериш причина за сделка. Избери едни основни очила и едни за проверка.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>SMC · Smart Money Concepts</b>Подход, който чете структурата и ликвидността през погледа на големите играчи.</div>
+      <div class="term"><b>ICT · Inner Circle Trader</b>Методология на Майкъл Хъдълстън, от която идва голяма част от речника на SMC.</div>
+      <div class="term"><b>Overfitting · нагласяване</b>Стратегия, настроена толкова точно към миналото, че не работи в бъдещето.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: средно">●●</span>30.3 Order flow: индекси срещу форекс</h2>
+      <p>Order flow е най-честното „очило“, защото гледа истинските сделки. Но работи пълноценно само там, където има <b>централна борса</b>, която вижда всички поръчки.</p>
+      <div class="tablewrap" data-name="orderflow-pazari">
+        <table class="data">
+          <thead><tr><th></th><th>Фючърси на индекси (ES, NQ)</th><th>Спот форекс (EURUSD)</th></tr></thead>
+          <tbody>
+            <tr><td>Къде се търгува</td><td>Една борса: CME</td><td>Стотици банки и брокери, без център</td></tr>
+            <tr><td>Обем</td><td>Реален, всеки договор</td><td>Tick volume: брой промени на цената при твоя брокер</td></tr>
+            <tr><td>Footprint и delta</td><td>Пълни и точни</td><td>Приблизителни</td></tr>
+            <tr><td>DOM (книга с поръчки)</td><td>Видима</td><td>Само на брокера, не на пазара</td></tr>
+            <tr><td>Заобиколен път</td><td>Не е нужен</td><td>Фючърсът 6E (евро) на CME като заместител</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Затова order flow трейдърите обикновено търгуват индекси и фючърси, а форекс трейдърите разчитат на структура, ликвидност и сесии. Ако искаш order flow при еврото, гледай 6E и пренасяй прочита към EURUSD.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Footprint</b>Графика, която показва купени и продадени договори на всяка цена в свещта.</div>
+      <div class="term"><b>Delta · делта</b>Купено минус продадено с пазарни поръчки за даден период.</div>
+      <div class="term"><b>DOM · Depth of Market</b>Книгата с чакащи лимитни поръчки над и под цената.</div>
+      <div class="term"><b>Tick volume</b>Брой промени на цената за период. Заместител на обема при спот форекс.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>30.4 ICT накратко</h2>
+      <p>ICT е най-обсъжданата школа в YouTube и затова заслужава трезв поглед. Ето основните идеи, преведени на езика на тази книга.</p>
+      <div class="tablewrap" data-name="ict-poniatia">
+        <table class="data">
+          <thead><tr><th>Понятие</th><th>Какво значи</th><th>Къде е в книгата</th></tr></thead>
+          <tbody>
+            <tr><td><b>Kill zones</b></td><td>Прозорци с най-голямо движение. В ICT версията: Лондон 09:00–12:00 и Ню Йорк 14:00–17:00 софийско време; в Глава 9 книгата ползва по-тесни прозорци</td><td>Глава 9</td></tr>
+            <tr><td><b>PD arrays</b></td><td>Зони, към които цената се връща: order block, FVG, стари върхове и дъна</td><td>Глава 7</td></tr>
+            <tr><td><b>Premium / discount</b></td><td>Купувай в долната половина на диапазона, продавай в горната</td><td>Глава 7</td></tr>
+            <tr><td><b>OTE</b></td><td>Optimal Trade Entry: вход при връщане между 62% и 79% от последното движение</td><td>Глава 10</td></tr>
+            <tr><td><b>Power of 3 (AMD)</b></td><td>Натрупване в Азия, манипулация (sweep) в Лондон, разпределение (истинското движение) после</td><td>Глави 9 и 14</td></tr>
+            <tr><td><b>Silver Bullet</b></td><td>Сетъп с FVG в тесен прозорец: 17:00–18:00 софийско време (10–11 ч. в Ню Йорк)</td><td>Глави 7 и 9</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>„Цената се движи от скрит алгоритъм (IPDA), който ICT е разкрил.“</p></div>
+        <div><span class="label">Реалност</span><p>Няма публично доказателство за такъв алгоритъм. Понятията като ликвидност, сесии и FVG описват полезни повторения в поведението на цената. Третирай ги като хипотези, които проверяваш с бектест, а не като закон.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>OTE · Optimal Trade Entry</b>Вход при връщане между 62% и 79% от последното движение (по Фибоначи).</div>
+      <div class="term"><b>PD array</b>Ценова зона, към която пазарът вероятно ще се върне: OB, FVG, стар връх или дъно.</div>
+      <div class="term"><b>Power of 3 · AMD</b>Accumulation, manipulation, distribution: натрупване, манипулация, разпределение.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: основно">●</span>30.5 Кой стил е за теб</h2>
+      <p>Отговори честно. Резултатът е отправна точка, не присъда. Можеш да смениш стила по-късно, но не преди да си изкарал 90 дни с един.</p>
+      <figure>
+        <div class="calc" id="finder"></div>
+        <figcaption>Учебен тест. Не отчита всичко, например часовата ти зона или правилата на prop фирмата.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Правилото 1-1-1</span>
+        <p>Един стил, един пазар, една сесия за първите 90 дни (Глава 34). Ако след това имаш 30+ сделки с положително очакване, тогава добавяш второто. Не преди.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Screen time · време пред екрана</b>Часовете, които прекарваш в гледане на графики. Ресурс, който стилът изисква.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 30</h2>
+    <ul>
+      <li>Хоризонтът (scalp, day, swing, position) определя таймфрейма, стопа и времето пред екрана.</li>
+      <li>Колкото по-малък е стопът, толкова по-голяма част от риска изяждат спредът и комисионната.</li>
+      <li>Школата (price action, SMC, ICT, order flow, макро, алгоритмична) определя какво четеш. Една основна, една за проверка.</li>
+      <li>Пълноценен order flow има там, където има централна борса: индекси и фючърси.</li>
+      <li>ICT понятията са полезни хипотези. Проверявай ги с бектест.</li>
+      <li>Правилото 1-1-1: един стил, един пазар, една сесия за 90 дни.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Минах теста в 30.5 и записах резултата.</label></li>
+      <li><label><input type="checkbox"> Сметнах разходите като част от риска за моя стоп.</label></li>
+      <li><label><input type="checkbox"> Записах моето 1-1-1: стил, пазар, сесия.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Трейдър работи от 9 до 18 ч. и има свободни 40 минути сутрин и час вечер. Гледа ICT видеа и иска да скалпира Silver Bullet в 17:00 софийско време на M1 със стоп 4 пипа. Брокерът му е със спред 1.0 и комисионна 0.7 пипа.</p>
+      <p><b>Задача:</b> какви са двата проблема в плана? Какъв стил и прозорец пасват по-добре на живота му и как ще пренесе идеите, които харесва?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Проблем 1… Проблем 2… По-добър стил… Как пренасям идеите…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Времето: в 17:00 той е на работа. План, който изисква екран в работно време, ще бъде нарушаван или ще се търгува от телефона под натиск.</li>
+          <li>Разходите: 1.7 пипа разход при 4 пипа стоп са 0.43R на сделка. Нужна е огромна печеливша серия само за да покрие таксите.</li>
+          <li>По-добре пасва swing на H1–H4: анализ вечер, лимитни поръчки със стоп и цел, проверка сутрин. Стопът от 30–60 пипа сваля разхода под 6% от риска.</li>
+          <li>Идеите остават: ликвидност, FVG и premium/discount работят и на H4. Kill zone логиката се заменя с дневни и седмични нива. Решението кой стил да избере е негово, но графикът и сметката вече са гласували.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Кой стил държи сделките от секунди до около 30 минути?",o:["Swing","Scalping","Position"],a:1,e:"Scalping е най-краткият хоризонт."},
+  {q:"Day trader-ът държи ли позиции през нощта?",o:["Да, винаги","Не, затваря всичко в деня","Само в петък"],a:1,e:"Това е определението на day trading."},
+  {q:"Кой стил изисква най-малко време пред екрана всеки ден?",o:["Scalping","Day trading","Position trading"],a:2,e:"Решенията са на дневна и седмична графика."},
+  {q:"Къде order flow работи пълноценно?",o:["На спот форекс","На фючърси с централна борса като ES и NQ","Навсякъде еднакво"],a:1,e:"Само там има реален обем и книга с поръчки."},
+  {q:"Какво е правилото 1-1-1?",o:["1 сделка на ден","Един стил, един пазар, една сесия за 90 дни","1% риск, 1R цел, 1 час"],a:1,e:"Фокусът дава данни, които значат нещо."}
+],mid:[
+  {q:"Стоп 6 пипа, спред 0.9, комисионна 0.6. Колко R е разходът на сделка?",o:["0.05R","0.25R","1R"],a:1,e:"1.5 / 6 = 0.25R."},
+  {q:"Кое е вярно за ICT понятията?",o:["Доказан закон на пазара","Полезни хипотези, които се проверяват с бектест","Безполезни"],a:1,e:"Ползвай ги, но ги измервай."},
+  {q:"Защо форекс трейдър би гледал фючърса 6E?",o:["Защото е по-евтин","За да види реален обем и delta за еврото","Защото е по-волатилен"],a:1,e:"Спот форексът няма централна борса."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  /* cost as a share of risk */
+  var st=document.getElementById("cStop"),sp=document.getElementById("cSpr"),cm=document.getElementById("cCom"),out=document.getElementById("cOut");
+  function calc(){var s=Math.max(+st.value||0,0.1),c=(+sp.value||0)+(+cm.value||0),r=c/s,pct=Math.round(r*100);
+    var col=pct>=20?"var(--bear)":pct>=8?"var(--news)":"var(--bull)";
+    out.innerHTML="<span>Разход на сделка: <b>"+c.toFixed(1)+" пипа</b></span><span>Като част от риска: <b style='color:"+col+"'>"+pct+"% = −"+r.toFixed(2)+"R</b></span>"+
+      "<span>"+(pct>=20?"Разходите са сериозен противник. Нужен е много висок процент печеливши сделки.":pct>=8?"Осезаемо. Следи разходите в дневника.":"Разходите почти не влияят на резултата.")+"</span>"}
+  [st,sp,cm].forEach(function(x){x.addEventListener("input",calc)});
+  Array.prototype.forEach.call(document.querySelectorAll("[data-s]"),function(b){b.addEventListener("click",function(){st.value=b.getAttribute("data-s");calc()})});
+  calc();
+  /* style finder */
+  var Q=[
+    ["Колко време на ден можеш да седиш пред графиката без прекъсване?",[["Под 1 час",{sw:2,po:2}],["1–3 часа в една сесия",{da:2,sw:1}],["3+ часа",{sc:2,da:1}]]],
+    ["Кога си свободен?",[["Само вечер или сутрин рано",{sw:2,po:1}],["По време на Лондон или Ню Йорк",{da:2,sc:1}],["Гъвкаво",{da:1,sw:1}]]],
+    ["Как реагираш на бързи решения под натиск?",[["Обичам ги, мисля бързо",{sc:2,da:1}],["Справям се, но предпочитам план",{da:1,sw:1}],["Предпочитам да имам време да помисля",{sw:2,po:1}]]],
+    ["Как се чувстваш, когато сделка стои отворена през нощта?",[["Не мога да спя",{sc:2,da:2}],["Нормално, щом има стоп",{sw:2}],["Нямам проблем и седмици",{po:2,sw:1}]]],
+    ["Какво те интересува повече?",[["Графиката и точния вход",{sc:1,da:2}],["Комбинация от графика и макро",{sw:2}],["Икономиката и лихвите",{po:2}]]]
+  ];
+  var N={sc:["Scalping","Внимавай с разходите: дръж ги под 20% от риска. Започни с M5, не с M1."],da:["Day trading","Една сесия, един-два сетъпа на ден, без позиции през нощта. Пасва на модела от Глава 10."],sw:["Swing trading","Анализ вечер, лимитни поръчки, проверка веднъж-два пъти на ден. Добър старт за хора с работа."],po:["Position trading","Макро посока от Част III, вход на D1, малко сделки и търпение."]};
+  var box=document.getElementById("finder"),ans=[];
+  function draw(){var h="";Q.forEach(function(q,i){h+="<p style='margin:10px 0 6px'><b>"+(i+1)+". "+q[0]+"</b></p><div style='display:flex;flex-wrap:wrap;gap:6px'>";
+      q[1].forEach(function(o,j){h+="<button type='button' class='chip' data-q='"+i+"' data-o='"+j+"' aria-pressed='"+(ans[i]===j)+"'>"+o[0]+"</button>"});h+="</div>"});
+    var done=ans.filter(function(x){return x!==undefined}).length;
+    if(done===Q.length){var t={sc:0,da:0,sw:0,po:0};ans.forEach(function(j,i){var w=Q[i][1][j][1];for(var k in w)t[k]+=w[k]});
+      var best=Object.keys(t).sort(function(a,b){return t[b]-t[a]})[0];
+      h+="<div class='out' style='margin-top:12px'><span>Най-близо до теб: <b style='color:var(--liq)'>"+N[best][0]+"</b></span><span>"+N[best][1]+"</span></div>";
+      try{Book.store("bS-style",best)}catch(e){}}
+    else h+="<p class='label' style='margin-top:12px'>Отговорени: "+done+" от "+Q.length+"</p>";
+    box.innerHTML=h}
+  box.addEventListener("click",function(e){var b=e.target.closest("[data-q]");if(!b)return;ans[+b.getAttribute("data-q")]=+b.getAttribute("data-o");draw()});
+  draw();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

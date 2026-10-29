@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Новинарски риск · FX Fundamentals</title>
+<meta name="description" content="Протокол за новинарски риск · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch13.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch13.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="13">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">13</div>
+    <h1>Протокол за новинарски риск</h1>
+    <blockquote class="quote">
+      Пазарът може да остане ирационален по-дълго, отколкото ти можеш да останеш платежоспособен.
+      <cite>Приписвано на Джон Мейнард Кейнс</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да разделиш новините на червени, оранжеви и жълти и да знаеш буфера около всяка;</li>
+        <li>да провериш Forex Factory преди всяка сесия за 30 секунди;</li>
+        <li>да разпознаеш sweep, създаден от новина, и да знаеш кога (и дали) да го четеш.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>13.1 Защо новините са отделен свят</h2>
+      <p>В нормален час EURUSD изминава 10–20 пипа. В първата минута след неочакван CPI може да измине 40 в едната посока и 30 в другата. Спредът се разширява, стоповете се изпълняват със slippage (приплъзване), а свещите губят обичайния си смисъл. Затова около важните новини има отделни правила. Целта им не е да спечелиш от новината, а тя да не те изненада.</p>
+      <div class="box ff">
+        <span class="label">Гледай във Forex Factory</span>
+        <p>Forex Factory (forexfactory.com) е безплатният икономически календар, който ползват почти всички трейдъри. Всяко събитие има цветна папка за важност: червена (висока), оранжева (средна), жълта (ниска). Глава 19 показва как да го настроиш стъпка по стъпка.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>High impact · висока важност</b>Червена папка във Forex Factory. Може да движи пазара с десетки пипове за секунди.</div>
+      <div class="term"><b>Spread widening · разширяване на спреда</b>Спредът расте около новини, защото доставчиците на ликвидност се оттеглят.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>13.2 Класификация и буфери</h2>
+      <div class="tablewrap" data-name="novini-bufer">
+        <table class="data">
+          <thead><tr><th>Събитие</th><th>Важност</th><th>Действие</th><th>Буфер</th></tr></thead>
+          <tbody>
+            <tr><td>NFP (заетост в САЩ)</td><td style="color:var(--bear)">Висока</td><td>Без нови позиции</td><td class="mono">−30 мин → +60 мин</td></tr>
+            <tr><td>Решение на Фед (FOMC)</td><td style="color:var(--bear)">Висока</td><td>Без нови позиции</td><td class="mono">−60 мин → +60 мин</td></tr>
+            <tr><td>CPI / Core CPI</td><td style="color:var(--bear)">Висока</td><td>Без нови позиции</td><td class="mono">−30 мин → +30 мин</td></tr>
+            <tr><td>Решение на ЕЦБ, BoJ, BoE</td><td style="color:var(--bear)">Висока</td><td>Без нови позиции</td><td class="mono">−60 мин → +60 мин</td></tr>
+            <tr><td>БВП (първа оценка)</td><td style="color:var(--bear)">Висока</td><td>Без нови позиции</td><td class="mono">−30 мин → +30 мин</td></tr>
+            <tr><td>Пресконференция на централна банка</td><td style="color:var(--bear)">Висока</td><td>Без нови позиции</td><td class="mono">цялото събитие</td></tr>
+            <tr><td>PMI, продажби на дребно, ADP, търговски баланс</td><td style="color:var(--news)">Средна</td><td>Половин размер</td><td class="mono">около ±15 мин</td></tr>
+            <tr><td>Жилищни данни, разрешителни, малки анкети</td><td>Ниска</td><td>Нормално</td><td class="mono">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Събитие<select id="ev">
+              <option value="30|60">NFP</option>
+              <option value="60|60">FOMC</option>
+              <option value="30|30" selected>CPI</option>
+              <option value="60|60">ЕЦБ / BoJ / BoE</option>
+              <option value="30|30">БВП</option>
+              <option value="15|15">Средна важност</option>
+            </select></label>
+            <label>Час по софийско време<input type="time" id="evT" value="15:30"></label>
+          </div>
+          <svg id="evSvg" viewBox="0 0 520 90" role="img" aria-label="Забранен прозорец около новината"></svg>
+          <div class="out" id="evOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Изчисли прозореца без нови позиции за деня.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>NFP</b>Non-Farm Payrolls: новите работни места в САЩ извън селското стопанство. Обикновено първия петък на месеца.</div>
+      <div class="term"><b>FOMC</b>Комитетът на Фед, който решава лихвите. 8 пъти годишно.</div>
+      <div class="term"><b>CPI</b>Индекс на потребителските цени: основната мярка за инфлация.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>13.3 Проверката преди сесия</h2>
+      <p>Тази проверка отнема 30 секунди и се прави преди всеки анализ, без изключение:</p>
+      <div class="calc">
+        <div style="display:grid;gap:6px" id="pn">
+          <label><input type="checkbox"> Forex Factory е проверен за следващите 4 часа</label>
+          <label><input type="checkbox"> Червените папки за валутите в моите двойки са отбелязани</label>
+          <label><input type="checkbox"> Буферите са изчислени и записани</label>
+          <label><input type="checkbox"> Отворените позиции имат план за новината (Глава 12)</label>
+          <label><input type="checkbox"> Нови решения само след буфера</label>
+        </div>
+        <div class="out" id="pnOut" aria-live="polite"></div>
+      </div>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Най-честата причина за „необяснима“ загуба при начинаещите е новина, за която не са знаели. Тя беше в календара. Календарът не е виновен.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Economic calendar · икономически календар</b>Списък с часовете на всички публикации на данни и речи.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>13.4 Sweep, създаден от новина</h2>
+      <p>Понякога новината сама създава картина. Шипът след числото често минава отвъд важно ниво с ликвидност (дъното на Лондон, PDH), взима стоповете и се връща. След като пазарът се успокои, на малкия таймфрейм се образува MSS в обратната посока и зона (OB или FVG) в района на шипа.</p>
+      <figure class="diagram">
+        <svg id="ns" viewBox="0 0 520 230" role="img" aria-label="Шип след новина, sweep на ниво и обратна смяна на структурата"></svg>
+        <div class="parts">
+          <button class="chip" data-ns="1">1. Преди</button>
+          <button class="chip" data-ns="2">2. Шипът</button>
+          <button class="chip" data-ns="3">3. Успокояване</button>
+          <button class="chip" data-ns="4">4. MSS и зона</button>
+        </div>
+        <p class="verdict" id="nsText" aria-live="polite"></p>
+      </figure>
+      <p>Изисквания, за да се чете като картина: поне 30 минути след новината, структурата на D1/H4 потвърждава посоката и има поне 3R до следващата ликвидност. Без тях това е просто шум.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>News spike · новинарски шип</b>Рязкото движение в първите секунди и минути след публикацията.</div>
+      <div class="term"><b>Settle · успокояване</b>Връщане на волатилността към нормалното, обикновено 15–30 минути след числото.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: средно">●●</span>13.5 Геополитически шок</h2>
+      <p>Войни, атаки, ескалации не са в календара. Когато се случат, пазарът минава в режим „бягство от риска“ (Глава 22). Типичната реакция:</p>
+      <div class="tablewrap" data-name="geopolitika-reakcia">
+        <table class="data">
+          <thead><tr><th>Инструмент</th><th>Обичайна посока при шок</th><th>Защо</th></tr></thead>
+          <tbody>
+            <tr><td>Злато (XAUUSD)</td><td style="color:var(--bull)">Нагоре</td><td>Safe haven (убежище); първо реагира</td></tr>
+            <tr><td>Японска йена</td><td style="color:var(--bull)">Нагоре (USDJPY надолу)</td><td>Safe haven; затваряне на carry позиции</td></tr>
+            <tr><td>Швейцарски франк</td><td style="color:var(--bull)">Нагоре</td><td>Safe haven</td></tr>
+            <tr><td>AUD, NZD, валути на развиващите се пазари</td><td style="color:var(--bear)">Надолу</td><td>Рискови валути</td></tr>
+            <tr><td>Фондови индекси</td><td style="color:var(--bear)">Надолу</td><td>Бягство от риск</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Първите стъпки: провери дали имаш няколко позиции, които всъщност са един и същ залог (например long AUDUSD и long NZDUSD). Не отваряй нови рискови позиции, докато пазарът не намери структура.</p>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Ако знам каква ще е новината, знам накъде ще иде цената.</p></div>
+        <div><span class="label">Реалност</span><p>Цената реагира на разликата между числото и очакването, не на самото число (Глава 19). Добра новина, която всички очакват, може да свали цената.</p></div>
+      </div>
+      <h3>Календарът на живо</h3>
+      <p>Вграден календар за седмицата със събитията със среден и висок ефект за основните валути. Работният ни инструмент остава Forex Factory: тук само проверяваш набързо.</p>
+      <div class="ecal"></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Safe haven · убежище</b>Актив, към който капиталът бяга при страх: злато, йена, франк, американски облигации.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-label="Задълбочи">
+    <div class="main">
+      <details class="deeper">
+        <summary><span class="dots" aria-hidden="true">●●●</span><span class="dp-t"><small>Задълбочи</small><b>Секундата преди числото</b></span><span class="drop-caret" aria-hidden="true">▾</span></summary>
+        <div class="dp-body">
+          <p>В последните секунди преди голяма публикация банките и маркет мейкърите дърпат котировките си или рязко ги разширяват: никой не иска да е от грешната страна на числото. Книгата с поръчки изтънява точно когато пристигат най-много поръчки.</p>
+          <p>Стоп поръчката не е гаранция за цена. Щом се задейства, тя става <b>пазарна поръчка</b> и взема каквато цена има. В тънка книга това може да е 10, 20 или повече пипса по-далеч. Slippage-ът е и асиметричен: при бързо движение срещу теб получаваш по-лошата цена, а лимитна поръчка в твоя полза може просто да не се изпълни.</p>
+          <p>Затова протоколът в тази глава е построен около времето, а не около цената: бъди вън или защитен преди числото и се върни след първите минути, когато котировките се върнат и спредът се нормализира.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 13</h2>
+    <ul>
+      <li>Червена папка: без нови позиции в буфера (CPI ±30, NFP −30/+60, централни банки ±60 мин).</li>
+      <li>Forex Factory за следващите 4 часа преди всеки анализ.</li>
+      <li>Шипът може да създаде sweep. Чете се само след успокояване, с MSS и в посоката на D1/H4.</li>
+      <li>Геополитически шок: злато, йена и франк нагоре; AUD, NZD и индекси надолу.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Отворих Forex Factory и намерих червените папки за тази седмица.</label></li>
+      <li><label><input type="checkbox"> Изгледах на M5 последните CPI и NFP и видях колко се е разширил диапазонът.</label></li>
+      <li><label><input type="checkbox"> Намерих един пример за sweep, създаден от новина.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Сряда. В 21:00 има FOMC. До 18:00 EURUSD е в тесен диапазон. В 21:00 цената скача 35 пипа нагоре над PDH, в 21:04 се връща 50 пипа надолу, в 21:30 започва пресконференцията. D1 е bearish (мечи). Приятел пита: „Шипът над PDH е sweep, нали? Да продавам ли сега?“</p>
+      <p><b>Задача:</b> какво би му отговорил? Какви са буферите тук? Какви условия трябва да се изпълнят, за да има картина, и кога най-рано?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Буфери… Условия… Кога…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Да, по форма прилича на sweep на BSL над PDH в посоката на bearish D1.</li>
+          <li>Но: буферът за FOMC е от 20:00 до 22:00, а пресконференцията (21:30) е отделно събитие с важност през цялото си времетраене. Пазарът може да обърне всичко още два пъти.</li>
+          <li>Условия: краят на пресконференцията, поне 30 минути успокояване, MSS на M5 надолу, ясна зона в района на шипа, 3R до следващата SSL.</li>
+          <li>Най-рано след около 22:30, когато вече е нюйоркски следобед и ликвидността пада. Честният отговор е: „Днес не. Запиши го в дневника и виж утре в Лондон какво е останало.“</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Какъв цвят е папката за висока важност във Forex Factory?",o:["Жълта","Оранжева","Червена"],a:2,e:"Червено = висока важност."},
+  {q:"Буфер около CPI?",o:["±5 мин","±30 мин","±1 ден"],a:1,e:"30 минути преди и след."},
+  {q:"Какво правиш с отворена позиция на печалба преди червена папка?",o:["Разширяваш стопа","Обмисляш частично затваряне или стоп на breakeven (нула)","Добавяш"],a:1,e:"Защитаваш, никога не разширяваш."},
+  {q:"Накъде обикновено отива златото при геополитически шок?",o:["Нагоре","Надолу","Не реагира"],a:0,e:"Златото е safe haven."},
+  {q:"Колко напред проверяваш календара?",o:["1 час","4 часа","1 седмица"],a:1,e:"Следващите 4 часа преди всеки анализ (а в неделя: цялата седмица)."}
+],mid:[
+  {q:"NFP е в 15:30. Кога най-рано е разумно ново решение?",o:["15:35","около 16:30","15:00"],a:1,e:"Буферът за NFP е +60 минути."},
+  {q:"Шипът след CPI минава под дъното на Лондон и се връща. D1 е bullish (бичи). Кога се чете като картина?",o:["Веднага","След успокояване, с MSS нагоре на M5 и поне 3R до целта","Никога"],a:1,e:"Новинарският sweep се чете след буфера и с потвърждение."},
+  {q:"Имаш long AUDUSD и long NZDUSD. Излиза новина за военна ескалация. Каква е главната опасност?",o:["Нищо, това са две различни двойки","Двете позиции са на практика един залог срещу бягството от риск","Йената"],a:1,e:"Корелирани позиции удвояват риска при шок."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  var ev=document.getElementById("ev"),t=document.getElementById("evT"),sv=document.getElementById("evSvg"),o=document.getElementById("evOut");
+  function mm(s){var p=s.split(":");return +p[0]*60+(+p[1])}function hm(m){m=(m+1440)%1440;var h=Math.floor(m/60),x=m%60;return (h<10?"0":"")+h+":"+(x<10?"0":"")+x}
+  function calc(){var b=ev.value.split("|"),pre=+b[0],post=+b[1],m=mm(t.value||"15:30"),a=m-pre,z=m+post;
+    sv.innerHTML="";var L=20,R=500,S=m-120,E=m+150;function X(v){return L+(R-L)*(v-S)/(E-S)}
+    el("line",{x1:L,x2:R,y1:50,y2:50,stroke:"var(--line)","stroke-width":2},sv);
+    el("rect",{x:X(a),y:30,width:X(z)-X(a),height:40,fill:"var(--bear)","fill-opacity":.18},sv);
+    el("line",{x1:X(m),x2:X(m),y1:20,y2:80,stroke:"var(--news)","stroke-width":3},sv);
+    el("text",{x:X(m)+4,y:18,"font-size":11,fill:"var(--news)"},sv).textContent="новина "+hm(m);
+    el("text",{x:X(a),y:86,"font-size":10,fill:"var(--bear)"},sv).textContent=hm(a);el("text",{x:X(z)-30,y:86,"font-size":10,fill:"var(--bear)"},sv).textContent=hm(z);
+    el("text",{x:X(a)+4,y:54,"font-size":10,fill:"var(--bear)"},sv).textContent="без нови позиции";
+    o.innerHTML="<span>Без нови позиции от <b>"+hm(a)+"</b> до <b>"+hm(z)+"</b> софийско време.</span><span>След "+hm(z)+": провери дали волатилността се е успокоила и има ли нова структура.</span>"}
+  ev.addEventListener("change",calc);t.addEventListener("input",calc);calc();
+
+  var pn=document.getElementById("pn"),po=document.getElementById("pnOut");
+  function pc(){var n=0,a=0;Book.each("input",function(c){a++;if(c.checked)n++},pn);po.innerHTML=n===a?"<span style=\"color:var(--bull)\">Проверката е минала. ✓</span>":"<span>"+n+" / "+a+": довърши проверката преди анализа.</span>"}
+  Book.each("input",function(c){c.addEventListener("change",pc)},pn);pc();
+
+  var ns=document.getElementById("ns"),ny=function(v){return 215-v*1.8};
+  var C=[[60,62,64,58],[62,60,64,58],[60,61,63,58],[61,60,62,59],[60,30,62,24],[30,52,56,28],[52,46,54,44],[46,50,52,44],[50,47,51,44],[47,58,60,46],[58,56,60,52],[56,64,66,55],[64,72,74,63]];
+  var ends=[4,6,9,13],TX=["Преди 15:30: тесен диапазон, никой не поема риск. На 46–48 е дъното на Лондон, а под него стоят стоповете.","15:30: числото излиза, свещта на M5 пада 36 единици и пробива дъното на Лондон, после се връща. Огромен фитил: стоповете са взети.","15:35–16:00: волатилността намалява, свещите стават нормални. Това е буферът: нищо не се решава.","След 16:00: цената затваря над последния малък връх (MSS) и оставя зона на 44–52. Ако D1 е bullish и до следващата ликвидност има 3R, това вече е картина за наблюдение."];
+  function d(n){ns.innerHTML="";el("line",{x1:20,x2:510,y1:ny(46),y2:ny(46),stroke:"var(--liq)","stroke-dasharray":"4 4"},ns);el("text",{x:24,y:ny(46)+14,"font-size":10,fill:"var(--liq)"},ns).textContent="дъно на Лондон (SSL)";
+    var x0=20+4*36;el("line",{x1:x0+9,x2:x0+9,y1:10,y2:220,stroke:"var(--news)","stroke-dasharray":"3 3"},ns);el("text",{x:x0+14,y:20,"font-size":10,fill:"var(--news)"},ns).textContent="15:30";
+    if(n>=3){el("rect",{x:x0,y:10,width:36*5,height:210,fill:"var(--news)","fill-opacity":.08},ns)}
+    if(n>=4){el("rect",{x:20,y:ny(52),width:490,height:ny(44)-ny(52),fill:"var(--bull)","fill-opacity":.12},ns);el("line",{x1:20+7*36,x2:20+11*36,y1:ny(54),y2:ny(54),stroke:"var(--bull)","stroke-dasharray":"3 3"},ns);el("text",{x:20+10*36,y:ny(54)-5,"font-size":10,fill:"var(--bull)"},ns).textContent="MSS"}
+    C.slice(0,ends[n-1]).forEach(function(c,i){var o=c[0],cl=c[1],hi=c[2],lo=c[3],x=20+i*36,col=cl>=o?"var(--bull)":"var(--bear)";el("line",{x1:x+9,x2:x+9,y1:ny(hi),y2:ny(lo),stroke:col,"stroke-width":2},ns);el("rect",{x:x,width:18,y:ny(Math.max(o,cl)),height:Math.max(1.5,Math.abs(ny(o)-ny(cl))),fill:col},ns)});
+    document.getElementById("nsText").textContent=TX[n-1];Book.each("[data-ns]",function(b){b.setAttribute("aria-pressed",b.dataset.ns==n)})}
+  Book.each("[data-ns]",function(b){b.addEventListener("click",function(){d(+b.dataset.ns)})});d(4);
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

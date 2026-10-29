@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Риск и размер на позицията · FX Fundamentals</title>
+<meta name="description" content="Риск и размер на позицията · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch11.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch11.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="11">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">11</div>
+    <h1>Риск и размер на позицията</h1>
+    <blockquote class="quote">
+      За да успееш, първо трябва да оцелееш.
+      <cite>Пазарна поговорка, често свързвана с Уорън Бъфет</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да обясниш защо 1% риск на сделка е основата на оцеляването;</li>
+        <li>да пресметнеш колко трябва да спечелиш, за да се върнеш от спад от 10%, 20% или 50%;</li>
+        <li>да зададеш дневен лимит на загубите и да намаляваш размера, когато пазарът е бурен.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>11.1 Защо точно 1%</h2>
+      <p>В Глава 2 изчисли размер на позиция с риск 1%. Сега защо това число. Отговорът е в аритметиката на загубите. Ако рискуваш 1% на сделка, десет поредни загуби (които ще се случат, Глава 5) свалят сметката с около 9.6%. Ако рискуваш 5%, същите десет загуби я свалят с 40%. Ако рискуваш 10%, с 65%.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Риск на сделка (%)<input type="number" id="r1" value="1" step="0.25" min="0.25" max="20"></label>
+            <label>Поредни загуби<input type="number" id="r2" value="10" min="1" max="30"></label>
+          </div>
+          <svg id="streak" viewBox="0 0 520 170" role="img" aria-label="Сметка след поредица загуби при различен риск"></svg>
+          <div class="out" id="rOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Сметката след серия загуби. Всяка загуба е процент от това, което е останало.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Пазарът не наказва грешния анализ. Наказва грешния размер. С 1% можеш да грешиш дълго и пак да учиш. С 10% учиш само веднъж.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Risk per trade · риск на сделка</b>Процентът от сметката, който губиш, ако стопът бъде ударен.</div>
+      <div class="term"><b>Risk of ruin · риск от фалит</b>Вероятността да загубиш толкова, че да не можеш да продължиш.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>11.2 Аритметиката на спада</h2>
+      <p>Спадът (drawdown) и възстановяването не са симетрични. Ако загубиш 50%, не трябва да спечелиш 50%, за да се върнеш. Трябва да спечелиш 100%. Колкото по-дълбока е дупката, толкова по-трудно се излиза.</p>
+      <div class="tablewrap" data-name="spad-vazstanovyavane">
+        <table class="data" id="ddTable">
+          <thead><tr><th class="num">Спад</th><th class="num">Нужна печалба за връщане</th><th class="num">Сделки по +3R при 1% риск</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <figure class="diagram">
+        <svg id="ddSvg" viewBox="0 0 520 200" role="img" aria-label="Крива: спад срещу нужна печалба за възстановяване"></svg>
+        <figcaption>Червено: спадът. Зелено: колко трябва да спечелиш, за да се върнеш. Кривите се разминават все по-бързо.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Drawdown · спад</b>Разликата между най-високата стойност на сметката и текущата, в проценти.</div>
+      <div class="term"><b>Max drawdown · максимален спад</b>Най-дълбокият спад за даден период. Prop фирмите го ограничават.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: средно">●●</span>11.3 Дневен лимит и постоянен риск в пари</h2>
+      <p>Освен риска на сделка, нужен ти е <b>дневен лимит</b>: сума, след която денят свършва, каквото и да виждаш на графиката. Причината не е математическа, а човешка: след две загуби подред решенията обикновено стават по-лоши. Правилото в рамката, от която идва тази книга, е строго: <b>ако загубиш и усещаш гняв, денят приключва.</b> Други опитни трейдъри ползват лимит от 2–3R на ден.</p>
+      <p>Второ правило: <b>рискувай една и съща сума</b>, а не един и същ брой лотове. Ако стопът е 10 пипа, позицията е по-голяма; ако е 25 пипа, по-малка. Рискът в пари остава същият. Така никоя сделка не е по-важна от другите.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Сметка ($)<input type="number" id="d1" value="10000"></label>
+            <label>Риск на сделка (%)<input type="number" id="d2" value="1" step="0.25"></label>
+            <label>Дневен лимит (R)<input type="number" id="d3" value="2" step="0.5"></label>
+            <label>Седмичен лимит (R)<input type="number" id="d4" value="5" step="0.5"></label>
+          </div>
+          <div class="out" id="dOut" aria-live="polite"></div>
+        </div>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Daily loss limit · дневен лимит</b>Максималната загуба за деня, след която спираш.</div>
+      <div class="term"><b>Fixed fractional · фиксиран процент</b>Рискуваш един и същ процент от сметката на всяка сделка.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>11.4 Размер според волатилността</h2>
+      <p>Когато пазарът е бурен (около новини, при геополитически шок, след голям гап), обичайният стоп вече не стига. Имаш два избора: да разшириш стопа и да намалиш размера, така че рискът в пари да остане същият, или да не участваш. Това, което <b>не</b> правиш, е да запазиш размера и да разшириш стопа. Тогава рискът ти тихо расте заедно със стопа.</p>
+      <div class="tablewrap" data-name="volatilnost-razmer">
+        <table class="data">
+          <thead><tr><th>Ситуация</th><th>Стоп</th><th>Размер</th><th>Риск в $</th></tr></thead>
+          <tbody>
+            <tr><td>Нормален ден, EURUSD</td><td class="num">15 пипа</td><td class="num">0.66 лота</td><td class="num">≈ 100 $</td></tr>
+            <tr><td>Ден след CPI, ATR ×2</td><td class="num">30 пипа</td><td class="num">0.33 лота</td><td class="num">≈ 100 $</td></tr>
+            <tr style="color:var(--bear)"><td>Грешно: стоп ×2, размерът същият</td><td class="num">30 пипа</td><td class="num">0.66 лота</td><td class="num">≈ 200 $</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Някои анализатори добавят и втори слой: при оценка B (Глава 10) или жълта макро присъда рискуват половината от обичайното. Рискът става функция на качеството на картината.</p>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Тази сделка е сигурна, затова ще рискувам повече.</p></div>
+        <div><span class="label">Реалност</span><p>Няма сигурна сделка. Чувството на сигурност е точно моментът, в който най-често се нарушава правилото за риска, и най-често се плаща за това.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Volatility-adjusted size</b>Размер, който се намалява, когато стопът трябва да е по-широк.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5r">
+    <div class="main">
+      <h2 id="s5r"><span class="dots" title="Ниво: средно">●●</span>11.5 Тренировка</h2>
+      <p>Три бързи сметки. Направи ги наум или с калкулатора за размер от Глава 2.</p>
+      <div class="drills" data-dr="ch11"></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Replay · повторение</b>Преминаване през графиката свещ по свещ, без да виждаш бъдещето. Най-евтиният начин да тренираш четене.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-label="Задълбочи">
+    <div class="main">
+      <details class="deeper">
+        <summary><span class="dots" aria-hidden="true">●●●</span><span class="dp-t"><small>Задълбочи</small><b>Риск от фалит и формулата на Кели</b></span><span class="drop-caret" aria-hidden="true">▾</span></summary>
+        <div class="dp-body">
+          <p><b>Формулата на Кели</b> дава частта от сметката, която максимизира растежа в дългосрочен план при известно предимство: <b>f = W − (1 − W) ÷ R</b>, където W е процентът печеливши, а R е средната печалба в R. При W = 40% и R = 3: f = 0,40 − 0,60 ÷ 3 = 0,20, т.е. 20% на сделка.</p>
+          <p>Никой разумен човек не рискува 20%. Три причини: реалните ти W и R са оценки с голяма грешка; формулата приема, че ги знаеш точно; а пълният Кели води до просадки от 50% и повече по пътя. Професионалистите ползват част от Кели, и 1% е около една двадесета от него в този пример. Тази разлика е цената на това, че не знаеш предимството си точно.</p>
+          <p>Полезният урок: ако Кели за твоята статистика е <i>отрицателен</i>, няма предимство и никакъв размер на позицията не го прави положителен.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 11</h2>
+    <ul>
+      <li>1% на сделка: десет загуби подред = около −9.6%. Оцеляваш, за да научиш.</li>
+      <li>Спадът и възстановяването не са симетрични: −50% изисква +100%.</li>
+      <li>Дневен лимит в R и правило „ядосан = край на деня“.</li>
+      <li>Постоянен риск в пари; размерът се сменя според стопа.</li>
+      <li>При висока волатилност: по-широк стоп, по-малък размер, или пропуск.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Записах своя риск на сделка, дневен и седмичен лимит.</label></li>
+      <li><label><input type="checkbox"> Знам наизуст колко трябва за възстановяване от −10% и −20%.</label></li>
+      <li><label><input type="checkbox"> Изчислих размера за стоп 12, 20 и 35 пипа при един и същ риск в пари.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Демо сметка 10 000 $. Тази седмица: понеделник −1R, вторник −1R и −1R, сряда +3R, четвъртък −1R. Петък сутрин виждаш A+ картина, но стопът трябва да е 40 пипа, защото снощи имаше голяма новина и ATR е двойно по-голям. Обичайно търгуваш 0.6 лота при 15–17 пипа.</p>
+      <p><b>Задача:</b> къде си седмично в R? Близо ли си до седмичния лимит от 5R? Какъв размер би бил при стоп 40 пипа и риск 1%? Какво е разумно да направиш?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Седмица… Лимит… Размер… Решение…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Седмица: −1 −1 −1 +3 −1 = −1R. Далеч от седмичния лимит от 5R.</li>
+          <li>Размер при 40 пипа: 100 $ ÷ (40 × 10 $) = 0.25 лота. Не 0.6.</li>
+          <li>Ако си с 0.6 лота и 40 пипа стоп, рискуваш 240 $, 2.4% от сметката. Това е тихото удвояване.</li>
+          <li>Разумно: 0.25 лота или пропуск, ако широкият стоп прави целта под 3R. И помни, че в петък следобед ликвидността намалява преди уикенда.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Сметка 5 000 $, риск 1%. Колко рискуваш на сделка?",o:["5 $","50 $","500 $"],a:1,e:"1% от 5 000 = 50 $."},
+  {q:"Губиш 50%. Колко трябва да спечелиш, за да се върнеш?",o:["50%","75%","100%"],a:2,e:"От 5 000 обратно на 10 000 = +100%."},
+  {q:"Какво е дневен лимит?",o:["Колко сделки правиш","Загуба, след която спираш за деня","Минимална печалба"],a:1,e:"Стоп за деня, не за сделката."},
+  {q:"Стопът се удвоява. Какво става с размера, ако рискът в пари остава същият?",o:["Удвоява се","Намалява наполовина","Остава същият"],a:1,e:"Двоен стоп → половин размер."},
+  {q:"Какво значи „постоянен риск в пари“?",o:["Един и същ брой лотове винаги","Една и съща сума на риск, размерът се сменя","Без стоп"],a:1,e:"Рискът е постоянен, лотовете се сменят."}
+],mid:[
+  {q:"Риск 2% на сделка, 10 загуби подред. Приблизително колко остава от сметката?",o:["80%","82%","90%"],a:1,e:"0.98^10 ≈ 0.817, около 82%."},
+  {q:"Спад 20%. С 1% риск и печалби по +3R, колко печеливши сделки (без загуби) трябват за връщане?",o:["около 5","около 8","около 20"],a:1,e:"Трябват +25%. Всяка печалба е около +3%, сложно лихвено: около 8 печалби."},
+  {q:"ATR е тройно над нормалното след геополитически шок. Кое е най-разумно?",o:["Обичаен размер, тройно по-широк стоп","Една трета от размера при тройно по-широк стоп или пропуск","Без стоп"],a:1,e:"Рискът в пари остава същият или нула."}
+]};
+</script>
+<script>window.REPLAYS={};window.DRILLS={"ch11": [{"q": "Сметка 5 000 $, риск 1%, стоп 25 пипа на EURUSD (10 $ на пип за лот). Какъв размер?", "o": [{"t": "0.2 лота"}, {"t": "0.5 лота"}, {"t": "2 лота"}], "a": 0, "e": "Риск 50 $ ÷ (25 пипа × 10 $) = 0.2 лота."}, {"q": "Стопът ти трябва да е 40 пипа вместо 20, за да е зад ликвидността. Какво правиш с размера?", "o": [{"t": "Оставям го същия"}, {"t": "Намалявам го наполовина"}, {"t": "Удвоявам го"}], "a": 1, "e": "Рискът в пари остава 1%. По-далечен стоп значи по-малък размер."}, {"q": "Три загуби по 1% подред. Колко ти трябва, за да се върнеш на нулата?", "o": [{"t": "Около 3.1%"}, {"t": "Точно 3%"}, {"t": "Около 10%"}], "a": 0, "e": "0.99³ ≈ 0.9703; 1 ÷ 0.9703 − 1 ≈ 3.06%. При малки загуби връщането е почти линейно, при големи не е."}, {"q": "Сметка 10 000 $, риск 1%, стоп 30 пипса на USDJPY при 150 (около 6,70 $ на пипс за лот). Какъв размер?", "o": [{"t": "Около 0,5 лота"}, {"t": "Около 1 лот"}, {"t": "Около 0,1 лота"}], "a": 0, "e": "100 $ ÷ (30 × 6,70 $) ≈ 0,5 лота. При двойките с йена стойността на пипса зависи от цената."}, {"q": "30% печеливши, средна печалба 2,5R, загуби 1R. Очаквана стойност на сделка?", "o": [{"t": "+0,05R"}, {"t": "+0,75R"}, {"t": "−0,25R"}], "a": 0, "e": "0,30 × 2,5 − 0,70 × 1 = 0,75 − 0,70 = +0,05R. Едва положителна: разходите могат да я изядат."}, {"q": "Просадка 20%. Колко трябва да спечелиш, за да се върнеш в началото?", "o": [{"t": "20%"}, {"t": "25%"}, {"t": "40%"}], "a": 1, "e": "От 8 000 обратно до 10 000 е +25%."}]};</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* streak */
+  var r1=document.getElementById("r1"),r2=document.getElementById("r2"),sv=document.getElementById("streak"),out=document.getElementById("rOut");
+  function st(){var p=+r1.value/100,n=Math.min(30,Math.max(1,+r2.value|0));sv.innerHTML="";
+    var sets=[[0.01,"1%","var(--bull)"],[0.05,"5%","var(--news)"],[0.10,"10%","var(--bear)"],[p,"твоите "+r1.value+"%","var(--ink)"]];
+    function X(i){return 40+i*(470/n)}function Y(v){return 150-v*130}
+    el("line",{x1:40,x2:510,y1:Y(1),y2:Y(1),stroke:"var(--line)"},sv);el("line",{x1:40,x2:510,y1:Y(.5),y2:Y(.5),stroke:"var(--line)"},sv);
+    el("text",{x:0,y:Y(1)+4,"font-size":10,fill:"var(--muted)"},sv).textContent="100%";el("text",{x:4,y:Y(.5)+4,"font-size":10,fill:"var(--muted)"},sv).textContent="50%";
+    sets.forEach(function(s,k){var d="",v=1;for(var i=0;i<=n;i++){d+=(i?"L":"M")+X(i).toFixed(1)+","+Y(v).toFixed(1);v*=1-s[0]}
+      el("path",{d:d,fill:"none",stroke:s[2],"stroke-width":k===3?3:1.6,"stroke-dasharray":k===3?"":"0"},sv);
+      el("text",{x:X(n)-60,y:Y(Math.pow(1-s[0],n))-4,"font-size":10,fill:s[2]},sv).textContent=s[1]});
+    var left=Math.pow(1-p,n)*100,need=(100/left-1)*100;
+    out.innerHTML="<span>След "+n+" загуби подред при "+r1.value+"% остават <b>"+left.toFixed(1)+"%</b> от сметката.</span><span>За да се върнеш, трябват <b>+"+need.toFixed(1)+"%</b>.</span>"}
+  [r1,r2].forEach(function(x){x.addEventListener("input",st)});st();
+  /* drawdown table and curve */
+  var tb=document.querySelector("#ddTable tbody");
+  [5,10,20,30,40,50,75,90].forEach(function(d){var need=(1/(1-d/100)-1)*100,trades=Math.ceil(Math.log(1/(1-d/100))/Math.log(1.03));
+    var tr=document.createElement("tr");tr.innerHTML='<td class="num">−'+d+'%</td><td class="num">+'+need.toFixed(1)+'%</td><td class="num">'+trades+"</td>";tb.appendChild(tr)});
+  var dd=document.getElementById("ddSvg");function X(d){return 40+d*5}function Y(v){return 180-v*1.6}
+  el("line",{x1:40,x2:510,y1:180,y2:180,stroke:"var(--muted)"},dd);el("line",{x1:40,x2:40,y1:10,y2:180,stroke:"var(--muted)"},dd);
+  var a="",b="";for(var d=0;d<=90;d+=2){a+=(d?"L":"M")+X(d)+","+Y(d);var n=Math.min(105,(1/(1-d/100)-1)*100);b+=(d?"L":"M")+X(d)+","+Y(n)}
+  el("path",{d:a,fill:"none",stroke:"var(--bear)","stroke-width":2.5},dd);el("path",{d:b,fill:"none",stroke:"var(--bull)","stroke-width":2.5},dd);
+  [0,25,50,75,90].forEach(function(d){el("text",{x:X(d)-8,y:196,"font-size":10,fill:"var(--muted)"},dd).textContent="−"+d+"%"});
+  el("text",{x:X(50)+6,y:Y(100)+4,"font-size":10,fill:"var(--bull)"},dd).textContent="−50% → +100%";
+  el("circle",{cx:X(50),cy:Y(100),r:4,fill:"var(--bull)"},dd);
+  /* limits */
+  var D=["d1","d2","d3","d4"].map(function(i){return document.getElementById(i)}),dO=document.getElementById("dOut");
+  function lim(){var bal=+D[0].value,rp=+D[1].value,R=bal*rp/100;
+    dO.innerHTML="<span>1R = <b>"+R.toFixed(0)+" $</b></span><span>Дневен лимит: "+D[2].value+"R = <b>"+(R*D[2].value).toFixed(0)+" $</b>. Стигнеш ли го, платформата се затваря.</span><span>Седмичен лимит: "+D[3].value+"R = <b>"+(R*D[3].value).toFixed(0)+" $</b>. Стигнеш ли го, седмицата е за преглед на дневника, не за търговия.</span>"}
+  D.forEach(function(x){x.addEventListener("input",lim)});lim();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

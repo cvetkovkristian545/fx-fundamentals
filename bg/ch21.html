@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Risk-on, risk-off и междупазарни връзки · FX Fundamentals</title>
+<meta name="description" content="Risk-on, risk-off и междупазарни връзки · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch21.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch21.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="21">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">22</div>
+    <h1>Risk-on, risk-off и междупазарни връзки</h1>
+    <blockquote class="quote">
+      Едва когато приливът се оттегли, разбираш кой е плувал гол.
+      <cite>Уорън Бъфет</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да разпознаеш risk-on и risk-off по валути, злато, индекси, облигации и биткойн едновременно;</li>
+        <li>да обясниш разликата между номинална и реална доходност и защо златото слуша втората;</li>
+        <li>да свържеш петрола с CAD, медта с AUD и доходностите с USDJPY;</li>
+        <li>да поставиш днешния пазар в един от четирите режима растеж × инфлация.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>22.1 Две настроения на пазара</h2>
+      <p>В някои дни пазарът е смел: купува акции, стокови валути, криптовалути, всичко с по-висока доходност. Това е <b>risk-on</b>. В други дни е уплашен: бяга към долари, йени, франкове, злато и държавни облигации. Това е <b>risk-off</b>. Повечето активи се движат заедно според това настроение, затова си струва да го прочетеш, преди да погледнеш своята двойка.</p>
+      <div class="tabs" data-group="mood">
+        <button class="chip" data-tab="on">Risk-on</button>
+        <button class="chip" data-tab="off">Risk-off</button>
+      </div>
+      <div class="pane" data-group="mood" data-pane="on">
+        <div class="tablewrap" data-name="risk-on">
+          <table class="data">
+            <thead><tr><th>Актив</th><th>Посока</th><th>Защо</th></tr></thead>
+            <tbody>
+              <tr><td>S&amp;P 500, Nasdaq, DAX</td><td style="color:var(--bull)">▲</td><td>Апетит за растеж</td></tr>
+              <tr><td>AUD, NZD, CAD</td><td style="color:var(--bull)">▲</td><td>Растеж → търсене на суровини</td></tr>
+              <tr><td>USDJPY, кръстоски с JPY</td><td style="color:var(--bull)">▲</td><td>Carry се връща, йената се продава</td></tr>
+              <tr><td>USD (DXY)</td><td style="color:var(--bear)">▼</td><td>Не е нужно safe haven (убежище)</td></tr>
+              <tr><td>Държавни облигации</td><td style="color:var(--bear)">▼ цени, ▲ доходности</td><td>Парите отиват към по-рискови активи</td></tr>
+              <tr><td>Биткойн</td><td style="color:var(--bull)">▲</td><td>Високорисков актив, следва ликвидността</td></tr>
+              <tr><td>VIX</td><td style="color:var(--bear)">▼</td><td>Страхът пада</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="pane" data-group="mood" data-pane="off">
+        <div class="tablewrap" data-name="risk-off">
+          <table class="data">
+            <thead><tr><th>Актив</th><th>Посока</th><th>Защо</th></tr></thead>
+            <tbody>
+              <tr><td>Индекси</td><td style="color:var(--bear)">▼</td><td>Продажба на риск</td></tr>
+              <tr><td>AUD, NZD, CAD</td><td style="color:var(--bear)">▼</td><td>Страх от по-слаб растеж</td></tr>
+              <tr><td>JPY, CHF</td><td style="color:var(--bull)">▲</td><td>Убежища; carry се разпада</td></tr>
+              <tr><td>USD (DXY)</td><td style="color:var(--bull)">▲</td><td>Глобално търсене на долари</td></tr>
+              <tr><td>Държавни облигации</td><td style="color:var(--bull)">▲ цени, ▼ доходности</td><td>Бягство към качество</td></tr>
+              <tr><td>Злато</td><td style="color:var(--bull)">▲ обикновено</td><td>Safe haven без политически риск</td></tr>
+              <tr><td>VIX</td><td style="color:var(--bull)">▲</td><td>Индексът на страха</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="box ff">
+        <span class="label">Гледай във Forex Factory</span>
+        <p>Табът „Market“ показва бързо как се движат основните двойки, индексите и златото. Ако всички рискови активи са червени, а йената и франкът са силни, денят е risk-off, каквато и да е твоята картина на EURUSD.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Risk-on</b>Пазарът търси риск и доходност.</div>
+      <div class="term"><b>Risk-off</b>Пазарът бяга към сигурност.</div>
+      <div class="term"><b>VIX</b>Индекс на очакваната волатилност на S&amp;P 500; „индексът на страха“.</div>
+      <div class="term"><b>Flight to quality</b>Бягство към най-сигурните активи.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: средно">●●</span>22.2 Облигации: цената и доходността са на люлка</h2>
+      <p>Облигацията е заем с фиксирано плащане. Ако някой продава облигации, цената им пада и доходността за новия купувач расте. Ако всички купуват, цената расте и доходността пада. <b>Цената и доходността винаги се движат в обратни посоки.</b></p>
+      <p>Защо трейдър на валути се интересува? Защото доходността на държавните облигации е „цената на парите“ за цялата икономика. Дългата доходност (10 и 30 години) определя ипотеките и заемите на фирмите. Когато американските 10-годишни доходности растат рязко, доларът обикновено се укрепва, а златото, акциите и криптото поевтиняват.</p>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Облигациите са скучни и не влияят на валутите.</p></div>
+        <div><span class="label">Реалност</span><p>Облигационният пазар е по-голям от фондовия и често води. Много опитни макро трейдъри първо гледат доходностите и после валутите.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Bond · облигация</b>Заем, който държава или фирма взима срещу фиксирани плащания.</div>
+      <div class="term"><b>Yield · доходност</b>Годишната възвращаемост за купувача при текущата цена.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: средно">●●</span>22.3 Номинални и реални доходности; реалните и златото</h2>
+      <p><b>Номиналната</b> доходност е числото, което виждаш. <b>Реалната</b> е номиналната минус очакваната инфлация. Ако облигация плаща 4%, а инфлацията се очаква 3%, реално печелиш около 1%.</p>
+      <p>Златото не плаща лихва. Когато реалната доходност расте, алтернативната цена да държиш злато расте и златото обикновено поевтинява. Когато реалната доходност пада (особено под нула), златото обикновено поскъпва. Това е най-надеждната средносрочна връзка за XAUUSD, макар че не е закон.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Номинална 10г доходност (%)<input type="number" id="r1" value="4.5" step="0.05"></label>
+            <label>Очаквана инфлация (%)<input type="number" id="r2" value="2.5" step="0.05"></label>
+            <label>Реалната преди месец (%)<input type="number" id="r3" value="1.6" step="0.05"></label>
+          </div>
+          <div class="out" id="rOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Приблизителна сметка по Фишер. На практика реалната доходност се вижда от индексираните облигации (TIPS в САЩ).</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>В бележките от 2026 година е описан период, в който златото пада <i>по време на</i> военни заглавия. Логиката „война → злато нагоре“ се обръща, защото войната вдига петрола, петролът вдига очакванията за инфлация и лихвите, а реалните доходности растат. Заглавието казва едно, люлката на доходностите казва друго. Слушай люлката.</p>
+      </div>
+      <p>Изключение: когато златото и доларът растат <b>заедно</b>. Това не е логика на лихвите, а страх за самата система: санкции, суверенен дълг, централни банки, които купуват злато. Глава 24 се връща към купуването на злато от централните банки.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Nominal · номинална</b>Обявената доходност, без корекция за инфлация.</div>
+      <div class="term"><b>Real · реална</b>Номиналната минус очакваната инфлация.</div>
+      <div class="term"><b>Breakeven inflation · инфлация на изравняване</b>Пазарната оценка за бъдещата инфлация: разликата между обикновената и индексираната доходност.</div>
+      <div class="term"><b>TIPS</b>Американски облигации, индексирани с инфлацията.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>22.4 Картата на връзките</h2>
+      <figure class="diagram">
+        <svg id="imSvg" viewBox="0 0 520 300" role="img" aria-label="Карта на междупазарните връзки"></svg>
+        <figcaption>Зелена стрелка: обикновено се движат в една посока. Червена: в обратни. Типични връзки, които се сменят с режима.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="mezhdupazarni-vrazki">
+        <table class="data">
+          <thead><tr><th>Ако…</th><th>Тогава обикновено…</th><th>Защо</th></tr></thead>
+          <tbody>
+            <tr><td>Реалните доходности в САЩ ▲</td><td>USD ▲, злато ▼</td><td>Алтернативна цена на златото</td></tr>
+            <tr><td>Петрол ▲</td><td>CAD, NOK ▲; JPY ▼; очаквания за инфлация ▲</td><td>Износители срещу вносители на енергия</td></tr>
+            <tr><td>Мед и желязна руда ▲</td><td>AUD ▲</td><td>Китайски растеж</td></tr>
+            <tr><td>US доходности ▲</td><td>USDJPY ▲</td><td>Диференциалът спрямо японските</td></tr>
+            <tr><td>Акции ▼ и VIX ▲</td><td>JPY, CHF, USD ▲</td><td>Risk-off</td></tr>
+            <tr><td>USD ▲</td><td>Суровини ▼ (в долари)</td><td>Котирани са в долари</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="dialog">
+        <p><span>Ученик</span>Мога ли да търгувам USDCAD само по петрола?</p>
+        <p><span>Ментор</span>Можеш и да караш само по пътните знаци, без да гледаш пътя. Петролът е един от водачите. Понякога пътя го определят Фед и търговските отношения със САЩ.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Intermarket · междупазарен</b>Анализ на връзките между различни пазари.</div>
+      <div class="term"><b>Terms of trade</b>Цената на износа спрямо вноса.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: напреднало">●●●</span>22.5 Четирите режима: растеж × инфлация</h2>
+      <p>Подреди средата по две оси: <b>растеж</b> над или под очакваното и <b>инфлация</b> над или под очакваното. Всеки квадрант има типични победители. Кликни на квадрант.</p>
+      <figure>
+        <svg id="rgSvg" viewBox="0 0 520 300" role="img" aria-label="Квадранти растеж и инфлация"></svg>
+        <p class="verdict" id="rgText" aria-live="polite"></p>
+      </figure>
+      <p>Как разбираш в кой квадрант си? Растеж: PMI, NFP, продажби на дребно, молбите за помощ при безработица. Инфлация: CPI, PCE, цени на суровини, очаквания за инфлация. Смяната на режима се вижда първо в изненадите и в кривата на доходността (Глава 19). Придържаш се към режима, докато данните не го сменят.</p>
+      <h3>Междупазарното табло</h3>
+      <p>Превключвай между долара, 10-годишната доходност на САЩ, златото и AUDJPY. Питай: risk-on или risk-off е днес?</p>
+      <div class="tv" data-sym="TVC:DXY,TVC:US10Y,OANDA:XAUUSD,FX:AUDJPY" data-int="D"></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Goldilocks · Златокоска</b>Растеж без инфлация: „нито много горещо, нито много студено“.</div>
+      <div class="term"><b>Regime · режим</b>Комбинацията от растеж и инфлация, която определя кои активи печелят.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 22</h2>
+    <ul>
+      <li>Risk-on: акции, стокови валути, крипто нагоре. Risk-off: USD, JPY, CHF, злато, облигации нагоре.</li>
+      <li>Цената и доходността на облигацията са на люлка.</li>
+      <li>Реалните доходности водят златото; заглавието може да лъже, люлката рядко.</li>
+      <li>Петрол → CAD/NOK; мед → AUD; US доходности → USDJPY.</li>
+      <li>Четирите режима казват кои активи печелят; режимът се сменя от изненадите.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Днес определих дали денят е risk-on или risk-off по пет актива.</label></li>
+      <li><label><input type="checkbox"> Пресметнах реалната 10г доходност с днешните числа.</label></li>
+      <li><label><input type="checkbox"> Мога да кажа в кой от четирите режима сме и защо.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Ден с геополитическа ескалация в Близкия изток. Петролът +6%. US 10г доходност +12 б.т., защото пазарът очаква повече инфлация. Златото, вместо да расте, пада с 1.5%. S&amp;P −1.2%. USDJPY +0.8%. AUDUSD −0.9%. USDCAD почти без промяна.</p>
+      <p><b>Задача:</b> risk-on или risk-off? Защо златото пада в такъв ден? Защо USDJPY расте, въпреки че йената е safe haven? Защо USDCAD стои? Какво казва това за EURUSD?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Настроение… Злато… USDJPY… USDCAD… EURUSD…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Risk-off по акциите и AUD, но с инфлационен привкус: петрол и доходности нагоре.</li>
+          <li>Златото пада, защото реалните доходности растат: номиналната доходност скача повече от очакваната инфлация, или пазарът очаква по-ястребов Фед. Люлката надвива заглавието.</li>
+          <li>USDJPY расте, защото диференциалът на доходностите се разширява, а Япония внася енергия: по-скъп петрол е лош за йената. Двата ефекта надвиват ролята на safe haven.</li>
+          <li>USDCAD стои, защото два ефекта се неутрализират: силен долар (risk-off, доходности) срещу силен петрол (подкрепа за CAD).</li>
+          <li>За EURUSD вятърът е по-вероятно надолу: по-силен долар, а Европа е вносител на енергия. Присъдата зависи от структурата и календара, но фундаменталният вятър е срещу еврото.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Коя валута обикновено расте при risk-off?",o:["AUD","JPY","NZD"],a:1,e:"Йената е safe haven."},
+  {q:"Цената на облигацията пада. Доходността…",o:["Пада","Расте","Не се мени"],a:1,e:"Люлка: обратни посоки."},
+  {q:"Реална доходност =",o:["Номинална + инфлация","Номинална − очаквана инфлация","Само инфлация"],a:1,e:"Фишер, приблизително."},
+  {q:"Медта поскъпва силно. Коя валута вероятно печели?",o:["AUD","CHF","JPY"],a:0,e:"Австралия изнася метали."},
+  {q:"VIX скача от 14 на 30. Настроението е…",o:["Risk-on","Risk-off"],a:1,e:"VIX е индексът на страха."}
+],mid:[
+  {q:"Златото и доларът растат заедно. Най-вероятно…",o:["Грешка в данните","Страх за системата, не логика на лихвите","Risk-on"],a:1,e:"Двойно safe haven: санкции, дълг, системен стрес."},
+  {q:"Растеж над очакваното, инфлация под очакваното. Режим?",o:["Стагфлация","Goldilocks","Рецесия"],a:1,e:"Растеж без инфлация."},
+  {q:"Номиналната 10г пада с 0.3 п.п., очакваната инфлация се качва с 0.2 п.п. Какво става с реалната и със златото?",o:["Реалната пада с 0.5, златото вероятно нагоре","Реалната расте, златото надолу","Нищо"],a:0,e:"−0.3 − 0.2 = −0.5 п.п. реално."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* real yield */
+  var r=["r1","r2","r3"].map(function(i){return document.getElementById(i)}),ro=document.getElementById("rOut");
+  function ry(){var n=+r[0].value,i=+r[1].value,prev=+r[2].value,real=n-i,d=real-prev;
+    var g=d>0.05?"<b style='color:var(--bear)'>натиск надолу</b>":d<-0.05?"<b style='color:var(--bull)'>подкрепа нагоре</b>":"неутрално";
+    ro.innerHTML="<span>Реална доходност: <b>"+real.toFixed(2)+"%</b>.</span><span>Промяна за месеца: <b>"+(d>=0?"+":"")+d.toFixed(2)+" п.п.</b></span><span>За златото: "+g+".</span>"}
+  r.forEach(function(x){x.addEventListener("input",ry)});ry();
+  /* intermarket map */
+  var sv=document.getElementById("imSvg"),N={y:[260,40,"US реални доходности"],u:[100,140,"USD"],g:[420,140,"Злато"],o:[90,260,"Петрол"],c:[260,260,"CAD"],j:[430,260,"USDJPY"],e:[70,40,"Акции"]};
+  var L=[["y","u",1],["y","g",0],["u","g",0],["o","c",1],["y","j",1],["e","u",0]];
+  L.forEach(function(l){var a=N[l[0]],b=N[l[1]];el("line",{x1:a[0],y1:a[1],x2:b[0],y2:b[1],stroke:l[2]?"var(--bull)":"var(--bear)","stroke-width":2.5,"stroke-dasharray":l[2]?"":"6 4"},sv)});
+  for(var k in N){var n=N[k],w=n[2].length*7+20;el("rect",{x:n[0]-w/2,y:n[1]-15,width:w,height:30,fill:"var(--paper)",stroke:"var(--ink)"},sv);el("text",{x:n[0],y:n[1]+5,"font-size":12,"text-anchor":"middle",fill:"var(--fg)"},sv).textContent=n[2]}
+  /* regimes */
+  var rg=document.getElementById("rgSvg"),rt=document.getElementById("rgText");
+  var Q=[["Прегряване","Растеж ▲ Инфлация ▲","Суровини, стокови валути (AUD, CAD, NOK), къси облигации. Централните банки вдигат.",290,20,"var(--news)"],
+         ["Goldilocks","Растеж ▲ Инфлация ▼","Акции, кредит, risk-on валути. Най-добрата среда за повечето активи.",30,20,"var(--bull)"],
+         ["Стагфлация","Растеж ▼ Инфлация ▲","Злато, енергия, кеш. Акциите и облигациите страдат. USD зависи от Фед.",290,160,"var(--bear)"],
+         ["Рецесия / дефлация","Растеж ▼ Инфлация ▼","Държавни облигации, USD, JPY, CHF, злато. Централните банки свалят.",30,160,"var(--liq)"]];
+  function show(i){var q=Q[i];rt.innerHTML="<b style='color:"+q[5]+"'>"+q[0]+"</b> ("+q[1]+"): "+q[2];
+    Book.each("#rgSvg rect.q",function(r,k){r.setAttribute("stroke-width",k===i?4:1.5)})}
+  Q.forEach(function(q,i){var g=el("g",{style:"cursor:pointer",tabindex:0,role:"button","aria-label":q[0]},rg);
+    var rc=el("rect",{x:q[3],y:q[4],width:200,height:120,fill:q[5],"fill-opacity":.12,stroke:q[5],"stroke-width":1.5,class:"q"},g);
+    el("text",{x:q[3]+100,y:q[4]+55,"text-anchor":"middle","font-size":14,"font-weight":600,fill:"var(--fg)"},g).textContent=q[0];
+    el("text",{x:q[3]+100,y:q[4]+75,"text-anchor":"middle","font-size":11,fill:"var(--muted)"},g).textContent=q[1];
+    g.addEventListener("click",function(){show(i)});g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();show(i)}})});
+  el("text",{x:260,y:295,"text-anchor":"middle","font-size":11,fill:"var(--muted)"},rg).textContent="← инфлация под очакваното · инфлация над очакваното →";
+  show(1);
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

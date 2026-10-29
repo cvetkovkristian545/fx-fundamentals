@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Рамката в 6 стъпки · FX Fundamentals</title>
+<meta name="description" content="От прочит до решение: рамката в 6 стъпки · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch10.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch10.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="10">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">10</div>
+    <h1>От прочит до решение: рамката в 6 стъпки</h1>
+    <blockquote class="quote">
+      Планът е нищо; планирането е всичко.
+      <cite>Дуайт Айзенхауер</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да минеш през всичко от Глави 6–9 в един и същ ред, всеки път;</li>
+        <li>да оцениш качеството на един анализ от 0 до 25;</li>
+        <li>да попълниш чеклиста преди анализа, включително въпроса за собственото си състояние.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s0">
+    <div class="main">
+      <div class="box warn">
+        <span class="label">Прочети преди главата</span>
+        <p>Това е рамка за мислене, не инструкция за сделка. Тя ти помага да подредиш наблюденията си и да видиш кога картината е ясна и кога не. Решението дали и как да участваш на пазара е само твое, и то след месеци практика на демо (Глава 34).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: средно">●●</span>10.1 Шестте стъпки</h2>
+      <p>Ако някоя стъпка липсва, картината не е пълна. Тогава правилният отговор е „няма решение днес“. Повечето дни отговорът е точно такъв и това е нормално.</p>
+      <ol class="steps">
+        <li><b>Посока (bias).</b> D1 → H4 → H1. Структурата bullish (бичи) ли е или bearish (мечи)? D1 и H4 съгласни ли са? (Глави 6 и 8)</li>
+        <li><b>Макро присъда.</b> Духа ли фундаменталният вятър в същата посока? Има ли голяма новина в следващите 2 часа? Присъда: <span style="color:var(--bull)">ЗЕЛЕНО</span>, <span style="color:var(--news)">ЖЪЛТО</span> или <span style="color:var(--bear)">ЧЕРВЕНО</span>. (Част III)</li>
+        <li><b>Зона (POI).</b> OB + FVG, OB след sweep, чист FVG, или ниво + ликвидност, в правилната половина на диапазона. (Глава 7)</li>
+        <li><b>Спусък.</b> MSS на M5 или поглъщаща свещ в зоната. Чакаш свещта да затвори. (Глави 3 и 6)</li>
+        <li><b>Обезсилване.</b> Къде сценарият е грешен? Под дъното на sweep-а или под OB, плюс буфер. Определя се <i>преди</i> всичко останало. (Глави 9 и 11)</li>
+        <li><b>Цел.</b> Следващата ликвидност в посоката (BSL или SSL). Ако до нея няма поне 3R, картината не си струва. (Глава 12)</li>
+      </ol>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Шест стъпки звучат много. След сто повторения са шест секунди. След хиляда повторения ще забележиш липсващата стъпка, преди да си я потърсил.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Trigger · спусък</b>Конкретното събитие на малкия таймфрейм, което потвърждава реакцията в зоната.</div>
+      <div class="term"><b>Macro verdict · макро присъда</b>Зелено, жълто или червено според фундаменталната картина и новините.</div>
+      <div class="term"><b>Confluence · съвпадение</b>Няколко независими причини на едно място.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: средно">●●</span>10.2 Оценка на анализа: /25</h2>
+      <p>Пет критерия (посока, макро, зона, спусък и време) получават по 0 до 5 точки. Обезсилването и целта не се оценяват: те или са налице, или няма решение. Сборът казва колко силна е картината. Това не е предсказание дали цената ще отиде натам. Това е мярка дали анализът ти има достатъчно опори.</p>
+      <figure>
+        <div class="calc" id="score">
+          <div class="sliders" id="scSliders"></div>
+          <div class="out" id="scOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Плъзни всеки критерий. Описанията под всеки показват какво значи 0, 3 и 5.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="ocenka-25">
+        <table class="data">
+          <thead><tr><th>Оценка</th><th>Клас</th><th>Какво значи за анализа</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">20–25</td><td><b style="color:var(--bull)">A+</b></td><td>Всички опори са налице. Рядко: няколко пъти месечно на една двойка.</td></tr>
+            <tr><td class="mono">15–19</td><td><b style="color:var(--news)">B</b></td><td>Добра картина с една по-слаба опора. В рамката, от която идва тази книга, при B размерът се намалява наполовина.</td></tr>
+            <tr><td class="mono">10–14</td><td><b>C</b></td><td>Твърде много „може би“. Само за наблюдение и за дневника.</td></tr>
+            <tr><td class="mono">под 10</td><td><b style="color:var(--bear)">D</b></td><td>Няма картина. Затвори графиката.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Допълнителни точки, които някои анализатори добавят към „Зона“ или „Спусък“: обикновена дивергенция на H1/H4 в посоката (+2), SMT дивергенция (+1), скрита дивергенция при продължение (+1). Те подсилват, но никога не заместват основните пет.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Grade · клас</b>A+, B, C, D: качеството на картината, не гаранция за резултата.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>10.3 Чеклистът преди анализа</h2>
+      <p>Пилотите минават чеклист преди всеки полет, макар да са летели хиляди пъти. Не защото не помнят, а защото паметта е най-ненадеждна точно когато си уморен, напрегнат или прекалено уверен. Последният ред е най-важният.</p>
+      <figure>
+        <div class="calc">
+          <div style="display:grid;gap:6px" id="pre">
+            <label><input type="checkbox"> Посоката на D1 и H4 е определена и записана</label>
+            <label><input type="checkbox"> Макро присъдата е зелена или жълта</label>
+            <label><input type="checkbox"> Forex Factory е проверен за следващите 4 часа</label>
+            <label><input type="checkbox"> Зоната е начертана, преди цената да е стигнала до нея</label>
+            <label><input type="checkbox"> Kill zone е активен</label>
+            <label><input type="checkbox"> Обезсилването е определено преди всичко останало</label>
+            <label><input type="checkbox"> До следващата ликвидност има поне 3R</label>
+            <label><input type="checkbox"> Оценката е поне 15 / 25</label>
+          </div>
+          <div class="fields">
+            <label>Как се чувстваш сега?<select id="mood">
+              <option value="ok">Спокоен, неутрален</option>
+              <option value="ok2">Уверен, но без бързане</option>
+              <option value="fomo">Страх да не изпусна движението</option>
+              <option value="rev">Ядосан след предна загуба</option>
+              <option value="tired">Уморен, разсеян</option>
+              <option value="euph">Еуфоричен след серия печалби</option>
+            </select></label>
+          </div>
+          <div class="out" id="preOut" aria-live="polite"></div>
+        </div>
+      </figure>
+      <div class="dialog">
+        <p><span>Ученик</span>Защо състоянието ми е в чеклиста? Анализът или е добър, или не е.</p>
+        <p><span>Ментор</span>Анализът е добър, докато ти го правиш спокойно. Ядосаният човек вижда сетъп навсякъде. Умореният не вижда новината в 15:30. Ти си инструментът. Провери инструмента.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>FOMO</b>Fear of missing out: страх да не изпуснеш движение.</div>
+      <div class="term"><b>Revenge trading · търговия за реванш</b>Влизане, за да си „върнеш“ загубата.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 10</h2>
+    <ul>
+      <li>Шест стъпки: посока → макро → зона → спусък → обезсилване → цел. Липсваща стъпка = няма решение.</li>
+      <li>Оценката /25 мери качеството на анализа: A+ ≥ 20, B 15–19, под 15 само наблюдение.</li>
+      <li>Чеклистът се минава всеки път, включително въпросът „как съм аз?“.</li>
+      <li>Повечето дни правилният отговор е „днес няма решение“.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Минах 6-те стъпки върху 10 минали ситуации на EURUSD и ги оцених /25.</label></li>
+      <li><label><input type="checkbox"> Записах колко от тях са A+, B, C и D.</label></li>
+      <li><label><input type="checkbox"> Разпечатах или копирах чеклиста до монитора си.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>EURUSD, 16:10 софийско време. D1 и H4 bullish. Макро: ЕЦБ е по-строга от Фед; няма новини до утре. В 15:30 имаше CPI, цената падна до OB на H1 (1.0812–1.0818), направи sweep под дъното на Лондон (1.0810) до 1.0806 и на M5 затвори над последния LH (1.0821). Следващата BSL е предният дневен връх, 1.0880. Ти си направил две загуби сутринта.</p>
+      <p><b>Задача:</b> мини шестте стъпки и дай оценка /25 по пет критерия. Какъв клас е? Какво казва последният ред на чеклиста?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="1… 2… 3… 4… 5… 6… Оценка… Състояние…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Посока: D1 + H4 bullish → 5/5.</li>
+          <li>Макро: разлика в политиките в полза на еврото, без новини → зелено, 5/5. (CPI беше преди 40 минути; буферът от 30 минути е минал.)</li>
+          <li>Зона: OB на H1 след sweep под Лондон → 4–5/5.</li>
+          <li>Спусък: MSS на M5 над 1.0821 → 5/5, при затворена свещ.</li>
+          <li>Време: Нюйоркски kill zone → 5/5.</li>
+          <li>Обезсилване: под 1.0806 плюс буфер, около 1.0803 → ако входната зона е около 1.0815, рискът е около 12 пипа. Цел 1.0880 → около 65 пипа ≈ 5R.</li>
+          <li>Оценка около 24/25: A+ картина.</li>
+          <li>Но: две загуби сутринта. Ако правилото ти е „без нови решения след дневния лимит“ или усещаш желание да „си върнеш“, последният ред на чеклиста казва „не“. Добрата картина ще се върне. Сметката може да не се върне.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Коя е първата стъпка от рамката?",o:["Спусък","Посока (bias)","Цел"],a:1,e:"Всичко започва от посоката на големите таймфреймове."},
+  {q:"Кога се определя обезсилването?",o:["След влизане","Преди всичко останало по сделката","Когато цената стигне стопа"],a:1,e:"Знаеш къде грешиш, преди да мислиш къде печелиш."},
+  {q:"Минималното съотношение цел/риск в рамката е…",o:["1R","3R","10R"],a:1,e:"Ако до следващата ликвидност няма 3R, картината не си струва."},
+  {q:"Оценка 17/25 е клас…",o:["A+","B","D"],a:1,e:"15–19 е B."},
+  {q:"Защо състоянието ти е в чеклиста?",o:["За формалност","Защото емоцията изкривява анализа","Не е"],a:1,e:"Ти си инструментът на анализа."}
+],mid:[
+  {q:"Всичко е подредено, но до следващата BSL има 1.8R. Какво казва рамката?",o:["Влез с по-голям размер","Картината не си струва; пропусни или чакай по-добра зона","Премести целта по-далеч без причина"],a:1,e:"Целта е логичната ликвидност. Ако тя е под 3R, отговорът е „не днес“."},
+  {q:"Макро присъдата е ЧЕРВЕНА, техническата картина е A+. Решение?",o:["GO","Пропуск","Двоен размер"],a:1,e:"Червено значи без решение, независимо от графиката."},
+  {q:"Спусъкът на M5 още не е затворил свещта, но „изглежда“ ще затвори над нивото. Какво правиш?",o:["Действаш преди затварянето","Чакаш затварянето","Слагаш стоп по-близо"],a:1,e:"Правилото: чакаш затварянето на тригерната свещ."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var C=[
+    ["Посока D1+H4","0: срещу D1 · 3: D1 ясен, H4 неясен · 5: D1 и H4 в една посока"],
+    ["Макро","0: ЧЕРВЕНО · 3: ЖЪЛТО · 5: ЗЕЛЕНО, без новини"],
+    ["Зона (POI)","0: средата на диапазона · 3: чист FVG · 5: OB+FVG или OB след sweep"],
+    ["Спусък","0: няма · 3: pin bar · 5: MSS или поглъщаща свещ, затворена"],
+    ["Време","0: извън kill zone · 3: в края на прозореца · 5: в kill zone"]
+  ];
+  var box=document.getElementById("scSliders"),out=document.getElementById("scOut"),ins=[];
+  C.forEach(function(c,i){var l=document.createElement("label");l.style.gridTemplateColumns="8.5em 1fr 2.5em";
+    l.innerHTML=c[0]+'<input type="range" min="0" max="5" value="3"><span class="mono">3</span>';box.appendChild(l);
+    var d=document.createElement("p");d.className="fb";d.style.margin="-4px 0 4px";d.textContent=c[1];box.appendChild(d);
+    var inp=l.querySelector("input"),sp=l.querySelector("span");var s=Book.store("b10-s"+i);if(s!=null){inp.value=s}sp.textContent=inp.value;
+    inp.addEventListener("input",function(){sp.textContent=inp.value;Book.store("b10-s"+i,inp.value);calc()});ins.push(inp)});
+  function calc(){var t=ins.reduce(function(a,b){return a+(+b.value)},0),g,col,msg;
+    var weak=C.filter(function(c,i){return +ins[i].value<=2}).map(function(c){return c[0]});
+    if(t>=20){g="A+";col="var(--bull)";msg="Всички опори са налице."}else if(t>=15){g="B";col="var(--news)";msg="Добра картина с по-слаба опора."}else if(t>=10){g="C";col="var(--fg)";msg="Само за наблюдение и дневника."}else{g="D";col="var(--bear)";msg="Няма картина."}
+    if(+ins[1].value===0){g="—";col="var(--bear)";msg="Макро присъдата е ЧЕРВЕНА: няма решение, независимо от сбора."}
+    out.innerHTML="<span>Оценка: <b>"+t+" / 25</b> · Клас: <b style=\"color:"+col+"\">"+g+"</b></span><span>"+msg+"</span>"+(weak.length?"<span>Слаби места: "+weak.join(", ")+".</span>":"")}
+  calc();
+
+  var pre=document.getElementById("pre"),mood=document.getElementById("mood"),po=document.getElementById("preOut");
+  function pc(){var n=0,all=0;Book.each("input",function(c){all++;if(c.checked)n++},pre);
+    var m=mood.value,bad={fomo:"Страхът да не изпуснеш е знак да не правиш нищо. Движенията са много; сметката е една.",rev:"Гневът след загуба е най-скъпото състояние. Правилото: след загуба, ако си ядосан, денят приключва.",tired:"Умората пропуска детайли. Анализът може да почака до утре.",euph:"След серия печалби рискът от свръхувереност и по-голям размер е най-висок. Върни се към стандартния размер."};
+    po.innerHTML="<span>Чеклист: <b>"+n+" / "+all+"</b>"+(n<all?" · липсва поне една опора: няма решение.":" ✓")+"</span>"+(bad[m]?"<span style=\"color:var(--bear)\">"+bad[m]+"</span>":"<span style=\"color:var(--bull)\">Състоянието е подходящо за анализ.</span>")}
+  Book.each("input",function(c){c.addEventListener("change",pc)},pre);mood.addEventListener("change",pc);pc();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>От макро към пазарен прочит · FX Fundamentals</title>
+<meta name="description" content="От макро към пазарен прочит · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch26.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch26.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="26">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">28</div>
+    <h1>От макро към пазарен прочит</h1>
+    <blockquote class="quote">
+      Когато фактите се променят, аз променям мнението си. А вие какво правите, сър?
+      <cite>Приписва се на Джон Мейнард Кейнс</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да разделиш „накъде“ (макро) от „къде и кога“ (техника) и да ги събереш в една присъда: зелено, жълто или червено;</li>
+        <li>да построиш седмичен bias файл с вероятности, инвалидация и проверка на собствените си прогнози;</li>
+        <li>да различиш факт, прогноза и мнение в едно и също заглавие;</li>
+        <li>да видиш кога две позиции всъщност са един и същ залог.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>28.1 Посока срещу място и момент</h2>
+      <p>Част III ти даде много макро. Сега е важно да не го използваш грешно. Макрото отговаря на въпроса <b>„накъде е по-вероятно да духа вятърът тази седмица?“</b>. Техническият анализ от Част II отговаря на <b>„къде точно и кога влизам, и къде греша?“</b>. Ако смесиш двата въпроса, ще влизаш по новини без ниво или по нива срещу целия свят.</p>
+      <div class="four">
+        <div><span class="label">Макро казва</span><p>EUR е по-слабо от USD тази седмица, вероятност около 55%.</p></div>
+        <div><span class="label">Макро не казва</span><p>Къде да влезеш, къде е стопът, кога да излезеш.</p></div>
+        <div><span class="label">Техниката казва</span><p>Структурата на H4 е надолу, ликвидността е над 1.1269, зоната за вход е тук.</p></div>
+        <div><span class="label">Техниката не казва</span><p>Че утре в 15:30 има CPI, който може да изтрие всичко.</p></div>
+      </div>
+      <p>Двете се събират в <b>присъда</b>. Пробвай всяка комбинация.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Макро bias за двойката<select id="v1"><option value="1">Нагоре</option><option value="0" selected>Неутрално</option><option value="-1">Надолу</option></select></label>
+            <label>Структура на H4/D1<select id="v2"><option value="1">Нагоре</option><option value="0">Диапазон</option><option value="-1" selected>Надолу</option></select></label>
+            <label>Голяма новина в следващите 2 ч<select id="v3"><option value="0" selected>Не</option><option value="1">Да</option></select></label>
+            <label>Увереност (1–5)<input type="number" id="v4" value="3" min="1" max="5" step="1"></label>
+          </div>
+          <div class="out" id="vOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Логиката на присъдата, не правило за вход. Зеленото казва „може да търсиш сетъп по твоите правила“, не „влизай“.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="prisuda-matrica">
+        <table class="data">
+          <thead><tr><th>Макро ↓ / Техника →</th><th>Същата посока</th><th>Диапазон</th><th>Обратна посока</th></tr></thead>
+          <tbody>
+            <tr><td>Ясен bias (увереност 4–5)</td><td><b style="color:var(--bull)">Зелено</b></td><td><b style="color:var(--news)">Жълто</b>: чакай пробив</td><td><b style="color:var(--bear)">Червено</b></td></tr>
+            <tr><td>Наклон (увереност 3)</td><td><b style="color:var(--news)">Жълто</b>: по-малък размер</td><td><b style="color:var(--news)">Жълто</b></td><td><b style="color:var(--bear)">Червено</b></td></tr>
+            <tr><td>Неутрално</td><td><b style="color:var(--news)">Жълто</b>: само техника, малко</td><td><b style="color:var(--bear)">Червено</b></td><td><b style="color:var(--news)">Жълто</b>: само техника, малко</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Bias · пристрастие</b>Предварителната ти преценка за по-вероятната посока. Не е позиция.</div>
+      <div class="term"><b>HTF · по-висок таймфрейм</b>Higher timeframe: D1, H4. Оттам идва структурата.</div>
+      <div class="term"><b>Conviction · увереност</b>Колко силно макро, техника и поведение на цената сочат в една посока.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: средно">●●</span>28.2 Седмичният bias файл</h2>
+      <p>Всичко от тази част се събира в един документ, който се пише в неделя и се обновява всяка сутрин. Не е дневник за чувства и не е списък със сделки. Това е картата, с която влизаш в седмицата. Добрият bias файл има девет части.</p>
+      <ol class="steps">
+        <li><b>Резюме в три реда.</b> Кое е най-важното тази седмица и защо.</li>
+        <li><b>Макро фон.</b> Режимът (растеж × инфлация), лихвите, кой централен банкер е ястреб.</li>
+        <li><b>Календар.</b> От Forex Factory, само събитията с висок ефект, с часовете по София.</li>
+        <li><b>Матрица на валутите.</b> За всяка валута: bias с вероятност, главен двигател, инвалидация, увереност 1–5.</li>
+        <li><b>Междупазарни връзки.</b> Злато, петрол, доходности, индекси: потвърждават ли картината?</li>
+        <li><b>Сценарии.</b> Два или три изхода с груби вероятности и как би изглеждал всеки на графиката.</li>
+        <li><b>Класиране по увереност.</b> Кои идеи са най-чисти и какво ги заплашва.</li>
+        <li><b>Наблюдение на риска.</b> Какво убива картината (фалсификатор) и кои позиции са всъщност един залог.</li>
+        <li><b>Проверка.</b> Миналата седмица: колко сценария се сбъднаха, колко не, колко не се задействаха.</li>
+      </ol>
+      <p>Ето как изглежда част от матрицата в реалните бележки сутринта на 21 октомври 2026. Нивата са махнати нарочно: целта е да видиш формата, не да търгуваш по нея.</p>
+      <div class="tablewrap" data-name="primer-matrica-21-10-2026">
+        <table class="data">
+          <thead><tr><th>Валута</th><th>Макро bias</th><th>Главен двигател</th><th>Какво убива идеята</th><th>Увереност</th></tr></thead>
+          <tbody>
+            <tr><td>USD</td><td>Неутрално-слабо, ~55%</td><td>10г доходност, очаквано повишение на Фед през декември</td><td>10г над 5.20%</td><td>3</td></tr>
+            <tr><td>EUR</td><td>Наклон надолу, ~55%</td><td>Спредът OAT–Bund, преглед от Moody's</td><td>Пробив нагоре на H4</td><td>3</td></tr>
+            <tr><td>GBP</td><td>Нагоре, ~56–57%</td><td>Горещ CPI (3.5% срещу 3.4% прогноза), повишение на BoE</td><td>Мек тон на Бейли</td><td>3</td></tr>
+            <tr><td>AUD</td><td>Нагоре, ~56%, най-силна</td><td>Ястребова RBA</td><td>Risk-off след отчетите на технологичните компании</td><td>3–4</td></tr>
+            <tr><td>JPY</td><td>Слаба / диапазон, ~54%</td><td>Carry срещу намеса на Министерството на финансите</td><td>Устойчиво над тавана</td><td>2–3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Забележи три навика в този файл. Първо, никъде не пише „EUR ще падне“: пише „~55%“. Разликата между 55 и 100 е мястото, където живеят стоповете. Второ, всяка идея има изречение „какво я убива“. Трето, файлът има бележка „данните не съвпадат“: различни източници дават различни цени на петрола. Аналитик, който не забелязва това, рано или късно търгува грешно число.</p>
+      </div>
+      <div class="tablewrap" data-name="etiketi-proizhod">
+        <table class="data">
+          <thead><tr><th>Етикет</th><th>Значение</th><th>Пример</th></tr></thead>
+          <tbody>
+            <tr><td>[C] потвърдено</td><td>Видяно на живо от надежден източник</td><td>Публикуван CPI: 3.5%</td></tr>
+            <tr><td>[D] изведено</td><td>Сметнато или заключено от потвърдени данни</td><td>„Повишението е почти изцяло в цената“</td></tr>
+            <tr><td>[X] непроверено</td><td>Слух, единичен източник, стара бележка</td><td>„Според пост в X сделката е готова“</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Invalidation · инвалидация</b>Условието, при което идеята е грешна и я изоставяш.</div>
+      <div class="term"><b>Falsifier · фалсификатор</b>Едно събитие, което обръща цялата картина наведнъж.</div>
+      <div class="term"><b>Provenance · произход</b>Откъде е числото и колко му вярваш.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>28.3 Неделният ритуал</h2>
+      <p>Bias файлът не се пише в понеделник в 9:55, пет минути преди Лондон. Пише се в неделя, на спокойствие, и се обновява сутрин за 15–20 минути.</p>
+      <div class="timeline">
+        <div class="tick"><span class="t">Неделя · 1</span><b>Проверка на миналата седмица</b><span>Отбележи всеки сценарий: сбъднат, грешен или не се задейства. Без извинения.</span></div>
+        <div class="tick news"><span class="t">Неделя · 2</span><b>Forex Factory</b><span>Календарът за седмицата, филтър само за висок ефект и твоите валути. Запиши часовете по София.</span></div>
+        <div class="tick"><span class="t">Неделя · 3</span><b>Матрицата</b><span>Лихви, последни данни, тон на централните банки. Вероятност и увереност за всяка валута.</span></div>
+        <div class="tick"><span class="t">Неделя · 4</span><b>Графиките</b><span>Седмична и дневна структура. Къде са ликвидността и зоните. Съвпадат ли с матрицата?</span></div>
+        <div class="tick"><span class="t">Неделя · 5</span><b>Сценарии и рискове</b><span>Какво очаквам, какво би ме изненадало, какво убива всичко.</span></div>
+        <div class="tick news"><span class="t">Всяка сутрин</span><b>Обновяване</b><span>Какво стана през нощта, какви данни излизат днес, променя ли се нещо в матрицата? Ако не, не пипай.</span></div>
+      </div>
+      <div class="dialog">
+        <p><span>Ученик</span>Звучи като много работа за сметка от 100 евро.</p>
+        <p><span>Ментор</span>Сметката е малка. Навикът не е. Фондовете не гледат колко си изкарал от 100 евро, а дали можеш да повториш процеса с 100 000. Освен това един час в неделя е по-евтин от три импулсивни сделки във вторник.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Morning update · сутрешно обновяване</b>Кратка проверка преди сесията: нови данни, нощни новини, промени в картата.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>28.4 Факт, прогноза, мнение</h2>
+      <p>Новинарският поток смесва три различни неща в едно изречение. Факт е нещо, което вече се е случило и може да се провери. Прогноза е твърдение за бъдещето, обикновено с число. Мнение е тълкуване. Пазарът търгува фактите спрямо прогнозите; мненията са шум, освен ако не са на човек, който гласува за лихвите.</p>
+      <p>Класифицирай всяко изречение.</p>
+      <div id="fx3"></div>
+      <p class="verdict" id="fx3Sum" aria-live="polite"></p>
+      <div class="tablewrap" data-name="iztochnici-novini">
+        <table class="data">
+          <thead><tr><th>Източник</th><th>Скорост</th><th>Цена</th><th>За какво</th><th>Капан</th></tr></thead>
+          <tbody>
+            <tr><td>Forex Factory</td><td>Бърз</td><td>Безплатно</td><td>Календар, прогнози, реални стойности, форум</td><td>Форумът е мнения, не анализ</td></tr>
+            <tr><td>Reuters</td><td>Много бърз</td><td>Частично платено</td><td>Факти, анкети сред икономисти, изявления</td><td>Заглавията излизат преди контекста</td></tr>
+            <tr><td>Bloomberg</td><td>Много бърз</td><td>Скъпо (терминал)</td><td>Данни, пазарни нива, интервюта</td><td>Безплатната версия е силно ограничена</td></tr>
+            <tr><td>Financial Times</td><td>Среден</td><td>Абонамент</td><td>Анализ, политика, фискални теми</td><td>Колумните са мнения</td></tr>
+            <tr><td>FXStreet</td><td>Бърз</td><td>Безплатно</td><td>Обобщения по двойки, техническо и фундаментално</td><td>Много съдържание, различно качество</td></tr>
+            <tr><td>X (Twitter)</td><td>Най-бърз</td><td>Безплатно</td><td>Първи сигнал за новина</td><td>Слухове, фалшиви „breaking“, ехо-камери</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Consensus · консенсус</b>Средната прогноза на анкетирани икономисти. Във Forex Factory е колоната Forecast.</div>
+      <div class="term"><b>Sources say · според източници</b>Изтичане на информация. Може да е вярно, може да е пробен балон.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: напреднало">●●●</span>28.5 Позициониране: кой вече е вътре</h2>
+      <p>Доброто макро не е достатъчно, ако всички вече са го купили. Когато едно мнение е споделено от почти всички, няма кой да купи още и малка изненада предизвиква бързо излизане през една и съща врата. Това е <b>претъпкана сделка</b>.</p>
+      <div class="tablewrap" data-name="pozicionirane">
+        <table class="data">
+          <thead><tr><th>Инструмент</th><th>Какво показва</th><th>Как се чете</th></tr></thead>
+          <tbody>
+            <tr><td>COT отчетът (CFTC)</td><td>Позиции на спекуланти във фючърсите, публикуван в петък за данни от вторник</td><td>Екстремна нетна позиция = рискът от обръщане расте</td></tr>
+            <tr><td>Настроение на дребните трейдъри</td><td>Процент дълги и къси при брокерите</td><td>Обикновено обратен индикатор: тълпата често е от грешната страна</td></tr>
+            <tr><td>Опции (risk reversals)</td><td>Колко плащат хората за защита нагоре срещу надолу</td><td>Скъпа защита в една посока = страх в тази посока</td></tr>
+            <tr><td>Поведение на цената</td><td>Добра новина, а цената не расте</td><td>Новината вече е в цената</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box ff">
+        <span class="label">От бележките · CPI, 14 октомври 2026</span>
+        <p>Преди данните дребните трейдъри са дълги на златото (около 68%), паунда (около 71%) и еврото (около 66%), и дори са увеличили тези позиции предния ден. CPI излиза горещ, доларът скача, а златото, паундът и еврото падат. Тълпата е хваната от грешната страна точно в сценария, който файлът е описал предварително.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Crowded trade · претъпкана сделка</b>Позиция, която почти всички вече държат.</div>
+      <div class="term"><b>COT · Commitments of Traders</b>Седмичен отчет на американския регулатор CFTC за позициите във фючърсите.</div>
+      <div class="term"><b>Priced in · в цената</b>Очакваното събитие вече е отразено в курса.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="main">
+      <h2 id="s6"><span class="dots" title="Ниво: средно">●●</span>28.6 Не смесвай хоризонтите и не залагай два пъти</h2>
+      <div class="tablewrap" data-name="horizonti">
+        <table class="data">
+          <thead><tr><th>Хоризонт</th><th>Въпрос</th><th>Инструменти</th><th>Грешка</th></tr></thead>
+          <tbody>
+            <tr><td>Седмица (W1/D1)</td><td>Накъде духа вятърът?</td><td>Bias файл, централни банки, режим</td><td>Да го сменяш след всеки 20-пипов ход</td></tr>
+            <tr><td>Ден (H4/H1)</td><td>Къде са зоните и ликвидността?</td><td>Структура, POI, сесии</td><td>Да търгуваш H4 зона, без да гледаш календара</td></tr>
+            <tr><td>Вход (M15/M5/M1)</td><td>Кога точно и къде е стопът?</td><td>Тригер, потвърждение</td><td>Да вземаш макро решения по M1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Втората клопка е по-тиха. Купуваш GBPUSD, защото паундът е силен. Купуваш AUDUSD, защото австралийският долар е силен. Изглеждат като две идеи. Всъщност и двете са <b>къс долар</b>: ако доларът поскъпне, губиш два пъти. Пробвай.</p>
+      <figure>
+        <div id="expo"></div>
+        <div class="out" id="expoOut" aria-live="polite"></div>
+        <figcaption>Всяка позиция е с еднакъв размер. Числото показва колко пъти си изложен на една валута.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Net exposure · нетна експозиция</b>Сборът от всички залози за и против една валута.</div>
+      <div class="term"><b>Relative trade · относителна сделка</b>Залог силна срещу слаба валута, без долара: например GBP срещу EUR.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s7">
+    <div class="main">
+      <h2 id="s7"><span class="dots" title="Ниво: средно">●●</span>28.7 Проверявай се като анализатор</h2>
+      <p>Анализ без проверка е мнение. Всеки ден записвай сценариите си, а вечерта ги оценявай: сбъднат, грешен, не се задейства, неоценим. След месец ще видиш в кои теми си добър и в кои се лъжеш.</p>
+      <div class="tablewrap" data-name="proverka-scenarii">
+        <table class="data">
+          <thead><tr><th>Ден (от бележките)</th><th>Сбъднати</th><th>Грешни</th><th>Други</th><th>Урок, записан същата вечер</th></tr></thead>
+          <tbody>
+            <tr><td>Петък, 16 октомври</td><td>8</td><td>0</td><td>3 не се задействаха</td><td>Доларът игнорира горещите инфлационни очаквания: режимът е потвърден</td></tr>
+            <tr><td>Понеделник, 19 октомври</td><td>4</td><td>5</td><td>2 без прогноза</td><td>Risk-on заедно с по-силен долар: движеше го доходността, не апетитът за риск</td></tr>
+            <tr><td>Вторник, 20 октомври</td><td>6</td><td>4</td><td>1 неоценим</td><td>Всички грешки идват от залагане срещу слабия долар по единични новини</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Добрият анализатор е прав почти винаги.</p></div>
+        <div><span class="label">Реалност</span><p>Добрият анализатор знае <i>кога</i> греши и записва защо. 6 от 10 с ясна причина за грешките е по-ценно от 9 от 10 без запис, защото първото може да се подобри.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Calibration · калибриране</b>Дали нещата, на които даваш 60%, наистина стават в около 60% от случаите.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 28</h2>
+    <ul>
+      <li>Макрото казва накъде, техниката казва къде и кога. Присъдата ги събира: зелено, жълто, червено.</li>
+      <li>Bias файлът има вероятности, инвалидация, сценарии, фалсификатор и проверка.</li>
+      <li>Етикетирай всяко число: потвърдено, изведено, непроверено.</li>
+      <li>Пазарът търгува фактите спрямо прогнозите. Мненията са шум.</li>
+      <li>Претъпканата сделка е опасна дори с правилно макро.</li>
+      <li>Две двойки срещу долара са един залог. Проверявай нетната експозиция.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Написах първия си седмичен bias файл, дори само с три валути.</label></li>
+      <li><label><input type="checkbox"> За всяка идея имам изречение „какво я убива“.</label></li>
+      <li><label><input type="checkbox"> Оцених сценариите си поне за един ден.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Неделният ти файл казва: EUR наклон надолу, ~55%, увереност 3, двигател спредът на Франция. Вторник, Лондон. EURUSD прави чист пробив нагоре на структурата на H1 и прибира ликвидността над вчерашния връх. В 15:00 говори член на ЕЦБ. Ти вече държиш къса позиция в GBPJPY и мислиш да купиш AUDUSD.</p>
+      <p><b>Задача:</b> каква е присъдата за EURUSD и защо? Променя ли пробивът на H1 седмичния bias? Какво казва нетната ти експозиция? Какво ще запишеш вечерта, каквото и да стане?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Присъда… Bias… Експозиция… Вечерният запис…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Червено за къси позиции в EURUSD: макрото е само наклон (увереност 3), а техниката на H1 сочи обратно. Жълто, ако търся покупка: техниката е „за“, но макрото е „против“ и има говорител в 15:00. Най-честият разумен извод е да не търгувам EURUSD, докато двете не се съгласят.</li>
+          <li>Пробив на H1 не сменя седмичния bias. Той би се сменил, ако се задейства инвалидацията от файла (например пробив на H4) или ако двигателят се промени (спредът на Франция се свие). Записвам пробива като предупреждение.</li>
+          <li>Къс GBPJPY е залог против паунда и за йената; купуване на AUDUSD е залог против долара. Не се припокриват пряко, но и двете са чувствителни към настроението за риск: при risk-off GBPJPY печели, а AUDUSD губи. Важно е да знам това, преди да добавя.</li>
+          <li>Вечерта: сбъднат ли е сценарият за EUR, дали пробивът на H1 е бил капан за ликвидност или начало на обрат, и дали съм спазил присъдата. Решението дали да търгувам остава мое; записът е задължителен.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"На кой въпрос отговаря макрото?",o:["Къде е стопът","Накъде е по-вероятно да върви цената","Кога точно да вляза"],a:1,e:"Посока, не място и момент."},
+  {q:"Кога се пише седмичният bias файл?",o:["В неделя, на спокойствие","Пет минути преди Лондон","След загуба"],a:0,e:"И се обновява сутрин."},
+  {q:"„Икономистите очакват CPI 3.4%.“ Това е…",o:["Факт","Прогноза","Мнение"],a:1,e:"Твърдение за бъдещето с число."},
+  {q:"Дълъг си в GBPUSD и AUDUSD. Какъв е залогът ти към долара?",o:["Дълъг долар","Къс долар два пъти","Неутрален"],a:1,e:"Двете позиции продават долари."},
+  {q:"Какво значи „в цената“?",o:["Събитието вече е отразено в курса","Цената е ниска","Брокерът е скъп"],a:0,e:"Очакваното не мърда пазара, изненадата го мърда."}
+],mid:[
+  {q:"Макро: ясен bias нагоре (увереност 5). H4: диапазон. Присъда?",o:["Зелено","Жълто: чакай пробив","Червено"],a:1,e:"Посоката е ясна, мястото още не."},
+  {q:"Добра новина за една валута, а тя не поскъпва. Най-вероятно…",o:["Новината е в цената или позиционирането е претъпкано","Данните са грешни","Брокерът манипулира"],a:0,e:"Чети реакцията, не заглавието."},
+  {q:"Даваш 60% на 50 сценария. Сбъдват се 45. Какво казва това?",o:["Добре калибриран","Подценяваш увереността си","Надценяваш увереността си"],a:1,e:"45 от 50 е 90%, не 60%."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var h=Book.h;
+  /* verdict */
+  var v=["v1","v2","v3","v4"].map(function(i){return document.getElementById(i)}),vo=document.getElementById("vOut");
+  function vd(){var m=+v[0].value,t=+v[1].value,n=+v[2].value,c=Math.max(1,Math.min(5,+v[3].value||1)),col,txt,why;
+    if(n){col=2;why="Голяма новина след малко: техниката може да бъде изтрита за секунди. Изчакай реакцията."}
+    else if(m===0&&t===0){col=2;why="Нито вятър, нито посока. Няма какво да търгуваш."}
+    else if(m!==0&&t===-m){col=2;why="Макро и техника сочат в различни посоки. Една от двете ще сгреши, не знаеш коя."}
+    else if(m!==0&&t===m&&c>=4){col=0;why="Макро, техника и увереност сочат в една посока. Търси сетъп по своите правила."}
+    else if(m!==0&&t===m){col=1;why="Посоката съвпада, но увереността е средна. По-малък размер или по-строг тригер."}
+    else if(m!==0){col=1;why="Посоката е ясна, мястото още не. Чакай структурата да се съгласи."}
+    else{col=1;why="Само техника, без макро вятър. Възможно, но с по-малък размер и бързи цели."}
+    var c2=["var(--bull)","var(--news)","var(--bear)"][col];txt=["ЗЕЛЕНО","ЖЪЛТО","ЧЕРВЕНО"][col];
+    vo.innerHTML="<span><b style='color:"+c2+"'>● "+txt+"</b></span><span>"+why+"</span>"}
+  v.forEach(function(x){x.addEventListener("input",vd);x.addEventListener("change",vd)});vd();
+  /* fact / forecast / opinion */
+  var F=[["US CPI за септември е 3.7% на годишна база.",0],["Икономистите в анкетата на Reuters очакват Фед да вдигне лихвата през декември.",1],["Доларът изглежда изтощен и скоро ще се обърне.",2],["BoE ще вдигне на 5 ноември, според 9 от 10 анкетирани икономисти.",1],["ЕЦБ остави депозитната лихва на 2.50%.",0],["Това е най-лошата икономическа политика от десетилетия.",2]],L=["Факт","Прогноза","Мнение"],box=document.getElementById("fx3"),sum=document.getElementById("fx3Sum"),ok=0,done=0;
+  F.forEach(function(f){var row=h("div","box note");row.appendChild(h("p","",f[0]));var bar=h("div","tabs");
+    L.forEach(function(l,i){var b=h("button","chip",l);b.type="button";b.addEventListener("click",function(){if(row.dataset.done)return;row.dataset.done=1;done++;
+      if(i===f[1]){ok++;b.style.background="var(--bull)";b.style.color="var(--bg)"}else{b.style.background="var(--bear)";b.style.color="var(--bg)";bar.children[f[1]].style.outline="2px solid var(--bull)"}
+      sum.textContent=ok+" от "+done+" верни"+(done===F.length?". Помни: пазарът мърда, когато фактът се разминава с прогнозата.":"")});bar.appendChild(b)});
+    row.appendChild(bar);box.appendChild(row)});
+  /* exposure */
+  var P=["EURUSD","GBPUSD","AUDUSD","USDJPY","USDCAD","USDCHF","EURGBP","GBPJPY","AUDJPY","EURJPY"],ex=document.getElementById("expo"),eo=document.getElementById("expoOut"),S=[];
+  var fl=h("div","fields");
+  for(var i=0;i<3;i++){var lab=h("label","","Позиция "+(i+1)),sp=document.createElement("select"),sd=document.createElement("select");
+    sp.innerHTML="<option value=''>—</option>"+P.map(function(p){return "<option>"+p+"</option>"}).join("");
+    sd.innerHTML="<option value='1'>Купувам</option><option value='-1'>Продавам</option>";
+    if(i===0)sp.value="GBPUSD";if(i===1)sp.value="AUDUSD";
+    lab.appendChild(sp);lab.appendChild(sd);fl.appendChild(lab);S.push([sp,sd]);sp.addEventListener("change",calc);sd.addEventListener("change",calc)}
+  var cw=h("div","calc");cw.appendChild(fl);ex.appendChild(cw);
+  function calc(){var E={};S.forEach(function(s){var p=s[0].value,d=+s[1].value;if(!p)return;var a=p.slice(0,3),b=p.slice(3);E[a]=(E[a]||0)+d;E[b]=(E[b]||0)-d});
+    var k=Object.keys(E).filter(function(c){return E[c]!==0}).sort(function(a,b){return Math.abs(E[b])-Math.abs(E[a])});
+    if(!k.length){eo.innerHTML="<span>Няма нетна експозиция.</span>";return}
+    var out=k.map(function(c){var n=E[c];return "<span><b style='color:"+(n>0?"var(--bull)":"var(--bear)")+"'>"+(n>0?"дълъг ":"къс ")+c+" ×"+Math.abs(n)+"</b></span>"}).join("");
+    var big=k.filter(function(c){return Math.abs(E[c])>=2});
+    eo.innerHTML=out+"<span>"+(big.length?"Внимание: "+big.join(", ")+" присъства в повече от една позиция. Това е един залог, сложен няколко пъти.":"Залозите не се натрупват върху една валута.")+"</span>"}
+  calc();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

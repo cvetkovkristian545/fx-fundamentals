@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Дневник и bias файл · FX Fundamentals</title>
+<meta name="description" content="Дневник за сделки и седмичен bias файл с експорт към Excel. FX Fundamentals, безплатно ръководство от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../chJ.html">
+<link rel="alternate" hreflang="bg" href="../bg/chJ.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+<style>
+.jform{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.jform label{display:grid;gap:4px;font:.78rem var(--f-mono);color:var(--muted)}
+.jform input,.jform select,.jform textarea{font:inherit;font-size:.95rem;font-family:var(--f-body);padding:8px 10px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--bg);color:var(--fg)}
+.jform label{min-width:0}.jform input,.jform select,.jform textarea{min-width:0;width:100%;box-sizing:border-box}
+.jform .wide{grid-column:1/-1}.jform textarea{min-height:64px}
+.jbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.jstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.jstats div{border:1px solid var(--line);border-radius:var(--r);padding:10px;text-align:center;background:var(--bg)}
+.jstats b{display:block;font:700 1.3rem var(--f-display)}.jstats span{font:.72rem var(--f-mono);color:var(--muted)}
+.jtab td,.jtab th{white-space:nowrap}.jtab .del{border:0;background:none;color:var(--bear);cursor:pointer;font-size:1rem}
+.rpos{color:var(--bull);font-weight:700}.rneg{color:var(--bear);font-weight:700}
+</style>
+</head>
+<body>
+<main class="book" data-ch="J">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">J</div>
+    <h1>Дневник и bias файл</h1>
+    <blockquote class="quote">
+      Първият принцип е да не се самозалъгваш. А ти си най-лесният човек за залъгване.
+      <cite>Ричард Файнман, 1974</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">Тук можеш</p>
+      <ul class="cando">
+        <li>да записваш всяка сделка с оценка за сетъпа и за изпълнението (Глава 36);</li>
+        <li>да виждаш процента печеливши, средния R и очакването, без да смяташ на ръка;</li>
+        <li>да попълваш седмичния bias файл (Глава 28);</li>
+        <li>да изтеглиш всичко като Excel файл (CSV).</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>J.1 Нова сделка</h2>
+      <p>Записвай и пропуснатите сетъпи: те показват колко често колебанието ти коства пари. Данните се пазят само в този браузър, затова изтегляй файла от време на време.</p>
+      <form class="jform" id="tForm" autocomplete="off">
+        <label>Дата<input type="date" name="date" required></label>
+        <label>Инструмент<input type="text" name="pair" placeholder="EURUSD" required></label>
+        <label>Сесия<select name="session"><option>Лондон</option><option>Ню Йорк</option><option>Азия</option><option>Друга</option></select></label>
+        <label>Посока<select name="dir"><option>Покупка</option><option>Продажба</option></select></label>
+        <label>Сетъп<input type="text" name="setup" placeholder="sweep + MSS + FVG"></label>
+        <label>Таймфрейм<input type="text" name="tf" placeholder="M15"></label>
+        <label>Вход<input type="number" name="entry" step="any"></label>
+        <label>Стоп<input type="number" name="sl" step="any"></label>
+        <label>Цел<input type="number" name="tp" step="any"></label>
+        <label>Резултат (R)<input type="number" name="r" step="0.1" placeholder="+3 / −1 / 0"></label>
+        <label>Статус<select name="status"><option>Изиграна</option><option>Пропусната</option></select></label>
+        <label>Оценка сетъп /10<input type="number" name="ss" min="0" max="10" step="0.5"></label>
+        <label>Оценка изпълнение /10<input type="number" name="se" min="0" max="10" step="0.5"></label>
+        <label class="wide">Бележка: какво видях, какво почувствах, какво бих направил различно<textarea name="note"></textarea></label>
+        <div class="jbar wide"><button class="chip" type="submit">＋ Запиши сделката</button><span class="fb" id="tMsg" aria-live="polite"></span></div>
+      </form>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>R · единица риск</b>Резултатът, изразен в брой рискове. +3R значи три пъти рискуваното.</div>
+      <div class="term"><b>Expectancy · очакване</b>Средният резултат на сделка в R. Над нулата значи предимство.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>J.2 Твоите числа</h2>
+      <div class="jstats" id="tStats"></div>
+      <div class="jwrap" style="margin-top:12px;overflow-x:auto"><table class="data jtab"><thead><tr><th>Дата</th><th>Инструмент</th><th>Сесия</th><th>Посока</th><th>Сетъп</th><th>R</th><th>Сетъп</th><th>Изп.</th><th>Статус</th><th></th></tr></thead><tbody id="tBody"></tbody></table></div>
+      <div class="jbar"><button class="chip" type="button" id="tCsv">⬇ Изтегли дневника (Excel)</button></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Win rate · процент печеливши</b>Печелившите сделки делено на всички изиграни.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: средно">●●</span>J.3 Седмичен bias файл</h2>
+      <p>Попълва се в неделя, преди пазарът да отвори. Ако не можеш да напишеш сценарий A и B, още не знаеш какво чакаш.</p>
+      <form class="jform" id="bForm" autocomplete="off">
+        <label>Седмица от<input type="date" name="week" required></label>
+        <label>DXY посока<select name="dxy"><option>Нагоре</option><option>Надолу</option><option>Неясно</option></select></label>
+        <label>Risk-on / off<select name="risk"><option>Risk-on</option><option>Risk-off</option><option>Неутрално</option></select></label>
+        <label>Двойки за седмицата<input type="text" name="pairs" placeholder="EURUSD, GBPUSD"></label>
+        <label class="wide">Ключови нива (седмични, дневни)<input type="text" name="levels" placeholder="PWH 1.0950, PWL 1.0820, ..."></label>
+        <label class="wide">Новини със сила (Forex Factory, червени)<input type="text" name="news" placeholder="Сряда 15:30 CPI САЩ, ..."></label>
+        <label class="wide">Сценарий A (основен)<textarea name="a" placeholder="Ако… тогава…"></textarea></label>
+        <label class="wide">Сценарий B (обратният)<textarea name="b" placeholder="Ако… тогава…"></textarea></label>
+        <label class="wide">Какво НЯМА да правя тази седмица<input type="text" name="avoid" placeholder="Без сделки 30 мин преди CPI"></label>
+        <div class="jbar wide"><button class="chip" type="submit">＋ Запиши bias файла</button><span class="fb" id="bMsg" aria-live="polite"></span></div>
+      </form>
+      <div class="jwrap" style="margin-top:12px;overflow-x:auto"><table class="data jtab"><thead><tr><th>Седмица</th><th>DXY</th><th>Риск</th><th>Двойки</th><th>Сценарий A</th><th></th></tr></thead><tbody id="bBody"></tbody></table></div>
+      <div class="jbar"><button class="chip" type="button" id="bCsv">⬇ Изтегли bias файловете (Excel)</button></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Bias · посока</b>Очакването ти за посоката на седмицата, преди да видиш сетъп.</div>
+    </aside>
+  </section>
+
+</main>
+<script src="book.js"></script>
+<script>
+(function(){
+  var B=window.Book;
+  function load(k){try{return JSON.parse(B.store(k)||"[]")||[]}catch(e){return[]}}
+  function save(k,v){B.store(k,JSON.stringify(v))}
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function data(f){var o={};Array.prototype.forEach.call(f.elements,function(x){if(x.name)o[x.name]=x.value});return o}
+  var tf=document.getElementById("tForm"),bf=document.getElementById("bForm");
+  tf.date.value=new Date().toISOString().slice(0,10);bf.week.value=new Date().toISOString().slice(0,10);
+  /* trades */
+  function drawT(){var T=load("bJ-trades"),tb=document.getElementById("tBody"),played=T.filter(function(t){return t.status!=="Пропусната"&&t.r!==""});
+    tb.innerHTML=T.map(function(t,i){var r=+t.r;return "<tr><td>"+esc(t.date)+"</td><td>"+esc(t.pair)+"</td><td>"+esc(t.session)+"</td><td>"+esc(t.dir)+"</td><td>"+esc(t.setup)+"</td><td class='"+(t.r===""?"":r>0?"rpos":r<0?"rneg":"")+"'>"+(t.r===""?"–":(r>0?"+":"")+r+"R")+"</td><td>"+esc(t.ss||"–")+"</td><td>"+esc(t.se||"–")+"</td><td>"+esc(t.status)+"</td><td><button class='del' data-i='"+i+"' aria-label='Изтрий'>✕</button></td></tr>"}).reverse().join("")||"<tr><td colspan='10'>Още няма записи.</td></tr>";
+    var n=played.length,w=played.filter(function(t){return +t.r>0}).length,sum=played.reduce(function(a,t){return a+(+t.r)},0),
+        se=T.filter(function(t){return t.se!==""&&t.se!=null}),avgE=se.length?se.reduce(function(a,t){return a+(+t.se)},0)/se.length:0,miss=T.filter(function(t){return t.status==="Пропусната"}).length;
+    document.getElementById("tStats").innerHTML=[["Изиграни",n],["Печеливши",n?Math.round(w/n*100)+"%":"–"],["Общо",(sum>0?"+":"")+sum.toFixed(1)+"R"],["Очакване",n?(sum/n).toFixed(2)+"R":"–"],["Изпълнение",se.length?avgE.toFixed(1)+"/10":"–"],["Пропуснати",miss]].map(function(x){return "<div><b>"+x[1]+"</b><span>"+x[0]+"</span></div>"}).join("")}
+  tf.addEventListener("submit",function(e){e.preventDefault();var T=load("bJ-trades");T.push(data(tf));save("bJ-trades",T);
+    ["setup","entry","sl","tp","r","ss","se","note"].forEach(function(k){tf[k].value=""});document.getElementById("tMsg").textContent="Записано ✓ ("+T.length+" общо)";drawT()});
+  document.getElementById("tBody").addEventListener("click",function(e){var b=e.target.closest(".del");if(!b)return;if(!confirm("Да изтрия ли записа?"))return;var T=load("bJ-trades");T.splice(+b.getAttribute("data-i"),1);save("bJ-trades",T);drawT()});
+  document.getElementById("tCsv").addEventListener("click",function(){var T=load("bJ-trades"),H=[["Дата","Инструмент","Сесия","Посока","Сетъп","Таймфрейм","Вход","Стоп","Цел","Резултат R","Статус","Оценка сетъп","Оценка изпълнение","Бележка"]];
+    T.forEach(function(t){H.push([t.date,t.pair,t.session,t.dir,t.setup,t.tf,t.entry,t.sl,t.tp,t.r,t.status,t.ss,t.se,t.note])});B.saveFile(this,"FX-dnevnik.csv",B.csvText(H))});
+  /* bias */
+  function drawB(){var L=load("bJ-bias");B.store("bJ-bias-n",String(L.length));document.getElementById("bBody").innerHTML=L.map(function(b,i){return "<tr><td>"+esc(b.week)+"</td><td>"+esc(b.dxy)+"</td><td>"+esc(b.risk)+"</td><td>"+esc(b.pairs)+"</td><td>"+esc((b.a||"").slice(0,60))+"</td><td><button class='del' data-i='"+i+"' aria-label='Изтрий'>✕</button></td></tr>"}).reverse().join("")||"<tr><td colspan='6'>Още няма bias файлове.</td></tr>"}
+  bf.addEventListener("submit",function(e){e.preventDefault();var L=load("bJ-bias");L.push(data(bf));save("bJ-bias",L);["pairs","levels","news","a","b","avoid"].forEach(function(k){bf[k].value=""});document.getElementById("bMsg").textContent="Записано ✓";drawB()});
+  document.getElementById("bBody").addEventListener("click",function(e){var b=e.target.closest(".del");if(!b)return;if(!confirm("Да изтрия ли записа?"))return;var L=load("bJ-bias");L.splice(+b.getAttribute("data-i"),1);save("bJ-bias",L);drawB()});
+  document.getElementById("bCsv").addEventListener("click",function(){var L=load("bJ-bias"),H=[["Седмица","DXY","Risk-on/off","Двойки","Нива","Новини","Сценарий A","Сценарий B","Избягвам"]];
+    L.forEach(function(b){H.push([b.week,b.dxy,b.risk,b.pairs,b.levels,b.news,b.a,b.b,b.avoid])});B.saveFile(this,"FX-bias-fajlove.csv",B.csvText(H))});
+  drawT();drawB();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

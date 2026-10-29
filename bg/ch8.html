@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Анализ отгоре надолу · FX Fundamentals</title>
+<meta name="description" content="Анализ отгоре надолу · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch8.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch8.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="8">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">8</div>
+    <h1>Анализ отгоре надолу</h1>
+    <blockquote class="quote">
+      Големите пари никога не ги е изкарвало мисленето ми. Винаги е било седенето.
+      <cite>Джеси Ливърмор, по „Спомени на един борсов спекулант“ (Едуин Лефевър, 1923)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да минеш от D1 до M5 в правилния ред и да кажеш какъв въпрос задаваш на всеки таймфрейм;</li>
+        <li>да оцениш посоката на деня с точки и да я запишеш в шаблон;</li>
+        <li>да решиш GO, WAIT или SKIP, когато таймфреймовете си противоречат.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>8.1 Четирите въпроса</h2>
+      <p>Анализът отгоре надолу е като навигация: първо гледаш картата на държавата, после на града, после на улицата и накрая номера на сградата. Ако започнеш от номера, ще стигнеш до правилната сграда в грешния град.</p>
+      <figure class="diagram">
+        <svg id="nest" viewBox="0 0 520 250" role="img" aria-label="Вложени таймфреймове от D1 до M5"></svg>
+        <div class="parts" id="tfChips"></div>
+        <p class="verdict" id="tfText" aria-live="polite"></p>
+        <figcaption>Всеки таймфрейм е „прозорец“ в по-големия. Натисни, за да видиш въпроса, който му задаваш.</figcaption>
+      </figure>
+      <div class="tablewrap" data-name="top-down">
+        <table class="data">
+          <thead><tr><th>Таймфрейм</th><th>Роля</th><th>Въпрос</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">D1 (и W1)</td><td>Посока</td><td>Bullish (бичи) или bearish (мечи)? В premium или discount сме? Къде е следващата голяма ликвидност?</td></tr>
+            <tr><td class="mono">H4</td><td>Люлка</td><td>Потвърждава ли D1? Последният BOS в каква посока е?</td></tr>
+            <tr><td class="mono">H1</td><td>Сетъп</td><td>Има ли POI в правилната половина? Има ли ликвидност преди нея?</td></tr>
+            <tr><td class="mono">M15 / M5</td><td>Детайл</td><td>Взета ли е ликвидността? Има ли MSS? Връща ли се цената в зоната?</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Правилото е просто: по-малкият таймфрейм служи на по-големия, никога обратното. M5 не може да те убеди, че D1 греши.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>HTF · по-висок таймфрейм</b>Higher timeframe: D1, H4. Посоката.</div>
+      <div class="term"><b>LTF · по-нисък таймфрейм</b>Lower timeframe: M15, M5. Детайлът.</div>
+      <div class="term"><b>Bias · пристрастие, посока</b>Очакваната посока за деня или седмицата.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>8.2 Когато таймфреймовете се съгласят и когато се скарат</h2>
+      <p>Най-добрата картина е, когато <b>D1 и H4 сочат в една посока</b>, а H1 току-що е завършил корекция срещу тях. Тогава корекцията на H1 е възможност, а не заплаха. Когато D1 и H4 се карат, правилото е: <b>чакаш</b>, докато H4 се подреди (нов HL и BOS в посоката на D1). Сделка срещу D1 и H4 се пропуска.</p>
+      <div class="tablewrap" data-name="soglasie-tf">
+        <table class="data">
+          <thead><tr><th>D1</th><th>H4</th><th>H1</th><th>Решение</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--bull)">Bullish</td><td style="color:var(--bull)">Bullish</td><td>Корекция надолу към POI</td><td><b style="color:var(--bull)">GO</b>: търси реакция в зоната</td></tr>
+            <tr><td style="color:var(--bull)">Bullish</td><td style="color:var(--bear)">Bearish</td><td>Всякакъв</td><td><b style="color:var(--news)">WAIT</b>: чакай H4 да направи HL и BOS нагоре</td></tr>
+            <tr><td style="color:var(--bull)">Bullish</td><td style="color:var(--bull)">Bullish</td><td>Силно нагоре, в premium</td><td><b style="color:var(--news)">WAIT</b>: не гони, чакай корекция</td></tr>
+            <tr><td style="color:var(--bull)">Bullish</td><td>—</td><td style="color:var(--bear)">Сетъп надолу</td><td><b style="color:var(--bear)">SKIP</b>: H1 срещу D1</td></tr>
+            <tr><td>Диапазон</td><td>Диапазон</td><td>В средата</td><td><b style="color:var(--bear)">SKIP</b>: няма предимство</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>Нивата на отварянията.</b> Освен върхове и дъна, много анализатори отбелязват цената на отваряне на седмицата, месеца и тримесечието. Когато цената е над седмичното отваряне, купувачите държат седмицата; под него, продавачите. Това е бърз и честен термометър.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Alignment · съгласуваност</b>Когато няколко таймфрейма сочат в една посока.</div>
+      <div class="term"><b>Weekly open · седмично отваряне</b>Цената в началото на седмицата. Опорна точка за седмичната посока.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: средно">●●</span>8.3 Оценка на посоката и дневният шаблон</h2>
+      <p>За да не е посоката „усещане“, я оценяваш с точки. Отметни какво важи за D1 на EURUSD днес. После попълни шаблона: той е същият, който ще ползваш всяка сутрин (Глава 37).</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Дата<input type="date" id="bDate"></label>
+            <label>Двойка<input type="text" id="bPair" value="EURUSD"></label>
+            <label>Посока, която оценяваш<select id="bDir"><option value="long">Нагоре (long)</option><option value="short">Надолу (short)</option></select></label>
+          </div>
+          <div style="display:grid;gap:6px" id="bChecks">
+            <label><input type="checkbox" data-w="2"> <span data-l="Поредица HH + HL" data-s="Поредица LH + LL"></span> на D1 (+2)</label>
+            <label><input type="checkbox" data-w="2"> Цената е в <span data-l="discount" data-s="premium"></span> на диапазона (+2)</label>
+            <label><input type="checkbox" data-w="2"> Има D1 зона (OB), която подкрепя посоката (+2)</label>
+            <label><input type="checkbox" data-w="1"> Незапълнен D1 FVG <span data-l="отдолу" data-s="отгоре"></span> като подкрепа (+1)</label>
+            <label><input type="checkbox" data-w="1"> Макро картината (централните банки) подкрепя посоката (+1)</label>
+          </div>
+          <div class="fields">
+            <label>H4 потвърждава D1?<select id="bH4"><option value="yes">Да</option><option value="no">Не</option><option value="mixed">Неясно</option></select></label>
+            <label>H1 POI (зона)<input type="text" id="bPoi" placeholder="напр. 1.0809–1.0815"></label>
+            <label>Ликвидност преди POI?<select id="bLiq"><option value="yes">Да</option><option value="no">Не</option></select></label>
+            <label>Червена папка днес?<select id="bNews"><option value="no">Не</option><option value="yes">Да</option></select></label>
+          </div>
+          <div class="out" id="bOut" aria-live="polite"></div>
+          <button class="toggle" id="bCopy">Копирай шаблона като текст</button>
+        </div>
+        <figcaption>Максимумът е 8 точки. Шаблонът се пази в този браузър. Копирай го в бележника или в дневника си.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>GO</b>Условията са подредени; има смисъл да се наблюдава за решение.</div>
+      <div class="term"><b>WAIT</b>Картината не е готова; чакаш конкретно събитие.</div>
+      <div class="term"><b>SKIP</b>Днес на този пазар няма предимство.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>8.4 Сутрешното сканиране: първо доларът</h2>
+      <p>Почти всички мейджъри съдържат долар. Затова сутрешният преглед започва от <b>DXY</b>, индекса на долара. Ако DXY е bearish на D1 и прави корекция нагоре, EURUSD и GBPUSD вероятно правят корекция надолу, както и златото. Гледаш DXY първо и после търсиш двойката, в която картината е най-чиста.</p>
+      <ol class="steps">
+        <li><b>DXY на D1 и H4.</b> Каква е посоката на долара?</li>
+        <li><b>Сила на валутите.</b> Сравни EURUSD, GBPUSD, USDJPY, AUDUSD: коя валута е най-силна и коя най-слаба тази седмица? Най-чистите движения са между най-силната и най-слабата.</li>
+        <li><b>Мулти-актив поглед.</b> Злато, S&amp;P 500, Nasdaq, биткойн: настроение за риск или бягство (Глава 22)?</li>
+        <li><b>Избор.</b> Една, най-много две двойки за деня. Останалите само наблюдаваш.</li>
+      </ol>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Колкото повече двойки следя, толкова повече възможности имам.</p></div>
+        <div><span class="label">Реалност</span><p>Колкото повече двойки следиш, толкова повече посредствени сетъпи ще намериш. Две добре познати двойки дават по-добри решения от десет.</p></div>
+      </div>
+      <p><b>Още едно правило за търпение.</b> Когато цената е пробила силно, без корекция, има само два разумни начина да участваш: да чакаш връщане към зоната или да чакаш втори пробив, който потвърждава първия. Гоненето по средата на движението е най-скъпият навик на начинаещия.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Currency strength · сила на валутата</b>Сравнение коя валута печели и коя губи спрямо всички останали.</div>
+      <div class="term"><b>Watchlist · списък за наблюдение</b>Малкият набор пазари, които следиш всеки ден.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 08</h2>
+    <ul>
+      <li>D1 посока → H4 люлка → H1 сетъп → M15/M5 детайл. Малкият служи на големия.</li>
+      <li>D1 + H4 в една посока и корекция на H1 = най-добрата картина. Конфликт = чакаш.</li>
+      <li>Оценката на посоката е от 0 до 8 и се записва в шаблон с GO / WAIT / SKIP.</li>
+      <li>Сканирането започва от DXY и избира една-две двойки.</li>
+      <li>Не гони: чакай връщане или втори пробив.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Попълних шаблона за EURUSD поне за три поредни дни.</label></li>
+      <li><label><input type="checkbox"> Отбелязах седмичното и месечното отваряне в TradingView.</label></li>
+      <li><label><input type="checkbox"> Сравних DXY и EURUSD на D1 и видях обратната връзка.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Понеделник сутрин. DXY на D1: bearish, но последните два дни се качва към supply zone (зона на предлагане). EURUSD на D1: bullish, в discount. H4 на EURUSD: последният BOS е надолу (корекцията). H1: цената е над седмичното отваряне, Азия е тесен диапазон. В сряда има FOMC.</p>
+      <p><b>Задача:</b> попълни наум дневния шаблон: оценка, H4, POI, решение. Какво трябва да се случи, за да мине решението от WAIT в GO?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="D1… H4… Решение… Условие за GO…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>D1 bullish (+2), в discount (+2). Ако има D1 OB под цената, +2. Около 4–6 от 8.</li>
+          <li>H4 не потвърждава: последният BOS е надолу. Според правилото това е WAIT, не GO.</li>
+          <li>DXY се качва към supply zone: ако реагира надолу там, EURUSD вероятно ще завърши корекцията си.</li>
+          <li>Условие за GO: на H4 се образува HL и цената затваря над последния LH (BOS нагоре), идеално след sweep на долната ликвидност на Азия или Лондон.</li>
+          <li>FOMC в сряда: каквото и да се подреди, преди решението на Фед новите позиции спират (Глава 13).</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"От кой таймфрейм започва анализът?",o:["M5","H1","D1 (или W1)"],a:2,e:"Посоката се взима от големия таймфрейм."},
+  {q:"Каква е ролята на H1?",o:["Посока","Сетъп и POI","Само за новини"],a:1,e:"H1 намира зоната, в която търсиш реакция."},
+  {q:"D1 bullish, H4 bearish. Решението е…",o:["GO","WAIT","Купувай веднага"],a:1,e:"Чакаш H4 да се подреди."},
+  {q:"Какво показва цена над седмичното отваряне?",o:["Купувачите държат седмицата засега","Продавачите държат седмицата","Нищо"],a:0,e:"Бърз термометър за седмичната посока."},
+  {q:"Откъде започва сутрешното сканиране?",o:["От биткойн","От DXY","От случайна двойка"],a:1,e:"Почти всички мейджъри съдържат долар."}
+],mid:[
+  {q:"D1, H4 и H1 са bullish, а цената е току-що излетяла в premium без корекция. Какво правиш?",o:["Купуваш веднага","Чакаш връщане към зона или втори пробив","Продаваш, защото е скъпо"],a:1,e:"Посоката е ясна, но мястото е лошо. Търпение."},
+  {q:"Оценка на посоката 2 от 8, H4 неясен. Решение?",o:["GO","WAIT или SKIP","GO с двоен размер"],a:1,e:"Слаба оценка и неясен H4: няма картина."},
+  {q:"Еврото е силно, паундът е слаб, доларът е неутрален. Коя двойка вероятно ще даде най-чистото движение нагоре?",o:["GBPUSD","EURGBP","USDJPY"],a:1,e:"Най-силната валута (EUR) срещу най-слабата (GBP)."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* nested timeframes */
+  var N=[["D1",10,10,500,230,"Посоката: кой контролира от седмици? Къде е голямата ликвидност?"],["H4",120,40,360,170,"Люлката: потвърждава ли D1? Последният BOS в каква посока е?"],["H1",210,70,220,110,"Сетъпът: има ли POI в правилната половина и ликвидност преди нея?"],["M5",280,98,90,54,"Детайлът: взета ли е ликвидността, има ли MSS, връща ли се цената в зоната?"]];
+  var sv=document.getElementById("nest"),chips=document.getElementById("tfChips"),rects=[];
+  N.forEach(function(n,i){var r=el("rect",{x:n[1],y:n[2],width:n[3],height:n[4],fill:"var(--ink)","fill-opacity":0.06+i*0.06,stroke:"var(--ink)","stroke-width":1.5,rx:4},sv);rects.push(r);
+    el("text",{x:n[1]+8,y:n[2]+18,"font-size":13,fill:"var(--ink)"},sv).textContent=n[0];
+    var b=document.createElement("button");b.className="chip";b.textContent=n[0];b.addEventListener("click",function(){show(i)});chips.appendChild(b)});
+  function show(i){rects.forEach(function(r,k){r.setAttribute("stroke-width",k===i?4:1.5);r.setAttribute("stroke",k===i?"var(--liq)":"var(--ink)")});Book.each(".chip",function(c,k){c.setAttribute("aria-pressed",k===i)},chips);document.getElementById("tfText").innerHTML="<b>"+N[i][0]+".</b> "+N[i][5]}
+  show(0);
+
+  /* bias template */
+  var ids=["bDate","bPair","bDir","bH4","bPoi","bLiq","bNews"],out=document.getElementById("bOut");
+  var dt=document.getElementById("bDate");dt.value=new Date().toISOString().slice(0,10);
+  ids.forEach(function(i){var s=Book.store("b8-"+i);if(s!=null)document.getElementById(i).value=s});
+  Book.each("#bChecks input",function(c,k){if(Book.store("b8-c"+k)==="1")c.checked=true});
+  function txt(){var d=document.getElementById("bDir").value;Book.each("#bChecks span[data-l]",function(s){s.textContent=d==="long"?s.dataset.l:s.dataset.s})}
+  var last="";
+  function calc(){txt();var sc=0;Book.each("#bChecks input",function(c,k){if(c.checked)sc+=+c.dataset.w;Book.store("b8-c"+k,c.checked?"1":"0")});
+    ids.forEach(function(i){Book.store("b8-"+i,document.getElementById(i).value)});
+    var h4=document.getElementById("bH4").value,liq=document.getElementById("bLiq").value,news=document.getElementById("bNews").value,poi=document.getElementById("bPoi").value.trim(),dir=document.getElementById("bDir").value;
+    var v,why;
+    if(sc<4){v="SKIP";why="оценката на D1 е под 4 от 8"}
+    else if(h4!=="yes"){v="WAIT";why="H4 не потвърждава D1"}
+    else if(!poi){v="WAIT";why="няма отбелязана POI на H1"}
+    else if(liq!=="yes"){v="WAIT";why="няма взета или налична ликвидност преди зоната"}
+    else{v="GO";why="D1 и H4 са подредени, има POI и ликвидност"}
+    var col=v==="GO"?"var(--bull)":v==="WAIT"?"var(--news)":"var(--bear)";
+    out.innerHTML="<span>Оценка D1: <b>"+sc+" / 8</b> ("+(dir==="long"?"нагоре":"надолу")+")</span><span>Решение: <b style=\"color:"+col+"\">"+v+"</b>, защото "+why+".</span>"+(news==="yes"?"<span style=\"color:var(--news)\">Има червена папка: без нови решения в буфера около нея (Глава 13).</span>":"");
+    last="Дата: "+dt.value+"\nДвойка: "+document.getElementById("bPair").value+"\nПосока: "+(dir==="long"?"нагоре":"надолу")+"\nD1 оценка: "+sc+"/8\nH4 потвърждава: "+({yes:"да",no:"не",mixed:"неясно"})[h4]+"\nH1 POI: "+(poi||"—")+"\nЛиквидност преди POI: "+(liq==="yes"?"да":"не")+"\nЧервена папка: "+(news==="yes"?"да":"не")+"\nРЕШЕНИЕ: "+v;
+  }
+  Book.each("#bChecks input",function(c){c.addEventListener("change",calc)});ids.forEach(function(i){document.getElementById(i).addEventListener("input",calc);document.getElementById(i).addEventListener("change",calc)});
+  document.getElementById("bCopy").addEventListener("click",function(){var b=this;try{navigator.clipboard.writeText(last).then(function(){b.textContent="Копирано ✓"},function(){b.textContent="Копирането е блокирано"})}catch(e){b.textContent="Копирането е блокирано"}});
+  calc();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Мислене във вероятности · FX Fundamentals</title>
+<meta name="description" content="Мислене във вероятности · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch5.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch5.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="5">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">5</div>
+    <h1>Мислене във вероятности</h1>
+    <blockquote class="quote">
+      Не е важно дали си прав или грешиш, а колко печелиш, когато си прав, и колко губиш, когато грешиш.
+      <cite>Джордж Сорос (по разказ на Стенли Дракенмилър)</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да обясниш защо човек, който печели само 4 от 10 сделки, може да е на печалба;</li>
+        <li>да пресметнеш очакваната стойност на един подход;</li>
+        <li>да напишеш три сценария за утрешния ден с приблизителни вероятности и условия за обезсилване.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>5.1 Няма прав и крив, има по-вероятно и по-малко вероятно</h2>
+      <p>Хвърляш зар. Казваш „няма да е шестица“. Излиза шестица. Сгреши ли? Не. Решението ти беше добро: вероятността беше 5 към 1 в твоя полза. Резултатът беше лош. Това са две различни неща и ако ги смесваш, ще учиш грешните уроци.</p>
+      <p>Пазарът е същото, само че не знаеш колко страни има зарът. Нито един анализ не е „правилен“. Той е оценка кой сценарий е по-вероятен. Добрият анализатор не е този, който познава. Добрият анализатор е този, който <b>оценява шансовете по-точно от средното</b> и <b>губи малко, когато не позне</b>.</p>
+      <div class="four">
+        <div><span class="label" style="color:var(--bull)">Добро решение · добър резултат</span><p>Заслужена печалба. Повтори процеса.</p></div>
+        <div><span class="label" style="color:var(--news)">Добро решение · лош резултат</span><p>Нормална загуба. Не променяй нищо.</p></div>
+        <div><span class="label" style="color:var(--news)">Лошо решение · добър резултат</span><p>Опасен късмет. Учи те на грешни навици.</p></div>
+        <div><span class="label" style="color:var(--bear)">Лошо решение · лош резултат</span><p>Заслужена загуба. Поправи процеса.</p></div>
+      </div>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Най-скъпата сделка, която ще направиш, е печелившата сделка без план. Тя те учи, че планът не е нужен, а сметката идва по-късно.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Probability · вероятност</b>Колко често очакваш нещо да се случи при много повторения.</div>
+      <div class="term"><b>Process vs outcome · процес и резултат</b>Качеството на решението и това, което се е случило, са различни неща.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>5.2 Очаквана стойност и R</h2>
+      <p>В трейдинга мерим резултата не в пари, а в <b>R</b>. 1R е сумата, която рискуваш на една сделка (разстоянието до стопа). Ако рискуваш 50 долара и спечелиш 150, това е +3R. Ако стопът бъде ударен, това е −1R. Така сравняваш сделки при различни сметки и размери.</p>
+      <p><b>Очакваната стойност</b> (expectancy) казва колко R печелиш средно на сделка, ако повториш подхода много пъти:</p>
+      <p class="mono" style="background:var(--paper);padding:10px 12px;border:1px solid var(--line)">E = (% печеливши × средна печалба в R) − (% губещи × средна загуба в R)</p>
+      <p>Пример: печелиш 40% от сделките със средно +3R и губиш 60% с −1R. E = 0.40 × 3 − 0.60 × 1 = 1.2 − 0.6 = <b>+0.6R на сделка</b>. Губиш повечето сделки и пак си на печалба. Затова в тази книга целта на всяка планирана сделка е поне 3R: тя позволява да грешиш често.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>% печеливши<input type="number" id="eW" value="40" min="1" max="99"></label>
+            <label>Средна печалба (R)<input type="number" id="eR" step="0.1" value="3"></label>
+            <label>Брой сделки<input type="number" id="eN" value="100"></label>
+          </div>
+          <div class="out" id="eOut" aria-live="polite"></div>
+          <svg id="eSvg" viewBox="0 0 520 200" role="img" aria-label="Пет симулирани кривата на капитала"></svg>
+          <button class="toggle" id="eRun">Нова симулация</button>
+        </div>
+        <figcaption>Пет случайни поредици със същите параметри. Всяка линия е възможно бъдеще. Обърни внимание колко различни са, макар правилата да са едни и същи.</figcaption>
+      </figure>
+      <div class="dialog">
+        <p><span>Ученик</span>Тогава защо не искам просто 10R на всяка сделка?</p>
+        <p><span>Ментор</span>Защото колкото по-далечна е целта, толкова по-рядко цената стига до нея. Процентът на печелившите пада. Изкуството е в баланса, а не в най-голямото число. 3R е разумна среда за подхода в тази книга.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>R · риск единица</b>Сумата, която губиш, ако стопът бъде ударен. Печалбата се мери в кратни на R.</div>
+      <div class="term"><b>Expectancy · очаквана стойност</b>Средният резултат на сделка в R при много повторения.</div>
+      <div class="term"><b>Win rate · процент печеливши</b>Каква част от сделките завършват на печалба.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>5.3 Поредиците от загуби са нормални</h2>
+      <p>Дори при добър подход ще има дълги поредици от загуби. При 55% печеливши и 50 сделки е нормално да видиш 4 до 6 загуби подред някъде по пътя. При 40% печеливши поредица от 6 до 10 загуби не е изненада. Симулацията горе ги показва: потърси най-дългата червена поредица.</p>
+      <p>Затова правилото в Глава 36 е: <b>никакви изводи преди поне 20 сделки и никакви промени в подхода заради кратка серия загуби.</b> Ако променяш правилата след всяка серия от три загуби, никога няма да разбереш дали подходът работи.</p>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Пет загуби подред значат, че стратегията е счупена.</p></div>
+        <div><span class="label">Реалност</span><p>Пет загуби подред при 40–55% печеливши сделки са статистически нормални. Счупена стратегия се познава по 30–50 сделки, не по пет.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Losing streak · серия загуби</b>Поредица от губещи сделки една след друга.</div>
+      <div class="term"><b>Sample size · размер на извадката</b>Колко сделки са нужни, за да кажеш нещо за подхода.</div>
+      <div class="term"><b>Drawdown · спад</b>Колко е паднала сметката от последния си връх.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>5.4 Дърво на сценариите: A, B, C</h2>
+      <p>Вместо да питаш „накъде ще иде цената?“, питай: „какви са възможните пътища, колко вероятен е всеки и какво би ми казало, че греша?“. Това е <b>дървото на сценариите</b>. Всеки анализ в тази книга завършва с него.</p>
+      <figure>
+        <div class="calc" id="tree">
+          <div class="fields">
+            <label>Сценарий A<input type="text" id="tA" value="Лондон взима дъното на Азия и цената се обръща нагоре"></label>
+            <label>Вероятност A (%)<input type="number" id="pA" value="50"></label>
+            <label>A е грешен, ако…<input type="text" id="iA" value="H1 затвори под 1.0815"></label>
+            <label>Сценарий B<input type="text" id="tB" value="Цената остава в диапазона до данните в 15:30"></label>
+            <label>Вероятност B (%)<input type="number" id="pB" value="30"></label>
+            <label>B е грешен, ако…<input type="text" id="iB" value="пробив и затваряне извън диапазона преди 15:30"></label>
+            <label>Сценарий C<input type="text" id="tC" value="Пробив надолу и продължение на дневния спад"></label>
+            <label>Вероятност C (%)<input type="number" id="pC" value="20"></label>
+            <label>C е грешен, ако…<input type="text" id="iC" value="цената се върне над върха на Азия"></label>
+          </div>
+          <svg id="treeSvg" viewBox="0 0 520 190" role="img" aria-label="Дърво с три разклонения и техните вероятности"></svg>
+          <div class="out" id="treeOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Попълни своите сценарии. Вероятностите трябва да дават 100%. Записът се пази в този браузър.</figcaption>
+      </figure>
+      <p>Правило за качество: всеки сценарий трябва да има <b>проверимо</b> условие за обезсилване. „Ако пазарът стане bearish (мечи)“ не е проверимо. „Ако H1 затвори под 1.0815“ е.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Scenario · сценарий</b>Един възможен път на цената с условия, при които е верен.</div>
+      <div class="term"><b>Invalidation · обезсилване</b>Конкретното събитие, което показва, че сценарият е грешен.</div>
+      <div class="term"><b>Base rate · базова честота</b>Колко често нещо се случва по принцип, преди да погледнеш конкретния случай.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: средно">●●</span>5.5 Как се обновява мнение</h2>
+      <p>Сценариите не са обещания. Когато дойде нова информация (цената стигне ниво, излезе новина), вероятностите се местят. Добрият анализатор ги мести <b>спокойно и пропорционално</b>. Лошият прави едно от двете: не ги мести изобщо или ги обръща напълно след една свещ.</p>
+      <p>Четирите най-чести капана на ума:</p>
+      <div class="tablewrap" data-name="kapani-na-uma">
+        <table class="data">
+          <thead><tr><th>Капан</th><th>Как изглежда</th><th>Противоотрова</th></tr></thead>
+          <tbody>
+            <tr><td><b>Потвърждаващо пристрастие</b> (confirmation bias)</td><td>Търсиш само новините и сигналите, които казват, че си прав.</td><td>Преди анализа запиши какво би те накарало да смениш мнението си.</td></tr>
+            <tr><td><b>Котва</b> (anchoring)</td><td>Залепваш за първата цена или първото мнение, което си чул.</td><td>Започвай всеки ден от D1 и наново, сякаш не знаеш вчерашния си анализ.</td></tr>
+            <tr><td><b>Скорошност</b> (recency)</td><td>Последните три сделки ти изглеждат като истината за подхода.</td><td>Гледай поне 20–30 сделки в дневника, не последните три.</td></tr>
+            <tr><td><b>Наратив</b></td><td>Хубава история (за войни, за края на долара) замества данните.</td><td>Питай: какво точно в цената трябва да видя, за да е вярна историята? (Глава 25)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box ff">
+        <span class="label">Гледай във Forex Factory</span>
+        <p>Новината е най-честият повод да обновиш сценариите. Преди всяка червена папка си запиши: ако числото е по-високо от очакваното, кой сценарий печели? Ако е по-ниско? Така реакцията ти е решена, преди емоцията да е дошла.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Confirmation bias</b>Склонността да забелязваш само доказателствата, които потвърждават мнението ти.</div>
+      <div class="term"><b>Anchoring · котва</b>Прекалената тежест на първата информация, която си получил.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 05</h2>
+    <ul>
+      <li>Решение и резултат са различни неща. Оценявай процеса.</li>
+      <li>Мери в R. E = %W × средна печалба − %L × средна загуба.</li>
+      <li>40% печеливши с 3R дават +0.6R на сделка. Цел от поне 3R позволява да грешиш често.</li>
+      <li>Сериите загуби са нормални. Без изводи под 20 сделки.</li>
+      <li>Всеки анализ завършва с A/B/C, вероятности и проверимо обезсилване.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Пресметнах очакваната стойност за 35%, 45% и 55% печеливши при 3R.</label></li>
+      <li><label><input type="checkbox"> Написах три сценария за утрешната сесия на EURUSD.</label></li>
+      <li><label><input type="checkbox"> След сесията оцених кой сценарий се случи и дали обезсилването работи.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Имаш 12 сделки в дневника: 4 печеливши (+3R, +3R, +2.5R, +3R) и 8 губещи (−1R всяка). Последните пет са загуби подред. Искаш да смениш подхода и да минеш на цели от 1R, „за да печелиш по-често“.</p>
+      <p><b>Задача:</b> пресметни резултата досега в R. Има ли достатъчно данни за извод? Какво би се случило с очакваната стойност, ако минеш на 1R, но процентът печеливши се качи само до 50%?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Резултат… Извадка… Нов подход…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Печалби: 3 + 3 + 2.5 + 3 = 11.5R. Загуби: 8 × 1 = 8R. Резултат: +3.5R за 12 сделки, около +0.29R на сделка. Подходът е на печалба въпреки петте загуби.</li>
+          <li>12 сделки са твърде малко за извод. Правилото е поне 20, а за истинска оценка 30–50.</li>
+          <li>При 1R цел и 50% печеливши: E = 0.5 × 1 − 0.5 × 1 = 0. Нула, преди разходите. След спреда и комисионните е отрицателна.</li>
+          <li>Изводът: петте загуби са емоционален сигнал, не статистически. Продължавам по плана, записвам всяка сделка и преглеждам при 20.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Рискуваш 40 $ и печелиш 120 $. Колко R е това?",o:["+1R","+3R","+120R"],a:1,e:"120 ÷ 40 = 3."},
+  {q:"Какво е очаквана стойност?",o:["Колко печелиш на най-добрата сделка","Средният резултат на сделка при много повторения","Целта на сделката"],a:1,e:"Expectancy е средният резултат в R."},
+  {q:"Добро решение, лош резултат. Какво правиш?",o:["Сменяш подхода","Нищо, такива загуби са нормални","Удвояваш риска"],a:1,e:"Резултатът не прави решението лошо."},
+  {q:"Какво е обезсилване на сценарий?",o:["Конкретно събитие, което показва, че сценарият е грешен","Обратният сценарий","Стоп поръчка"],a:0,e:"Проверимо условие, при което сменяш мнението си."},
+  {q:"Колко сделки са минимумът за първи извод в тази книга?",o:["5","20","1000"],a:1,e:"Под 20 сделки изводите са шум."}
+],mid:[
+  {q:"35% печеливши, средна печалба 3R, загуба 1R. Каква е очакваната стойност?",o:["−0.35R","+0.40R","+1.05R"],a:1,e:"0.35 × 3 − 0.65 × 1 = 1.05 − 0.65 = +0.40R."},
+  {q:"Сценарий A: 60%, B: 30%, C: 20%. Какво не е наред?",o:["Нищо","Сумата е 110%","C е твърде нисък"],a:1,e:"Взаимно изключващите се сценарии трябва да дават 100%."},
+  {q:"Анализът ти казва long. Излиза новина, лоша за посоката ти. Ти търсиш статия, която казва, че новината няма значение. Какво е това?",o:["Потвърждаващо пристрастие","Добър анализ","Котва"],a:0,e:"Търсиш само това, което потвърждава мнението ти."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  /* expectancy + simulation */
+  var w=document.getElementById("eW"),r=document.getElementById("eR"),n=document.getElementById("eN"),out=document.getElementById("eOut"),sv=document.getElementById("eSvg");
+  function sim(){
+    var W=Math.min(99,Math.max(1,+w.value))/100,R=+r.value,N=Math.min(500,Math.max(10,+n.value|0));
+    var E=W*R-(1-W);
+    var runs=[],minV=0,maxV=0,worst=0;
+    for(var k=0;k<5;k++){var eq=[0],s=0,st=0,mx=0;for(var i=0;i<N;i++){if(Math.random()<W){s+=R;st=0}else{s-=1;st++;if(st>mx)mx=st}eq.push(s);if(s<minV)minV=s;if(s>maxV)maxV=s}runs.push(eq);if(mx>worst)worst=mx}
+    sv.innerHTML="";var L=36,Rt=510,T=10,B=180;
+    function X(i){return L+(Rt-L)*i/N}function Y(v){return B-(B-T)*(v-minV)/((maxV-minV)||1)}
+    el("line",{x1:L,x2:Rt,y1:Y(0),y2:Y(0),stroke:"var(--muted)","stroke-dasharray":"3 3"},sv);
+    el("text",{x:0,y:Y(0)+4,"font-size":10,fill:"var(--muted)"},sv).textContent="0R";
+    el("text",{x:0,y:T+8,"font-size":10,fill:"var(--muted)"},sv).textContent=Math.round(maxV)+"R";
+    el("text",{x:0,y:B,"font-size":10,fill:"var(--muted)"},sv).textContent=Math.round(minV)+"R";
+    var cols=["var(--ink)","var(--liq)","var(--bull)","var(--news)","var(--bear)"];
+    runs.forEach(function(eq,k){var d="";eq.forEach(function(v,i){d+=(i?"L":"M")+X(i).toFixed(1)+","+Y(v).toFixed(1)});el("path",{d:d,fill:"none",stroke:cols[k],"stroke-width":1.6,"stroke-opacity":.9},sv)});
+    out.innerHTML="<span>Очаквана стойност: <b>"+(E>=0?"+":"")+E.toFixed(2)+"R на сделка</b> → около "+(E*N>=0?"+":"")+(E*N).toFixed(0)+"R за "+N+" сделки.</span><span>Най-дългата серия загуби в петте симулации: <b>"+worst+" подред</b>.</span><span>"+(E>0?"Подходът има положително очакване, ако параметрите са верни.":"Отрицателно или нулево очакване: колкото повече търгуваш, толкова повече губиш.")+"</span>";
+  }
+  [w,r,n].forEach(function(x){x.addEventListener("change",sim)});document.getElementById("eRun").addEventListener("click",sim);sim();
+
+  /* scenario tree */
+  var ids=["tA","pA","iA","tB","pB","iB","tC","pC","iC"],ts=document.getElementById("treeSvg"),to=document.getElementById("treeOut");
+  ids.forEach(function(i){var s=Book.store("b5-"+i);if(s!=null)document.getElementById(i).value=s});
+  function wrap(t,n){return t.length>n?t.slice(0,n-1)+"…":t}
+  function tree(){
+    ids.forEach(function(i){Book.store("b5-"+i,document.getElementById(i).value)});
+    var P=[+pA.value||0,+pB.value||0,+pC.value||0],T=[tA.value,tB.value,tC.value],I=[iA.value,iB.value,iC.value],sum=P[0]+P[1]+P[2];
+    ts.innerHTML="";var cols=["var(--bull)","var(--news)","var(--bear)"];
+    el("circle",{cx:30,cy:95,r:10,fill:"var(--ink)"},ts);el("text",{x:14,y:124,"font-size":10,fill:"var(--muted)"},ts).textContent="сега";
+    [35,95,155].forEach(function(y,k){el("path",{d:"M40,95 C110,95 110,"+y+" 180,"+y,fill:"none",stroke:cols[k],"stroke-width":Math.max(1.5,P[k]/8)},ts);
+      el("text",{x:186,y:y-4,"font-size":12,fill:cols[k]},ts).textContent=String.fromCharCode(65+k)+" · "+P[k]+"%";
+      el("text",{x:186,y:y+12,"font-size":10,fill:"var(--fg)"},ts).textContent=wrap(T[k],50)});
+    to.innerHTML=(sum===100?"<span>Сумата е 100%. ✓</span>":"<span style=\"color:var(--bear)\">Сумата е "+sum+"%. Трябва да е 100%.</span>")+
+      I.map(function(x,k){return "<span>"+String.fromCharCode(65+k)+" е грешен, ако "+(x||"…")+(/\d/.test(x)?"":" <i style=\"color:var(--news)\">(добави конкретно ниво или час)</i>")+"</span>"}).join("");
+  }
+  var pA=document.getElementById("pA"),pB=document.getElementById("pB"),pC=document.getElementById("pC"),tA=document.getElementById("tA"),tB=document.getElementById("tB"),tC=document.getElementById("tC"),iA=document.getElementById("iA"),iB=document.getElementById("iB"),iC=document.getElementById("iC");
+  ids.forEach(function(i){document.getElementById(i).addEventListener("input",tree)});tree();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

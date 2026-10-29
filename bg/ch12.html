@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Управление на позиция · FX Fundamentals</title>
+<meta name="description" content="Управление на отворена позиция · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch12.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch12.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="12">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">12</div>
+    <h1>Управление на отворена позиция</h1>
+    <blockquote class="quote">
+      Режи загубите кратко, остави печалбите да текат.
+      <cite>Стара борсова максима, свързвана с Дейвид Рикардо</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да планираш цел от поне 3R с частично затваряне и преместване на стопа на breakeven (нула);</li>
+        <li>да обясниш защо реализираният резултат често е под 3R и защо това е нормално;</li>
+        <li>да назовеш трите неща, които никога не правиш с отворена позиция.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>12.1 Планът: TP1, breakeven, крайна цел</h2>
+      <p>Управлението на позицията се решава <b>преди</b> влизането, не по време. Иначе всяко мръдване на цената става повод за нова емоция. Стандартният план в рамката на тази книга има три части:</p>
+      <ol class="steps">
+        <li><b>TP1</b>: първата логична ликвидност в посоката (предния връх, дъното на Азия, PDH). Там се затваря половината от позицията.</li>
+        <li><b>Breakeven</b>: след TP1 стопът отива на входната цена. От този момент сделката не може да завърши със загуба (освен при slippage, приплъзване на цената).</li>
+        <li><b>TP2</b>: следващата структурна зона или голямата ликвидност. Планът цели общо поне 3R.</li>
+      </ol>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>TP1 (в R)<input type="number" id="t1" value="2" step="0.5"></label>
+            <label>Дял на TP1 (%)<input type="number" id="tp" value="50" step="10"></label>
+            <label>TP2 (в R)<input type="number" id="t2" value="4" step="0.5"></label>
+          </div>
+          <div class="tabs" data-group="path">
+            <button class="chip" data-tab="stop">Стоп преди TP1</button>
+            <button class="chip" data-tab="be">TP1, после breakeven</button>
+            <button class="chip" data-tab="full">TP1 и TP2</button>
+          </div>
+          <svg id="path" viewBox="0 0 520 210" role="img" aria-label="Път на цената спрямо вход, стоп и цели"></svg>
+          <div class="out" id="pOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Три възможни пътя на една и съща сделка. Резултатът е в R.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>TP1 / TP2</b>Първа и втора цел за печалба.</div>
+      <div class="term"><b>Partial close · частично затваряне</b>Затваряш част от позицията, останалото продължава.</div>
+      <div class="term"><b>Breakeven (BE) · нула</b>Стопът е на входната цена: сделката вече не може да загуби.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>12.2 Защо реализираният резултат е под 3R</h2>
+      <p>Планираш 3R, но в дневника ще видиш много +1R и нули. Това не е провал на плана. Това е планът, който работи. Частичното затваряне и breakeven превръщат част от бъдещите загуби в малки печалби или нули. Цената е, че понякога излизаш рано от сделка, която после стига далеч.</p>
+      <p>Правилото на книгата: <b>сделката се планира за поне 3R; затваряне под 3R е позволено</b>, когато го диктува планът (TP1 + breakeven) или новото обстоятелство (виж 12.4). Не е позволено да изместиш плана от емоция.</p>
+      <div class="tablewrap" data-name="realizirano-r">
+        <table class="data">
+          <thead><tr><th>Път</th><th>Колко често (пример)</th><th class="num">Резултат</th></tr></thead>
+          <tbody>
+            <tr><td>Стоп преди TP1</td><td>45%</td><td class="num">−1R</td></tr>
+            <tr><td>TP1, после breakeven</td><td>25%</td><td class="num">+1R</td></tr>
+            <tr><td>TP1 и TP2</td><td>30%</td><td class="num">+3R</td></tr>
+            <tr><td><b>Очаквана стойност</b></td><td></td><td class="num"><b>+0.70R</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fb">Процентите са илюстративни. Твоите ще излязат от дневника след 30–50 сделки (Глава 36).</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Realised R · реализиран R</b>Действителният резултат на затворената сделка.</div>
+      <div class="term"><b>Planned R · планиран R</b>Разстоянието до крайната цел, разделено на риска.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>12.3 Трите „никога“</h2>
+      <div class="four">
+        <div><span class="label" style="color:var(--bear)">Никога 1</span><p><b>Не разширявай стопа.</b> Стопът е мястото, където сценарият е грешен. Ако го местиш по-далеч, просто отказваш да приемеш, че си грешал, и плащаш повече за това.</p></div>
+        <div><span class="label" style="color:var(--bear)">Никога 2</span><p><b>Не гони целта.</b> Не местиш TP по-далеч, защото „върви хубаво“. Целта е била ликвидност; там някой затваря позициите си срещу теб.</p></div>
+        <div><span class="label" style="color:var(--bear)">Никога 3</span><p><b>Не добавяй към губеща позиция.</b> Ако сценарият не работи, по-голям размер не го оправя.</p></div>
+      </div>
+      <div class="dialog">
+        <p><span>Ученик</span>Но ако премахна стопа за малко, цената може да се върне.</p>
+        <p><span>Ментор</span>Може. Повечето сметки, които са изчезнали за един ден, са изчезнали точно след това изречение.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Averaging down · усредняване</b>Добавяне към губеща позиция. Забранено в тази рамка.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>12.4 Отворена позиция и новина</h2>
+      <p>Понякога позицията е отворена, а в календара наближава червена папка. Протоколът в рамката на тази книга:</p>
+      <ol class="steps">
+        <li><b>На печалба:</b> помисли за частично затваряне (50%) преди новината.</li>
+        <li><b>Стопът може да се стегне</b> до последното значимо дъно или връх, ако е разумно, или на breakeven, ако позицията позволява.</li>
+        <li><b>Никога не разширявай стопа</b> преди новина.</li>
+        <li><b>Не добавяй</b> към позицията в шипа след новината, дори да е в твоя полза. Изчакай 15–30 минути и оцени.</li>
+      </ol>
+      <div class="box ff">
+        <span class="label">Гледай във Forex Factory</span>
+        <p>Преди да отвориш позиция, провери не само следващия час, а следващите 4 часа. Ако там има червена папка, планът за управление трябва да я включва още отсега.</p>
+      </div>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Breakeven е перфектна защита; местя стопа на breakeven веднага щом мога.</p></div>
+        <div><span class="label">Реалност</span><p>Твърде ранният breakeven превръща много добри сделки в нули, защото нормалната корекция го докосва. В рамката той идва след TP1, не след първите 5 пипа.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Trailing stop · пълзящ стоп</b>Стоп, който следва цената на определено разстояние или зад структурата.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5r">
+    <div class="main">
+      <h2 id="s5r"><span class="dots" title="Ниво: средно">●●</span>12.5 Повторение кадър по кадър</h2>
+      <p>Целият план от 12.1 в движение: вход, TP1, breakeven, връщане, TP2. Гледай колко малко правиш след входа.</p>
+      <div class="replay" data-rp="mgmt"></div>
+      <h3>Тренировка</h3>
+      <p>Натисни линията на графиката или бутона. Имаш един опит за всеки въпрос.</p>
+      <div class="drills" data-dr="ch12"></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Replay · повторение</b>Преминаване през графиката свещ по свещ, без да виждаш бъдещето. Най-евтиният начин да тренираш четене.</div>
+    </aside>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 12</h2>
+    <ul>
+      <li>План преди влизане: TP1 (частично), breakeven, TP2. Общо поне 3R.</li>
+      <li>Реализираният R често е под 3R. Позволено, когато го казва планът.</li>
+      <li>Никога: по-широк стоп, по-далечна цел, добавяне към губеща позиция.</li>
+      <li>Преди новина: частично затваряне или стегнат стоп; никога разширен.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> За 5 минали ситуации определих TP1, TP2 и къде отива breakeven.</label></li>
+      <li><label><input type="checkbox"> Пресметнах очакваната стойност на своя план с TP1 и breakeven.</label></li>
+      <li><label><input type="checkbox"> Написах трите „никога“ на видно място.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Позиция long EURUSD от 1.0815, стоп 1.0803 (12 пипа), TP1 1.0839 (2R) на върха на Азия, TP2 1.0863 (4R) на PDH. Цената стигна 1.0839, затвори се половината и стопът е на 1.0815. Сега е 15:10, в 15:30 има NFP, цената е 1.0846.</p>
+      <p><b>Задача:</b> какво правиш с останалата половина преди NFP? Опиши две разумни действия и едно недопустимо. Какъв е резултатът в R при всеки изход?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Вариант 1… Вариант 2… Недопустимо…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Вече е заключено +1R (половината на 2R). Остатъкът е на breakeven.</li>
+          <li>Вариант 1: затваряш остатъка на 1.0846 преди NFP. Остатъкът дава 31 ÷ 12 ≈ 2.6R; общо 0.5 × 2 + 0.5 × 2.6 ≈ +2.3R. Под 3R и напълно позволено: новината е ново обстоятелство.</li>
+          <li>Вариант 2: оставяш остатъка със стоп на breakeven (или стегнат под 1.0839). Най-лошо: около +1R общо. Най-добре: TP2 и +3R общо. Рискуваш slippage в шипа.</li>
+          <li>Недопустимо: да махнеш стопа „за да не те изхвърли шипът“ или да добавиш към позицията в шипа.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Кога се решава как ще управляваш позицията?",o:["Когато цената мръдне","Преди влизането","След затварянето"],a:1,e:"Управлението е част от плана, не реакция."},
+  {q:"Какво става след TP1 в рамката?",o:["Стопът отива на breakeven","Стопът се разширява","Добавяш към позицията"],a:0,e:"TP1 → стоп на входа."},
+  {q:"Минималната планирана цел е…",o:["1R","3R","10R"],a:1,e:"Планът цели поне 3R."},
+  {q:"Може ли реализираният резултат да е под 3R?",o:["Не, никога","Да, когато го казва планът или ново обстоятелство","Само при загуба"],a:1,e:"Частичното затваряне и breakeven го правят нормално."},
+  {q:"Кое никога не правиш?",o:["Частично затваряне","Разширяване на стопа","Стоп на breakeven след TP1"],a:1,e:"Стопът е мястото, където грешиш. Не го местиш по-далеч."}
+],mid:[
+  {q:"TP1 = 2R (50%), после стоп на breakeven. Какъв е резултатът, ако цената после стигне breakeven?",o:["0R","+1R","+2R"],a:1,e:"Половината на +2R = +1R; другата половина на 0."},
+  {q:"TP1 = 1.5R (50%), TP2 = 4R. Какъв е резултатът, ако стигне и двете?",o:["+2.75R","+4R","+5.5R"],a:0,e:"0.5 × 1.5 + 0.5 × 4 = 2.75R."},
+  {q:"Позиция на +1.5R, до CPI има 10 минути. Кое е в рамката?",o:["Разширяваш стопа, за да оцелееш шипа","Частично затваряне и/или стоп на breakeven","Добавяш, защото си прав"],a:1,e:"Защитаваш печалбата, никога не разширяваш."}
+]};
+</script>
+<script>window.REPLAYS={"mgmt": {"title": "Една сделка от входа до 3R: TP1, breakeven, TP2", "candles": [[97, 98.5, 96, 98], [98, 100.5, 97.5, 100], [100, 103, 99.2, 102.5], [102.5, 105, 101.5, 104.5], [104.5, 108.2, 104, 107], [107, 107.5, 103, 103.5], [103.5, 104, 100.8, 102], [102, 106, 101.5, 105.5], [105.5, 111, 105, 110.5], [110.5, 115, 110, 114.5], [114.5, 118, 113, 117.5], [117.5, 123, 117, 121], [121, 121.5, 118, 118.5]], "y": [93, 125], "caption": "Учебен сценарий. 1R = 5 пункта. Половината се затваря на TP1, половината на TP2.", "steps": [{"at": 2, "h": "Планът.", "text": "Вход 100, стоп 95 (1R). TP1 на 107.5 (1.5R) за половината, TP2 на 122.5 (4.5R) за другата половина. Средно 3R. Всичко е решено преди входа.", "draw": [{"t": "level", "p": 100, "from": 1, "label": "вход 100", "c": "ink", "solid": 1}, {"t": "level", "p": 95, "from": 1, "label": "стоп 95", "c": "bear", "solid": 1, "until": 1}, {"t": "level", "p": 107.5, "from": 1, "label": "TP1 1.5R", "c": "bull"}, {"t": "level", "p": 122.5, "from": 1, "label": "TP2 4.5R", "c": "bull"}]}, {"at": 5, "h": "TP1.", "text": "Цената стига 107.5. Затваряш половината: +0.75R са в джоба.", "draw": [{"t": "mark", "i": 4, "p": 108.2, "label": "TP1", "c": "bull"}]}, {"at": 5, "h": "Breakeven.", "text": "Стопът отива на входа, 100. От този момент сделката не може да завърши на загуба, освен при slippage.", "draw": [{"t": "level", "p": 100, "from": 4, "label": "breakeven", "c": "news", "solid": 1, "dy": 12}]}, {"at": 7, "h": "Връщането.", "text": "Цената пада до 100.8, на косъм от breakeven. Не правиш нищо: не местиш стопа, не затваряш от страх. Трите „никога“ важат.", "draw": [{"t": "mark", "i": 6, "p": 100.8, "label": "тест", "c": "news", "pos": "down"}]}, {"at": 12, "h": "TP2.", "text": "Цената стига 122.5. Затваряш втората половина: +2.25R.", "draw": [{"t": "mark", "i": 11, "p": 123, "label": "TP2", "c": "bull", "anchor": "end"}]}, {"at": 13, "h": "Резултатът.", "text": "0.5 × 1.5R + 0.5 × 4.5R = 3R. Ако цената беше ударила breakeven след TP1, резултатът щеше да е +0.75R, а не загуба.", "draw": []}]}};window.DRILLS={"ch12": [{"src": "mgmt", "n": 5, "q": "TP1 е взет. Къде отива стопът?", "o": [{"p": 95, "from": 1, "t": "остава на 95"}, {"p": 100, "from": 1, "t": "на 100, breakeven"}, {"p": 105, "from": 1, "t": "на 105"}], "a": 1, "e": "По плана стопът отива на входа. 105 е твърде близо до цената и ще те избие от нормалното връщане."}, {"src": "mgmt", "n": 7, "q": "Цената се върна до 100.8. Какво правиш?", "o": [{"t": "Затварям всичко"}, {"t": "Нищо, планът е в сила"}, {"t": "Местя стопа по-ниско"}], "a": 1, "e": "Стопът на breakeven е точката на грешка. Разширяването му е първото „никога“."}, {"src": "mgmt", "n": 9, "q": "След корекцията цената прави нов връх на 111. Стопът е на нула. Какво казва планът?", "o": [{"t": "Вдигам стопа на 110, за да защитя"}, {"t": "Нищо: TP2 остава на 122,5, стопът остава на 100"}, {"t": "Затварям всичко сега"}], "a": 1, "e": "Планът е решен преди входа. Да го смениш заради чувство превръща системата в импровизация."}, {"src": "mgmt", "n": 13, "q": "Какъв е крайният резултат от сделката?", "o": [{"t": "+1,5R"}, {"t": "+3R"}, {"t": "+4,5R"}], "a": 1, "e": "0,5 × 1,5R + 0,5 × 4,5R = 3R."}]};</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg,t1=document.getElementById("t1"),tp=document.getElementById("tp"),t2=document.getElementById("t2"),sv=document.getElementById("path"),out=document.getElementById("pOut"),cur="stop";
+  function draw(){var a=+t1.value,p=+tp.value/100,b=+t2.value,top=Math.max(b,a)+0.5;
+    function Y(r){return 190-(r+1.5)/(top+1.5)*175}function X(t){return 30+t*4.8}
+    sv.innerHTML="";
+    [[0,"вход","var(--fg)"],[-1,"стоп −1R","var(--bear)"],[a,"TP1 "+a+"R","var(--bull)"],[b,"TP2 "+b+"R","var(--bull)"]].forEach(function(l){el("line",{x1:30,x2:510,y1:Y(l[0]),y2:Y(l[0]),stroke:l[2],"stroke-dasharray":"5 4"},sv);el("text",{x:430,y:Y(l[0])-4,"font-size":10,fill:l[2]},sv).textContent=l[1]});
+    var path,res,txt;
+    if(cur==="stop"){path=[[0,0],[10,0.4],[20,-0.3],[30,0.2],[45,-1]];res=-1;txt="Цената не стига TP1 и удря стопа. Резултат: −1R. Това е цената на бизнеса."}
+    else if(cur==="be"){path=[[0,0],[12,0.6],[25,a],[40,a*0.4],[55,0]];res=p*a;txt="TP1 се взима, стопът отива на breakeven и цената се връща там. Резултат: "+p*100+"% × "+a+"R = +"+(p*a).toFixed(2)+"R."}
+    else{path=[[0,0],[12,0.6],[25,a],[38,a*0.6],[60,b*0.8],[75,b]];res=p*a+(1-p)*b;txt="TP1 и TP2 се взимат. Резултат: "+p*100+"% × "+a+"R + "+(100-p*100)+"% × "+b+"R = +"+res.toFixed(2)+"R."}
+    el("polyline",{points:path.map(function(q){return X(q[0])+","+Y(q[1])}).join(" "),fill:"none",stroke:"var(--ink)","stroke-width":3},sv);
+    if(cur!=="stop")el("circle",{cx:X(25),cy:Y(a),r:6,fill:"var(--bull)"},sv);
+    if(cur==="be"){el("line",{x1:X(25),x2:510,y1:Y(0),y2:Y(0),stroke:"var(--liq)","stroke-width":2.5},sv);el("text",{x:X(25)+6,y:Y(0)+14,"font-size":10,fill:"var(--liq)"},sv).textContent="стоп на breakeven"}
+    var planned=p*a+(1-p)*b;
+    out.innerHTML="<span>"+txt+"</span><span>Планиран максимум: +"+planned.toFixed(2)+"R"+(planned<3?" <b style=\"color:var(--bear)\">(под 3R: планът не покрива минимума)</b>":" ✓")+".</span>"}
+  Book.each('[data-group="path"] button',function(b){b.addEventListener("click",function(){cur=b.dataset.tab;draw()})});
+  [t1,tp,t2].forEach(function(x){x.addEventListener("input",draw)});draw();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

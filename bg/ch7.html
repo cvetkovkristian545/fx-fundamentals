@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ликвидност и SMC зони · FX Fundamentals</title>
+<meta name="description" content="Ликвидност и SMC зони · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch7.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch7.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="7">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">7</div>
+    <h1>Ликвидност и SMC зони</h1>
+    <blockquote class="quote">
+      Ако седиш на покер маса и след половин час не знаеш кой е балъкът, балъкът си ти.
+      <cite>Стара покер поговорка, популяризирана от Уорън Бъфет</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да посочиш къде стоят стоповете на графиката: BSL, SSL, равни върхове и дъна, Азия, PDH, PDL;</li>
+        <li>да начертаеш order block и Fair Value Gap и да кажеш коя зона е по-силна;</li>
+        <li>да разделиш диапазона на скъпа и евтина половина (premium и discount).</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>7.1 Къде стоят стоповете</h2>
+      <div class="box note">
+        <span class="label">Преди тази глава</span>
+        <p>Ако следваш <a href="ch0-3.html">бързия път</a>, тази глава е от Етап 4. Първо мини първия си бектест с прост сетъп, после използвай идеите тук като филтри, които тестваш един по един (<a href="ch0-3.html#s8">0.3.8</a>).</p>
+      </div>
+      <p>В Глава 0.2 видя, че цената се движи там, където има поръчки. Най-голямата купчина поръчки на всяка графика са <b>стоповете</b> на другите трейдъри. Всеки, който е продал, има стоп над някакъв връх. Всеки, който е купил, има стоп под някакво дъно. Стопът на продавача е поръчка за <i>покупка</i>; стопът на купувача е поръчка за <i>продажба</i>.</p>
+      <div class="tablewrap" data-name="likvidnost">
+        <table class="data">
+          <thead><tr><th>Ликвидност</th><th>Къде</th><th>Чии поръчки</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--liq)"><b>BSL</b> (buy-side)</td><td>Над върхове</td><td>Стопове на продавачите + поръчки за пробив нагоре = поръчки за покупка</td></tr>
+            <tr><td style="color:var(--liq)"><b>SSL</b> (sell-side)</td><td>Под дъна</td><td>Стопове на купувачите + поръчки за пробив надолу = поръчки за продажба</td></tr>
+            <tr><td><b>Равни върхове / дъна</b></td><td>Два-три върха на една цена</td><td>Най-очевидното място за стоп, затова най-привлекателната цел</td></tr>
+            <tr><td><b>Азиатски диапазон</b></td><td>Върхът и дъното на нощната сесия</td><td>Стопове на всички, търгували нощта</td></tr>
+            <tr><td><b>PDH / PDL</b></td><td>Върхът и дъното на предния ден</td><td>Ежедневни цели за Лондон и Ню Йорк</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Голям играч, който иска да купи милиард евро, има нужда от някой, който да му продаде милиард. Къде ще намери толкова продавачи наведнъж? Под очевидното дъно, където хиляди стопове на купувачите ще се превърнат в поръчки за продажба. Затова цената толкова често <b>първо прави фалшиво движение към ликвидността</b> и чак после тръгва в истинската посока.</p>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>BSL · ликвидност отгоре</b>Buy-side liquidity: поръчки за покупка над върховете.</div>
+      <div class="term"><b>SSL · ликвидност отдолу</b>Sell-side liquidity: поръчки за продажба под дъната.</div>
+      <div class="term"><b>EQH / EQL</b>Equal highs / lows: равни върхове или дъна. Магнит за цената.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>7.2 Sweep: взимането преди истинското движение</h2>
+      <p><b>Sweep</b> (обиране) е бързо движение отвъд ниво с ликвидност, последвано от връщане. На графиката изглежда като фитил над върха или под дъното, а свещта затваря обратно вътре. Това е най-честият начин, по който започват истинските движения.</p>
+      <figure class="diagram">
+        <svg id="sw" viewBox="0 0 520 240" role="img" aria-label="Цена, която обира стоповете под равни дъна и се обръща нагоре"></svg>
+        <div class="parts">
+          <button class="chip" data-sw="1">1. Равни дъна</button>
+          <button class="chip" data-sw="2">2. Sweep</button>
+          <button class="chip" data-sw="3">3. MSS</button>
+          <button class="chip" data-sw="4">4. Към BSL</button>
+        </div>
+        <p class="verdict" id="swText" aria-live="polite"></p>
+        <figcaption>EURUSD M15, условни цени. Синьо: ликвидност.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../img/ch7-sweep-mss.jpg" alt="EURUSD M15: равни дъна, sweep под тях и MSS нагоре" width="1075" height="774" loading="lazy" decoding="async">
+        <figcaption><b>Реален пример.</b> EURUSD M15, 2 октомври 2026, софийско време. Равните дъна около 1.1227 събират стопове (SSL). В 15:00 цената ги обира с фитил до 1.1221 и затваря обратно над нивото. Следва затваряне над последния вътрешен връх (MSS) и разширение до 1.1285.</figcaption>
+      </figure>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Стопът ти не е тайна. Той е там, където всеки би го сложил. Ако искаш да оцелееш, слагай го там, където сценарият ти е грешен, а не там, където е удобно.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Sweep / liquidity grab</b>Бързо преминаване отвъд ниво с ликвидност и връщане обратно.</div>
+      <div class="term"><b>Stop hunt · лов на стопове</b>Разговорно име за sweep.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: средно">●●</span>7.3 Order block и Fair Value Gap</h2>
+      <p><b>Order block (OB)</b> е последната свещ в обратна посока преди силно движение. Bullish (бичи) OB е последната червена свещ преди силния ход нагоре; bearish (мечи) OB е последната зелена свещ преди силния ход надолу. Идеята: там големият играч е натрупал позицията си. Когато цената се върне, той често я защитава. Правило от практиката: решенията в OB се взимат в <b>долните 75%</b> на свещта (за bullish), не в горния ѝ край, защото оттам стопът под зоната е най-далеч и съотношението печалба към риск се влошава.</p>
+      <p><b>Fair Value Gap (FVG)</b> е дисбалансът от Глава 0.2, измерен точно. Взимаш три поредни свещи. Ако фитилът на първата и фитилът на третата <b>не се застъпват</b>, празното място между тях е FVG. Цената е минала оттам толкова бързо, че почти не е имало сделки. Пазарът често се връща да го „запълни“.</p>
+      <figure>
+        <svg id="fvg" viewBox="0 0 520 230" role="img" aria-label="Три свещи с отбелязан Fair Value Gap и order block"></svg>
+        <div class="sliders">
+          <label>Сила<input type="range" id="fvgS" min="0" max="40" value="26"><span class="mono" id="fvgO"></span></label>
+        </div>
+        <p class="verdict" id="fvgText" aria-live="polite"></p>
+        <figcaption>Плъзни силата на средната свещ. Синьото е FVG (ако има), оранжевото е OB. При слабо движение празнина няма.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../img/ch7-fvg.jpg" alt="EURUSD M15: bullish FVG, връщане в него и продължение нагоре" width="1075" height="774" loading="lazy" decoding="async">
+        <figcaption><b>Реален пример.</b> EURUSD M15, 8 октомври 2026, софийско време. Силната зелена свещ в 20:00 оставя FVG между 1.1198 и 1.1206. Час по-късно цената се връща в празнината, но не затваря под долния ѝ край, и продължава нагоре до 1.1230.</figcaption>
+      </figure>
+      <p><b>POI</b> (Point of Interest) е общото име на всяка зона, в която очакваш реакция. Не всички са равни. Подредбата в тази книга, от най-силната към най-слабата:</p>
+      <ol class="steps">
+        <li><b>OB и FVG, които се застъпват.</b> Две причини на едно място.</li>
+        <li><b>OB, образуван след sweep.</b> Ликвидността е взета, позицията е натрупана.</li>
+        <li><b>Чист FVG</b> в правилната половина на диапазона.</li>
+        <li><b>Ниво с ликвидност плюс структурно ниво</b> (S/R от Глава 4).</li>
+      </ol>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>OB · order block</b>Последната свещ в обратна посока преди силен импулс.</div>
+      <div class="term"><b>FVG · Fair Value Gap</b>Празнина между фитилите на свещ 1 и свещ 3 в силно движение.</div>
+      <div class="term"><b>POI · зона на интерес</b>Място, където очакваш реакция на цената.</div>
+      <div class="term"><b>Mitigation · връщане в зона</b>Цената се връща да „докосне“ OB или FVG.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: средно">●●</span>7.4 Premium и discount: скъпо и евтино</h2>
+      <p>Вземи последното голямо движение, от SSL до BSL. Това е <b>диапазонът на сделките</b> (dealing range). Средата му, 50%, е <b>equilibrium (равновесие)</b>. Горната половина е <b>premium</b> (скъпо): там е по-логично да се търсят продажби. Долната половина е <b>discount</b> (евтино): там е по-логично да се търсят покупки. Купуването в premium значи, че плащаш скъпо и стопът ти е далеч.</p>
+      <figure>
+        <svg id="dr" viewBox="0 0 520 240" role="img" aria-label="Диапазон с premium, equilibrium и discount"></svg>
+        <div class="sliders">
+          <label>Цена<input type="range" id="drP" min="0" max="100" value="35"><span class="mono" id="drO"></span></label>
+        </div>
+        <p class="verdict" id="drText" aria-live="polite"></p>
+        <figcaption>Диапазон 1.0780 (SSL) – 1.0900 (BSL). Плъзни цената и виж в коя половина е.</figcaption>
+      </figure>
+      <p>Типичната последователност в диапазон е: <b>sweep на SSL → изкачване → sweep на BSL → обръщане</b>, или обратното. Цената „диша“ между двете ликвидности.</p>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Купувай, когато цената пада много, защото е евтино.</p></div>
+        <div><span class="label">Реалност</span><p>„Евтино“ има смисъл само в контекст: discount на диапазон в bullish тренд, след взета ликвидност. Без контекст „евтино“ може да стане много по-евтино.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Dealing range · диапазон</b>Движението между последната значима ликвидност отдолу и отгоре.</div>
+      <div class="term"><b>Premium · скъпа зона</b>Горната половина на диапазона.</div>
+      <div class="term"><b>Discount · евтина зона</b>Долната половина на диапазона.</div>
+      <div class="term"><b>Equilibrium · равновесие</b>50% от диапазона.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5r">
+    <div class="main">
+      <h2 id="s5r"><span class="dots" title="Ниво: средно">●●</span>7.5 Повторение кадър по кадър</h2>
+      <p>Тук всичко от главата се случва на една графика: ликвидност, sweep, MSS, FVG, вход, стоп и цел на 3R. Пусни го, после го мини стъпка по стъпка и си кажи на глас какво виждаш, преди да натиснеш „Напред“.</p>
+      <div class="replay" data-rp="smc"></div>
+      <h3>Тренировка</h3>
+      <p>Натисни линията на графиката или бутона с буквата. Имаш един опит за всеки въпрос.</p>
+      <div class="drills" data-dr="ch7"></div>
+      <h3>Сега на живо</h3>
+      <p>Намери на M15 равни върхове или равни дъна и отбележи къде би бил sweep-ът. После провери след няколко часа какво се е случило.</p>
+      <div class="tv" data-sym="FX:EURUSD,FX:GBPUSD" data-int="15"></div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Replay · повторение</b>Преминаване през графиката свещ по свещ, без да виждаш бъдещето. Най-евтиният начин да тренираш четене.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-label="Задълбочи">
+    <div class="main">
+      <details class="deeper">
+        <summary><span class="dots" aria-hidden="true">●●●</span><span class="dp-t"><small>Задълбочи</small><b>Какво всъщност е лов на стопове</b></span><span class="drop-caret" aria-hidden="true">▾</span></summary>
+        <div class="dp-body">
+          <p>Никой в банката не гледа <i>твоя</i> стоп. Големите играчи виждат къде вероятно се трупат поръчки: над равни върхове, под кръгли числа, отвъд вчерашния връх. Интересува ги, защото им трябва <b>ликвидност</b>: фонд, който иска да купи 500 милиона евро, не може да го направи на една цена, освен ако много хора не продават в същия момент. Задействаните стопове за продажба са точно това.</p>
+          <p>Така че „ловът“ обикновено не е заговор. Това е голяма поръчка, която търси другата страна, плюс краткосрочни трейдъри, които знаят къде са стоповете и бутат цената натам, защото изпълнението е сигурно. Изключението е B-book брокер, който наистина вижда стоповете на клиентите. Още една причина да знаеш модела на брокера си.</p>
+          <p>Какво значи това за теб: стоп точно там, където са стоповете на всички, ще бъде изпълнен при sweep-а. Сложи го там, където идеята ти е грешна, отвъд очевидния басейн, и намали размера, за да остане рискът 1%.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 07</h2>
+    <ul>
+      <li>Ликвидността е над върховете (BSL) и под дъната (SSL). Равните върхове и дъна са най-силните магнити.</li>
+      <li>Sweep е фитил отвъд ликвидността със затваряне обратно; често е началото на истинското движение.</li>
+      <li>OB е последната обратна свещ преди импулса. FVG е празнината между свещ 1 и свещ 3.</li>
+      <li>Сила на POI: OB+FVG > OB след sweep > чист FVG > ниво + ликвидност.</li>
+      <li>Купувай в discount, продавай в premium, винаги в контекста на по-високия таймфрейм.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Маркирах BSL и SSL, PDH, PDL и диапазона на Азия на EURUSD за вчера.</label></li>
+      <li><label><input type="checkbox"> Намерих три FVG на H1 и проверих колко от тях цената е запълнила.</label></li>
+      <li><label><input type="checkbox"> Начертах диапазон с 50% и определих дали цената е в premium или в discount.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>EURUSD H1, D1 е bullish. Диапазон: SSL 1.0780, BSL 1.0900. Азия е между 1.0812 и 1.0830. В Лондон цената пада до 1.0806 и затваря обратно над 1.0812, после прави силна зелена свещ, която оставя FVG между 1.0818 и 1.0824. Последната червена свещ преди нея е 1.0809–1.0815.</p>
+      <p><b>Задача:</b> назови sweep-а, OB и FVG. В коя половина на диапазона сме? Коя е най-силната зона за наблюдение, ако цената се върне? Къде е следващата ликвидност нагоре?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Sweep… OB… FVG… Premium/discount… Цел…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Sweep на SSL на Азия: фитил до 1.0806, затваряне над 1.0812.</li>
+          <li>OB: последната червена свещ, 1.0809–1.0815. FVG: 1.0818–1.0824. Те не се застъпват, но са близо; OB е след sweep, което го прави по-силен.</li>
+          <li>Equilibrium на диапазона: (1.0780 + 1.0900) ÷ 2 = 1.0840. Цената е под него: discount. В bullish D1 това е логичното място за наблюдение на покупки.</li>
+          <li>Най-силна зона: OB след sweep (1.0809–1.0815), долните 75% от нея. Сценарият е обезсилен при затваряне под дъното на sweep-а (1.0806).</li>
+          <li>Ликвидност нагоре: върхът на Азия 1.0830, после BSL 1.0900.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"Къде стои BSL?",o:["Под дъната","Над върховете","В средата на диапазона"],a:1,e:"Buy-side liquidity е над върховете."},
+  {q:"Какво е sweep?",o:["Бавно движение в тренда","Фитил отвъд ликвидност и връщане обратно","Затваряне над върха"],a:1,e:"Обирането на стоповете и връщане."},
+  {q:"Bullish order block е…",o:["Последната червена свещ преди силно движение нагоре","Първата зелена свещ","Всяка голяма свещ"],a:0,e:"Последната обратна свещ преди импулса."},
+  {q:"FVG се образува, когато…",o:["Свещ 1 и свещ 3 се застъпват","Фитилите на свещ 1 и свещ 3 не се застъпват","Има doji"],a:1,e:"Празнината между фитилите на 1 и 3."},
+  {q:"Къде е по-логично да се търсят покупки?",o:["В premium","В discount","Навсякъде еднакво"],a:1,e:"Discount е долната, евтината половина."}
+],mid:[
+  {q:"Диапазон 1.0700–1.0800. Цената е 1.0785, D1 е bullish. Какво казва premium/discount?",o:["Добро място за покупки","Цената е в premium: покупка тук е скъпа","Equilibrium"],a:1,e:"Equilibrium е 1.0750. 1.0785 е в premium."},
+  {q:"Свещ 1: H 1.0820. Свещ 3: L 1.0816. Има ли bullish FVG?",o:["Да, 4 пипа","Не, фитилите се застъпват","Да, 20 пипа"],a:1,e:"Дъното на свещ 3 (1.0816) е под върха на свещ 1 (1.0820). Застъпват се, няма празнина."},
+  {q:"Коя зона е най-силна?",o:["Чист FVG в premium","OB, който се застъпва с FVG, в discount, след sweep","S/R само"],a:1,e:"Застъпване + правилна половина + взета ликвидност."}
+]};
+</script>
+<script>window.REPLAYS={"smc":{"title": "Sweep, MSS, FVG и цел: bearish сценарий кадър по кадър", "candles": [[70, 71, 65.5, 67], [67, 72, 65.7, 71.5], [71.5, 78, 71, 77.5], [77.5, 84, 77, 83.5], [83.5, 90, 83, 89.5], [89.5, 100, 89, 98.5], [98.5, 99, 95, 95.5], [95.5, 96, 92, 93], [93, 97, 92.5, 96.5], [96.5, 99.9, 96, 98], [98, 98.5, 94.5, 95], [95, 97.5, 94.2, 97], [97, 101.5, 96.5, 98], [98, 98.5, 93.5, 94], [94, 94.5, 88, 88.5], [88.5, 90, 86.5, 87], [87, 89.5, 86.8, 89], [89, 92, 88.5, 91.5], [91.5, 93.2, 90.8, 91], [91, 91.5, 85, 85.5], [85.5, 86, 80, 81], [81, 83, 79.5, 82.5], [82.5, 83, 75, 75.5], [75.5, 76, 70, 70.5], [70.5, 71, 65.2, 66.5], [66.5, 69, 66, 68.5]], "y": [63, 104], "caption": "Учебен сценарий с измислени цени. Реалните графики са по-шумни, но последователността е същата.", "steps": [{"at": 10, "h": "Равни върхове.", "text": "Два почти еднакви върха около 100. Над тях стоят стоповете на продавачите и поръчките на онези, които чакат пробив. Това е buy-side ликвидност.", "draw": [{"t": "level", "p": 100, "from": 5, "label": "BSL ~100", "c": "liq", "until": 3}, {"t": "level", "p": 65.5, "from": 0, "label": "SSL ~65.5", "c": "liq", "until": 4}]}, {"at": 13, "h": "Sweep.", "text": "Свещта пробива над върховете с фитил до 101.5 и затваря обратно под 100. Ликвидността е взета, а купувачите на пробива са в капан.", "draw": [{"t": "mark", "i": 12, "p": 101.5, "label": "sweep", "c": "news"}]}, {"at": 15, "h": "MSS.", "text": "Силна bearish свещ затваря под последното higher low (по-високо дъно) на 94.2. След sweep това е смяна на структурата, не просто корекция.", "draw": [{"t": "level", "p": 94.2, "from": 11, "label": "MSS 94.2", "c": "bear", "solid": 1, "until": 3}]}, {"at": 16, "h": "FVG.", "text": "Движението е толкова бързо, че между дъното на свещта преди импулса и върха на свещта след него остава празнина: 90 до 93.5. Това е fair value gap.", "draw": [{"t": "zone", "p1": 90, "p2": 93.5, "from": 13, "label": "FVG", "c": "bear", "right": 1, "below": 1}]}, {"at": 19, "h": "Връщане и план.", "text": "Цената се връща в FVG. Тук моделът дава вход около 93, стоп над върха на sweep-а (102), където сценарият е грешен. Риск 9 пункта.", "draw": [{"t": "level", "p": 93, "from": 18, "label": "вход 93", "c": "ink", "solid": 1}, {"t": "level", "p": 102, "from": 18, "label": "стоп 102", "c": "bear", "solid": 1, "dy": -6}]}, {"at": 26, "h": "Целта.", "text": "Целта е отсрещната ликвидност: равните дъна. 93 − 66 = 27 пункта, точно 3R при риск 9. Цената стига там и обира и тях.", "draw": [{"t": "level", "p": 66, "from": 18, "label": "цел 3R", "c": "bull", "solid": 1, "dy": 12}]}]}};window.DRILLS={"ch7": [{"src": "smc", "n": 12, "q": "Къде е най-голямата концентрация на стопове над цената?", "o": [{"p": 100.4, "from": 5, "t": "над равните върхове"}, {"p": 94.2, "from": 11, "t": "под последното дъно"}, {"p": 89.5, "from": 4, "t": "в средата на движението"}], "a": 0, "e": "Над равните върхове: там са стоповете на продавачите и поръчките на пробивачите. 94.2 е ликвидност отдолу, а средата на движението няма концентрация."}, {"src": "smc", "n": 19, "show": [{"t": "zone", "p1": 90, "p2": 93.5, "from": 13, "label": "FVG", "c": "bear", "right": 1, "below": 1}], "q": "Кой стоп за късата позиция от FVG е най-защитен според модела в тази глава?", "o": [{"p": 94.2, "from": 13, "t": "точно над FVG"}, {"p": 98.6, "from": 13, "t": "над свещта на MSS"}, {"p": 102, "from": 12, "t": "над върха на sweep-а"}], "a": 2, "e": "Над върха на sweep-а сценарият е грешен. Стопът точно над FVG е в зона, която цената често тества отново, а 98.6 е по средата на шума."}, {"src": "smc", "n": 16, "q": "Между кои цени е fair value gap-ът, оставен от импулса?", "o": [{"t": "Около 90 до 93,5"}, {"t": "Около 96 до 98"}, {"t": "Около 85 до 86,5"}], "a": 0, "e": "От дъното на свещта преди импулса (93,5) до върха на свещта след него (90)."}, {"src": "smc", "n": 26, "q": "Вход 93, стоп 102, цел равните дъна около 66. Какво е съотношението печалба/риск?", "o": [{"t": "Около 1:1"}, {"t": "Около 3:1"}, {"t": "Около 5:1"}], "a": 1, "e": "Риск 9 пункта, печалба 27 пункта: 27 ÷ 9 = 3R."}]};</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  function cand(g,c,x,w,yf){var o=c[0],cl=c[1],hi=c[2],lo=c[3],col=cl>=o?"var(--bull)":"var(--bear)";el("line",{x1:x+w/2,x2:x+w/2,y1:yf(hi),y2:yf(lo),stroke:col,"stroke-width":2},g);el("rect",{x:x,width:w,y:yf(Math.max(o,cl)),height:Math.max(1.5,Math.abs(yf(o)-yf(cl))),fill:col},g)}
+  /* sweep stepper */
+  var sw=document.getElementById("sw"),sy=function(v){return 220-v*1.9};
+  var C=[[70,60,74,56],[60,42,62,40],[42,50,54,40],[50,46,56,41],[46,58,60,44],[58,48,62,46],[48,52,56,41],[52,44,54,42],[44,47,50,30],[47,62,64,46],[62,74,76,60],[74,70,78,66],[70,84,88,68],[84,96,104,82]];
+  var ends=[8,9,11,14],TX=["Три дъна почти на една цена (около 40). Под тях очевидно стоят стоповете на купувачите: SSL.","Свещта пробива с фитил до 30, взима стоповете и затваря обратно над 40. Продавачите, които влязоха на пробива, вече са в капан.","Цената затваря над последния малък връх: MSS. Обирането е потвърдено като начало на движение нагоре.","Цената се отправя към ликвидността отгоре (BSL над върха на 74–78) и я взима."];
+  function draw(n){sw.innerHTML="";el("rect",{x:20,y:sy(41),width:490,height:sy(39)-sy(41)+3,fill:"var(--liq)","fill-opacity":.25},sw);
+    el("text",{x:24,y:sy(40)+16,"font-size":10,fill:"var(--liq)"},sw).textContent="SSL (равни дъна)";
+    el("line",{x1:20,x2:510,y1:sy(78),y2:sy(78),stroke:"var(--liq)","stroke-dasharray":"4 4"},sw);el("text",{x:24,y:sy(78)-6,"font-size":10,fill:"var(--liq)"},sw).textContent="BSL";
+    C.slice(0,ends[n-1]).forEach(function(c,i){cand(sw,c,26+i*34,18,sy)});
+    if(n>=3){el("line",{x1:26+5*34,x2:26+11*34,y1:sy(62),y2:sy(62),stroke:"var(--bull)","stroke-dasharray":"3 3"},sw);el("text",{x:26+9*34,y:sy(62)-5,"font-size":10,fill:"var(--bull)"},sw).textContent="MSS"}
+    document.getElementById("swText").textContent=TX[n-1];Book.each("[data-sw]",function(b){b.setAttribute("aria-pressed",b.dataset.sw==n)})}
+  Book.each("[data-sw]",function(b){b.addEventListener("click",function(){draw(+b.dataset.sw)})});draw(4);
+
+  /* FVG builder */
+  var fs=document.getElementById("fvg"),fy=function(v){return 215-v*2},sl=document.getElementById("fvgS");
+  function fvg(){var s=+sl.value;fs.innerHTML="";
+    var c1=[40,36,44,32],c2=[36,46+s,48+s,34],c3=[46+s,52+s,56+s,44+s-Math.round(s*0.15)],c0=[44,38,46,36];
+    var arr=[[52,46,54,44],c0,c1,c2,c3,[52+s,58+s,62+s,50+s]];
+    var gapLo=c1[2],gapHi=c3[3];
+    el("rect",{x:20,width:490,y:fy(c1[0]),height:fy(c1[3])-fy(c1[0]),fill:"var(--news)","fill-opacity":.2},fs);
+    el("text",{x:420,y:fy(c1[3])+14,"font-size":10,fill:"var(--news)"},fs).textContent="OB";
+    if(gapHi>gapLo){el("rect",{x:20,width:490,y:fy(gapHi),height:fy(gapLo)-fy(gapHi),fill:"var(--liq)","fill-opacity":.22},fs);el("text",{x:420,y:fy(gapHi)-4,"font-size":10,fill:"var(--liq)"},fs).textContent="FVG"}
+    arr.forEach(function(c,i){cand(fs,c,60+i*60,26,fy)});
+    ["1","2","3"].forEach(function(t,i){el("text",{x:68+(i+2)*60,y:226,"font-size":10,fill:"var(--muted)"},fs).textContent="св. "+t});
+    document.getElementById("fvgO").textContent=s;
+    document.getElementById("fvgText").textContent=gapHi>gapLo?"Има FVG: от върха на свещ 1 до дъното на свещ 3, "+(gapHi-gapLo)+" единици. Под него червената свещ преди импулса е bullish OB.":"Няма FVG: фитилите на свещ 1 и свещ 3 се застъпват. Движението не е било достатъчно силно, за да остави празнина. OB все още е отбелязан."}
+  sl.addEventListener("input",fvg);fvg();
+
+  /* dealing range */
+  var dr=document.getElementById("dr"),dp=document.getElementById("drP"),lo=1.0780,hi=1.0900,T=20,B=220;
+  function dry(v){return B-(v-lo)/(hi-lo)*(B-T)}
+  function drw(){dr.innerHTML="";var p=lo+(hi-lo)*(+dp.value)/100,mid=(lo+hi)/2;
+    el("rect",{x:60,y:T,width:450,height:dry(mid)-T,fill:"var(--bear)","fill-opacity":.12},dr);
+    el("rect",{x:60,y:dry(mid),width:450,height:B-dry(mid),fill:"var(--bull)","fill-opacity":.12},dr);
+    el("line",{x1:60,x2:510,y1:dry(mid),y2:dry(mid),stroke:"var(--fg)","stroke-dasharray":"5 4"},dr);
+    [[hi,"BSL 1.0900","var(--liq)"],[mid,"50% 1.0840","var(--fg)"],[lo,"SSL 1.0780","var(--liq)"]].forEach(function(l){el("text",{x:0,y:dry(l[0])+4,"font-size":10,fill:l[2]},dr).textContent=l[1].split(" ")[1];el("text",{x:420,y:dry(l[0])+(l[0]===hi?14:-6),"font-size":10,fill:l[2]},dr).textContent=l[1].split(" ")[0]});
+    el("text",{x:70,y:T+18,"font-size":12,fill:"var(--bear)"},dr).textContent="PREMIUM: търси продажби";
+    el("text",{x:70,y:B-8,"font-size":12,fill:"var(--bull)"},dr).textContent="DISCOUNT: търси покупки";
+    el("line",{x1:60,x2:510,y1:dry(p),y2:dry(p),stroke:"var(--ink)","stroke-width":2.5},dr);el("circle",{cx:300,cy:dry(p),r:6,fill:"var(--ink)"},dr);
+    document.getElementById("drO").textContent=p.toFixed(4);
+    var pct=Math.round((p-lo)/(hi-lo)*100);
+    document.getElementById("drText").textContent="Цена "+p.toFixed(4)+" е на "+pct+"% от диапазона: "+(pct>55?"premium. Покупка тук е скъпа; при bearish контекст е по-логично да се наблюдава за продажби.":pct<45?"discount. При bullish контекст това е логичното място за наблюдение на покупки.":"около equilibrium. Нито скъпо, нито евтино: най-лошото място за ново решение.")}
+  dp.addEventListener("input",drw);drw();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>

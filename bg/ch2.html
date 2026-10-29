@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Механиката на сделката · FX Fundamentals</title>
+<meta name="description" content="Механиката на сделката · FX Fundamentals, безплатно ръководство за начинаещи във форекс от Кристиан Цветков.">
+<link rel="alternate" hreflang="en" href="../ch2.html">
+<link rel="alternate" hreflang="bg" href="../bg/ch2.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../book.css">
+</head>
+<body>
+<main class="book" data-ch="2">
+
+  <header class="dossier">
+    <span class="label">Досие</span>
+    <div class="no">2</div>
+    <h1>Механиката на сделката</h1>
+    <blockquote class="quote">
+      Правило номер едно: никога не губи пари. Правило номер две: никога не забравяй правило номер едно.
+      <cite>Уорън Бъфет</cite>
+    </blockquote>
+    <div>
+      <p class="label" style="margin-bottom:8px">След тази глава ще можеш</p>
+      <ul class="cando">
+        <li>да пресметнеш колко струва един пип при различен размер на позицията;</li>
+        <li>да кажеш колко реално струва една сделка: спред, комисионна, суап;</li>
+        <li>да изчислиш размер на позиция, при който рискуваш точно 1% от сметката.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="main">
+      <h2 id="s1"><span class="dots" title="Ниво: основно">●</span>2.1 Пип, пипет и лот</h2>
+      <p>Цените на валутите се движат на много малки стъпки. Стандартната мерна единица е <b>пипът</b> (pip). При повечето двойки пипът е четвъртият знак след десетичната запетая: от 1.0850 до 1.0851 е един пип. При двойките с йена пипът е вторият знак: от 150.20 до 150.21 е един пип. Петият знак (или третият при йената) е <b>пипет</b>, една десета от пипа. Платформите го показват, но в анализа броим пипове.</p>
+      <p>Количеството, което търгуваш, се мери в <b>лотове</b>:</p>
+      <div class="tablewrap" data-name="lotove">
+        <table class="data">
+          <thead><tr><th>Размер</th><th class="num">Лотове</th><th class="num">Единици базова валута</th><th class="num">Стойност на 1 пип при EURUSD</th></tr></thead>
+          <tbody>
+            <tr><td>Стандартен</td><td class="num">1.00</td><td class="num">100 000</td><td class="num">10.00 $</td></tr>
+            <tr><td>Мини</td><td class="num">0.10</td><td class="num">10 000</td><td class="num">1.00 $</td></tr>
+            <tr><td>Микро</td><td class="num">0.01</td><td class="num">1 000</td><td class="num">0.10 $</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>При двойки, където доларът е котираната валута (EURUSD, GBPUSD, AUDUSD), стойността на пипа е постоянна: 10 долара на стандартен лот. При другите двойки тя зависи от текущия курс. Калкулаторът по-долу я смята вместо теб.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Инструмент<select id="pvSym">
+              <option value="EURUSD">EURUSD</option><option value="GBPUSD">GBPUSD</option><option value="USDJPY">USDJPY</option><option value="USDCHF">USDCHF</option><option value="XAUUSD">XAUUSD</option>
+            </select></label>
+            <label>Курс<input type="number" id="pvRate" step="any" value="1.0850"></label>
+            <label>Лотове<input type="number" id="pvLots" step="0.01" value="0.10"></label>
+          </div>
+          <div class="out" id="pvOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Стойност на пип в долари. При златото стандартният лот обикновено е 100 тройунции и движението се брои в долари; провери спецификацията при своя брокер.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Pip · пип</b>Най-малката стандартна промяна в курса: 0.0001 (или 0.01 при JPY).</div>
+      <div class="term"><b>Pipette · пипет</b>Една десета от пип. Петият знак в котировката.</div>
+      <div class="term"><b>Lot · лот</b>Стандартна единица количество. 1 лот = 100 000 единици базова валута.</div>
+      <div class="term"><b>Contract size · размер на договора</b>Колко единици има в един лот. При златото обикновено 100 oz.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="main">
+      <h2 id="s2"><span class="dots" title="Ниво: основно">●</span>2.2 Колко струва една сделка</h2>
+      <p>Всяка сделка има разходи, още преди пазарът да е мръднал. Има три вида:</p>
+      <ol class="steps">
+        <li><b>Спред.</b> Разликата между bid и ask (Глава 0.2). Плащаш я при всяко влизане. При EURUSD в активни часове обикновено е под един пип, но около новини и в тихите нощни часове се разширява.</li>
+        <li><b>Комисионна.</b> Някои сметки (често наричани RAW или ECN) имат почти нулев спред, но взимат фиксирана комисионна, например 3 до 3.5 долара на лот на страна. При други сметки (Standard) няма комисионна, но спредът е по-широк.</li>
+        <li><b>Суап.</b> Ако държиш позиция след края на търговския ден (около полунощ софийско време), плащаш или получаваш разликата в лихвите между двете валути. В нощта срещу четвъртък обикновено се начислява троен суап за уикенда.</li>
+      </ol>
+      <div class="calc">
+        <div class="fields">
+          <label>Лотове<input type="number" id="cLots" step="0.01" value="0.50"></label>
+          <label>Спред (пипа)<input type="number" id="cSpread" step="0.1" value="0.8"></label>
+          <label>Комисионна ($/лот за двете страни)<input type="number" id="cComm" step="0.5" value="0"></label>
+          <label>Суап ($/лот/нощ, минус = плащаш)<input type="number" id="cSwap" step="0.1" value="-6"></label>
+          <label>Нощи<input type="number" id="cNights" value="0"></label>
+        </div>
+        <div class="out" id="cOut" aria-live="polite"></div>
+      </div>
+      <p class="fb">Числата по подразбиране са примерни за EURUSD. Реалните зависят от брокера и от лихвите в момента.</p>
+      <div class="box note">
+        <span class="label">Бележка от ментора</span>
+        <p>Скалперът, който прави 20 сделки на ден, плаща спреда 20 пъти. Затова повече сделки не значи повече печалба. Често значи по-голяма сметка за брокера.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Commission · комисионна</b>Фиксирана такса на лот, която брокерът взима отделно от спреда.</div>
+      <div class="term"><b>Swap · суап</b>Нощна лихвена разлика за отворена позиция. Може да е плюс или минус.</div>
+      <div class="term"><b>Round turn · пълен цикъл</b>Влизане плюс излизане. Комисионните често се дават „на страна“, а пълният цикъл е двойно.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="main">
+      <h2 id="s3"><span class="dots" title="Ниво: основно">●</span>2.3 Ливъридж и маржин</h2>
+      <p>Един стандартен лот EURUSD е 100 000 евро, тоест над сто хиляди долара. Повечето хора нямат толкова. <b>Ливъриджът</b> (leverage, финансов лост) позволява да отвориш позиция, много по-голяма от сметката ти. Брокерът блокира само малка част от стойността като гаранция. Тази гаранция се нарича <b>маржин</b> (margin).</p>
+      <p>В ЕС регулаторът ESMA ограничава ливъриджа за непрофесионални клиенти: до 30:1 за основните валутни двойки, до 20:1 за другите валутни двойки, златото и основните индекси, до 2:1 за криптовалути. Ливъридж 30:1 значи, че за позиция от 30 000 долара трябват 1 000 долара маржин.</p>
+      <div class="box warn">
+        <span class="label">Важно</span>
+        <p>Ливъриджът не увеличава шанса ти да спечелиш. Увеличава само колко бързо печелиш или губиш. Позиция 30 пъти по-голяма от сметката губи 1% от сметката при движение от 1/30 от процента, тоест при около 3–4 пипа при EURUSD.</p>
+      </div>
+      <p>Какво става, ако позицията губи? Брокерът следи <b>нивото на маржина</b> (margin level): собствения капитал (equity) делено на блокирания маржин. Ако то падне под определен праг, получаваш <b>margin call</b>, предупреждение. В ЕС, ако то падне до 50%, брокерът е длъжен да започне да затваря позициите ти. Това е <b>stop out</b>. Плъзни движението и виж кога се случва.</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Сметка ($)<input type="number" id="mBal" value="1000"></label>
+            <label>Лотове EURUSD<input type="number" id="mLots" step="0.01" value="0.30"></label>
+            <label>Ливъридж<select id="mLev"><option value="30" selected>30:1 (ЕС, мейджъри)</option><option value="20">20:1</option><option value="100">100:1</option><option value="500">500:1</option></select></label>
+          </div>
+          <div class="sliders"><label>Ход<input type="range" id="mMove" min="-150" max="50" value="0"><span class="mono" id="mMoveOut">0 п.</span></label></div>
+          <svg id="mBar" viewBox="0 0 520 60" role="img" aria-label="Ниво на маржина"></svg>
+          <div class="out" id="mOut" aria-live="polite"></div>
+        </div>
+        <figcaption>Курс 1.0850. Движение срещу позицията в пипове. Червената линия е stop out при 50%.</figcaption>
+      </figure>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Leverage · ливъридж</b>Съотношението между размера на позицията и блокираната гаранция.</div>
+      <div class="term"><b>Margin · маржин</b>Сумата, която брокерът блокира като гаранция за отворена позиция.</div>
+      <div class="term"><b>Equity · собствен капитал</b>Балансът плюс или минус нереализираната печалба или загуба.</div>
+      <div class="term"><b>Stop out</b>Принудително затваряне от брокера, когато маржинът падне под прага. В ЕС: 50%.</div>
+      <div class="term"><b>ESMA</b>Европейският орган за ценни книжа и пазари. Определя правилата за CFD в ЕС.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="main">
+      <h2 id="s4"><span class="dots" title="Ниво: основно">●</span>2.4 Видове поръчки</h2>
+      <p>Поръчката е инструкция към брокера. Има няколко основни вида. Натисни някоя, за да видиш къде се намира спрямо текущата цена.</p>
+      <figure>
+        <div class="anat">
+          <svg id="ordSvg" viewBox="0 0 220 300" role="img" aria-label="Ценова скала с позициите на различните поръчки"></svg>
+          <div style="display:grid;gap:12px">
+            <div class="parts" id="ordChips" role="group" aria-label="Видове поръчки"></div>
+            <p class="explain" id="ordText" aria-live="polite"></p>
+          </div>
+        </div>
+        <figcaption>Текущата цена е 1.0850. Зелено: поръчки за покупка. Червено: поръчки за продажба. Синьо: стоп и цел.</figcaption>
+      </figure>
+      <div class="myth">
+        <div><span class="label">Мит</span><p>Стоп лосът ми е гарантиран: ще изляза точно на цената.</p></div>
+        <div><span class="label">Реалност</span><p>Стопът става пазарна поръчка, щом цената стигне до него. При бързо движение или отваряне след уикенда изпълнението може да е по-лошо. Това се нарича slippage. При някои брокери има гарантиран стоп срещу допълнителна такса.</p></div>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Market order · пазарна поръчка</b>Купи или продай веднага на най-добрата налична цена.</div>
+      <div class="term"><b>Limit order · лимитна поръчка</b>Купи по-ниско или продай по-високо от текущата цена.</div>
+      <div class="term"><b>Stop order · стоп поръчка</b>Купи по-високо или продай по-ниско, когато цената стигне ниво.</div>
+      <div class="term"><b>SL / TP</b>Stop loss: изход на загуба. Take profit: изход на печалба.</div>
+      <div class="term"><b>Slippage · приплъзване</b>Разлика между исканата и реалната цена на изпълнение.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="main">
+      <h2 id="s5"><span class="dots" title="Ниво: средно">●●</span>2.5 Упражнение: позиция с риск 1%</h2>
+      <p>Тук е най-важното изчисление в книгата. Ще го видиш отново в Глава 11. Идеята е проста: <b>първо решаваш колко можеш да загубиш, после къде е стопът, и чак накрая колко голяма е позицията.</b> Размерът на позицията е резултат, а не избор.</p>
+      <p class="mono" style="background:var(--paper);padding:10px 12px;border:1px solid var(--line)">Лотове = (Сметка × Риск %) ÷ (Стоп в пипове × Стойност на пип за 1 лот)</p>
+      <figure>
+        <div class="calc">
+          <div class="fields">
+            <label>Сметка ($)<input type="number" id="rBal" value="10000"></label>
+            <label>Риск %<input type="number" id="rPct" step="0.1" value="1"></label>
+            <label>Инструмент<select id="rSym"><option value="EURUSD">EURUSD</option><option value="XAUUSD">XAUUSD</option><option value="USDJPY">USDJPY</option></select></label>
+            <label id="rSlLab">Стоп (пипове)<input type="number" id="rSl" step="0.1" value="15"></label>
+            <label>Курс<input type="number" id="rRate" step="any" value="1.0850"></label>
+          </div>
+          <div class="out" id="rOut" aria-live="polite"></div>
+        </div>
+        <figcaption>При златото стопът се въвежда в долари разстояние (например 6.00 = от 2400.00 до 2394.00). Брокерите закръглят лотовете до 0.01.</figcaption>
+      </figure>
+      <div class="dialog">
+        <p><span>Ученик</span>Защо не просто 1 лот? Изглежда хубаво кръгло число.</p>
+        <p><span>Ментор</span>Защото 1 лот със стоп от 15 пипа рискува 150 долара. При сметка от 1 000 долара това е 15%. Седем такива загуби подред, а те се случват, и сметката е наполовина. Пазарът не го интересуват кръглите ти числа.</p>
+      </div>
+    </div>
+    <aside class="rail" aria-label="Термини">
+      <div class="term"><b>Risk per trade · риск на сделка</b>Колко процента от сметката губиш, ако стопът бъде ударен.</div>
+      <div class="term"><b>Position sizing · размер на позицията</b>Изчисляване на лотовете от риска и стопа.</div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-label="Задълбочи">
+    <div class="main">
+      <details class="deeper">
+        <summary><span class="dots" aria-hidden="true">●●●</span><span class="dp-t"><small>Задълбочи</small><b>Къде всъщност отива поръчката ти</b></span><span class="drop-caret" aria-hidden="true">▾</span></summary>
+        <div class="dp-body">
+          <p>Когато натиснеш Buy, брокерът прави едно от двете. В модела <b>B-book</b> той сам застава от другата страна: твоята загуба е негова печалба. В модела <b>A-book</b> (STP/ECN) той препраща поръчката към банки и доставчици на ликвидност и печели от спреда или комисионната. Повечето брокери на дребно смесват двата модела: малките или губещите сметки остават вътре, постоянно печелившите се препращат навън.</p>
+          <p>Доставчиците на ликвидност могат да ползват <b>last look</b>: няколко милисекунди, за да откажат котировка, ако цената е мръднала. Това е един от източниците на реквоти и slippage на бърз пазар.</p>
+          <p><b>Rollover</b> става в 17:00 нюйоркско време (00:00 в София). В минутите около него банките нулират книгите си и спредът често рязко се разширява. Тесен стоп или лимитна поръчка близо до цената може да се изпълни само заради този скок. В нощта срещу четвъртък суапът се начислява три пъти, защото спот сделките се сетълват два дни по-късно и се добавя уикендът.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="debrief" aria-labelledby="deb">
+    <span class="label">Разбор</span>
+    <h2 id="deb">Какво взимаш от Досие 02</h2>
+    <ul>
+      <li>Пипът е 0.0001 (0.01 при JPY). 1 лот = 100 000 единици; при EURUSD 1 пип на лот = 10 долара.</li>
+      <li>Разходите са спред, комисионна и суап. Повече сделки = повече разходи.</li>
+      <li>Ливъриджът увеличава скоростта, не вероятността. В ЕС до 30:1 за мейджъри; stop out при 50%.</li>
+      <li>Лимитни поръчки: по-добра цена от текущата. Стоп поръчки: по-лоша цена, при потвърждение.</li>
+      <li>Размерът на позицията се изчислява от риска и стопа, никога обратното.</li>
+    </ul>
+    <p class="label">Чеклист преди следващата глава</p>
+    <ul class="checks">
+      <li><label><input type="checkbox"> Мога да кажа стойността на пип за 0.25 лота EURUSD без калкулатор.</label></li>
+      <li><label><input type="checkbox"> Изчислих размер на позиция с риск 1% за EURUSD и за XAUUSD.</label></li>
+      <li><label><input type="checkbox"> Знам разликата между buy limit и buy stop.</label></li>
+    </ul>
+  </section>
+
+  <section class="quiz" aria-labelledby="qz">
+    <h2 id="qz">Провери се</h2>
+    <div class="tier" id="tierEasy"><header><h3>Лесно · 5 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierMid"><header><h3>Средно · 3 въпроса</h3><span class="score"></span></header></div>
+    <div class="tier" id="tierKris">
+      <header><h3>Ниво Experienced Trader · 1 сценарий</h3><span class="score">Няма единствен верен отговор</span></header>
+      <p>Сметка от 5 000 долара. Искаш да купиш EURUSD на 1.0850. Логичното място за стоп е под последното дъно на 1.0828. Целта е на 1.0916. В понеделник сутрин виждаш, че позицията ще е отворена поне две нощи и че суапът за long EURUSD е отрицателен.</p>
+      <p><b>Задача:</b> пресметни размера на позицията с риск 1%, съотношението печалба към риск и приблизителния разход за спред (0.8 пипа) и суап (−6 долара на лот на нощ). Струва ли си сделката по разходи?</p>
+      <label for="krisAns" class="label">Твоят отговор</label>
+      <textarea id="krisAns" placeholder="Стоп… Лотове… R:R… Разходи…"></textarea>
+      <button class="toggle" id="modelBtn" aria-expanded="false" aria-controls="model">Покажи примерен отговор</button>
+      <div class="model" id="model" hidden>
+        <span class="label">Примерен отговор</span>
+        <ol>
+          <li>Стоп: 1.0850 − 1.0828 = 22 пипа. Риск: 1% от 5 000 = 50 долара.</li>
+          <li>Лотове = 50 ÷ (22 × 10) = 0.227, закръглено надолу 0.22 лота. Реален риск: 22 × 0.22 × 10 = 48.40 долара.</li>
+          <li>Цел: 1.0916 − 1.0850 = 66 пипа. Печалба към риск: 66 ÷ 22 = 3R.</li>
+          <li>Спред: 0.8 × 0.22 × 10 = 1.76 долара. Суап: 2 нощи × 0.22 × −6 = −2.64 долара. Общо около 4.40 долара, под 0.1R.</li>
+          <li>Разходите са малки спрямо риска и целта. Решението зависи от анализа, не от разходите. Ако нощите включват сряда, суапът е троен.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+window.QUIZ={easy:[
+  {q:"EURUSD се качва от 1.0850 на 1.0865. Колко пипа е това?",o:["1.5","15","150"],a:1,e:"Четвъртият знак е пипът: 0.0015 = 15 пипа."},
+  {q:"Колко единици базова валута има в 1 стандартен лот?",o:["1 000","10 000","100 000"],a:2,e:"Стандартният лот е 100 000 единици."},
+  {q:"Какво е суап?",o:["Такса за отваряне на сметка","Нощна лихвена разлика за отворена позиция","Комисионната за затваряне"],a:1,e:"Суапът се начислява, когато държиш позиция през нощта."},
+  {q:"Искаш да купиш, ако цената се върне надолу до 1.0820. Каква поръчка слагаш?",o:["Buy stop","Buy limit","Sell limit"],a:1,e:"Купуваш по-ниско от текущата цена: buy limit."},
+  {q:"Какво прави ливъриджът?",o:["Увеличава шанса за печалба","Позволява позиция, по-голяма от сметката","Намалява риска"],a:1,e:"Ливъриджът увеличава размера, а с него и печалбите, и загубите."}
+],mid:[
+  {q:"0.20 лота EURUSD. Цената тръгва 25 пипа срещу теб. Колко губиш?",o:["5 $","50 $","500 $"],a:1,e:"0.20 лота × 10 $ = 2 $ на пип; 25 × 2 = 50 $."},
+  {q:"Сметка 2 000 $, риск 1%, стоп 10 пипа при EURUSD. Колко лота?",o:["0.02","0.20","2.00"],a:1,e:"20 $ ÷ (10 × 10 $) = 0.20 лота."},
+  {q:"Цената е 1.0850. Искаш да продадеш само ако пробие под 1.0830. Каква поръчка?",o:["Sell limit 1.0830","Sell stop 1.0830","Buy stop 1.0830"],a:1,e:"Продаваш по-ниско от текущата цена при потвърждение: sell stop."}
+]};
+</script>
+<script src="book.js"></script>
+<script>
+(function(){
+  var el=Book.svg;
+  function f(x,d){return Number(x).toLocaleString("bg-BG",{minimumFractionDigits:d,maximumFractionDigits:d})}
+  /* pip value per 1 lot in USD */
+  function pipValue(sym,rate){
+    if(sym==="EURUSD"||sym==="GBPUSD")return 10;
+    if(sym==="USDJPY")return 1000/rate;
+    if(sym==="USDCHF")return 10/rate;
+    if(sym==="XAUUSD")return 100; /* per $1 move, 100 oz contract */
+    return 10;
+  }
+  var DEF={EURUSD:1.0850,GBPUSD:1.2700,USDJPY:150.20,USDCHF:0.8820,XAUUSD:2400};
+  var pvS=document.getElementById("pvSym"),pvR=document.getElementById("pvRate"),pvL=document.getElementById("pvLots"),pvO=document.getElementById("pvOut");
+  function pv(){var s=pvS.value,r=+pvR.value,l=+pvL.value,v=pipValue(s,r)*l;
+    pvO.innerHTML=s==="XAUUSD"?"<span>"+f(l,2)+" лота злато = "+f(l*100,0)+" oz.</span><span>Движение от 1.00 $ = <b>"+f(v,2)+" $</b>. Движение от 0.10 $ = "+f(v/10,2)+" $.</span>"
+      :"<span>"+f(l,2)+" лота = "+f(l*100000,0)+" единици "+s.slice(0,3)+".</span><span>1 пип = <b>"+f(v,2)+" $</b>. 10 пипа = "+f(v*10,2)+" $. 100 пипа = "+f(v*100,2)+" $.</span>"}
+  pvS.addEventListener("change",function(){pvR.value=DEF[pvS.value];pv()});pvR.addEventListener("input",pv);pvL.addEventListener("input",pv);pv();
+
+  /* costs */
+  var ids=["cLots","cSpread","cComm","cSwap","cNights"];
+  function cost(){var v={};ids.forEach(function(i){v[i]=+document.getElementById(i).value||0});
+    var sp=v.cSpread*10*v.cLots,cm=v.cComm*v.cLots,sw=v.cSwap*v.cLots*v.cNights,tot=sp+cm-sw;
+    document.getElementById("cOut").innerHTML="<span>Спред: "+f(sp,2)+" $</span><span>Комисионна: "+f(cm,2)+" $</span><span>Суап: "+(sw>=0?"+":"")+f(sw,2)+" $</span><span><b>Общо разход: "+f(tot,2)+" $</b> = "+f(tot/(10*v.cLots||1),1)+" пипа, които цената трябва да измине само за да излезеш на нула.</span>"}
+  ids.forEach(function(i){document.getElementById(i).addEventListener("input",cost)});cost();
+
+  /* margin */
+  var mB=document.getElementById("mBal"),mL=document.getElementById("mLots"),mV=document.getElementById("mLev"),mM=document.getElementById("mMove"),bar=document.getElementById("mBar");
+  function mar(){
+    var bal=+mB.value,lots=+mL.value,lev=+mV.value,mv=+mM.value,rate=1.0850;
+    var notional=lots*100000*rate,margin=notional/lev,pl=mv*10*lots,eq=bal+pl,lvl=margin?eq/margin*100:0;
+    document.getElementById("mMoveOut").textContent=(mv>0?"+":"")+mv+" п.";
+    bar.innerHTML="";var w=500,x0=10,mx=Math.max(400,lvl);
+    el("rect",{x:x0,y:20,width:w,height:18,fill:"var(--line)"},bar);
+    el("rect",{x:x0,y:20,width:Math.max(0,Math.min(w,w*lvl/mx)),height:18,fill:lvl<=50?"var(--bear)":(lvl<100?"var(--news)":"var(--bull)")},bar);
+    var sx=x0+w*50/mx;el("line",{x1:sx,x2:sx,y1:12,y2:46,stroke:"var(--bear)","stroke-width":2},bar);
+    el("text",{x:sx+4,y:56,"font-size":10,fill:"var(--bear)"},bar).textContent="stop out 50%";
+    var so=bal-0.5*margin,soPips=so/(10*lots);
+    document.getElementById("mOut").innerHTML="<span>Позиция: "+f(notional,0)+" $. Блокиран маржин: <b>"+f(margin,2)+" $</b>.</span><span>Печалба/загуба: "+(pl>=0?"+":"")+f(pl,2)+" $. Equity: "+f(eq,2)+" $. Ниво на маржина: <b>"+f(lvl,0)+"%</b>.</span>"+
+      "<span>"+(lvl<=50?"<b style=\"color:var(--bear)\">Stop out. Брокерът затваря позицията.</b>":"Stop out настъпва при около "+f(soPips,0)+" пипа срещу теб, което е "+f(soPips*10*lots/bal*100,0)+"% от сметката.")+"</span>";
+  }
+  [mB,mL,mV].forEach(function(x){x.addEventListener("input",mar)});mM.addEventListener("input",mar);mar();
+
+  /* order ladder */
+  var O={
+    market:["Пазарна",[[150,"var(--fg)","сега 1.0850"]],"Купуваш на ask или продаваш на bid веднага. Бързо, но цената е каквато е."],
+    blimit:["Buy limit",[[210,"var(--bull)","buy limit 1.0820"]],"Купи, ако цената падне до 1.0820. Чакаш по-добра цена. Риск: цената може да не стигне и да тръгне без теб."],
+    bstop:["Buy stop",[[90,"var(--bull)","buy stop 1.0880"]],"Купи, ако цената се качи до 1.0880. Влизаш при потвърждение на силата. Плащаш по-скъпо."],
+    slimit:["Sell limit",[[90,"var(--bear)","sell limit 1.0880"]],"Продай, ако цената се качи до 1.0880. Чакаш по-висока цена за продажба."],
+    sstop:["Sell stop",[[210,"var(--bear)","sell stop 1.0820"]],"Продай, ако цената падне до 1.0820. Влизаш при потвърждение на слабостта."],
+    sltp:["SL и TP",[[150,"var(--bull)","long 1.0850"],[200,"var(--liq)","SL 1.0825"],[60,"var(--liq)","TP 1.0895"]],"За long: стопът е под входа, целта е над него. Тук: риск 25 пипа, цел 45 пипа. Слагаш и двете в момента на влизане."]
+  };
+  var sv=document.getElementById("ordSvg"),grid=el("g",{},sv),mk=el("g",{},sv),chips=document.getElementById("ordChips"),ot=document.getElementById("ordText");
+  for(var i=0;i<=10;i++){var y=30+i*24,p=1.0900-i*0.0010;el("line",{x1:60,x2:210,y1:y,y2:y,stroke:"var(--line)"},grid);el("text",{x:0,y:y+4,"font-size":10,fill:"var(--muted)"},grid).textContent=p.toFixed(4)}
+  el("line",{x1:60,x2:210,y1:150,y2:150,stroke:"var(--fg)","stroke-width":1.5,"stroke-dasharray":"2 3"},grid);
+  function show(k){mk.innerHTML="";Book.each(".chip",function(c){c.setAttribute("aria-pressed",c.dataset.k===k)},chips);
+    O[k][1].forEach(function(m){el("line",{x1:60,x2:210,y1:m[0],y2:m[0],stroke:m[1],"stroke-width":3},mk);el("text",{x:64,y:m[0]-5,"font-size":10,fill:m[1]},mk).textContent=m[2]});
+    ot.innerHTML="<b>"+O[k][0]+".</b> "+O[k][2]}
+  Object.keys(O).forEach(function(k){var b=document.createElement("button");b.className="chip";b.dataset.k=k;b.textContent=O[k][0];b.addEventListener("click",function(){show(k)});chips.appendChild(b)});
+  show("sltp");
+
+  /* position size */
+  var rB=document.getElementById("rBal"),rP=document.getElementById("rPct"),rS=document.getElementById("rSym"),rSl=document.getElementById("rSl"),rR=document.getElementById("rRate"),rO=document.getElementById("rOut"),lab=document.getElementById("rSlLab");
+  var SLDEF={EURUSD:15,XAUUSD:6,USDJPY:20};
+  function size(){
+    var s=rS.value,risk=+rB.value*(+rP.value)/100,sl=+rSl.value,pv1=pipValue(s,+rR.value);
+    lab.firstChild.textContent=s==="XAUUSD"?"Стоп ($ разстояние)":"Стоп (пипове)";
+    if(!sl){rO.textContent="Въведи стоп.";return}
+    var lots=risk/(sl*pv1),r=Math.floor(lots*100)/100,real=r*sl*pv1;
+    rO.innerHTML="<span>Риск: <b>"+f(risk,2)+" $</b>.</span><span>Изчислено: "+f(lots,3)+" лота → закръглено надолу <b>"+f(r,2)+" лота</b>.</span><span>Реален риск при стоп: "+f(real,2)+" $ ("+f(real/(+rB.value)*100,2)+"%).</span><span>Цел 3R = "+f(sl*3,s==="XAUUSD"?2:1)+(s==="XAUUSD"?" $":" пипа")+" → печалба около "+f(real*3,2)+" $.</span>"+(r<0.01?"<span style=\"color:var(--bear)\">Под минималния лот 0.01: стопът е твърде широк за тази сметка. Намали стопа (ако анализът позволява) или пропусни сделката.</span>":"")}
+  rS.addEventListener("change",function(){rR.value=DEF[rS.value];rSl.value=SLDEF[rS.value];size()});
+  [rB,rP,rSl,rR].forEach(function(x){x.addEventListener("input",size)});size();
+})();
+</script>
+<script src="../firebase-config.js"></script>
+<script src="../account.js"></script>
+</body>
+</html>
